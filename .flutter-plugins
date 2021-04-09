@@ -1,0 +1,22 @@
+# This is a generated file; do not edit or check into version control.
+cloud_firestore=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-1.0.4/
+cloud_firestore_web=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-1.0.4/
+file_picker=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/file_picker-3.0.1/
+firebase_auth=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-1.0.3/
+firebase_auth_web=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-1.0.5/
+firebase_core=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.0.3/
+firebase_core_web=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.0.2/
+firebase_database=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-6.1.2/
+firebase_storage=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-8.0.3/
+firebase_storage_web=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-1.0.3/
+flutter_plugin_android_lifecycle=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.1/
+fluttertoast=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.3/
+image_picker=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.7.4/
+image_picker_for_web=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.0.0/
+path_provider_linux=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.0/
+path_provider_windows=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.0/
+shared_preferences=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-2.0.5/
+shared_preferences_linux=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_linux-2.0.0/
+shared_preferences_macos=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-2.0.0/
+shared_preferences_web=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-2.0.0/
+shared_preferences_windows=/Users/npst/Development/Tools/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_windows-2.0.0/
