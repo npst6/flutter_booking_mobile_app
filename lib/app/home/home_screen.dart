@@ -2,6 +2,7 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_booking_mobile_app/profile/profile_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/theme/theme.dart';
@@ -83,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(30, 30, 15, 10),
+                padding: const EdgeInsets.fromLTRB(30, 50, 15, 10),
                 child: Container(
                   height: 40,
                   child: Row(
@@ -91,7 +92,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       GestureDetector(
                         onTap: () {
-
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                                return ProfileScreen();
+                              }));
                         },
                         child: StreamBuilder<Account>(
                             stream: homeBloc.accountStream,
@@ -192,7 +196,48 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-
+              Expanded(
+                flex: 4,
+                child: Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/home.png'),
+                          fit: BoxFit.fitWidth)),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.all(25),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        height: 50,
+                        width: double.infinity,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 0, 5, 0),
+                          child: TextFormField(
+                            controller: controllerSearch,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                suffixIcon: IconButton(
+                                    icon: Icon(
+                                      Icons.search,
+                                      color: AppColors.buttonColor,
+                                    ),
+                                    onPressed: () {}),
+                                hintText: "Search",
+                                hintStyle: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w600)),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
 
               Expanded (
                 flex: 4,

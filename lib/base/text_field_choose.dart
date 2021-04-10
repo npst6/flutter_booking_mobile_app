@@ -81,7 +81,7 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
       builder: (context) => Center(
         child: Container(
           width: 250, ///Container width
-          height: 15 * widget.items.length + 15.0, ///Container height
+          height: 12.0 * widget.items.length, ///Container height
           decoration: BoxDecoration(
             color: themeData.scaffoldBackgroundColor, ///
             borderRadius: BorderRadius.circular(10), ///
