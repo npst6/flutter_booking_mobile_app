@@ -18,7 +18,7 @@ import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 import 'package:flutter_booking_mobile_app/base/text_field_choose.dart';
 import 'package:flutter_booking_mobile_app/app/home/bloc/home_bloc.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
-// import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
+//import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 // import "package:flutter_booking_mobile_app/app/search/output_search_screen.dart";
 import 'package:flutter_booking_mobile_app/remote/province_response/province_response.dart';
@@ -278,7 +278,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       callBack: (val) {
                                         controllerCity.text = val;
                                       },
-                                      hintText: "Choose city",
+                                      hintText: "Where Do You Want To Stay?",
                                       items: items,
                                     );
                                   } else
@@ -301,7 +301,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     (new DateTime.now()).add(
                                         new Duration(days: 7)),
                                     firstDate: new DateTime(2015),
-                                    lastDate: new DateTime(2022));
+                                    lastDate: new DateTime(2025));
                                 if (picked != null &&
                                     picked.length == 2) {
                                   startDay = picked[0].toIso8601String();
@@ -312,10 +312,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
 
                               child: MTextFormField (
-                                hintText: "Check in and check out",
+                                hintText: "Check In - Check Out",
                                 enable: false,
                                 controller: controllerTime,
-                                funcValidation: ValidateData.validEmpty,
+                                funcValidation: ValidateData.validEmpty, ///Check empty field
                                 prefixIcon: Icon (
                                   Icons.calendar_today,
                                   color: AppColors.buttonColor,
@@ -332,7 +332,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               callBack: (val) {
                                 numberRoom = int.parse(val);
                               },
-                              hintText: "Room",
+                              hintText: "Number of Rooms to Book",
                               items: [
                                 ItemModel(id: '1', name: "01"),
                                 ItemModel(id: '2', name: "02"),
@@ -356,7 +356,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               callBack: (val) {
                                 adults = int.parse(val);
                               },
-                              hintText: "Adults",
+                              hintText: "Adults Number",
                               items: [
                                 ItemModel(id: '1', name: "01"),
                                 ItemModel(id: '2', name: "02"),
@@ -370,15 +370,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ItemModel(id: '10', name: "10"),
                               ],
                             ),
+
                             SizedBox(
                               height: 15,
                             ),
+
                             TextFieldChoose(
                               iconData: Icons.emoji_people,
                               callBack: (val) {
                                 child = int.parse(val);
                               },
-                              hintText: "Child",
+                              hintText: "Children Number",
                               items: [
                                 ItemModel(id: '1', name: "01"),
                                 ItemModel(id: '2', name: "02"),
@@ -392,11 +394,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ItemModel(id: '10', name: "10"),
                               ],
                             ),
+
                             SizedBox(
                               height: 15,
                             ),
-                            MButton("Search for", () {
 
+                            MButton("Search for", () {
+                              if (_formKey.currentState.validate()) {
+                                OrderUtils()
+                                    .setOrder(startDay, endDay, numberRoom);
+                                homeBloc.searchRoom(
+                                  numberRoom: numberRoom,
+                                  startDay: startDay,
+                                  endDay: endDay,
+                                  city: controllerCity.text,
+                                  child: child,
+                                  adults: adults,
+                                );
+                              }
                             }),
                           ],
                         ),

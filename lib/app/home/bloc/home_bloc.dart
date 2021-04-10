@@ -44,6 +44,31 @@ class HomeBloc extends BaseBloc {
     }
   }
 
+  ///Home screen search room
+  void searchRoom({
+    int numberRoom,
+    String startDay,
+    String endDay,
+    String city,
+    double moneyStart = 0,
+    double moneyEnd = 10000000,
+    int adults,
+    int child,
+  }) {
+    try {
+      listRoomStream.add([]);
+      searchStateStream.add(UIState.LOADING);
+      FirAuth().searchRoom(numberRoom, startDay, endDay, city, moneyStart,
+          moneyEnd, adults, child, (val) {
+            searchStateStream.add(UIState.SUCCESS);
+            listRoomStream.add(val);
+          });
+    } catch (e) {
+      searchStateStream.add(UIState.ERROR);
+      FlutterToast().showToast(e.message);
+    }
+  }
+
   /// Note
   void check(BuildContext context, int active) {
     if (active == 0) {

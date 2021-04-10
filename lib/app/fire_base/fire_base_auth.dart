@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_booking_mobile_app/model/room.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_booking_mobile_app/model/account.dart';
 
@@ -136,6 +137,38 @@ class FirAuth {
     print("signOut");
     prefs.setString("uid", null);
     return _fireBaseAuth.signOut();
+  }
+
+  ///Search in homescreen
+  void searchRoom(
+      int numberRoom,
+      String startDay,
+      String endDay,
+      String city,
+      double moneyStart,
+      double moneyEnd,
+      int adults,
+      int child,
+      Function(List<Room>) callBack) async {
+    try {
+      List<Room> listRooms = [];
+      var result = await fireStoreInstance
+          .collection("room")
+          .where("status", isEqualTo: 2)
+          .where("city", isEqualTo: city.toLowerCase())
+          .where("number_adults", isEqualTo: adults)
+          .where("number_child", isEqualTo: child)
+          .get();
+      result.docs.forEach((element) {
+        if (element.data()["money"] >= moneyStart &&
+            element.data()["money"] <= moneyEnd &&
+            element.data()["number_room"] >= numberRoom)
+          listRooms.add(Room.formJson(element.data(), element.id));
+      });
+      callBack(listRooms);
+    } catch (e) {
+      print(e);
+    }
   }
 
 }
