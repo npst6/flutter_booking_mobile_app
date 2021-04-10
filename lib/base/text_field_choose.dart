@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/theme/theme.dart';
 import 'package:flutter_booking_mobile_app/base/no_fount.dart';
-import 'package:flutter_booking_mobile_app/utils/validate_data.dart';
 import 'package:flutter_booking_mobile_app/model/item_model.dart';
+import 'package:flutter_booking_mobile_app/utils/validate_data.dart';
 
 ///class TextFieldChoose extends StatefulWidget
 class TextFieldChoose extends StatefulWidget {

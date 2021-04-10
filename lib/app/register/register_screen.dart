@@ -45,7 +45,7 @@ class _LoginScreenState extends State<RegisterScreen> {
   }
 
   ///Note
-  @override
+/*  @override
   void didChangeDependencies() {
     registerBloc.registerStream.listen((value) {
       if (value == UIState.SUCCESS) {
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<RegisterScreen> {
       }
     });
     super.didChangeDependencies(); ///
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {

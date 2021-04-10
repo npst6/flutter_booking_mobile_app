@@ -23,4 +23,6 @@ class LoginBloc extends BaseBloc {
       FlutterToast().showToast(val);
     });
   }
+
+
 }
