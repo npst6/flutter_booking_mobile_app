@@ -28,10 +28,10 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return LoginScreen();
       }));
-    // } else {
-    //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-    //     return HomeScreen();
-    //   }));
+    } else {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+        return HomeScreen();
+      }));
       AccountUtils().setAccount(uid1: prefs.getString("uid"));
     }
 //    theme.setTheme(_theme);
