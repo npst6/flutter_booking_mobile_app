@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
     super.initState(); ///
   }
 
- /* @override
+  @override
   void didChangeDependencies() {
     loginBloc.loginStream.listen((value) {
       if (value == UIState.SUCCESS) {
@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     });
     super.didChangeDependencies();
-  }*/
+  }
 
   @override
   void dispose() {

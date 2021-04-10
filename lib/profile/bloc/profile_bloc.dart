@@ -29,7 +29,7 @@ class ProfileBloc extends BaseBloc {
     _getAccount(); ///
   }
 
-  /// lấy tài khoản
+  ///Get account
   void _getAccount() async {
     try {
       accountStateStream.add(UIState.LOADING); ///
@@ -45,7 +45,7 @@ class ProfileBloc extends BaseBloc {
 
 
 
-  ///Get image from library lấy hính ảnh từ thư viên
+  ///Get image from library
   void getImageByGallery(ImagePicker picker) async {
     try {
       final pickedFile = await picker.getImage(source: ImageSource.gallery);
