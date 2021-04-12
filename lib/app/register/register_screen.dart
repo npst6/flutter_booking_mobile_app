@@ -113,7 +113,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                       height: 10,
                     ), ///Height between two fields
 
-                    MTextFormField(
+                    XTextFormField(
                       hintText: "Enter your full name", ///Hint text in name box
                       controller: controllerName, ///
                       funcValidation: ValidateData.validEmpty, ///Check empty field
@@ -140,7 +140,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                       height: 10,
                     ), ///Height between email text and email box
 
-                    MTextFormField(
+                    XTextFormField(
                       hintText: "Enter your email (ex@gmail.com)", ///Hint text in email box
                       controller: controllerEmail, ///
                       textInputType: TextInputType.emailAddress, ///
@@ -167,7 +167,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                       height: 10,
                     ), ///Height between your phone text and phone box
 
-                    MTextFormField(
+                    XTextFormField(
                       hintText: "Enter your phone number", ///Hint text in phone box
                       funcValidation: ValidateData.validEmpty, ///
                       controller: controllerPhone, ///
@@ -195,7 +195,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                       height: 10,
                     ), ///Height between password text and password box
 
-                    MTextFormField(
+                    XTextFormField(
                       hintText: "Enter your password", ///Hint text of password box
                       controller: controllerPass, ///
                       funcValidation: ValidateData.validEmpty, ///Check empty field
@@ -211,7 +211,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                     ), ///Height between password box and register box
 
                     ///Register button
-                    MButton("Register", () {
+                    XButton("Register", () {
                       if (_formKey.currentState.validate()) {
                         registerBloc.register(
                           email: controllerEmail.text, ///Register email

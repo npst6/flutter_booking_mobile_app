@@ -104,7 +104,7 @@ class HomeBloc extends BaseBloc {
                     Row(
                       children: [
                         Expanded(
-                          child: MButton(
+                          child: XButton(
                             "Cancel", () {Navigator.pop(context);},
                             color: Colors.grey,
                           ),
@@ -113,7 +113,7 @@ class HomeBloc extends BaseBloc {
                           width: 10,
                         ),
                         Expanded(
-                          child: MButton(
+                          child: XButton(
                             "OK",
                                 () {
                               FirAuth().signOut();

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-///class ItemService extends StatelessWidget
+///ItemService StatelessWidget
 class ItemService extends StatelessWidget {
   final Widget widget; ///
   final String title; ///
@@ -11,8 +11,11 @@ class ItemService extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5), ///
-      width: 50, ///width
-      height: 50, ///height
+
+      width: 50,  ///Container width
+
+      height: 50, ///Container height
+
       child: Column(
         children: [
           widget, ///
@@ -24,11 +27,11 @@ class ItemService extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-                fontWeight: FontWeight.w600, ///Text weight
-                letterSpacing: 1, ///Text spacing
+                fontWeight: FontWeight.w600,  ///Text weight
+                letterSpacing: 1,             ///Text spacing
             ),
-            maxLines: 1, ///
-          )
+            maxLines: 1,                      ///
+          ),
         ],
       ),
     );

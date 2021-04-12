@@ -54,7 +54,7 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
       onTap: () {
         showModalItem(); ///
       },
-      child: MTextFormField(
+      child: XTextFormField(
         enable: false, ///
         hintText: widget.hintText, ///
         controller: controller, ///
@@ -83,12 +83,12 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
           width: 250, ///Container width
           height: 12.0 * widget.items.length, ///Container height
           decoration: BoxDecoration(
-            color: themeData.scaffoldBackgroundColor, ///
-            borderRadius: BorderRadius.circular(10), ///
+            color: themeData.scaffoldBackgroundColor, ///Color box
+            borderRadius: BorderRadius.circular(10), ///Border box
           ),
           constraints: BoxConstraints(minHeight: 200, maxHeight: 500), ///
           child: Padding(
-            padding: const EdgeInsets.all(20), ///
+            padding: const EdgeInsets.all(20), ///Padding
             child: widget.items.length > 0
                 ? ListView.builder(
               itemCount: widget.items.length, ///

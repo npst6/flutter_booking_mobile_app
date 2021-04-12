@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
 
                     ///Email box
-                    MTextFormField(
+                    XTextFormField(
                       hintText: "Enter your email (ex@gmail.com)", ///Hint text
                       controller: controllerEmail, ///
                       textInputType: TextInputType.emailAddress, ///
@@ -131,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
 
                     ///Password box
-                    MTextFormField(
+                    XTextFormField(
                       hintText: "Enter your password", ///Hint text
                       controller: controllerPass, ///
                       funcValidation: ValidateData.validEmpty, ///Check empty field
@@ -171,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
 
                     ///Login button
-                    MButton("Login", () {
+                    XButton("Login", () {
                       if (_formKey.currentState.validate()) {
                         loginBloc.login(
                             email: controllerEmail.text,
@@ -199,7 +199,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
 
                     ///Register button
-                    MButton(
+                    XButton(
                         "Register",
                             () {
                           Navigator.push(context,

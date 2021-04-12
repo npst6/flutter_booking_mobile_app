@@ -5,8 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/model/item_model.dart';
 
-///class MTextFormField extends StatefulWidget
-class MTextFormField extends StatefulWidget {
+///XTextFormField StatefulWidget
+class XTextFormField extends StatefulWidget {
   final Function funcValidation;
   final String hintText;
   final Color textColor;
@@ -34,7 +34,7 @@ class MTextFormField extends StatefulWidget {
   final Function onFieldSubmitted;
   final Key key;
 
-  MTextFormField(
+  XTextFormField(
       {this.onTap,
         this.textInputAction,
         this.controller,
@@ -64,12 +64,12 @@ class MTextFormField extends StatefulWidget {
 
   ///
   @override
-  _MTextFormFieldFocusNodeState createState() =>
-      _MTextFormFieldFocusNodeState();
+  _XTextFormFieldFocusNodeState createState() =>
+      _XTextFormFieldFocusNodeState();
 }
 
-///class _MTextFormFieldFocusNodeState extends State<MTextFormField>
-class _MTextFormFieldFocusNodeState extends State<MTextFormField> {
+/// _XTextFormFieldFocusNodeState  State<>
+class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
   String errorText; ///
   bool errorBorder = false; ///
   @override
@@ -390,7 +390,7 @@ class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
   Widget build(BuildContext context) {
     return ((widget.items == null || widget.items.isEmpty) &&
         (widget.dropDownItems == null || widget.dropDownItems.isEmpty))
-        ? MTextFormField(
+        ? XTextFormField(
       enable: false,
       hintText: (value != null) ? name : widget.hintText,
       suffixIcon: Icon(
@@ -477,7 +477,7 @@ class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
   }
 }
 
-///class MDropDown2 extends StatefulWidget
+///MDropDown2 StatefulWidget
 class MDropDown2 extends StatefulWidget {
   final List<ItemModel> list; ///
   final Function callBack; ///
@@ -488,7 +488,7 @@ class MDropDown2 extends StatefulWidget {
   _MDropDown2State createState() => _MDropDown2State();
 }
 
-///class _MDropDown2State extends State<MDropDown2>
+/// _MDropDown2State State<>
 class _MDropDown2State extends State<MDropDown2> {
   ItemModel itemModel; ///
   @override
@@ -506,14 +506,14 @@ class _MDropDown2State extends State<MDropDown2> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60, ///
-      width: double.infinity, ///
+      height: 60, ///Container height
+      width: double.infinity, ///Container weight
       decoration: BoxDecoration(
-        color: AppColors.grey, ///
-        borderRadius: BorderRadius.circular(10), ///
+        color: AppColors.grey, ///Color box
+        borderRadius: BorderRadius.circular(10), ///Border box
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10),
+        padding: const EdgeInsets.only(left: 10, right: 10), ///Padding
         child: Center(
           child: DropdownButton<ItemModel>(
             underline: SizedBox(), ///
@@ -528,13 +528,15 @@ class _MDropDown2State extends State<MDropDown2> {
             },
             items: widget.list.map((ItemModel user) {
               return DropdownMenuItem<ItemModel>(
-                value: user, ///
+                value: user, ///Value
                 child: Text(
                   user.name, ///
-                  style: TextStyle(color: Colors.black), ///
+                  style: TextStyle(
+                      color: Colors.black, ///Text color
+                  ),
                 ),
               );
-            }).toList(),
+            }).toList(), ///
           ),
         ),
       ),

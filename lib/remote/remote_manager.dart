@@ -2,7 +2,9 @@
 
 import 'province_response/province_service.dart';
 
-///ManageRemote
+///ManageRemote buoc trung gian de clone API
 class ManageRemote {
-  static ProvinceService provinceService = new ProvinceService(); ///
+  static ProvinceService provinceService = new ProvinceService();
+  ///
+
 }

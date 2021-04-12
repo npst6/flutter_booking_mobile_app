@@ -6,13 +6,13 @@ import 'package:flutter_booking_mobile_app/utils/account_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-///class SplashScreen extends StatefulWidget
+///SplashScreen StatefulWidget
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState(); ///create state _SplashScreenState
 }
 
-///class _SplashScreenState extends State<SplashScreen>
+/// _SplashScreenState State<>
 class _SplashScreenState extends State<SplashScreen> {
   SharedPreferences prefs; ///
   @override
@@ -20,6 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState(); ///
   }
 
+  ///
   @override
   void didChangeDependencies() async {
     prefs = await SharedPreferences.getInstance();
@@ -46,10 +47,11 @@ class _SplashScreenState extends State<SplashScreen> {
    // }
   }
 
+  ///
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white, ///Background color
       body: Center(
         child: Container(
           width: 200, ///Container width

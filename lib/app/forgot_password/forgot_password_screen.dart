@@ -8,21 +8,23 @@ import 'package:flutter_booking_mobile_app/utils/validate_data.dart';
 import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 
-///class ForgotPassScreen extends StatefulWidget
+///ForgotPassScreen StatefulWidget
 class ForgotPassScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-///class _LoginScreenState extends State<ForgotPassScreen>
+/// _LoginScreenState State<>
 class _LoginScreenState extends State<ForgotPassScreen> {
   TextEditingController controllerEmail; ///
   final _formKey = GlobalKey<FormState>(); ///
+
   @override
   void initState() {
     controllerEmail = new TextEditingController(); ///
     super.initState(); ///
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,22 +37,24 @@ class _LoginScreenState extends State<ForgotPassScreen> {
               Navigator.pop(context);
             }),
       ),
+
       ///body
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20, 35, 20, 20), ///padding
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, ///Using mainAxisAlignment in a Column will align its children vertically.
-            crossAxisAlignment: CrossAxisAlignment.start, ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+            mainAxisAlignment: MainAxisAlignment.center,    ///Using mainAxisAlignment in a Column will align its children vertically.
+            crossAxisAlignment: CrossAxisAlignment.start,   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
             children: [
               Center(
                 child: Text(
                   "Forgot Password",
                   style: TextStyle(
-                      color: AppColors.buttonColor, ///Text color
-                      fontWeight: FontWeight.w900,  ///Text weight
-                      letterSpacing: 1, ///Text spacing
-                      fontSize: 35),  ///Text size
+                    fontSize: 35,                 ///Text size
+                    letterSpacing: 1,             ///Text spacing
+                    fontWeight: FontWeight.w900,  ///Text weight
+                    color: AppColors.buttonColor, ///Text color
+                  ),
                 ),
               ),
 
@@ -61,9 +65,9 @@ class _LoginScreenState extends State<ForgotPassScreen> {
               Text(
                 "Your Email",
                 style: TextStyle(
-                  fontWeight: FontWeight.w600, ///Text weight
-                  letterSpacing: 1, ///Text spacing
-                  fontSize: 16, ///Text size
+                  fontSize: 16,                 ///Text size
+                  letterSpacing: 1,             ///Text spacing
+                  fontWeight: FontWeight.w600,  ///Text weight
                 ),
               ),
 
@@ -72,15 +76,15 @@ class _LoginScreenState extends State<ForgotPassScreen> {
               ),
 
               Form(
-                key: _formKey, ///
-                child: MTextFormField(
-                  hintText: "Enter your email (ex@gmail.com)", ///Hint text
-                  controller: controllerEmail, ///
-                  textInputType: TextInputType.emailAddress, ///
-                  funcValidation: ValidateData.validEmail, ///Validate email
+                key: _formKey,  ///
+                child: XTextFormField(
+                  hintText: "Enter your email (ex@gmail.com)",  ///Hint text
+                  controller: controllerEmail,                  ///
+                  textInputType: TextInputType.emailAddress,    ///
+                  funcValidation: ValidateData.validEmail,      ///Validate email
                   prefixIcon: Icon(
-                    Icons.mail, ///Icon email in form
-                    color: AppColors.buttonColor, ///Icon color in form
+                    Icons.mail,                                 ///Icon email in form
+                    color: AppColors.buttonColor,               ///Icon color in form
                   ),
                 ),
               ),
@@ -93,10 +97,11 @@ class _LoginScreenState extends State<ForgotPassScreen> {
                 height: 40,
               ),
 
-              MButton("Send", () {
+              XButton("Send", () {
                 if (_formKey.currentState.validate()) {
                   FirAuth().forgotPassWordByEmail(
-                      controllerEmail.text, () {}, (val) {});
+                      controllerEmail.text, () {}, (val) {}
+                  );
                 }
               }),
 

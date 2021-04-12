@@ -8,10 +8,13 @@ import 'package:flutter_booking_mobile_app/remote/province_response/province_res
 class ProvinceService {
   Future<List<Province>> getAllProvince() async {
     try {
-      var response = await get(Uri.parse('https://api.mysupership.vn/v1/partner/areas/province')); ///
-      var jsonResponse = convert.jsonDecode(response.body); ///
+      var response = await get(Uri.parse('https://api.mysupership.vn/v1/partner/areas/province'));
+      ///
+      var jsonResponse = convert.jsonDecode(response.body);
+      ///
       if (jsonResponse["status"] == "Success") {
-        return ProvinceResponse.fromJson(jsonResponse).provinces; ///
+        return ProvinceResponse.fromJson(jsonResponse).provinces;
+        ///
       }
       throw Exception('');
     } catch (e) {

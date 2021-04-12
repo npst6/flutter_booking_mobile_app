@@ -7,11 +7,17 @@ import 'package:fluttertoast/fluttertoast.dart';
 class FlutterToast {
   void showToast(String title) {
     Fluttertoast.showToast(
-        msg: title, ///
-        toastLength: Toast.LENGTH_SHORT, ///
-        gravity: ToastGravity.BOTTOM, ///
-        timeInSecForIosWeb: 1, ///
-        backgroundColor: Colors.blue, ///background color
-        fontSize: 17.0); ///Text size
+        msg: title,                       ///
+
+        toastLength: Toast.LENGTH_SHORT,  ///
+
+        gravity: ToastGravity.BOTTOM,     ///
+
+        timeInSecForIosWeb: 1,            ///
+
+        backgroundColor: Colors.blue,     ///Background color
+
+        fontSize: 17.0,                   ///Text size
+    );
   }
 }

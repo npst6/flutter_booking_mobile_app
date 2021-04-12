@@ -20,8 +20,10 @@ class ProvinceResponse {
   factory ProvinceResponse.fromJson(Map<String, dynamic> json) =>
       ProvinceResponse(
         status: json["status"], ///
+        ///
         provinces: List<Province>.from(
-            json["results"].map((x) => Province.fromJson(x))),
+            json["results"].map((x) => Province.fromJson(x)), ///
+        ),
       );
   ///
   Map<String, dynamic> toJson() => {

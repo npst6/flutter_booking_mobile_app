@@ -14,15 +14,15 @@ class ItemSearch extends StatelessWidget {
     ///GestureDetector
     return GestureDetector(
       onTap: () {
-        /*Navigator.push(context, MaterialPageRoute(builder: (context) {
+/*        Navigator.push(context, MaterialPageRoute(builder: (context) {
           return DetailHomeStayScreen(room); ///
         }));*/
       },
 
       child: Container(
-        margin: const EdgeInsets.fromLTRB(15, 0, 15, 20), ///Container margin
-        height: 100, ///Container height
-        width: double.infinity, ///Container width
+        height: 100,                                          ///Container height
+        width: double.infinity,                               ///Container width
+        margin: const EdgeInsets.fromLTRB(15, 0, 15, 20),     ///Container margin
 
         child: Row(
           children: [
@@ -30,10 +30,10 @@ class ItemSearch extends StatelessWidget {
               flex: 2, ///flex
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20), ///Border box decoration
+                    borderRadius: BorderRadius.circular(20),  ///Border box decoration
                     image: DecorationImage(
-                      image: NetworkImage(room.urlImage), ///image
-                      fit: BoxFit.cover, ///fit
+                      image: NetworkImage(room.urlImage),     ///Image
+                      fit: BoxFit.cover,                      ///Image fit
                     ),
                 ),
               ),
@@ -54,8 +54,8 @@ class ItemSearch extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5), ///padding
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start, ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween, ///Using mainAxisAlignment in a Column will align its children vertically.
+                        crossAxisAlignment: CrossAxisAlignment.start,       ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,  ///Using mainAxisAlignment in a Column will align its children vertically.
                         mainAxisSize: MainAxisSize.min, ///
                         children: [
                           Text(
@@ -121,7 +121,6 @@ class ItemSearch extends StatelessWidget {
                               ),
                             ],
                           ),
-
 //                    Expanded(
 //                      child: Container(
 //                        height: 30,
@@ -162,10 +161,12 @@ class ItemSearch extends StatelessWidget {
                       child: Text(
                         "${(room.money - room.money * room.discount / 100).toInt()}\đ",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                          fontWeight: FontWeight.bold,  ///Text weight
+                          fontSize: 16,                 ///Text size
+                        ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

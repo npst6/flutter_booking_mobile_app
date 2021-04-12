@@ -2,7 +2,7 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_booking_mobile_app/profile/profile_screen.dart';
+import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/theme/theme.dart';
@@ -154,8 +154,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                           Row(
                                             children: [
+                                              ///Cancel button
                                               Expanded(
-                                                child: MButton(
+                                                child: XButton(
                                                   "Cancel",
                                                       () {
                                                     Navigator.pop(context);
@@ -163,26 +164,29 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   color: Colors.grey,
                                                 ),
                                               ),
+
                                               SizedBox(
                                                 width: 10,
                                               ),
+
+                                              ///Ok button
                                               Expanded(
-                                                child: MButton(
+                                                child: XButton(
                                                   "OK",
                                                       () {
                                                     FirAuth().signOut();
                                                     Navigator.pushReplacement(
                                                         context,
                                                         MaterialPageRoute(
-                                                            builder:
-                                                                (context) {
+                                                            builder: (context) {
                                                               return LoginScreen();
-                                                            }));
+                                                            })
+                                                    );
                                                   },
                                                 ),
                                               ),
                                             ],
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -197,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               Expanded(
-                flex: 4,
+                flex: 3,
                 child: Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -311,7 +315,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 }
                               },
 
-                              child: MTextFormField (
+                              child: XTextFormField (
                                 hintText: "Check In - Check Out",
                                 enable: false,
                                 controller: controllerTime,
@@ -399,7 +403,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 15,
                             ),
 
-                            MButton("Search for", () {
+                            XButton("Search for", () {
                               if (_formKey.currentState.validate()) {
                                 OrderUtils()
                                     .setOrder(startDay, endDay, numberRoom);

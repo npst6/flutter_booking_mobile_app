@@ -1,7 +1,8 @@
 ///Note file base_bloc.dart
 
+///
 abstract class BaseBloc {
-  void init(); ///
+  void init();    ///
   void dispose(); ///
 }
 
@@ -10,5 +11,5 @@ enum UIState {
   SUCCESS,
   ERROR,
   UPDATED,
-  NONE
+  NONE,
 }

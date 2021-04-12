@@ -1,10 +1,15 @@
-/// Note item_model.dart
+///Note item_model.dart
 
-///class ItemModel
+///ItemModel model trung gian trong dropdown text field
 class ItemModel {
   String id; ///
   String name; ///
-  ItemModel({this.id, this.name}); ///
+
+  ///
+  ItemModel({
+    this.id,
+    this.name,
+  });
 
   ///
   factory ItemModel.formJson(Map<String, dynamic> json) => ItemModel(

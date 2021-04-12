@@ -5,17 +5,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 
 ///class MButton extends StatelessWidget
-class MButton extends StatelessWidget {
+class XButton extends StatelessWidget {
   final String title; ///
   final Function onTap; ///
   final Color color; ///
   final double height; ///
 
-  MButton(
+  XButton(
       this.title,
       this.onTap,
-      {this.height = 55, this.color = AppColors.buttonColor}
-      );
+      {
+        this.height = 55, ///Button height
+        this.color = AppColors.buttonColor, ///Button color
+      }
+  );
 
   ///
   @override

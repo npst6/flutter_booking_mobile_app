@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/SwiftyGif.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		VG/SpYbEOPYa8+qlF9S+tlnSHr8=
+		io3jB/vSkltfYTDRQioAiqYC4Ek=
 		</data>
 		<key>Modules/SwiftyGif.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/SwiftyGif.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		VG/SpYbEOPYa8+qlF9S+tlnSHr8=
+		io3jB/vSkltfYTDRQioAiqYC4Ek=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -121,11 +121,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VG/SpYbEOPYa8+qlF9S+tlnSHr8=
+			io3jB/vSkltfYTDRQioAiqYC4Ek=
 			</data>
 			<key>hash2</key>
 			<data>
-			Dz7Wuc004ipzxe5iaA1Pc0/iHrCrYSUNWJ6GVo1f7jM=
+			p/nYYjh2F1ufQUbpeBsLlAxqVHTKnYN0egP2t5UGT8w=
 			</data>
 		</dict>
 		<key>Modules/SwiftyGif.swiftmodule/x86_64.swiftdoc</key>
@@ -143,11 +143,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VG/SpYbEOPYa8+qlF9S+tlnSHr8=
+			io3jB/vSkltfYTDRQioAiqYC4Ek=
 			</data>
 			<key>hash2</key>
 			<data>
-			Dz7Wuc004ipzxe5iaA1Pc0/iHrCrYSUNWJ6GVo1f7jM=
+			p/nYYjh2F1ufQUbpeBsLlAxqVHTKnYN0egP2t5UGT8w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
