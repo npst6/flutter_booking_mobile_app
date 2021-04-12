@@ -68,20 +68,21 @@ class NewHomeStayBloc extends BaseBloc {
     newHomeStayStateStream.add(UIState.LOADING);
     try {
       FirebaseStorage storage = FirebaseStorage.instance;
-      Reference storageReference =
-      storage.ref().child('${Path.basename(file.path)}}');
-      await storageReference.putFile(file).then((val) {
-        val.ref.getDownloadURL().then((val) {
-          FirAuth().createMyHomeStay(
-              val, name, phone, bankName, bankNumber, accountName, () {
-            newHomeStayStateStream.add(UIState.SUCCESS);
-            FlutterToast().showToast("Success");
-          }, (val) {
-            newHomeStayStateStream.add(UIState.ERROR);
-            FlutterToast().showToast(val);
-          });
-        });
+      FirAuth().createMyHomeStay(
+          "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg", name, phone, bankName, bankNumber, accountName, () {
+        newHomeStayStateStream.add(UIState.SUCCESS);
+        FlutterToast().showToast("Success");
+      }, (val) {
+        newHomeStayStateStream.add(UIState.ERROR);
+        FlutterToast().showToast(val);
       });
+      // Reference storageReference =
+      // storage.ref().child('${Path.basename(file.path)}}');
+      // await storageReference.putFile(file).then((val) {
+      //   val.ref.getDownloadURL().then((val) {
+      //
+      //   });
+      // });
     } catch (e) {
       newHomeStayStateStream.add(UIState.ERROR);
       FlutterToast().showToast(e.message);

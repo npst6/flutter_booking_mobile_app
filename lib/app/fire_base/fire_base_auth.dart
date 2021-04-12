@@ -324,6 +324,7 @@ class FirAuth {
       'create_day': DateTime.now().toIso8601String()
     }).then((e) {
       FlutterToast().showToast("Success");
+      onSuccess();
     });
   }
 

@@ -16,7 +16,7 @@ class MyHomeStay {
   factory MyHomeStay.formJson(Map<String, dynamic> json) => MyHomeStay(
     name            : json['name'],
     phone           : json['phone'],
-    listReviews     : json['list_review'] ?? [].cast<int>(),
+    listReviews     : json['list_review'] .cast<int>() ?? [].cast<int>(),
     createDay       : json["create_day"],
     status          : json["status"] ?? 1,
     urlImage        : json["url_image"],
