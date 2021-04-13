@@ -8,15 +8,14 @@ class OrderUtils {
     return _singleton;
   }
 
+  ///Start day order
   String startDay;
 
-  ///Start day order
+  ///End day order
   String endDay;
 
-  ///End day order
-  int numberRoom;
-
   ///Room number order
+  int numberRoom;
 
   ///void set order
   void setOrder(

@@ -36,33 +36,32 @@ class XTextFormField extends StatefulWidget {
 
   XTextFormField(
       {this.onTap,
-        this.textInputAction,
-        this.controller,
-        this.funcValidation,
-        this.hintText,
-        this.textColor = Colors.black87,
-        this.prefixIcon,
-        this.onClickPrefix,
-        this.suffixIcon,
-        this.onClickSuffix,
-        this.obscureText = false,
-        this.textInputType = TextInputType.text,
-        this.maxLine = 1,
-        this.enable = true,
-        this.readOnly = false,
-        this.contentCenter = false,
-        this.border = true,
-        this.onChanged,
-        this.onSubmitted,
-        this.verticalPadding = 20,
-        this.autoFocus = false,
-        this.focusNode,
-        this.onFocus,
-        this.suffixText,
-        this.key,
-        this.onFieldSubmitted});
+      this.textInputAction,
+      this.controller,
+      this.funcValidation,
+      this.hintText,
+      this.textColor = Colors.black87,
+      this.prefixIcon,
+      this.onClickPrefix,
+      this.suffixIcon,
+      this.onClickSuffix,
+      this.obscureText = false,
+      this.textInputType = TextInputType.text,
+      this.maxLine = 1,
+      this.enable = true,
+      this.readOnly = false,
+      this.contentCenter = false,
+      this.border = true,
+      this.onChanged,
+      this.onSubmitted,
+      this.verticalPadding = 20,
+      this.autoFocus = false,
+      this.focusNode,
+      this.onFocus,
+      this.suffixText,
+      this.key,
+      this.onFieldSubmitted});
 
-  ///
   @override
   _XTextFormFieldFocusNodeState createState() =>
       _XTextFormFieldFocusNodeState();
@@ -70,8 +69,9 @@ class XTextFormField extends StatefulWidget {
 
 /// _XTextFormFieldFocusNodeState  State<>
 class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
-  String errorText; ///
-  bool errorBorder = false; ///
+  String errorText;
+  bool errorBorder = false;
+
   @override
   Widget build(BuildContext context) {
     return Focus(
@@ -80,7 +80,6 @@ class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
           if (widget.onFocus != null) widget.onFocus();
         }
       },
-
       child: TextFormField(
         textInputAction: widget.textInputAction,
         key: widget.key,
@@ -131,7 +130,7 @@ class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
           contentPadding: (widget.contentCenter)
               ? const EdgeInsets.symmetric(vertical: 0, horizontal: 0)
               : EdgeInsets.symmetric(
-              vertical: widget.verticalPadding, horizontal: 15),
+                  vertical: widget.verticalPadding, horizontal: 15),
           hintStyle: TextStyle(
               fontSize: 16, color: Colors.grey, fontWeight: FontWeight.w600),
           prefixIcon: widget.prefixIcon,
@@ -147,23 +146,23 @@ class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
           ),
           enabledBorder: (errorBorder)
               ? OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
-            borderSide: BorderSide(
-              color: Colors.transparent,
-              width: 1,
-            ),
-          )
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                )
               : OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
-            borderSide: BorderSide(
-              color: AppColors.grey,
-              width: 1,
-            ),
-          ),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  borderSide: BorderSide(
+                    color: AppColors.grey,
+                    width: 1,
+                  ),
+                ),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(10),
@@ -175,61 +174,61 @@ class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
           ),
           focusedErrorBorder: (widget.border)
               ? const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
-            borderSide: BorderSide(
-              color: Colors.red,
-              width: 1,
-            ),
-          )
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 1,
+                  ),
+                )
               : OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
-            borderSide: BorderSide(
-              color: Colors.transparent,
-              width: 1,
-            ),
-          ),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                ),
           errorBorder: (widget.border)
               ? const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
-            borderSide: BorderSide(
-              color: Colors.red,
-              width: 2,
-            ),
-          )
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 2,
+                  ),
+                )
               : OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
-            borderSide: BorderSide(
-              color: Colors.transparent,
-              width: 1,
-            ),
-          ),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                ),
           focusedBorder: (widget.border)
               ? OutlineInputBorder(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(10),
-            ),
-            borderSide: BorderSide(
-              color: AppColors.buttonColor,
-              width: 2,
-            ),
-          )
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  borderSide: BorderSide(
+                    color: AppColors.buttonColor,
+                    width: 2,
+                  ),
+                )
               : OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
-            borderSide: BorderSide(
-              color: Colors.transparent,
-              width: 2,
-            ),
-          ),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 2,
+                  ),
+                ),
           counterStyle: TextStyle(
             fontSize: 12,
           ),
@@ -248,7 +247,7 @@ class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
   }
 }
 
-///class MDropBoxTextFormField<T> extends StatefulWidget
+/// MDropBoxTextFormField<T> StatefulWidget
 class MDropBoxTextFormField<T> extends StatefulWidget {
   final Function funcValidation;
   final String hintText;
@@ -268,38 +267,38 @@ class MDropBoxTextFormField<T> extends StatefulWidget {
 
   MDropBoxTextFormField(
       {this.funcValidation,
-        @required this.hintText,
-        this.maxLine = 1,
-        this.items,
-        this.dropDownItems,
-        this.initValue,
-        this.callback,
-        this.idDayStart,
-        this.prefixIcon,
-        this.key,
-        this.currency,
-        this.region,
-        this.accountGroup,
-        this.align,
-        this.isPrefixIcon = true})
+      @required this.hintText,
+      this.maxLine = 1,
+      this.items,
+      this.dropDownItems,
+      this.initValue,
+      this.callback,
+      this.idDayStart,
+      this.prefixIcon,
+      this.key,
+      this.currency,
+      this.region,
+      this.accountGroup,
+      this.align,
+      this.isPrefixIcon = true})
       : super(key: key);
 
-  ///
   @override
   _MDropBoxTextFormFieldState<T> createState() => _MDropBoxTextFormFieldState();
 }
 
-///class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField>
+/// _MDropBoxTextFormFieldState<T> State<>
 class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
-  String errorText; ///
-  T value; ///
-  String name = ''; ///
+  String errorText;
+  T value;
+  String name = '';
+
   @override
   void initState() {
     super.initState();
     if (widget.idDayStart != null) {
       value = widget.items.firstWhere(
-              (element) => element.id == widget.idDayStart,
+          (element) => element.id == widget.idDayStart,
           orElse: () => value = null);
     }
 
@@ -313,7 +312,7 @@ class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
 
     if (widget.region != null) {
       value = widget.items.firstWhere(
-              (element) => element.name == widget.region,
+          (element) => element.name == widget.region,
           orElse: () => value = null);
       if (value != null) {
         widget.callback(value);
@@ -322,7 +321,7 @@ class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
 
     if (widget.currency != null) {
       value = widget.items.firstWhere(
-              (element) => element.name == widget.currency,
+          (element) => element.name == widget.currency,
           orElse: () => value = null);
       if (value != null) {
         widget.callback(value);
@@ -333,18 +332,17 @@ class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
     print(widget.accountGroup);
     if (widget.accountGroup != null) {
       value = widget.items.firstWhere(
-              (element) => element.id == widget.accountGroup,
+          (element) => element.id == widget.accountGroup,
           orElse: () => value = null);
       if (value != null) widget.callback(value);
     }
   }
 
-  ///
   @override
   void didUpdateWidget(covariant MDropBoxTextFormField oldWidget) {
     if (widget.idDayStart != null) {
       value = widget.items.firstWhere(
-              (element) => element.id == widget.idDayStart,
+          (element) => element.id == widget.idDayStart,
           orElse: () => value = null);
     }
 
@@ -358,7 +356,7 @@ class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
 
     if (widget.region != null) {
       value = widget.items.firstWhere(
-              (element) => element.name == widget.region,
+          (element) => element.name == widget.region,
           orElse: () => value = null);
       if (value != null) {
         widget.callback(value);
@@ -367,7 +365,7 @@ class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
 
     if (widget.currency != null) {
       value = widget.items.firstWhere(
-              (element) => element.name == widget.currency,
+          (element) => element.name == widget.currency,
           orElse: () => value = null);
       if (value != null) {
         widget.callback(value);
@@ -378,111 +376,110 @@ class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
     print(widget.accountGroup);
     if (widget.accountGroup != null) {
       value = widget.items.firstWhere(
-              (element) => element.id == widget.accountGroup,
+          (element) => element.id == widget.accountGroup,
           orElse: () => value = null);
       if (value != null) widget.callback(value);
     }
     super.didUpdateWidget(oldWidget);
   }
 
-  ///
   @override
   Widget build(BuildContext context) {
     return ((widget.items == null || widget.items.isEmpty) &&
-        (widget.dropDownItems == null || widget.dropDownItems.isEmpty))
+            (widget.dropDownItems == null || widget.dropDownItems.isEmpty))
         ? XTextFormField(
-      enable: false,
-      hintText: (value != null) ? name : widget.hintText,
-      suffixIcon: Icon(
-        Icons.keyboard_arrow_down,
-        color: widget.isPrefixIcon ? Colors.grey : Colors.transparent,
-      ),
-      prefixIcon: widget.prefixIcon,
-    )
+            enable: false,
+            hintText: (value != null) ? name : widget.hintText,
+            suffixIcon: Icon(
+              Icons.keyboard_arrow_down,
+              color: widget.isPrefixIcon ? Colors.grey : Colors.transparent,
+            ),
+            prefixIcon: widget.prefixIcon,
+          )
         : DropdownButtonFormField<T>(
-      focusColor: AppColors.grey,
-      value: value,
-      isExpanded: true,
-      icon: Icon(
-        Icons.keyboard_arrow_down,
-        color: widget.isPrefixIcon
-            ? AppColors.buttonColor
-            : Colors.transparent,
-      ),
-      items: widget.dropDownItems ??
-          widget.items.map((e) {
-            return DropdownMenuItem<T>(
-              value: e,
-              child: Text(e.name, overflow: TextOverflow.ellipsis),
-            );
-          }).toList(),
-      onChanged: (newValue) {
-        value = newValue;
-        widget.callback(value);
-      },
-      decoration: InputDecoration(
-        prefixIcon: widget.prefixIcon,
-        contentPadding: EdgeInsets.symmetric(
-            vertical: 5,
-            horizontal: (widget.prefixIcon != null) ? 5 : 15),
-        hintText: widget.hintText,
-        hintStyle: TextStyle(
-          fontSize: 13,
-          color: Colors.grey,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(5),
-          ),
-          borderSide: BorderSide(
-            color: AppColors.grey,
-            width: 2,
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-          borderSide: BorderSide(
-            color: AppColors.grey,
-            width: 2,
-          ),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-          borderSide: BorderSide(
-            color: AppColors.buttonColor,
-            width: 2,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(10),
-          ),
-          borderSide: BorderSide(
-            color: AppColors.buttonColor,
-            width: 2,
-          ),
-        ),
-        counterStyle: TextStyle(
-          fontSize: 13,
-          fontWeight: FontWeight.w500,
-          color: Colors.black,
-        ),
-        counterText: errorText,
-      ),
-    );
+            focusColor: AppColors.grey,
+            value: value,
+            isExpanded: true,
+            icon: Icon(
+              Icons.keyboard_arrow_down,
+              color: widget.isPrefixIcon
+                  ? AppColors.buttonColor
+                  : Colors.transparent,
+            ),
+            items: widget.dropDownItems ??
+                widget.items.map((e) {
+                  return DropdownMenuItem<T>(
+                    value: e,
+                    child: Text(e.name, overflow: TextOverflow.ellipsis),
+                  );
+                }).toList(),
+            onChanged: (newValue) {
+              value = newValue;
+              widget.callback(value);
+            },
+            decoration: InputDecoration(
+              prefixIcon: widget.prefixIcon,
+              contentPadding: EdgeInsets.symmetric(
+                  vertical: 5,
+                  horizontal: (widget.prefixIcon != null) ? 5 : 15),
+              hintText: widget.hintText,
+              hintStyle: TextStyle(
+                fontSize: 13,
+                color: Colors.grey,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5),
+                ),
+                borderSide: BorderSide(
+                  color: AppColors.grey,
+                  width: 2,
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+                borderSide: BorderSide(
+                  color: AppColors.grey,
+                  width: 2,
+                ),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+                borderSide: BorderSide(
+                  color: AppColors.buttonColor,
+                  width: 2,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(10),
+                ),
+                borderSide: BorderSide(
+                  color: AppColors.buttonColor,
+                  width: 2,
+                ),
+              ),
+              counterStyle: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
+              counterText: errorText,
+            ),
+          );
   }
 }
 
 ///MDropDown2 StatefulWidget
 class MDropDown2 extends StatefulWidget {
-  final List<ItemModel> list; ///
-  final Function callBack; ///
-  final ItemModel init; ///
-  final String hintText; ///
+  final List<ItemModel> list;
+  final Function callBack;
+  final ItemModel init;
+  final String hintText;
   MDropDown2({this.list, this.callBack, this.init, this.hintText = "Choose"});
   @override
   _MDropDown2State createState() => _MDropDown2State();
@@ -490,7 +487,7 @@ class MDropDown2 extends StatefulWidget {
 
 /// _MDropDown2State State<>
 class _MDropDown2State extends State<MDropDown2> {
-  ItemModel itemModel; ///
+  ItemModel itemModel;
   @override
   void initState() {
     widget.list.forEach((element) {
@@ -502,41 +499,49 @@ class _MDropDown2State extends State<MDropDown2> {
     super.initState();
   }
 
-  ///
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60, ///Container height
-      width: double.infinity, ///Container weight
+      ///Container height
+      height: 60,
+
+      ///Container weight
+      width: double.infinity,
+
       decoration: BoxDecoration(
-        color: AppColors.grey, ///Color box
-        borderRadius: BorderRadius.circular(10), ///Border box
+        ///Color box
+        color: AppColors.grey,
+
+        ///Border box
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10), ///Padding
+        ///Padding
+        padding: const EdgeInsets.only(left: 10, right: 10),
+
         child: Center(
           child: DropdownButton<ItemModel>(
-            underline: SizedBox(), ///
-            isExpanded: true, ///
-            value: itemModel, ///
-            hint: Text(widget.hintText), ///
+            underline: SizedBox(),
+            isExpanded: true,
+            value: itemModel,
+            hint: Text(widget.hintText),
             onChanged: (ItemModel value) {
               setState(() {
                 itemModel = value;
               });
-              widget.callBack(itemModel); ///
+              widget.callBack(itemModel);
             },
             items: widget.list.map((ItemModel user) {
               return DropdownMenuItem<ItemModel>(
-                value: user, ///Value
+                value: user,
                 child: Text(
-                  user.name, ///
+                  user.name,
                   style: TextStyle(
-                      color: Colors.black, ///Text color
+                    color: Colors.black,
                   ),
                 ),
               );
-            }).toList(), ///
+            }).toList(),
           ),
         ),
       ),

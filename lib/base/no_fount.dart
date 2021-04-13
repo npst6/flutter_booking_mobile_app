@@ -5,41 +5,59 @@ import 'package:flutter_booking_mobile_app/ui/color.dart';
 
 ///NoFoundWidget StatelessWidget
 class NoFoundWidget extends StatelessWidget {
-  final String title; ///
-  NoFoundWidget(this.title); ///
+  final String title;
+  NoFoundWidget(this.title);
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,   ///Container width
-      height: double.infinity,  ///Container height
+      ///Container width
+      width: double.infinity,
+
+      ///Container height
+      height: double.infinity,
+
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,  ///
+        ///Using mainAxisAlignment in a Column will align its children vertically.
+        mainAxisAlignment: MainAxisAlignment.center,
+
         children: [
           Container(
-            width: 150,   ///Container width
-            height: 100,  ///Container height
+            ///Container width
+            width: 150,
+
+            ///Container height
+            height: 100,
+
             decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(
-                      "assets/images/logo2.png",
-                    ), ///Image
-                    fit: BoxFit.cover,  ///Image fit
+              image: DecorationImage(
+                ///Image
+                image: AssetImage(
+                  "assets/images/logo2.png",
                 ),
+
+                ///Image fit
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-
           SizedBox(
             height: 10,
           ),
-
           Text(
             title,
-            textAlign: TextAlign.center,    ///
+            textAlign: TextAlign.center,
             style: TextStyle(
-              color: AppColors.buttonColor, ///Text color
-              fontSize: 15,                 ///Text size
-              fontWeight: FontWeight.w600,  ///Text weight
-              letterSpacing: 1,             ///Text spacing
+              ///Text color
+              color: AppColors.buttonColor,
+
+              ///Text size
+              fontSize: 15,
+
+              ///Text weight
+              fontWeight: FontWeight.w600,
+
+              ///Text spacing
+              letterSpacing: 1,
             ),
           ),
         ],

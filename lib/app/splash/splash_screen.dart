@@ -9,18 +9,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 ///SplashScreen StatefulWidget
 class SplashScreen extends StatefulWidget {
   @override
-  _SplashScreenState createState() => _SplashScreenState(); ///create state _SplashScreenState
+  _SplashScreenState createState() => _SplashScreenState();
+
+  ///Create state _SplashScreenState
 }
 
 /// _SplashScreenState State<>
 class _SplashScreenState extends State<SplashScreen> {
-  SharedPreferences prefs; ///
+  SharedPreferences prefs;
   @override
   void initState() {
-    super.initState(); ///
+    super.initState();
   }
 
-  ///
   @override
   void didChangeDependencies() async {
     prefs = await SharedPreferences.getInstance();
@@ -40,26 +41,34 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   checkSharedPreferences() {
-   // if (prefs.getInt("theme") == null) {
-   //   _theme = 0;
-   // } else {
-   //   _theme = prefs.getInt("theme");
-   // }
+    // if (prefs.getInt("theme") == null) {
+    //   _theme = 0;
+    // } else {
+    //   _theme = prefs.getInt("theme");
+    // }
   }
 
-  ///
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, ///Background color
+      ///Background color
+      backgroundColor: Colors.white,
+
       body: Center(
         child: Container(
-          width: 200, ///Container width
-          height: 200, ///Container height
+          ///Container width
+          width: 200,
+
+          ///Container height
+          height: 200,
+
           decoration: BoxDecoration(
             image: DecorationImage(
+              ///Assets image
               image: AssetImage('assets/images/logo2.png'),
-              fit: BoxFit.fitWidth, ///Image fit box
+
+              ///Image fit box
+              fit: BoxFit.fitWidth,
             ),
           ),
         ),

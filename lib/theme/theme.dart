@@ -5,31 +5,47 @@ import 'package:flutter_booking_mobile_app/ui/color.dart';
 
 ///ChangeNotifier
 class ThemeChanger with ChangeNotifier {
-  ThemeData themeData;              ///
-  ThemeChanger ({this.themeData});  ///
-  getTheme() => themeData;  ///Get theme = themeData ///one-line function
+  ThemeData themeData;
+  ThemeChanger({this.themeData});
+
+  ///Get theme = themeData ///one-line function
+  getTheme() => themeData;
 
   ///Set theme
-  setTheme (int dark) {
+  setTheme(int dark) {
     if (dark == 0) {
       ///Describe dark theme
-      themeData = ThemeData.dark().copyWith (
-          primaryColor: AppColors.buttonColor,    ///Color of the main banner
-          accentColor: AppColors.buttonColor,     ///Color
-          scaffoldBackgroundColor: Colors.black,  ///Light background
-          // ignore: deprecated_member_use
-          textSelectionColor: Colors.white,       ///Text color
+      themeData = ThemeData.dark().copyWith(
+        ///Color of the main banner
+        primaryColor: AppColors.buttonColor,
+
+        ///Color
+        accentColor: AppColors.buttonColor,
+
+        ///Light background
+        scaffoldBackgroundColor: Colors.black,
+
+        ///Text color
+        // ignore: deprecated_member_use
+        textSelectionColor: Colors.white,
       );
     } else {
       ///Describe light theme
-      themeData = ThemeData.light().copyWith (
-          primaryColor: AppColors.buttonColor,    ///Color of the main banner
-          accentColor: AppColors.buttonColor,     ///Color
-          scaffoldBackgroundColor: Colors.white,  ///Light background
-          // ignore: deprecated_member_use
-          textSelectionColor: Colors.black,       ///Text color
+      themeData = ThemeData.light().copyWith(
+        ///Color of the main banner
+        primaryColor: AppColors.buttonColor,
+
+        ///Color
+        accentColor: AppColors.buttonColor,
+
+        ///Light background
+        scaffoldBackgroundColor: Colors.white,
+
+        ///Text color
+        // ignore: deprecated_member_use
+        textSelectionColor: Colors.black,
       );
     }
-    notifyListeners();                            ///
+    notifyListeners();
   }
 }

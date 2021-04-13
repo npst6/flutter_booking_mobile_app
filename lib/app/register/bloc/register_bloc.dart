@@ -7,19 +7,19 @@ import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 
 ///class RegisterBloc extends BaseBloc
 class RegisterBloc extends BaseBloc {
-  BehaviorSubject<UIState> registerStream = new BehaviorSubject(); ///
+  BehaviorSubject<UIState> registerStream = new BehaviorSubject();
   @override
   void dispose() {
-    registerStream.close(); ///
+    registerStream.close();
   }
 
   @override
   void init() {}
 
-  ///Register acount
+  ///Register account
   void register({String email, String pass, String name, String phone}) {
-      registerStream.add(UIState.LOADING);
-      FirAuth().signUp(email, pass, name, phone, () {
+    registerStream.add(UIState.LOADING);
+    FirAuth().signUp(email, pass, name, phone, () {
       registerStream.add(UIState.SUCCESS);
       FlutterToast().showToast("Register successfully");
     }, (val) {

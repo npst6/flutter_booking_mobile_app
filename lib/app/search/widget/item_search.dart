@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/model/room.dart';
 
-
-///class ItemSearch extends StatelessWidget
+///ItemSearch StatelessWidget
 class ItemSearch extends StatelessWidget {
-  final Room room; ///
-  ItemSearch(this.room); ///
+  final Room room;
+  ItemSearch(this.room);
   @override
   Widget build(BuildContext context) {
     ///GestureDetector
@@ -18,104 +17,138 @@ class ItemSearch extends StatelessWidget {
           return DetailHomeStayScreen(room); ///
         }));*/
       },
-
       child: Container(
-        height: 100,                                          ///Container height
-        width: double.infinity,                               ///Container width
-        margin: const EdgeInsets.fromLTRB(15, 0, 15, 20),     ///Container margin
+        ///Container height
+        height: 100,
 
+        ///Container width
+        width: double.infinity,
+
+        ///Container margin
+        margin: const EdgeInsets.fromLTRB(15, 0, 15, 20),
         child: Row(
           children: [
             Expanded(
-              flex: 2, ///flex
+              ///Flex
+              flex: 2,
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),  ///Border box decoration
-                    image: DecorationImage(
-                      image: NetworkImage(room.urlImage),     ///Image
-                      fit: BoxFit.cover,                      ///Image fit
-                    ),
+                  ///Border radius box
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                    ///Image
+                    image: NetworkImage(room.urlImage),
+
+                    ///Image fit
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
-
             Expanded(
-              flex: 3, ///flex
+              ///Flex
+              flex: 3,
               child: Stack(
-                alignment: Alignment.topRight, ///alignment
+                ///Alignment
+                alignment: Alignment.topRight,
                 children: [
                   Container(
-                    height: 100, ///Container height
+                    ///Container height
+                    height: 100,
                     decoration: BoxDecoration(
+                      ///Border radius box
                       borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(10), ///
-                          bottomRight: Radius.circular(10)), ///
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 5), ///padding
+                      ///Padding
+                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,       ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,  ///Using mainAxisAlignment in a Column will align its children vertically.
-                        mainAxisSize: MainAxisSize.min, ///
+                        ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+                        crossAxisAlignment: CrossAxisAlignment.start,
+
+                        ///Using mainAxisAlignment in a Column will align its children vertically.
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                        ///Use mainAxisSize to pack the child of a row or columns together.
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            room.nameRoom.toUpperCase(), ///Text import from room name, toUpperCase
+                            ///Text import from room name, toUpperCase
+                            room.nameRoom.toUpperCase(),
                             style: TextStyle(
-                                fontWeight: FontWeight.w700, ///Text weight
-                                fontSize: 15, ///Text size
+                              ///Text weight
+                              fontWeight: FontWeight.w700,
+
+                              ///Text size
+                              fontSize: 15,
                             ),
                           ),
-
                           Row(
                             children: [
                               Container(
-                                height: 25, ///Container height
-                                width: 25, ///Container width
+                                ///Container height
+                                height: 25,
+
+                                ///Container width
+                                width: 25,
                                 decoration: BoxDecoration(
-                                  color: AppColors.buttonColor, ///Color box decoration
-                                  borderRadius: BorderRadius.circular(7), ///Border box decoration
+                                  ///Color box decoration
+                                  color: AppColors.buttonColor,
+
+                                  ///Border box decoration
+                                  borderRadius: BorderRadius.circular(7),
                                 ),
                                 child: Center(
                                   child: Text(
-                                    "9.5".toUpperCase(), ///toUpperCase
+                                    ///toUpperCase
+                                    "9.5".toUpperCase(),
                                     style: TextStyle(
-                                      fontWeight: FontWeight.w600, ///Text weight
+                                      ///Text weight
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                 ),
                               ),
-
                               SizedBox(
                                 width: 10,
                               ),
-
                               Text(
                                 "( 200reviews)",
                                 style: TextStyle(
-                                  color: Colors.grey, ///Text color
-                                  fontWeight: FontWeight.w500, ///Text weight
+                                  ///Text color
+                                  color: Colors.grey,
+
+                                  ///Text weight
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ],
                           ),
-
                           Row(
                             children: [
                               Icon(
-                                Icons.location_on, ///Icon
-                                color: AppColors.buttonColor, ///Icon color
-                                size: 18, ///Icon size
-                              ),
+                                ///Icon
+                                Icons.location_on,
 
-                              SizedBox(
-                                  width: 10
-                              ),
+                                ///Icon color
+                                color: AppColors.buttonColor,
 
+                                ///Icon size
+                                size: 18,
+                              ),
+                              SizedBox(width: 10),
                               Container(
-                                width: 150, ///Container width
+                                ///Container width
+                                width: 150,
                                 child: Text(
-                                  "${room.address}, ${room.city}".toUpperCase(), ///Text address, city from room
-                                  maxLines: 2, ///
+                                  ///Text address, city from room
+                                  "${room.address}, ${room.city}".toUpperCase(),
+
+                                  ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                                  maxLines: 2,
                                   style: TextStyle(),
                                 ),
                               ),
@@ -145,13 +178,18 @@ class ItemSearch extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   Container(
-                    width: 80, ///Container width
-                    height: 35, ///Container height
+                    ///Container width
+                    width: 80,
+
+                    ///Container height
+                    height: 35,
+
                     decoration: BoxDecoration(
-                      color: AppColors.buttonColor, ///Color box decoration
-                      ///
+                      ///Color box
+                      color: AppColors.buttonColor,
+
+                      ///Border radius box
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(15),
                         bottomLeft: Radius.circular(10),
@@ -161,8 +199,11 @@ class ItemSearch extends StatelessWidget {
                       child: Text(
                         "${(room.money - room.money * room.discount / 100).toInt()}\đ",
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,  ///Text weight
-                          fontSize: 16,                 ///Text size
+                          ///Text weight
+                          fontWeight: FontWeight.bold,
+
+                          ///Text size
+                          fontSize: 16,
                         ),
                       ),
                     ),

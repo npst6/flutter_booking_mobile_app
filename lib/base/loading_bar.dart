@@ -7,30 +7,40 @@ import 'package:flutter_booking_mobile_app/ui/color.dart';
 class LoadingBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container (
-      height: MediaQuery.of(context).size.height, ///Container height
-      width: MediaQuery.of(context).size.width,   ///Container width
-      color: Colors.grey.withOpacity(.3),         ///Container color
+    return Container(
+      ///Container height
+      height: MediaQuery.of(context).size.height,
 
-      child: Column (
-        mainAxisAlignment: MainAxisAlignment.center, ///Using mainAxisAlignment in a Column will align its children vertically.
+      ///Container width
+      width: MediaQuery.of(context).size.width,
+
+      ///Container color
+      color: Colors.grey.withOpacity(.3),
+
+      child: Column(
+        ///Using mainAxisAlignment in a Column will align its children vertically.
+        mainAxisAlignment: MainAxisAlignment.center,
 
         children: [
-          new CircularProgressIndicator (
-            backgroundColor: Colors.transparent, ///
-            valueColor: new AlwaysStoppedAnimation <Color> (AppColors.buttonColor), ///
+          new CircularProgressIndicator(
+            backgroundColor: Colors.transparent,
+            valueColor:
+                new AlwaysStoppedAnimation<Color>(AppColors.buttonColor),
           ),
-
-          const SizedBox (
+          const SizedBox(
             height: 15,
           ),
-
-          const Text (
+          const Text(
             "Loading...",
-            style: TextStyle (
-              color: AppColors.buttonColor, ///Text color
-              fontWeight: FontWeight.w600,  ///Text weight
-              letterSpacing: 1,             ///Text spacing
+            style: TextStyle(
+              ///Text color
+              color: AppColors.buttonColor,
+
+              ///Text weight
+              fontWeight: FontWeight.w600,
+
+              ///Text spacing
+              letterSpacing: 1,
             ),
           ),
         ],

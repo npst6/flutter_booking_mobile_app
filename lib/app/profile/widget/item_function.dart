@@ -3,12 +3,12 @@
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 
-///class ItemFunction extends StatelessWidget
+///ItemFunction StatelessWidget
 class ItemFunction extends StatelessWidget {
-  final Function onTap; ///
-  final String title; ///
-  final String urlSVG; ///
-  final Color color; ///
+  final Function onTap;
+  final String title;
+  final String urlSVG;
+  final Color color;
   ItemFunction({this.onTap, this.title, this.urlSVG, this.color});
   @override
   Widget build(BuildContext context) {
@@ -16,35 +16,46 @@ class ItemFunction extends StatelessWidget {
       onTap: () {
         onTap();
       },
-
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10), ///padding
+        padding: const EdgeInsets.symmetric(vertical: 10),
+
+        ///Padding
         child: Row(
           children: [
             Expanded(
               child: Row(
                 children: [
-                  SvgPicture.asset(urlSVG, width: 20, color: color), ///
-
+                  SvgPicture.asset(urlSVG, width: 20, color: color),
                   SizedBox(
                     width: 15,
                   ),
-
                   Text(
                     title,
                     style: TextStyle(
-                        fontSize: 16, ///Text size
-                        letterSpacing: 1, ///Text spacing
+                      fontSize: 16,
+
+                      ///Text size
+
+                      letterSpacing: 1,
+
+                      ///Text spacing
                     ),
                   ),
                 ],
               ),
             ),
-
             Icon(
-              Icons.arrow_forward_ios, ///Icon
-              size: 18, ///Icon size
-              color: Colors.grey, ///Icon color
+              Icons.arrow_forward_ios,
+
+              ///Icon
+
+              size: 18,
+
+              ///Icon size
+
+              color: Colors.grey,
+
+              ///Icon color
             ),
           ],
         ),
