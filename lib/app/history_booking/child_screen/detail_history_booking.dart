@@ -8,7 +8,7 @@ import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/theme/theme.dart';
 import 'package:flutter_booking_mobile_app/base/item_service.dart';
 import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
-
+import 'package:flutter_booking_mobile_app/app/booking/widget/item_details_tax.dart';
 
 /// class DetailsHistoryBookingScreen extends StatefulWidget
 class DetailsHistoryBookingScreen extends StatefulWidget {
@@ -494,45 +494,45 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                     ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // ItemDetailsTax(
-                      //   title: "Per night",
-                      //   isShowNumber: true,
-                      //   number: 1,
-                      //   price: 230.0,
-                      // ),
-                      // SizedBox(
-                      //   height: 10,
-                      // ),
-                      // ItemDetailsTax(
-                      //   title: "Car",
-                      //   isShowNumber: true,
-                      //   number: 2,
-                      //   price: 230.0,
-                      // ),
-                      // SizedBox(
-                      //   height: 10,
-                      // ),
-                      // ItemDetailsTax(
-                      //   title: "Discount",
-                      //   number: 1,
-                      //   price: -22.0,
-                      // ),
-                      // SizedBox(
-                      //   height: 10,
-                      // ),
-                      // ItemDetailsTax(
-                      //   title: "Per night",
-                      //   number: 1,
-                      //   price: 0,
-                      // ),
-                      // SizedBox(
-                      //   height: 10,
-                      // ),
-                      // ItemDetailsTax(
-                      //   title: "Per night",
-                      //   number: 1,
-                      //   price: 0,
-                      // ),
+                      ItemDetailsTax(
+                        title: "Per night",
+                        isShowNumber: true,
+                        number: 1,
+                        price: 230.0,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      ItemDetailsTax(
+                        title: "Car",
+                        isShowNumber: true,
+                        number: 2,
+                        price: 230.0,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      ItemDetailsTax(
+                        title: "Discount",
+                        number: 1,
+                        price: -22.0,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      ItemDetailsTax(
+                        title: "Per night",
+                        number: 1,
+                        price: 0,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      ItemDetailsTax(
+                        title: "Per night",
+                        number: 1,
+                        price: 0,
+                      ),
                       SizedBox(
                         height: 10,
                       ),
