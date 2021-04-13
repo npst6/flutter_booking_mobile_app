@@ -63,15 +63,21 @@ class _LoginScreenState extends State<RegisterScreen> {
     return Scaffold(
       ///App bar
       appBar: AppBar(
+        ///Background color
         backgroundColor: Colors.transparent,
 
-        ///App bar background color
-
+        ///Elevation
         elevation: 0,
 
         leading: IconButton(
           ///Icon, icon color in icon button
-          icon: Icon(Icons.keyboard_backspace, color: AppColors.buttonColor),
+          icon: Icon(
+            ///Icon
+            Icons.keyboard_backspace,
+
+            ///Icon color
+            color: AppColors.buttonColor,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },

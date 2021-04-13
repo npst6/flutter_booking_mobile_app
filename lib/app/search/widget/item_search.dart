@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/model/room.dart';
+import 'package:flutter_booking_mobile_app/app/detail_home_stay/detail_home_stay_screen.dart';
 
 ///ItemSearch StatelessWidget
 class ItemSearch extends StatelessWidget {
@@ -13,9 +14,9 @@ class ItemSearch extends StatelessWidget {
     ///GestureDetector
     return GestureDetector(
       onTap: () {
-/*        Navigator.push(context, MaterialPageRoute(builder: (context) {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
           return DetailHomeStayScreen(room); ///
-        }));*/
+        }));
       },
       child: Container(
         ///Container height
