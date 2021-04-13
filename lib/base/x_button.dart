@@ -10,7 +10,6 @@ class XButton extends StatelessWidget {
   final Function onTap;
   final Color color;
   final double height;
-
   XButton(
     this.title,
     this.onTap, {
@@ -31,7 +30,6 @@ class XButton extends StatelessWidget {
       child: Container(
         ///Container height
         height: height,
-
         decoration: BoxDecoration(
           ///Color box
           color: color,

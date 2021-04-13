@@ -18,21 +18,21 @@ import 'package:flutter_booking_mobile_app/base/flutter_show_toast.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:flutter_booking_mobile_app/remote/province_response/province_response.dart';
 
-/// Class NewRoom extends StatefulWidget
+///NewRoom StatefulWidget
 class NewRoom extends StatefulWidget {
   @override
   _NewRoomState createState() => _NewRoomState();
 }
 
-/// Class _NewRoomState extends State
+/// _NewRoomState State<>
 class _NewRoomState extends State<NewRoom> {
-  ThemeData themeData; ///
-  final _formKey = GlobalKey<FormState>(); ///
-  TextEditingController controllerName; ///
-  TextEditingController controllerDesc; ///
-  TextEditingController controllerAddress; ///
-  TextEditingController controllerFreeTime; ///
-  TextEditingController controllerCity; ///
+  ThemeData themeData;
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController controllerName;
+  TextEditingController controllerDesc;
+  TextEditingController controllerAddress;
+  TextEditingController controllerFreeTime;
+  TextEditingController controllerCity;
   int child;
   int adults;
   TextEditingController controllerPrice;
@@ -41,7 +41,6 @@ class _NewRoomState extends State<NewRoom> {
   String endDay;
   final picker = ImagePicker();
   NewRoomBloc newRoomBloc;
-
   @override
   void didChangeDependencies() {
     themeData = Provider.of<ThemeChanger>(context).getTheme();
@@ -51,7 +50,6 @@ class _NewRoomState extends State<NewRoom> {
         Navigator.pop(context);
       }
     });
-
     super.didChangeDependencies();
   }
 
@@ -81,6 +79,7 @@ class _NewRoomState extends State<NewRoom> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        ///Background color
         backgroundColor: themeData.scaffoldBackgroundColor,
         elevation: 0,
         leading: GestureDetector(
@@ -88,11 +87,17 @@ class _NewRoomState extends State<NewRoom> {
             Navigator.pop(context);
           },
           child: Padding(
+            ///Padding
             padding: const EdgeInsets.all(10),
             child: Icon(
+              ///Icon
               Icons.arrow_back_ios,
-              color: AppColors.buttonColor,
+
+              ///Icon size
               size: 15,
+
+              ///Icon color
+              color: AppColors.buttonColor,
             ),
           ),
         ),
@@ -101,17 +106,29 @@ class _NewRoomState extends State<NewRoom> {
         title: Text(
           "New Room".toUpperCase(),
           style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+            ///Text size
+            fontSize: 20,
+
+            ///Text color
+            color: Colors.black,
+
+            ///Text weight
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
+
+      ///Body
       body: Stack(
         children: [
           Padding(
+            ///Padding
             padding: const EdgeInsets.all(15),
             child: SingleChildScrollView(
               child: Form(
                 key: _formKey,
                 child: Column(
+                  ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     StreamBuilder<File>(
@@ -120,134 +137,185 @@ class _NewRoomState extends State<NewRoom> {
                           if (snapshot.hasData) {
                             file = snapshot.data;
                             return Container(
+                              ///Container height
                               height: 200,
+
+                              ///Container width
                               width: double.infinity,
                               decoration: BoxDecoration(
+                                ///Border box
                                 borderRadius: BorderRadius.circular(7),
                                 image: DecorationImage(
-                                    image: FileImage(
-                                      snapshot.data,
-                                    )),
+                                  image: FileImage(
+                                    snapshot.data,
+                                  ),
+                                ),
                               ),
                             );
                           } else
                             return Container(
+
+                                ///Container height
                                 height: 200,
+
+                                ///Container width
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                    border: Border.all(
-                                        color: Colors.grey.withOpacity(.7),
-                                        width: 2)),
+                                  ///Border box
+                                  borderRadius: BorderRadius.circular(7),
+                                  border: Border.all(
+
+                                      ///Border color
+                                      color: Colors.grey.withOpacity(.7),
+
+                                      ///Border width
+                                      width: 2),
+                                ),
                                 child: Center(
                                   child: GestureDetector(
                                     onTap: () {
                                       showGetImage(context);
                                     },
                                     child: Icon(
+                                      ///Icon
                                       Icons.image,
-                                      color: Colors.grey.withOpacity(.7),
+
+                                      ///Icon size
                                       size: 100,
+
+                                      ///Icon color
+                                      color: Colors.grey.withOpacity(.7),
                                     ),
                                   ),
                                 ));
                         }),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     Text(
                       "Name",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
-                    ),
+                        ///Text size
+                        fontSize: 15,
 
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
-
                     XTextFormField(
-                      hintText: "Name",
                       controller: controllerName,
+
+                      ///Hint text
+                      hintText: "Name",
+
+                      ///Check empty data
                       funcValidation: ValidateData.validEmpty,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.drive_file_rename_outline,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       "Description",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
-                    ),
+                        ///Text size
+                        fontSize: 15,
 
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
-
                     XTextFormField(
-                      maxLine: 4,
                       controller: controllerDesc,
+
+                      ///Hint text
                       hintText: "Description",
+
+                      ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                      maxLine: 4,
+
+                      ///Check empty data
                       funcValidation: ValidateData.validEmpty,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.note,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       "Address",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
-                    ),
+                        ///Text size
+                        fontSize: 15,
 
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
-
                     XTextFormField(
-                      hintText: "Address",
                       controller: controllerAddress,
+
+                      ///Hint text
+                      hintText: "Address",
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.comment_bank,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
+
+                      ///Check empty data
                       funcValidation: ValidateData.validEmpty,
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       "City",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
-                    ),
+                        ///Text size
+                        fontSize: 15,
 
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
-
                     StreamBuilder<List<Province>>(
                         stream: newRoomBloc.listProvinceStream,
                         builder: (context, snapshot1) {
@@ -258,99 +326,137 @@ class _NewRoomState extends State<NewRoom> {
                                   id: element.code, name: element.name));
                             });
                             return TextFieldChoose(
+                              ///Icon
                               iconData: Icons.location_on,
                               callBack: (val) {
                                 controllerCity.text = val;
                               },
+
+                              ///Hint text
                               hintText: "City",
+
+                              ///Item
                               items: items,
                             );
                           } else
                             return SizedBox();
                         }),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Row(
                       children: [
                         Expanded(
                           child: Column(
+                            ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 "Price",
                                 style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
-                                    letterSpacing: 1),
-                              ),
+                                  ///Text size
+                                  fontSize: 15,
 
+                                  ///Text spacing
+                                  letterSpacing: 1,
+
+                                  ///Text weight
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
                               const SizedBox(
                                 height: 10,
                               ),
-
                               XTextFormField(
                                 controller: controllerPrice,
+
+                                ///Hint text
                                 hintText: "0",
+
+                                ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
                                 prefixIcon: Icon(
+                                  ///Icon
                                   Icons.money,
+
+                                  ///Icon color
                                   color: AppColors.buttonColor,
                                 ),
                                 suffixIcon: Container(
                                   width: 20,
                                   child: Center(
                                       child: Text(
-                                        "đ",
-                                        style: TextStyle(
-                                            color: AppColors.buttonColor,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w900),
-                                      )),
+                                    "đ",
+                                    style: TextStyle(
+                                      ///Text color
+                                      color: AppColors.buttonColor,
+
+                                      ///Text size
+                                      fontSize: 16,
+
+                                      ///Text weight
+                                      fontWeight: FontWeight.w900,
+                                    ),
+                                  )),
                                 ),
+
+                                ///Text type phone
                                 textInputType: TextInputType.phone,
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           width: 10,
                         ),
-
                         Expanded(
                           child: Column(
+                            ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 "Discount",
                                 style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
-                                    letterSpacing: 1),
-                              ),
+                                  ///Text size
+                                  fontSize: 15,
 
+                                  ///Text weight
+                                  fontWeight: FontWeight.w500,
+
+                                  ///Text spacing
+                                  letterSpacing: 1,
+                                ),
+                              ),
                               const SizedBox(
                                 height: 10,
                               ),
-
                               XTextFormField(
                                 controller: controllerDiscountPercent,
+
+                                ///Hint text
                                 hintText: "0",
+
+                                ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
                                 prefixIcon: Container(
                                   width: 20,
                                   child: Center(
                                       child: Text(
-                                        "%",
-                                        style: TextStyle(
-                                            color: AppColors.buttonColor,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w900),
-                                      )),
+                                    "%",
+                                    style: TextStyle(
+                                      ///Text color
+                                      color: AppColors.buttonColor,
+
+                                      ///Text size
+                                      fontSize: 16,
+
+                                      ///Text weight
+                                      fontWeight: FontWeight.w900,
+                                    ),
+                                  )),
                                 ),
+
+                                ///Text type phone
                                 textInputType: TextInputType.phone,
                               ),
                             ],
@@ -358,93 +464,113 @@ class _NewRoomState extends State<NewRoom> {
                         ),
                       ],
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Row(
                       children: [
                         Expanded(
                           child: TextFieldChoose(
+                            ///Icon
                             iconData: Icons.person,
                             callBack: (val) {
                               adults = int.parse(val);
                             },
                             hintText: "Adults",
                             items: [
-                              ItemModel(id: '0', name: "0"),
-                              ItemModel(id: '1', name: "1"),
-                              ItemModel(id: '2', name: "2"),
-                              ItemModel(id: '3', name: "3"),
+                              ItemModel(id: '1', name: "01"),
+                              ItemModel(id: '2', name: "02"),
+                              ItemModel(id: '3', name: "03"),
+                              ItemModel(id: '4', name: "04"),
+                              ItemModel(id: '5', name: "05"),
+                              ItemModel(id: '6', name: "06"),
+                              ItemModel(id: '7', name: "07"),
+                              ItemModel(id: '8', name: "08"),
+                              ItemModel(id: '9', name: "09"),
+                              ItemModel(id: '10', name: "10"),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           width: 10,
                         ),
-
                         Expanded(
                           child: TextFieldChoose(
+                            ///Icon
                             iconData: Icons.person,
                             callBack: (val) {
                               child = int.parse(val);
                             },
+
+                            ///Hint text
                             hintText: "Child",
                             items: [
-                              ItemModel(id: '0', name: "0"),
-                              ItemModel(id: '1', name: "1"),
-                              ItemModel(id: '2', name: "2"),
-                              ItemModel(id: '3', name: "3"),
+                              ItemModel(id: '1', name: "01"),
+                              ItemModel(id: '2', name: "02"),
+                              ItemModel(id: '3', name: "03"),
+                              ItemModel(id: '4', name: "04"),
+                              ItemModel(id: '5', name: "05"),
+                              ItemModel(id: '6', name: "06"),
+                              ItemModel(id: '7', name: "07"),
+                              ItemModel(id: '8', name: "08"),
+                              ItemModel(id: '9', name: "09"),
+                              ItemModel(id: '10', name: "10"),
                             ],
                           ),
                         ),
                       ],
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       "Free time",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
-                    ),
+                        ///Text size
+                        fontSize: 15,
 
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+                      ),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
-
                     GestureDetector(
                       onTap: () async {
                         final List<DateTime> picked =
-                        await DateRagePicker.showDatePicker(
-                            context: context,
-                            initialFirstDate: new DateTime.now(),
-                            initialLastDate: (new DateTime.now())
-                                .add(new Duration(days: 7)),
-                            firstDate: new DateTime(2015),
-                            lastDate: new DateTime(2022));
+                            await DateRagePicker.showDatePicker(
+                                context: context,
+                                initialFirstDate: new DateTime.now(),
+                                initialLastDate: (new DateTime.now())
+                                    .add(new Duration(days: 7)),
+                                firstDate: new DateTime(2015),
+                                lastDate: new DateTime(2022));
                         if (picked != null && picked.length == 2) {
                           startDay = picked[0].toIso8601String();
                           endDay = picked[1].toIso8601String();
                           controllerFreeTime.text =
-                          "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
+                              "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
                         }
                       },
-
                       child: XTextFormField(
-                        hintText: "Time",
-                        enable: false,
                         controller: controllerFreeTime,
+                        enable: false,
+
+                        ///Hint text
+                        hintText: "Time",
                         prefixIcon: Icon(
+                          ///Icon
                           Icons.calendar_today,
+
+                          ///Icon color
                           color: AppColors.buttonColor,
                         ),
+
+                        ///Check empty data
                         funcValidation: ValidateData.validEmpty,
                       ),
                     ),
@@ -453,7 +579,6 @@ class _NewRoomState extends State<NewRoom> {
               ),
             ),
           ),
-
           StreamBuilder<UIState>(
               stream: newRoomBloc.newRoomStateStream,
               builder: (context, snapshot) {
@@ -464,9 +589,11 @@ class _NewRoomState extends State<NewRoom> {
               })
         ],
       ),
-
       bottomNavigationBar: Padding(
+        ///Padding
         padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+
+        ///Save button
         child: XButton("Save", () {
           if (_formKey.currentState.validate()) {
             try {
@@ -491,18 +618,23 @@ class _NewRoomState extends State<NewRoom> {
     );
   }
 
-  ///
   void showGetImage(BuildContext context) {
     showModalBottomSheet(
-        isScrollControlled: true, ///
-        context: context, ///
-        backgroundColor: Colors.transparent, ///
+        isScrollControlled: true,
+        context: context,
+        backgroundColor: Colors.transparent,
         builder: (context) {
           return Container(
-            height: 100, ///Container height
-            width: double.infinity, ///Container width
+            ///Container height
+            height: 100,
+
+            ///Container width
+            width: double.infinity,
             decoration: BoxDecoration(
-              color: themeData.scaffoldBackgroundColor, ///Color box
+              ///Color box
+              color: themeData.scaffoldBackgroundColor,
+
+              ///Border box
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
@@ -510,25 +642,25 @@ class _NewRoomState extends State<NewRoom> {
             ),
 
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), ///padding
+              ///Padding
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Row(
                 children: [
                   Expanded(
-                      child: XButton(
-                          "Camera",
-                              () {
-                        newRoomBloc.getImageByCamera(picker); ///
-                      })
-                  ),
 
+                      ///Button Camera
+                      child: XButton("Camera", () {
+                    newRoomBloc.getImageByCamera(picker);
+                  })),
                   SizedBox(
                     width: 10,
                   ),
-
                   Expanded(
+
+                      ///Button Library
                       child: XButton("Library", () {
-                        newRoomBloc.getImageByGallery(picker); ///
-                      })),
+                    newRoomBloc.getImageByGallery(picker);
+                  })),
                 ],
               ),
             ),

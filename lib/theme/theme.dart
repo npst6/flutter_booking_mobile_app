@@ -5,7 +5,10 @@ import 'package:flutter_booking_mobile_app/ui/color.dart';
 
 ///ChangeNotifier
 class ThemeChanger with ChangeNotifier {
+  ///Theme - ThemeData
   ThemeData themeData;
+
+  ///ThemeChanger - ThemeData
   ThemeChanger({this.themeData});
 
   ///Get theme = themeData ///one-line function

@@ -115,18 +115,17 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
                   return Container(
                     ///Container width
                     width: 40,
-
                     decoration: BoxDecoration(
+                      ///Border box
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        ///Image
+                        image: NetworkImage(snapshot.data.avatar),
 
-                        ///Border box
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          ///Image
-                          image: NetworkImage(snapshot.data.avatar),
-
-                          ///Image fit
-                          fit: BoxFit.cover,
-                        )),
+                        ///Image fit
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   );
                 } else
                   return LoadingBar();

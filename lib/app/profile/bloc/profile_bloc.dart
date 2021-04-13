@@ -10,36 +10,34 @@ import 'package:flutter_booking_mobile_app/base/base_bloc.dart';
 import 'package:flutter_booking_mobile_app/base/flutter_show_toast.dart';
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 
-///
 class ProfileBloc extends BaseBloc {
-  /// khởi tạo stream
+  ///Initialize stream
   BehaviorSubject<Account> accountStream = new BehaviorSubject();
   BehaviorSubject<UIState> accountStateStream = new BehaviorSubject();
   BehaviorSubject<File> fileIamgeStream = new BehaviorSubject();
-
   @override
   void dispose() {
-    accountStream.close(); ///
-    accountStateStream.close(); ///
-    fileIamgeStream.close(); ///
+    accountStream.close();
+    accountStateStream.close();
+    fileIamgeStream.close();
   }
 
   @override
   void init() {
-    _getAccount(); ///
+    _getAccount();
   }
 
   ///Get account
   void _getAccount() async {
     try {
-      accountStateStream.add(UIState.LOADING); ///
+      accountStateStream.add(UIState.LOADING);
       FirAuth().getUserByUID((val) {
         accountStream.add(val);
       });
-      accountStateStream.add(UIState.SUCCESS); ///
+      accountStateStream.add(UIState.SUCCESS);
     } catch (e) {
-      accountStateStream.add(UIState.ERROR); ///
-      FlutterToast().showToast(e.message); ///
+      accountStateStream.add(UIState.ERROR);
+      FlutterToast().showToast(e.message);
     }
   }
 
@@ -81,19 +79,17 @@ class ProfileBloc extends BaseBloc {
   ///Update avatar account
   void updateImageAvatar(File file) async {
     try {
-      FirebaseStorage storage = FirebaseStorage.instance; ///
-      Reference storageReference = storage.ref().child('${Path.basename(file.path)}}');
-      ///
+      FirebaseStorage storage = FirebaseStorage.instance;
+      Reference storageReference =
+          storage.ref().child('${Path.basename(file.path)}}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
           FirAuth().updateAvatar(val);
         });
       });
-      ///
-      _getAccount(); ///
+      _getAccount();
     } catch (e) {
-      FlutterToast().showToast(e.message); ///
+      FlutterToast().showToast(e.message);
     }
   }
-
 }

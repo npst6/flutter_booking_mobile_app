@@ -17,9 +17,8 @@ class ItemFunction extends StatelessWidget {
         onTap();
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-
         ///Padding
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: Row(
           children: [
             Expanded(
@@ -32,30 +31,25 @@ class ItemFunction extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
+                      ///Text size
                       fontSize: 16,
 
-                      ///Text size
-
-                      letterSpacing: 1,
-
                       ///Text spacing
+                      letterSpacing: 1,
                     ),
                   ),
                 ],
               ),
             ),
             Icon(
+              ///Icon
               Icons.arrow_forward_ios,
 
-              ///Icon
-
+              ///Icon size
               size: 18,
 
-              ///Icon size
-
-              color: Colors.grey,
-
               ///Icon color
+              color: Colors.grey,
             ),
           ],
         ),

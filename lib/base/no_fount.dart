@@ -15,11 +15,9 @@ class NoFoundWidget extends StatelessWidget {
 
       ///Container height
       height: double.infinity,
-
       child: Column(
         ///Using mainAxisAlignment in a Column will align its children vertically.
         mainAxisAlignment: MainAxisAlignment.center,
-
         children: [
           Container(
             ///Container width
@@ -44,7 +42,9 @@ class NoFoundWidget extends StatelessWidget {
             height: 10,
           ),
           Text(
+            ///Text
             title,
+            ///Text align
             textAlign: TextAlign.center,
             style: TextStyle(
               ///Text color

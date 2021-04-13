@@ -70,306 +70,254 @@ class _LoginScreenState extends State<RegisterScreen> {
         elevation: 0,
 
         leading: IconButton(
-            icon: Icon(Icons.keyboard_backspace, color: AppColors.buttonColor),
-
-            ///Icon, icon color in icon button
-
-            onPressed: () {
-              Navigator.pop(context);
-            }),
+          ///Icon, icon color in icon button
+          icon: Icon(Icons.keyboard_backspace, color: AppColors.buttonColor),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
 
       ///Body
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-
             ///Padding
-
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
             child: SingleChildScrollView(
               child: Form(
                 key: _formKey,
                 child: Column(
+                  ///Using mainAxisAlignment in a Column will align its children vertically.
                   mainAxisAlignment: MainAxisAlignment.center,
 
-                  ///Using mainAxisAlignment in a Column will align its children vertically.
-
-                  crossAxisAlignment: CrossAxisAlignment.start,
-
                   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
-
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
                       child: Text(
                         "Register Account",
                         style: TextStyle(
+                          ///Text color
                           color: AppColors.buttonColor,
 
-                          ///Text color
-
+                          ///Text weight
                           fontWeight: FontWeight.w900,
 
-                          ///Text weight
-
+                          ///Text spacing
                           letterSpacing: 1,
 
-                          ///Text spacing
-
-                          fontSize: 35,
-
                           ///Text size
+                          fontSize: 35,
                         ),
                       ),
                     ),
 
+                    ///Height between two fields
                     SizedBox(
                       height: 20,
                     ),
-
-                    ///Height between two fields
 
                     Text(
                       "Your Name",
                       style: TextStyle(
+                        ///Text weight
                         fontWeight: FontWeight.w600,
 
-                        ///Text weight
-
+                        ///Text spacing
                         letterSpacing: 1,
 
-                        ///Text spacing
-
-                        fontSize: 16,
-
                         ///Text size
+                        fontSize: 16,
                       ),
                     ),
 
+                    ///Height between two fields
                     SizedBox(
                       height: 10,
                     ),
 
-                    ///Height between two fields
-
                     XTextFormField(
-                      hintText: "Enter your full name",
-
-                      ///Hint text in name box
-
                       controller: controllerName,
 
-                      funcValidation: ValidateData.validEmpty,
+                      ///Hint text in name box
+                      hintText: "Enter your full name",
 
                       ///Check empty field
+                      funcValidation: ValidateData.validEmpty,
 
                       prefixIcon: Icon(
+                        ///Icon in name box
                         Icons.person,
 
-                        ///Icon in name box
-
-                        color: AppColors.buttonColor,
-
                         ///Icon color in name box
+                        color: AppColors.buttonColor,
                       ),
                     ),
 
+                    ///Height between name box and email text
                     SizedBox(
                       height: 20,
                     ),
-
-                    ///Height between name box and email text
 
                     Text(
                       "Your Email",
                       style: TextStyle(
+                        ///Text weight
                         fontWeight: FontWeight.w600,
 
-                        ///Text weight
-
+                        ///Text spacing
                         letterSpacing: 1,
 
-                        ///Text spacing
-
-                        fontSize: 16,
-
                         ///Text size
+                        fontSize: 16,
                       ),
                     ),
 
+                    ///Height between email text and email box
                     SizedBox(
                       height: 10,
                     ),
 
-                    ///Height between email text and email box
-
                     XTextFormField(
-                      hintText: "Enter your email (ex@gmail.com)",
-
-                      ///Hint text in email box
-
                       controller: controllerEmail,
 
-                      textInputType: TextInputType.emailAddress,
+                      ///Hint text in email box
+                      hintText: "Enter your email (ex@gmail.com)",
 
                       ///Input type email
-
-                      funcValidation: ValidateData.validEmail,
+                      textInputType: TextInputType.emailAddress,
 
                       ///Validate email
+                      funcValidation: ValidateData.validEmail,
 
                       prefixIcon: Icon(
+                        ///Icon in email box
                         Icons.mail,
 
-                        ///Icon in email box
-
-                        color: AppColors.buttonColor,
-
                         ///Icon color
+                        color: AppColors.buttonColor,
                       ),
                     ),
 
+                    ///Height between email box and phone text
                     SizedBox(
                       height: 20,
                     ),
-
-                    ///Height between email box and phone text
 
                     Text(
                       "Your Phone",
                       style: TextStyle(
+                        ///Text weight
                         fontWeight: FontWeight.w600,
 
-                        ///Text weight
-
+                        ///Text spacing
                         letterSpacing: 1,
 
-                        ///Text spacing
-
-                        fontSize: 16,
-
                         ///Text size
+                        fontSize: 16,
                       ),
                     ),
 
+                    ///Height between your phone text and phone box
                     SizedBox(
                       height: 10,
                     ),
 
-                    ///Height between your phone text and phone box
-
                     XTextFormField(
-                      hintText: "Enter your phone number",
-
-                      ///Hint text in phone box
-
-                      funcValidation: ValidateData.validEmpty,
-
-                      ///Check empty field
-
                       controller: controllerPhone,
 
-                      textInputType: TextInputType.phone,
+                      ///Hint text in phone box
+                      hintText: "Enter your phone number",
+
+                      ///Check empty field
+                      funcValidation: ValidateData.validEmpty,
 
                       ///Input type phone
+                      textInputType: TextInputType.phone,
 
                       prefixIcon: Icon(
+                        ///Icon in phone box
                         Icons.phone,
 
-                        ///Icon in phone box
-
-                        color: AppColors.buttonColor,
-
                         ///Icon color
+                        color: AppColors.buttonColor,
                       ),
                     ),
 
+                    ///Height between phone box and password text
                     SizedBox(
                       height: 20,
                     ),
 
-                    ///Height between phone box and password text
-
                     Text(
                       "Your Password",
                       style: TextStyle(
+                        ///Text weight
                         fontWeight: FontWeight.w600,
 
-                        ///Text weight
-
+                        ///Text spacing
                         letterSpacing: 1,
 
-                        ///Text spacing
-
-                        fontSize: 16,
-
                         ///Text size
+                        fontSize: 16,
                       ),
                     ),
 
+                    ///Height between password text and password box
                     SizedBox(
                       height: 10,
                     ),
 
-                    ///Height between password text and password box
-
                     XTextFormField(
-                      hintText: "Enter your password",
-
-                      ///Hint text of password box
-
                       controller: controllerPass,
 
-                      funcValidation: ValidateData.validEmpty,
+                      ///Hint text of password box
+                      hintText: "Enter your password",
 
                       ///Check empty field
+                      funcValidation: ValidateData.validEmpty,
 
+                      ///
                       obscureText: true,
+
                       prefixIcon: Icon(
+                        ///Icon in password box
                         Icons.lock,
 
-                        ///Icon in password box
-
-                        color: AppColors.buttonColor,
-
                         ///Icon color
+                        color: AppColors.buttonColor,
                       ),
                     ),
 
+                    ///Height between password box and register box
                     SizedBox(
                       height: 40,
                     ),
-
-                    ///Height between password box and register box
 
                     ///Register button
                     XButton("Register", () {
                       if (_formKey.currentState.validate()) {
                         registerBloc.register(
+                          ///Register email
                           email: controllerEmail.text,
 
-                          ///Register email
-
+                          ///Register pass
                           pass: controllerPass.text,
 
-                          ///Register pass
-
+                          ///Register name
                           name: controllerName.text,
 
-                          ///Register name
-
-                          phone: controllerPhone.text,
-
                           ///Register phone
+                          phone: controllerPhone.text,
                         );
                       }
                     }),
 
+                    ///Height between register button and page
                     SizedBox(
                       height: 15,
                     ),
-
-                    ///Height between register button and page
                   ],
                 ),
               ),

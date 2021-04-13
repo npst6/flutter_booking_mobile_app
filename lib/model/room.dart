@@ -1,7 +1,7 @@
 ///Note file room.dart
 
 /// Describe room (room ID, room name, start date book room, end date book room, room status,
-/// room number, adults number in room, children number in room, address, city, discount, money, )
+/// room number, adults number in room, children number in room, address, city, discount, money,)
 class Room {
   String nameRoom;
   String idRoom;

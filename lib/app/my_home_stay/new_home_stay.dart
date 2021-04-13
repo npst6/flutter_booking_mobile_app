@@ -1,4 +1,5 @@
-///Note
+///Note file new_home_stay.dart
+
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,14 +13,14 @@ import 'package:flutter_booking_mobile_app/base/loading_bar.dart';
 import 'package:flutter_booking_mobile_app/utils/validate_data.dart';
 import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 import 'package:flutter_booking_mobile_app/app/my_home_stay/bloc/new_home_stay_bloc.dart';
-//------------------------------------------------------------------------------
-/// class NewHomeStay extends StatefulWidget
+
+///NewHomeStay StatefulWidget
 class NewHomeStay extends StatefulWidget {
   @override
   _NewHomeStayState createState() => _NewHomeStayState();
 }
 
-/// class _NewHomeStayState extends State
+/// _NewHomeStayState State<>
 class _NewHomeStayState extends State<NewHomeStay> {
   ThemeData themeData;
   final _formKey = GlobalKey<FormState>();
@@ -109,8 +110,8 @@ class _NewHomeStayState extends State<NewHomeStay> {
                                 borderRadius: BorderRadius.circular(7),
                                 image: DecorationImage(
                                     image: FileImage(
-                                      snapshot.data,
-                                    )),
+                                  snapshot.data,
+                                )),
                               ),
                             );
                           } else
@@ -329,15 +330,15 @@ class _NewHomeStayState extends State<NewHomeStay> {
                 children: [
                   Expanded(
                       child: XButton("Camera", () {
-                        newHomeStayBloc.getImageByCamera(picker);
-                      })),
+                    newHomeStayBloc.getImageByCamera(picker);
+                  })),
                   SizedBox(
                     width: 10,
                   ),
                   Expanded(
                       child: XButton("Library", () {
-                        newHomeStayBloc.getImageByGallery(picker);
-                      })),
+                    newHomeStayBloc.getImageByGallery(picker);
+                  })),
                 ],
               ),
             ),

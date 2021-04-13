@@ -397,9 +397,9 @@ class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
             prefixIcon: widget.prefixIcon,
           )
         : DropdownButtonFormField<T>(
-            focusColor: AppColors.grey,
             value: value,
             isExpanded: true,
+            focusColor: AppColors.grey,
             icon: Icon(
               Icons.keyboard_arrow_down,
               color: widget.isPrefixIcon
@@ -465,8 +465,8 @@ class _MDropBoxTextFormFieldState<T> extends State<MDropBoxTextFormField> {
               ),
               counterStyle: TextStyle(
                 fontSize: 13,
-                fontWeight: FontWeight.w500,
                 color: Colors.black,
+                fontWeight: FontWeight.w500,
               ),
               counterText: errorText,
             ),
@@ -507,7 +507,6 @@ class _MDropDown2State extends State<MDropDown2> {
 
       ///Container weight
       width: double.infinity,
-
       decoration: BoxDecoration(
         ///Color box
         color: AppColors.grey,
@@ -518,7 +517,6 @@ class _MDropDown2State extends State<MDropDown2> {
       child: Padding(
         ///Padding
         padding: const EdgeInsets.only(left: 10, right: 10),
-
         child: Center(
           child: DropdownButton<ItemModel>(
             underline: SizedBox(),

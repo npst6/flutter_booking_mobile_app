@@ -7,25 +7,22 @@ import 'package:flutter_booking_mobile_app/base/x_button.dart';
 import 'package:flutter_booking_mobile_app/model/account.dart';
 import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 
-
-///class AccountScreen extends StatefulWidget
+///AccountScreen StatefulWidget
 class AccountScreen extends StatefulWidget {
-  final Color color; ///
-  final Account account; ///
-  final ProfileBloc profileBloc; ///
+  final Color color;
+  final Account account;
+  final ProfileBloc profileBloc;
   AccountScreen(this.color, this.account, this.profileBloc);
-  ///
   @override
   _AccountScreenState createState() => _AccountScreenState();
 }
 
-///class _AccountScreenState extends State<AccountScreen>
+/// _AccountScreenState State<>
 class _AccountScreenState extends State<AccountScreen> {
-  TextEditingController controllerEmail; ///
-  TextEditingController controllerName; ///
-  TextEditingController controllerPhone; ///
-  TextEditingController controllerPass; ///
-
+  TextEditingController controllerEmail;
+  TextEditingController controllerName;
+  TextEditingController controllerPhone;
+  TextEditingController controllerPass;
   @override
   void initState() {
     controllerEmail = new TextEditingController(text: widget.account.email);
@@ -38,59 +35,82 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.95, ///Container width
-      height: 550, ///Container height
+      ///Container width
+      width: MediaQuery.of(context).size.width * 0.95,
+
+      ///Container height
+      height: 550,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5), ///Color box shadow
-            spreadRadius: 5, ///
-            blurRadius: 7, ///
-            offset: Offset(0, 3), /// changes position of shadow
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0, 3),
           ),
         ],
-        color: widget.color, ///Color box
-        borderRadius: BorderRadius.circular(10), ///Border box
+
+        ///Color box
+        color: widget.color,
+
+        ///Border box
+        borderRadius: BorderRadius.circular(10),
       ),
 
       child: Column(
         children: [
           Container(
-            height: 50, ///Container height
-            width: double.infinity, ///Container width
+            ///Container height
+            height: 50,
+
+            ///Container width
+            width: double.infinity,
             decoration: BoxDecoration(
-                color: AppColors.buttonColor,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                ),
+              ///Color box
+              color: AppColors.buttonColor,
+
+              ///Border box
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
             ),
 
             child: Center(
               child: Text(
                 "Account",
                 style: TextStyle(
-                    fontSize: 17, ///Text size
-                    fontWeight: FontWeight.w600, ///Text weight
-                    letterSpacing: 1.2, ///Text spacing
+                  ///Text size
+                  fontSize: 17,
+
+                  ///Text weight
+                  fontWeight: FontWeight.w600,
+
+                  ///Text spacing
+                  letterSpacing: 1.2,
                 ),
               ),
             ),
           ),
-
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(15),
               child: SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start, ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+                  ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Email",
                       style: TextStyle(
-                          fontSize: 15, ///Text size
-                          fontWeight: FontWeight.w500, ///Text weight
-                          letterSpacing: 1, ///Text spacing
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+
+                        ///Text spacing
+                        letterSpacing: 1,
                       ),
                     ),
 
@@ -99,12 +119,15 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     XTextFormField(
-                      controller: controllerEmail, ///
+                      controller: controllerEmail,
                       prefixIcon: Icon(
-                        Icons.email, ///Icon email box
-                        color: AppColors.buttonColor, ///Icon color
+                        ///Icon email box
+                        Icons.email,
+
+                        ///Icon color
+                        color: AppColors.buttonColor,
                       ),
-                      enable: false, ///
+                      enable: false,
                     ),
 
                     const SizedBox(
@@ -114,9 +137,14 @@ class _AccountScreenState extends State<AccountScreen> {
                     Text(
                       "Name",
                       style: TextStyle(
-                          fontSize: 15, ///Text size
-                          fontWeight: FontWeight.w500, ///Text weight
-                          letterSpacing: 1, ///Text size
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+
+                        ///Text spacing
+                        letterSpacing: 1,
                       ),
                     ),
 
@@ -127,8 +155,11 @@ class _AccountScreenState extends State<AccountScreen> {
                     XTextFormField(
                       controller: controllerName,
                       prefixIcon: Icon(
-                        Icons.drive_file_rename_outline, ///Icon
-                        color: AppColors.buttonColor, ///Icon color
+                        ///Icon
+                        Icons.drive_file_rename_outline,
+
+                        ///Icon color
+                        color: AppColors.buttonColor,
                       ),
                     ),
 
@@ -139,9 +170,14 @@ class _AccountScreenState extends State<AccountScreen> {
                     Text(
                       "Phone number",
                       style: TextStyle(
-                        fontSize: 15, ///Text size
-                        fontWeight: FontWeight.w500, ///Text weight
-                        letterSpacing: 1, ///Text spacing
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+
+                        ///Text spacing
+                        letterSpacing: 1,
                       ),
                     ),
 
@@ -150,10 +186,13 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     XTextFormField(
-                      controller: controllerPhone, ///
+                      controller: controllerPhone,
                       prefixIcon: Icon(
-                        Icons.phone, ///Icon phone box
-                        color: AppColors.buttonColor, ///Icon color
+                        ///Icon phone box
+                        Icons.phone,
+
+                        ///Icon color
+                        color: AppColors.buttonColor,
                       ),
                     ),
 
@@ -164,9 +203,14 @@ class _AccountScreenState extends State<AccountScreen> {
                     Text(
                       "Password",
                       style: TextStyle(
-                        fontSize: 15, ///Test size
-                        fontWeight: FontWeight.w500, ///Text weight
-                        letterSpacing: 1, ///Text spacing
+                        ///Test size
+                        fontSize: 15,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+
+                        ///Text spacing
+                        letterSpacing: 1,
                       ),
                     ),
 
@@ -175,12 +219,15 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     XTextFormField(
-                      controller: controllerPass, ///
+                      controller: controllerPass,
                       prefixIcon: Icon(
-                        Icons.vpn_key, ///Icon password box
-                        color: AppColors.buttonColor, ///Icon color
+                        ///Icon password box
+                        Icons.vpn_key,
+
+                        ///Icon color
+                        color: AppColors.buttonColor,
                       ),
-                      obscureText: true, ///
+                      obscureText: true,
                     ),
 
                     const SizedBox(
