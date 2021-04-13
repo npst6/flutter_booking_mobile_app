@@ -2,7 +2,7 @@
 
 import 'dart:io';
 import 'package:rxdart/rxdart.dart';
-import 'package:path/path.dart' as Path;
+// import 'package:path/path.dart' as Path;
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_booking_mobile_app/base/base_bloc.dart';

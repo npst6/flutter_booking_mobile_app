@@ -1,5 +1,3 @@
-import 'package:flutter_booking_mobile_app/app/my_home_stay/my_home_stay_screen.dart';
-
 ///Note file profile_screen.dart
 
 import 'bloc/profile_bloc.dart';
@@ -15,6 +13,8 @@ import 'package:flutter_booking_mobile_app/model/account.dart';
 import 'package:flutter_booking_mobile_app/base/base_bloc.dart';
 import 'package:flutter_booking_mobile_app/base/loading_bar.dart';
 import 'package:flutter_booking_mobile_app/app/profile/widget/account_screen.dart';
+import 'package:flutter_booking_mobile_app/app/my_home_stay/my_home_stay_screen.dart';
+import 'package:flutter_booking_mobile_app/app/history_booking/history_booking_screen.dart';
 
 ///ProfileScreen StatefulWidget
 class ProfileScreen extends StatefulWidget {
@@ -242,7 +242,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         color: themeData.textSelectionColor,
                                         urlSVG: "assets/svg/history.svg",
                                         title: "Transaction history",
-                                        onTap: () {},
+                                        onTap: () {
+                                          Navigator.push(context,
+                                              MaterialPageRoute(
+                                                  builder: (context) {
+                                            return HistoryBookingScreen();
+                                          }));
+                                        },
                                       ),
                                       StreamBuilder<Account>(
                                           stream: profileBloc.accountStream,
@@ -279,8 +285,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ///StreamBuilder
               StreamBuilder<Account>(
                   stream: profileBloc.accountStream,
-
-                  ///Builder
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return ItemAvatar(

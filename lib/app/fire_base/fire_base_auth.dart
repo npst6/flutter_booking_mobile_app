@@ -11,9 +11,8 @@ import 'package:flutter_booking_mobile_app/base/flutter_show_toast.dart';
 
 ///Declare firebase
 class FirAuth {
-  final FirebaseAuth _fireBaseAuth = FirebaseAuth.instance; ///
-  final fireStoreInstance = FirebaseFirestore.instance; ///
-
+  final FirebaseAuth _fireBaseAuth = FirebaseAuth.instance;
+  final fireStoreInstance = FirebaseFirestore.instance;
   ///SignUp account
   void signUp(String email, String pass, String name, String phone,
       Function onSuccess, Function(String) onRegisterError) async {
@@ -31,11 +30,7 @@ class FirAuth {
   }
 
   ///Create information user by User ID
-  _createUser(
-      String userId,
-      String name,
-      String phone,
-      String email,
+  _createUser(String userId, String name, String phone, String email,
       Function onSuccess, Function(String) onRegisterError) {
     fireStoreInstance.collection("users").doc(userId).set({
       "name": name,
@@ -50,7 +45,7 @@ class FirAuth {
       onSuccess();
     });
 
-    /// tạo lịch sử giao dịch
+    ///Create transaction history
     fireStoreInstance
         .collection("transaction_history")
         .doc(userId)
@@ -58,16 +53,6 @@ class FirAuth {
         .add({}).then((_) {
       print("success!");
     });
-//    var ref = FirebaseDatabase.instance.reference().child("users");
-//    ref.child(userId).set(user).then((vl) {
-//      print("on value: SUCCESSED");
-//      onSuccess();
-//    }).catchError((err) {
-//      print("err: " + err.toString());
-//      onRegisterError("SignUp fail, please try again");
-//    }).whenComplete(() {
-//      print("completed");
-//    });
   }
 
   ///(SignUp account)
@@ -163,9 +148,16 @@ class FirAuth {
   }
 
 
-
-
-
+  ///Update status room by ID room
+  void updateStatusRoomById(int status, String id, Function success) {
+    fireStoreInstance
+        .collection("room")
+        .doc(id)
+        .update({"status": status}).then((_) {
+      success();
+      FlutterToast().showToast("Success");
+    });
+  }
 
   ///Delete room
   void deleteRoomById(String id, Function success, Function error) {
@@ -177,8 +169,6 @@ class FirAuth {
       FlutterToast().showToast(e.message);
     });
   }
-
-
 
   ///Get home stay
   void getHomeStay(Function callBack) async {
@@ -205,18 +195,6 @@ class FirAuth {
     });
   }
 
-  ///Get room by ID
-  void getRoomById(Function callBack, String id) async {
-    await fireStoreInstance.collection("room").get().then((querySnapshot) {
-      querySnapshot.docs.forEach((element) {
-        if (id == element.id) {
-          Room room = Room.formJson(element.data(), element.id);
-          callBack(room);
-        }
-      });
-    });
-  }
-
   ///Get list account
   void getListAccount(Function callBack) async {
     List<Account> listAccount = [];
@@ -229,26 +207,7 @@ class FirAuth {
     callBack(listAccount);
   }
 
-  ///Get room list
-  void getListTransaction(Function callBack) async {
-    var firebaseUser = FirebaseAuth.instance.currentUser;
-    List<Transactions> listTransaction = [];
-    await fireStoreInstance.collection("order").get().then((querySnapshot) {
-      querySnapshot.docs.forEach((element) {
-        if (element.data()["id_user"] == firebaseUser.uid) {
-          try {
-            listTransaction
-                .add(Transactions.formJson(element.data(), element.id));
-          } catch (e) {
-            print(e);
-          }
-        }
-      });
-    });
-    callBack(listTransaction);
-  }
-
-  /// cập nhật quyền cho user
+  ///Update permissions account
   void updatePermissionAccount(String uid, int permission) {
     fireStoreInstance
         .collection("users")
@@ -269,17 +228,6 @@ class FirAuth {
     });
   }
 
-  ///Update status room by ID room
-  void updateStatusRoomById(int status, String id, Function success) {
-    fireStoreInstance
-        .collection("room")
-        .doc(id)
-        .update({"status": status}).then((_) {
-      success();
-      FlutterToast().showToast("Success");
-    });
-  }
-
   ///Update avatar
   void updateAvatar(String url) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
@@ -291,7 +239,34 @@ class FirAuth {
     });
   }
 
-  ///Update status order room
+  ///Create order
+  void createOrder(
+      String idRoom,
+      String checkIn,
+      String checkOut,
+      int night,
+      int numberRoom,
+      double totalPrice,
+      Function onSuccess,
+      Function(String) onRegisterError) {
+    final firebaseUser = FirebaseAuth.instance.currentUser;
+    fireStoreInstance.collection("order").add({
+      "id_user": firebaseUser.uid,
+      "id_room": idRoom,
+      "check_in": checkIn,
+      "check_out": checkOut,
+      "night": night,
+      "status": 0,
+      'number_room': numberRoom,
+      "total_price": totalPrice,
+      'create_day': DateTime.now().toIso8601String()
+    }).then((e) {
+      onSuccess();
+      FlutterToast().showToast("Success");
+    });
+  }
+
+  ///Update status order
   void updateOrderStatus(int status, String id, Function success) {
     fireStoreInstance
         .collection("order")
@@ -331,34 +306,7 @@ class FirAuth {
     });
   }
 
-  ///Create order book room
-  void createOrder(
-      String idRoom,
-      String checkIn,
-      String checkOut,
-      int night,
-      int numberRoom,
-      double totalPrice,
-      Function onSuccess,
-      Function(String) onRegisterError) {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
-    fireStoreInstance.collection("order").add({
-      "id_user": firebaseUser.uid,
-      "id_room": idRoom,
-      "check_in": checkIn,
-      "check_out": checkOut,
-      "night": night,
-      "status": 0,
-      'number_room': numberRoom,
-      "total_price": totalPrice,
-      'create_day': DateTime.now().toIso8601String()
-    }).then((e) {
-      onSuccess();
-      FlutterToast().showToast("Success");
-    });
-  }
-
-  ///update home stay
+  ///Update home stay
   void updateMyHomeStay(
       String urlImage,
       String name,
@@ -415,36 +363,43 @@ class FirAuth {
     });
   }
 
-  ///Search room
-  void searchRoom(
-      int numberRoom,
+  ///Create new room
+  void createNewRoom(
+      String urlImage,
+      String name,
       String startDay,
       String endDay,
-      String city,
-      double moneyStart,
-      double moneyEnd,
       int adults,
       int child,
-      Function(List<Room>) callBack) async {
-    try {
-      List<Room> listRooms = [];
-      var result = await fireStoreInstance
-          .collection("room")
-          .where("status", isEqualTo: 2)
-          .where("city", isEqualTo: city.toLowerCase())
-          .where("number_adults", isEqualTo: adults)
-          .where("number_child", isEqualTo: child)
-          .get();
-      result.docs.forEach((element) {
-        if (element.data()["money"] >= moneyStart &&
-            element.data()["money"] <= moneyEnd &&
-            element.data()["number_room"] >= numberRoom)
-          listRooms.add(Room.formJson(element.data(), element.id));
-      });
-      callBack(listRooms);
-    } catch (e) {
-      print(e);
-    }
+      String address,
+      String city,
+      String desc,
+      double price,
+      double discount,
+      Function onSuccess,
+      Function(String) onRegisterError) {
+    final firebaseUser = FirebaseAuth.instance.currentUser;
+    fireStoreInstance.collection("room").add({
+      'name_room': name.toLowerCase(),
+      'start_day': startDay,
+      'end_day': endDay,
+      'status': 1,
+      'number_room': 2,
+      "number_adults": adults,
+      'number_child': child,
+      'address': address,
+      'city': city.toLowerCase(),
+      'desc': desc,
+      'create_day': DateTime.now().toIso8601String(),
+      'money': price,
+      "id_hotel": firebaseUser.uid,
+      'url_image': urlImage,
+      'service': [1, 2, 3, 4],
+      'discount': discount,
+    }).then((e) {
+      onSuccess();
+      FlutterToast().showToast("Success");
+    });
   }
 
   ///Update room
@@ -487,42 +442,15 @@ class FirAuth {
     });
   }
 
-  ///Create new room
-  void createNewRoom(
-      String urlImage,
-      String name,
-      String startDay,
-      String endDay,
-      int adults,
-      int child,
-      String address,
-      String city,
-      String desc,
-      double price,
-      double discount,
-      Function onSuccess,
-      Function(String) onRegisterError) {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
-    fireStoreInstance.collection("room").add({
-      'name_room': name.toLowerCase(),
-      'start_day': startDay,
-      'end_day': endDay,
-      'status': 1,
-      'number_room': 2,
-      "number_adults": adults,
-      'number_child': child,
-      'address': address,
-      'city': city.toLowerCase(),
-      'desc': desc,
-      'create_day': DateTime.now().toIso8601String(),
-      'money': price,
-      "id_hotel": firebaseUser.uid,
-      'url_image': urlImage,
-      'service': [1, 2, 3, 4],
-      'discount': discount,
-    }).then((e) {
-      onSuccess();
-      FlutterToast().showToast("Success");
+  ///Get room by ID
+  void getRoomById(Function callBack, String id) async {
+    await fireStoreInstance.collection("room").get().then((querySnapshot) {
+      querySnapshot.docs.forEach((element) {
+        if (id == element.id) {
+          Room room = Room.formJson(element.data(), element.id);
+          callBack(room);
+        }
+      });
     });
   }
 
@@ -562,8 +490,55 @@ class FirAuth {
     }
   }
 
+  ///Search room
+  void searchRoom(
+      int numberRoom,
+      String startDay,
+      String endDay,
+      String city,
+      double moneyStart,
+      double moneyEnd,
+      int adults,
+      int child,
+      Function(List<Room>) callBack) async {
+    try {
+      List<Room> listRooms = [];
+      var result = await fireStoreInstance
+          .collection("room")
+          .where("status", isEqualTo: 2)
+          .where("city", isEqualTo: city.toLowerCase())
+          .where("number_adults", isEqualTo: adults)
+          .where("number_child", isEqualTo: child)
+          .get();
+      result.docs.forEach((element) {
+        if (element.data()["money"] >= moneyStart &&
+            element.data()["money"] <= moneyEnd &&
+            element.data()["number_room"] >= numberRoom)
+          listRooms.add(Room.formJson(element.data(), element.id));
+      });
+      callBack(listRooms);
+    } catch (e) {
+      print(e);
+    }
+  }
 
-
-
+  ///Get list transaction
+  void getListTransaction(Function callBack) async {
+    var firebaseUser = FirebaseAuth.instance.currentUser;
+    List<Transactions> listTransaction = [];
+    await fireStoreInstance.collection("order").get().then((querySnapshot) {
+      querySnapshot.docs.forEach((element) {
+        if (element.data()["id_user"] == firebaseUser.uid) {
+          try {
+            listTransaction
+                .add(Transactions.formJson(element.data(), element.id));
+          } catch (e) {
+            print(e);
+          }
+        }
+      });
+    });
+    callBack(listTransaction);
+  }
 
 }

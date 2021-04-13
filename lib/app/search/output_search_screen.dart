@@ -40,9 +40,8 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
         ///Background color
         backgroundColor: themeData.scaffoldBackgroundColor,
 
-        ///
+        ///Elevation
         elevation: 0,
-
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
@@ -83,6 +82,7 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
 
         centerTitle: true,
 
+        ///Title
         title: Text(
           ///toUpperCase
           "Search".toUpperCase(),
@@ -108,8 +108,6 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
             padding: const EdgeInsets.all(8.0),
             child: StreamBuilder<Account>(
               stream: widget.homeBloc.accountStream,
-
-              ///Builder
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return Container(

@@ -144,7 +144,7 @@ class ItemSearch extends StatelessWidget {
                                 ///Container width
                                 width: 150,
                                 child: Text(
-                                  ///Text address, city from room
+                                  ///Text
                                   "${room.address}, ${room.city}".toUpperCase(),
 
                                   ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
