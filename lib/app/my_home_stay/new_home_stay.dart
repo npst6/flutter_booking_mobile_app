@@ -116,22 +116,32 @@ class _NewHomeStayState extends State<NewHomeStay> {
                             );
                           } else
                             return Container(
+
+                                ///Container height
                                 height: 200,
+
+                                ///Container width
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                    border: Border.all(
-                                        color: Colors.grey.withOpacity(.7),
-                                        width: 2)),
+                                  borderRadius: BorderRadius.circular(7),
+                                  border: Border.all(
+                                      color: Colors.grey.withOpacity(.7),
+                                      width: 2),
+                                ),
                                 child: Center(
                                   child: GestureDetector(
                                     onTap: () {
                                       showGetImage(context);
                                     },
                                     child: Icon(
+                                      ///Icon
                                       Icons.image,
-                                      color: Colors.grey.withOpacity(.7),
+
+                                      ///Icon size
                                       size: 100,
+
+                                      ///Icon color
+                                      color: Colors.grey.withOpacity(.7),
                                     ),
                                   ),
                                 ));
@@ -142,19 +152,32 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     Text(
                       "Name",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     XTextFormField(
-                      hintText: "Name",
                       controller: controllerName,
+
+                      ///Hint text
+                      hintText: "Name",
+
+                      ///Check empty data
                       funcValidation: ValidateData.validEmpty,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.drive_file_rename_outline,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
                     ),
@@ -164,22 +187,37 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     Text(
                       "Phone number",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     XTextFormField(
                       controller: controllerPhone,
+
+                      ///Hint text
                       hintText: "Phone",
+
+                      ///Text type phone
+                      textInputType: TextInputType.phone,
+
+                      ///CHeck empty data
                       funcValidation: ValidateData.validEmpty,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.phone,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
-                      textInputType: TextInputType.phone,
                     ),
                     const SizedBox(
                       height: 15,
@@ -191,9 +229,15 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       child: Text(
                         "Account Bank".toUpperCase(),
                         style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 18,
-                            letterSpacing: 1.5),
+                          ///Text size
+                          fontSize: 18,
+
+                          ///Text spacing
+                          letterSpacing: 1.5,
+
+                          ///Text weight
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -214,21 +258,34 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     Text(
                       "Bank name",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     XTextFormField(
                       controller: controllerBankName,
+
+                      ///Hint text
                       hintText: "Bank name",
+
+                      ///Check empty data
+                      funcValidation: ValidateData.validEmpty,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.comment_bank,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
-                      funcValidation: ValidateData.validEmpty,
                     ),
                     const SizedBox(
                       height: 15,
@@ -236,22 +293,37 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     Text(
                       "Account number",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     XTextFormField(
                       controller: controllerNumberBank,
+
+                      ///Hint text
                       hintText: "Number",
+
+                      ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///Text type phone
+                      textInputType: TextInputType.phone,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.phone,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
-                      textInputType: TextInputType.phone,
                     ),
                     const SizedBox(
                       height: 15,
@@ -259,9 +331,15 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     Text(
                       "Account name",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
@@ -270,9 +348,14 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       controller: controllerAccountBankName,
                       hintText: "Account name",
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.drive_file_rename_outline,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
+
+                      ///Check empty data
                       funcValidation: ValidateData.validEmpty,
                     ),
                     const SizedBox(
@@ -312,19 +395,25 @@ class _NewHomeStayState extends State<NewHomeStay> {
 
   void showGetImage(BuildContext context) {
     showModalBottomSheet(
-        isScrollControlled: true,
         context: context,
+        isScrollControlled: true,
         backgroundColor: Colors.transparent,
         builder: (context) {
           return Container(
+            ///Container height
             height: 100,
+
+            ///Container width
             width: double.infinity,
             decoration: BoxDecoration(
-                color: themeData.scaffoldBackgroundColor,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10))),
+              color: themeData.scaffoldBackgroundColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+            ),
             child: Padding(
+              ///Padding
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Row(
                 children: [

@@ -1,4 +1,5 @@
-/// Note
+/// Note file home_bloc.dart
+
 import 'package:rxdart/rxdart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,14 +13,15 @@ import 'package:flutter_booking_mobile_app/base/flutter_show_toast.dart';
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 import 'package:flutter_booking_mobile_app/remote/province_response/province_response.dart';
 
-///
+///HomeBloc extends BaseBloc
 class HomeBloc extends BaseBloc {
-  /// khai báo stream để lắng nghe kết quả trả về
+  ///Declare stream to listen to the results returned
   BehaviorSubject<Account> accountStream = new BehaviorSubject();
   BehaviorSubject<UIState> searchStateStream = new BehaviorSubject();
   BehaviorSubject<List<Room>> listRoomStream = new BehaviorSubject();
   BehaviorSubject<List<Province>> listProvinceStream = new BehaviorSubject();
-  /// hàm clean
+
+  ///Clean
   @override
   void dispose() {
     accountStream.close();
@@ -27,13 +29,13 @@ class HomeBloc extends BaseBloc {
     listProvinceStream.close();
     searchStateStream.close();
   }
-  /// Note
+
   @override
   void init() {
     getAccount();
     _getProvince();
   }
-  /// Note
+
   void _getProvince() async {
     try {
       listProvinceStream.add([]);
@@ -60,16 +62,15 @@ class HomeBloc extends BaseBloc {
       searchStateStream.add(UIState.LOADING);
       FirAuth().searchRoom(numberRoom, startDay, endDay, city, moneyStart,
           moneyEnd, adults, child, (val) {
-            searchStateStream.add(UIState.SUCCESS);
-            listRoomStream.add(val);
-          });
+        searchStateStream.add(UIState.SUCCESS);
+        listRoomStream.add(val);
+      });
     } catch (e) {
       searchStateStream.add(UIState.ERROR);
       FlutterToast().showToast(e.message);
     }
   }
 
-  /// Note
   void check(BuildContext context, int active) {
     if (active == 0) {
       showDialog(
@@ -78,50 +79,70 @@ class HomeBloc extends BaseBloc {
           backgroundColor: Colors.transparent,
           body: Center(
             child: Container(
+              ///Container height
               height: 150,
+
+              ///Container width
               width: 200,
               decoration: BoxDecoration(
+                ///Color box
                 color: Colors.white,
+
+                ///Border box
                 borderRadius: BorderRadius.circular(7),
               ),
               child: Padding(
+                ///Padding
                 padding: const EdgeInsets.fromLTRB(10, 20, 10, 15),
                 child: Column(
+                  ///Using mainAxisAlignment in a Column will align its children vertically.
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally (left, right).
-                  ///Using mainAxisAlignment in a Column will align its children vertically (top, bottom).
                   children: [
                     Text(
                       "Logout",
                       style: TextStyle(
-                          fontWeight: FontWeight.w900,  ///Font size
-                          fontSize: 18, ///Font size
-                          letterSpacing: 1),
+                        ///Font size
+                        fontSize: 18,
+
+                        ///Font weight
+                        fontWeight: FontWeight.w900,
+
+                        ///Font spacing
+                        letterSpacing: 1,
+                      ),
                     ),
                     Text(
                       "Do you want to log out?",
-                      ),
+                    ),
                     Row(
                       children: [
+                        ///Cancel button
                         Expanded(
                           child: XButton(
-                            "Cancel", () {Navigator.pop(context);},
+                            "Cancel",
+                            () {
+                              Navigator.pop(context);
+                            },
+
+                            ///Color button
                             color: Colors.grey,
                           ),
                         ),
                         SizedBox(
                           width: 10,
                         ),
+
+                        ///Ok button
                         Expanded(
                           child: XButton(
                             "OK",
-                                () {
+                            () {
                               FirAuth().signOut();
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
-                                    return LoginScreen();
-                                  }));
-                              },
+                                return LoginScreen();
+                              }));
+                            },
                           ),
                         ),
                       ],
@@ -135,7 +156,8 @@ class HomeBloc extends BaseBloc {
       );
     }
   }
-  /// Note
+
+  ///Get account from firebase
   void getAccount() async {
     try {
       FirAuth().getUserByUID((Account val) {

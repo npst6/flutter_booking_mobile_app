@@ -16,23 +16,29 @@ class ForgotPassScreen extends StatefulWidget {
 
 /// _LoginScreenState State<>
 class _LoginScreenState extends State<ForgotPassScreen> {
-  TextEditingController controllerEmail; ///
-  final _formKey = GlobalKey<FormState>(); ///
-
+  TextEditingController controllerEmail;
+  final _formKey = GlobalKey<FormState>();
   @override
   void initState() {
-    controllerEmail = new TextEditingController(); ///
-    super.initState(); ///
+    controllerEmail = new TextEditingController();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent, ///Background color
-        elevation: 0, ///
+        ///Background color
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         leading: IconButton(
-            icon: Icon(Icons.keyboard_backspace, color: AppColors.buttonColor), ///Icon, icon color of icon button
+            icon: Icon(
+              ///Icon
+              Icons.keyboard_backspace,
+
+              ///Icon color
+              color: AppColors.buttonColor,
+            ),
             onPressed: () {
               Navigator.pop(context);
             }),
@@ -40,71 +46,89 @@ class _LoginScreenState extends State<ForgotPassScreen> {
 
       ///body
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 35, 20, 20), ///padding
+        ///Padding
+        padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,    ///Using mainAxisAlignment in a Column will align its children vertically.
-            crossAxisAlignment: CrossAxisAlignment.start,   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+            ///Using mainAxisAlignment in a Column will align its children vertically.
+            mainAxisAlignment: MainAxisAlignment.center,
+
+            ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
                 child: Text(
                   "Forgot Password",
                   style: TextStyle(
-                    fontSize: 35,                 ///Text size
-                    letterSpacing: 1,             ///Text spacing
-                    fontWeight: FontWeight.w900,  ///Text weight
-                    color: AppColors.buttonColor, ///Text color
+                    ///Text size
+                    fontSize: 35,
+
+                    ///Text spacing
+                    letterSpacing: 1,
+
+                    ///Text weight
+                    fontWeight: FontWeight.w900,
+
+                    ///Text color
+                    color: AppColors.buttonColor,
                   ),
                 ),
               ),
-
               SizedBox(
                 height: 100,
               ),
-
               Text(
                 "Your Email",
                 style: TextStyle(
-                  fontSize: 16,                 ///Text size
-                  letterSpacing: 1,             ///Text spacing
-                  fontWeight: FontWeight.w600,  ///Text weight
+                  ///Text size
+                  fontSize: 16,
+
+                  ///Text spacing
+                  letterSpacing: 1,
+
+                  ///Text weight
+                  fontWeight: FontWeight.w600,
                 ),
               ),
-
               SizedBox(
                 height: 10,
               ),
-
               Form(
-                key: _formKey,  ///
+                key: _formKey,
                 child: XTextFormField(
-                  hintText: "Enter your email (ex@gmail.com)",  ///Hint text
-                  controller: controllerEmail,                  ///
-                  textInputType: TextInputType.emailAddress,    ///
-                  funcValidation: ValidateData.validEmail,      ///Validate email
+                  controller: controllerEmail,
+
+                  ///Hint text
+                  hintText: "Enter your email (ex@gmail.com)",
+
+                  ///Text type email address
+                  textInputType: TextInputType.emailAddress,
+
+                  ///Validate email
+                  funcValidation: ValidateData.validEmail,
                   prefixIcon: Icon(
-                    Icons.mail,                                 ///Icon email in form
-                    color: AppColors.buttonColor,               ///Icon color in form
+                    ///Icon
+                    Icons.mail,
+
+                    ///Icon color
+                    color: AppColors.buttonColor,
                   ),
                 ),
               ),
-
               SizedBox(
                 height: 20,
               ),
-
               SizedBox(
                 height: 40,
               ),
 
+              ///Send button
               XButton("Send", () {
                 if (_formKey.currentState.validate()) {
                   FirAuth().forgotPassWordByEmail(
-                      controllerEmail.text, () {}, (val) {}
-                  );
+                      controllerEmail.text, () {}, (val) {});
                 }
               }),
-
               SizedBox(
                 height: 15,
               ),

@@ -1,4 +1,5 @@
-///Note
+///Note file edit_room_bloc.dart
+
 import 'dart:io';
 import 'package:rxdart/rxdart.dart';
 import 'package:path/path.dart' as Path;
@@ -9,10 +10,9 @@ import 'package:flutter_booking_mobile_app/remote/remote_manager.dart';
 import 'package:flutter_booking_mobile_app/base/flutter_show_toast.dart';
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 import 'package:flutter_booking_mobile_app/remote/province_response/province_response.dart';
-//------------------------------------------------------------------------------
 
+///EditRoomBloc extends BaseBloc
 class EditRoomBloc extends BaseBloc {
-  /// khởi tạo stream
   BehaviorSubject<UIState> editRoomStateStream = new BehaviorSubject();
   BehaviorSubject<File> fileImageStream = new BehaviorSubject();
   BehaviorSubject<List<Province>> listProvinceStream = new BehaviorSubject();
@@ -29,18 +29,7 @@ class EditRoomBloc extends BaseBloc {
     _getProvince();
   }
 
-  /// lấy hình ảnh từ thư viện
-  void getImageByGallery(ImagePicker picker) async {
-    try {
-      final pickedFile = await picker.getImage(source: ImageSource.gallery);
-      File _file = File(pickedFile.path);
-      fileImageStream.add(_file);
-    } catch (e) {
-      FlutterToast().showToast(e.message);
-    }
-  }
-
-  /// lấy danh sách tỉnh
+  ///Get list trỉnh
   void _getProvince() async {
     try {
       listProvinceStream.add([]);
@@ -51,7 +40,18 @@ class EditRoomBloc extends BaseBloc {
     }
   }
 
-  /// lấy ảnh từ camera
+  ///Get image from library
+  void getImageByGallery(ImagePicker picker) async {
+    try {
+      final pickedFile = await picker.getImage(source: ImageSource.gallery);
+      File _file = File(pickedFile.path);
+      fileImageStream.add(_file);
+    } catch (e) {
+      FlutterToast().showToast(e.message);
+    }
+  }
+
+  ///Get image from camera
   void getImageByCamera(ImagePicker picker) async {
     try {
       final pickedFile = await picker.getImage(source: ImageSource.camera);
@@ -62,7 +62,7 @@ class EditRoomBloc extends BaseBloc {
     }
   }
 
-  /// xóa phòng by Id
+  ///Delete room by Id
   void deleteRoomById(String id) {
     try {
       editRoomStateStream.add(UIState.LOADING);
@@ -77,7 +77,7 @@ class EditRoomBloc extends BaseBloc {
     }
   }
 
-  /// thêm phòng
+  ///Add room
   void addRoom(
       File file,
       String name,

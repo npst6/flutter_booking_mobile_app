@@ -1,3 +1,5 @@
+///Note file edit_home_stay_bloc.dart
+
 import 'dart:io';
 import 'package:rxdart/rxdart.dart';
 import 'package:path/path.dart' as Path;
@@ -6,13 +8,11 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_booking_mobile_app/base/base_bloc.dart';
 import 'package:flutter_booking_mobile_app/base/flutter_show_toast.dart';
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
-//------------------------------------------------------------------------------
-///
+
+///EditHomeStayBloc extends BaseBloc
 class EditHomeStayBloc extends BaseBloc {
-  /// khởi tạo stream
   BehaviorSubject<UIState> editHomeStayStateStream = new BehaviorSubject();
   BehaviorSubject<File> fileImageStream = new BehaviorSubject();
-  ///
 
   @override
   void dispose() {
@@ -20,13 +20,34 @@ class EditHomeStayBloc extends BaseBloc {
     fileImageStream.close();
   }
 
-  ///
   @override
   void init() {
     getMyHomeStay();
   }
 
-  /// lấy danh sách home sstay
+  ///Get image from library
+  void getImageByGallery(ImagePicker picker) async {
+    try {
+      final pickedFile = await picker.getImage(source: ImageSource.gallery);
+      File _file = File(pickedFile.path);
+      fileImageStream.add(_file);
+    } catch (e) {
+      FlutterToast().showToast(e.message);
+    }
+  }
+
+  ///Get image from camera
+  void getImageByCamera(ImagePicker picker) async {
+    try {
+      final pickedFile = await picker.getImage(source: ImageSource.camera);
+      File _file = File(pickedFile.path);
+      fileImageStream.add(_file);
+    } catch (e) {
+      FlutterToast().showToast(e.message);
+    }
+  }
+
+  ///Get list home stay
   void getMyHomeStay() async {
     try {
       editHomeStayStateStream.add(UIState.LOADING);
@@ -38,36 +59,14 @@ class EditHomeStayBloc extends BaseBloc {
     }
   }
 
-  /// get hình ảnh từ thư viện
-  void getImageByGallery(ImagePicker picker) async {
-    try {
-      final pickedFile = await picker.getImage(source: ImageSource.gallery);
-      File _file = File(pickedFile.path);
-      fileImageStream.add(_file);
-    } catch (e) {
-      FlutterToast().showToast(e.message);
-    }
-  }
-
-  /// láy hình từ camera
-  void getImageByCamera(ImagePicker picker) async {
-    try {
-      final pickedFile = await picker.getImage(source: ImageSource.camera);
-      File _file = File(pickedFile.path);
-      fileImageStream.add(_file);
-    } catch (e) {
-      FlutterToast().showToast(e.message);
-    }
-  }
-
-  /// chỉnh sửa home stay  có hình ảnh
+  ///Edit home stay have image
   void editHomeStayHaveFile(File file, String name, String phone,
       String bankName, String bankNumber, String accountName) async {
     editHomeStayStateStream.add(UIState.LOADING);
     try {
       FirebaseStorage storage = FirebaseStorage.instance;
       Reference storageReference =
-      storage.ref().child('${Path.basename(file.path)}}');
+          storage.ref().child('${Path.basename(file.path)}}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
           FirAuth().createMyHomeStay(
@@ -86,7 +85,7 @@ class EditHomeStayBloc extends BaseBloc {
     }
   }
 
-  /// chỉnh sửa home stay không hình ảnh
+  ///Edit home stay don't have image
   void editHomeStayNotFile(String urlImage, String name, String phone,
       String bankName, String bankNumber, String accountName) async {
     editHomeStayStateStream.add(UIState.LOADING);

@@ -1,19 +1,20 @@
-///Note
+///Note file my_home_stay_bloc.dart
+
 import 'package:rxdart/rxdart.dart';
 import 'package:flutter_booking_mobile_app/model/room.dart';
 import 'package:flutter_booking_mobile_app/base/base_bloc.dart';
 import 'package:flutter_booking_mobile_app/model/my_home_stay.dart';
 import 'package:flutter_booking_mobile_app/base/flutter_show_toast.dart';
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
-//------------------------------------------------------------------------------
-///
+
+///HomeStayBloc extends BaseBloc
 class HomeStayBloc extends BaseBloc {
-  /// khai báo stream để lắng nghe kết quả trả về
+  ///Declare stream to listen to the results returned
   BehaviorSubject<MyHomeStay> myHomeStayStream = new BehaviorSubject();
   BehaviorSubject<UIState> myHomeStayStateStream = new BehaviorSubject();
   BehaviorSubject<List<Room>> listRoomStream = new BehaviorSubject();
 
-  /// clean
+  ///Clean
   @override
   void dispose() {
     myHomeStayStream.close();
@@ -27,7 +28,7 @@ class HomeStayBloc extends BaseBloc {
     getMyRoom();
   }
 
-  /// đây là hàm thực thi   lấy các home stay
+  ///Get home stay
   void getMyHomeStay() async {
     try {
       myHomeStayStateStream.add(UIState.LOADING);
@@ -41,7 +42,7 @@ class HomeStayBloc extends BaseBloc {
     }
   }
 
-  /// hàm lấy các phòng
+  ///Get room
   void getMyRoom() async {
     try {
       listRoomStream.add([]);

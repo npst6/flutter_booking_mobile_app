@@ -114,6 +114,17 @@ class FirAuth {
     });
   }
 
+  ///Update password
+  void updatePassword(String pass) {
+    var user = FirebaseAuth.instance.currentUser;
+    user
+        .updatePassword(pass)
+        .then((value) => FlutterToast().showToast("Changer pass success"))
+        .catchError((e) {
+      FlutterToast().showToast(e.code);
+    });
+  }
+
   ///Forgot password
   void forgotPassWordByEmail(
       String email, Function onSuccess, Function(String) onSignInError) {
@@ -156,7 +167,7 @@ class FirAuth {
 
 
 
-  /// xóa phòng
+  ///Delete room
   void deleteRoomById(String id, Function success, Function error) {
     fireStoreInstance.collection("room").doc(id).delete().then((_) {
       success();
@@ -167,18 +178,9 @@ class FirAuth {
     });
   }
 
-  ///
-  void updatePassword(String pass) {
-    var user = FirebaseAuth.instance.currentUser;
-    user
-        .updatePassword(pass)
-        .then((value) => FlutterToast().showToast("Changer pass success"))
-        .catchError((e) {
-      FlutterToast().showToast(e.code);
-    });
-  }
 
-  /// láy homestay
+
+  ///Get home stay
   void getHomeStay(Function callBack) async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
     await fireStoreInstance.collection("home_stay").get().then((querySnapshot) {
@@ -191,6 +193,7 @@ class FirAuth {
     });
   }
 
+  ///Get home stay by ID
   void getHomeStayById(Function callBack, String id) async {
     await fireStoreInstance.collection("home_stay").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
@@ -202,7 +205,7 @@ class FirAuth {
     });
   }
 
-  /// lấy room
+  ///Get room by ID
   void getRoomById(Function callBack, String id) async {
     await fireStoreInstance.collection("room").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
@@ -214,7 +217,7 @@ class FirAuth {
     });
   }
 
-  /// lấy list account
+  ///Get list account
   void getListAccount(Function callBack) async {
     List<Account> listAccount = [];
 
@@ -226,7 +229,7 @@ class FirAuth {
     callBack(listAccount);
   }
 
-  /// lấy danh sách đặtphòng
+  ///Get room list
   void getListTransaction(Function callBack) async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
     List<Transactions> listTransaction = [];
@@ -255,7 +258,7 @@ class FirAuth {
     });
   }
 
-  /// cập nhật info account
+  ///Update info account
   void updateInfoAccount(String name, String phone) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
     fireStoreInstance
@@ -266,7 +269,7 @@ class FirAuth {
     });
   }
 
-  /// cập nhật trạng thái cho phòng
+  ///Update status room by ID room
   void updateStatusRoomById(int status, String id, Function success) {
     fireStoreInstance
         .collection("room")
@@ -277,7 +280,7 @@ class FirAuth {
     });
   }
 
-  /// cập nhật avata
+  ///Update avatar
   void updateAvatar(String url) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
     fireStoreInstance
@@ -288,7 +291,7 @@ class FirAuth {
     });
   }
 
-  /// ccaapj nhật trangj thái đặt phòng
+  ///Update status order room
   void updateOrderStatus(int status, String id, Function success) {
     fireStoreInstance
         .collection("order")
@@ -299,7 +302,7 @@ class FirAuth {
     });
   }
 
-  /// tạo homesaty
+  ///Create home stay
   void createMyHomeStay(
       String urlImage,
       String name,
@@ -328,7 +331,7 @@ class FirAuth {
     });
   }
 
-  /// tạo đơn đặt phòng
+  ///Create order book room
   void createOrder(
       String idRoom,
       String checkIn,
@@ -355,7 +358,7 @@ class FirAuth {
     });
   }
 
-  /// cập nhật home stay
+  ///update home stay
   void updateMyHomeStay(
       String urlImage,
       String name,
@@ -380,7 +383,7 @@ class FirAuth {
     });
   }
 
-  /// xóa homesaty
+  ///Delete home stay
   void deleteMyHomeStay(Function onSuccess, Function onRegisterError) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
     fireStoreInstance.collection("room").get().then((querySnapshot) {
@@ -412,7 +415,7 @@ class FirAuth {
     });
   }
 
-  /// tìm kiếm
+  ///Search room
   void searchRoom(
       int numberRoom,
       String startDay,
@@ -444,7 +447,7 @@ class FirAuth {
     }
   }
 
-  /// cập nhật phòng
+  ///Update room
   void updateRoom(
       String urlImage,
       String name,
@@ -484,7 +487,7 @@ class FirAuth {
     });
   }
 
-  /// tạo phong mới
+  ///Create new room
   void createNewRoom(
       String urlImage,
       String name,
@@ -523,7 +526,7 @@ class FirAuth {
     });
   }
 
-  /// lấy danh sách phòng
+  ///Get list room by ID room
   void getListRoomByID(Function callBack, {String id}) async {
     try {
       var firebaseUser = FirebaseAuth.instance.currentUser;
@@ -542,7 +545,7 @@ class FirAuth {
     }
   }
 
-  /// lấy danh sách phòng by status
+  ///Get list room by status
   void getListRoomByStatus(Function callBack, {int status = 1}) async {
     try {
       List<Room> listRooms = [];

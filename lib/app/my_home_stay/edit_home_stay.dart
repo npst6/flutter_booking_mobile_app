@@ -1,3 +1,5 @@
+///Note file edit_home_stay.dart
+
 import 'dart:io';
 import 'bloc/edit_home_stay_bloc.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +14,8 @@ import 'package:flutter_booking_mobile_app/base/loading_bar.dart';
 import 'package:flutter_booking_mobile_app/model/my_home_stay.dart';
 import 'package:flutter_booking_mobile_app/utils/validate_data.dart';
 import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
-//--
-// import 'package:bookingapp/app/my_home_stay/bloc/new_home_stay_bloc.dart';
-//------------------------------------------------------------------------------
-/// class EditHomeStay extends StatefulWidget
+
+///EditHomeStay StatefulWidget
 class EditHomeStay extends StatefulWidget {
   final MyHomeStay myHomeStay;
   EditHomeStay(this.myHomeStay);
@@ -23,7 +23,7 @@ class EditHomeStay extends StatefulWidget {
   _NewHomeStayState createState() => _NewHomeStayState();
 }
 
-/// class _NewHomeStayState extends State
+///_NewHomeStayState State<>
 class _NewHomeStayState extends State<EditHomeStay> {
   ThemeData themeData;
   final _formKey = GlobalKey<FormState>();
@@ -53,11 +53,11 @@ class _NewHomeStayState extends State<EditHomeStay> {
     controllerPhone = new TextEditingController(text: widget.myHomeStay.phone);
     controllerName = new TextEditingController(text: widget.myHomeStay.name);
     controllerBankName =
-    new TextEditingController(text: widget.myHomeStay.bankName);
+        new TextEditingController(text: widget.myHomeStay.bankName);
     controllerNumberBank =
-    new TextEditingController(text: widget.myHomeStay.bankNumber);
+        new TextEditingController(text: widget.myHomeStay.bankNumber);
     controllerAccountBankName =
-    new TextEditingController(text: widget.myHomeStay.accountNameBank);
+        new TextEditingController(text: widget.myHomeStay.accountNameBank);
     super.initState();
   }
 
@@ -72,6 +72,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        ///Background color
         backgroundColor: themeData.scaffoldBackgroundColor,
         elevation: 0,
         leading: GestureDetector(
@@ -79,11 +80,17 @@ class _NewHomeStayState extends State<EditHomeStay> {
             Navigator.pop(context);
           },
           child: Padding(
+            ///padding
             padding: const EdgeInsets.all(10),
             child: Icon(
+              ///Icon
               Icons.arrow_back_ios,
-              color: AppColors.buttonColor,
+
+              ///Icon size
               size: 15,
+
+              ///Icon color
+              color: AppColors.buttonColor,
             ),
           ),
         ),
@@ -92,12 +99,23 @@ class _NewHomeStayState extends State<EditHomeStay> {
         title: Text(
           "Edit Home Stay".toUpperCase(),
           style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+            ///Text size
+            fontSize: 20,
+
+            ///Text color
+            color: Colors.black,
+
+            ///Text weight
+            fontWeight: FontWeight.bold,
+          ),
         ),
         actions: [
           IconButton(
               icon: Icon(
+                ///Icon
                 Icons.delete,
+
+                ///Icon color
                 color: AppColors.buttonColor,
               ),
               onPressed: () {
@@ -108,11 +126,13 @@ class _NewHomeStayState extends State<EditHomeStay> {
       body: Stack(
         children: [
           Padding(
+            ///Padding
             padding: const EdgeInsets.all(15),
             child: SingleChildScrollView(
               child: Form(
                 key: _formKey,
                 child: Column(
+                  ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     StreamBuilder<File>(
@@ -121,33 +141,57 @@ class _NewHomeStayState extends State<EditHomeStay> {
                           if (snapshot.hasData) {
                             file = snapshot.data;
                             return Container(
+                              ///Container height
                               height: 200,
+
+                              ///Container width
                               width: double.infinity,
                               decoration: BoxDecoration(
+                                ///Border box
                                 borderRadius: BorderRadius.circular(7),
+
+                                ///Image
                                 image: DecorationImage(
-                                    image: FileImage(
-                                      snapshot.data,
-                                    ),
-                                    fit: BoxFit.cover),
+                                  ///Image
+                                  image: FileImage(
+                                    snapshot.data,
+                                  ),
+
+                                  ///Image fit
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             );
                           } else
                             return Container(
+
+                                ///Container height
                                 height: 200,
+
+                                ///Container width
                                 width: double.infinity,
                                 decoration: BoxDecoration(
+                                  ///Border box
                                   borderRadius: BorderRadius.circular(7),
+
+                                  ///Image
                                   image: DecorationImage(
-                                      image: NetworkImage(
-                                        widget.myHomeStay.urlImage,
-                                      ),
-                                      fit: BoxFit.cover),
+                                    ///Image
+                                    image: NetworkImage(
+                                      widget.myHomeStay.urlImage,
+                                    ),
+
+                                    ///Image fit
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                                 child: Center(
                                     child: IconButton(
                                         icon: Icon(
+                                          ///Icon
                                           Icons.camera_alt,
+
+                                          ///Icon color
                                           color: Colors.grey.withOpacity(.6),
                                         ),
                                         onPressed: () {
@@ -160,19 +204,32 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     Text(
                       "Name",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     XTextFormField(
-                      hintText: "Name",
                       controller: controllerName,
+
+                      ///Hint text
+                      hintText: "Name",
+
+                      ///Check empty data
                       funcValidation: ValidateData.validEmpty,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.drive_file_rename_outline,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
                     ),
@@ -182,22 +239,37 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     Text(
                       "Phone number",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     XTextFormField(
                       controller: controllerPhone,
+
+                      ///Hint text
                       hintText: "Phone",
+
+                      ///Text type phone
+                      textInputType: TextInputType.phone,
+
+                      ///Check empty data
                       funcValidation: ValidateData.validEmpty,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.phone,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
-                      textInputType: TextInputType.phone,
                     ),
                     const SizedBox(
                       height: 15,
@@ -209,9 +281,15 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       child: Text(
                         "Account Bank".toUpperCase(),
                         style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 18,
-                            letterSpacing: 1.5),
+                          ///Text size
+                          fontSize: 18,
+
+                          ///Text spacing
+                          letterSpacing: 1.5,
+
+                          ///Text weight
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -232,9 +310,15 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     Text(
                       "Bank name",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
@@ -242,11 +326,16 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     XTextFormField(
                       controller: controllerBankName,
                       hintText: "Bank name",
+
+                      ///Check empty data
+                      funcValidation: ValidateData.validEmpty,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.comment_bank,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
-                      funcValidation: ValidateData.validEmpty,
                     ),
                     const SizedBox(
                       height: 15,
@@ -254,22 +343,37 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     Text(
                       "Account number",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     XTextFormField(
                       controller: controllerNumberBank,
+
+                      ///Hint text
                       hintText: "Number",
+
+                      ///Text type phone
+                      textInputType: TextInputType.phone,
+
+                      ///Check empty data
                       funcValidation: ValidateData.validEmpty,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.confirmation_number,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
-                      textInputType: TextInputType.phone,
                     ),
                     const SizedBox(
                       height: 15,
@@ -277,21 +381,34 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     Text(
                       "Account name",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 1),
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     XTextFormField(
                       controller: controllerAccountBankName,
+
+                      ///Hint text
                       hintText: "Account name",
+
+                      ///Check empty data
+                      funcValidation: ValidateData.validEmpty,
                       prefixIcon: Icon(
+                        ///Icon
                         Icons.drive_file_rename_outline,
+
+                        ///Icon color
                         color: AppColors.buttonColor,
                       ),
-                      funcValidation: ValidateData.validEmpty,
                     ),
                     const SizedBox(
                       height: 10,
@@ -312,7 +429,10 @@ class _NewHomeStayState extends State<EditHomeStay> {
         ],
       ),
       bottomNavigationBar: Padding(
+        ///Padding
         padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+
+        ///Save button
         child: XButton("Save", () {
           if (_formKey.currentState.validate()) {
             if (file != null) {
@@ -339,33 +459,47 @@ class _NewHomeStayState extends State<EditHomeStay> {
 
   void showGetImage(BuildContext context) {
     showModalBottomSheet(
-        isScrollControlled: true,
         context: context,
+        isScrollControlled: true,
+
+        ///Background color
         backgroundColor: Colors.transparent,
         builder: (context) {
           return Container(
+            ///Container height
             height: 100,
+
+            ///Container width
             width: double.infinity,
             decoration: BoxDecoration(
-                color: themeData.scaffoldBackgroundColor,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10))),
+              ///Color box
+              color: themeData.scaffoldBackgroundColor,
+
+              ///Border box
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+            ),
             child: Padding(
+              ///Padding
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Row(
                 children: [
+                  ///Camera button
                   Expanded(
                       child: XButton("Camera", () {
-                        editHomeStayBloc.getImageByCamera(picker);
-                      })),
+                    editHomeStayBloc.getImageByCamera(picker);
+                  })),
                   SizedBox(
                     width: 10,
                   ),
+
+                  ///Library button
                   Expanded(
                       child: XButton("Library", () {
-                        editHomeStayBloc.getImageByGallery(picker);
-                      })),
+                    editHomeStayBloc.getImageByGallery(picker);
+                  })),
                 ],
               ),
             ),

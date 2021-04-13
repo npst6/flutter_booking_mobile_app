@@ -12,26 +12,25 @@ import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 import 'package:flutter_booking_mobile_app/app/login/bloc/login_bloc.dart';
 import 'package:flutter_booking_mobile_app/app/register/register_screen.dart';
 import 'package:flutter_booking_mobile_app/app/forgot_password/forgot_password_screen.dart';
-// import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 
-///class LoginScreen extends StatefulWidget
+///LoginScreen StatefulWidget
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-///class _LoginScreenState extends State<LoginScreen>
+/// _LoginScreenState State<>
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController controllerEmail; ///
-  TextEditingController controllerPass; ///
-  final _formKey = GlobalKey<FormState>(); ///
-  LoginBloc loginBloc; ///
+  TextEditingController controllerEmail;
+  TextEditingController controllerPass;
+  final _formKey = GlobalKey<FormState>();
+  LoginBloc loginBloc;
   @override
   void initState() {
-    loginBloc = new LoginBloc(); ///
-    controllerPass = new TextEditingController(); ///
-    controllerEmail = new TextEditingController(); ///
-    super.initState(); ///
+    loginBloc = new LoginBloc();
+    controllerPass = new TextEditingController();
+    controllerEmail = new TextEditingController();
+    super.initState();
   }
 
   @override
@@ -40,8 +39,8 @@ class _LoginScreenState extends State<LoginScreen> {
       if (value == UIState.SUCCESS) {
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) {
-              return HomeScreen();
-            }));
+          return HomeScreen();
+        }));
       }
     });
     super.didChangeDependencies();
@@ -49,123 +48,162 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
-    loginBloc.dispose(); ///
-    super.dispose(); ///
+    loginBloc.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent, ///
-        elevation: 0, ///
+        ///Background color
+        backgroundColor: Colors.transparent,
+
+        ///Elevation
+        elevation: 0,
       ),
       body: Stack(
-        alignment: Alignment.center, ///
+        ///Alignment
+        alignment: Alignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 35, 20, 10), ///padding
+            ///padding
+            padding: const EdgeInsets.fromLTRB(20, 35, 20, 10),
             child: SingleChildScrollView(
               child: Form(
                 key: _formKey,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center, ///Using mainAxisAlignment in a Column will align its children vertically.
-                  crossAxisAlignment: CrossAxisAlignment.start, ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+                  ///Using mainAxisAlignment in a Column will align its children vertically.
+                  mainAxisAlignment: MainAxisAlignment.center,
+
+                  ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
                       child: Text(
                         "Booking Hotels",
                         style: TextStyle(
-                            color: AppColors.buttonColor, ///Text color
-                            fontWeight: FontWeight.w900, ///Text weight
-                            letterSpacing: 1, ///Text spacing
-                            fontSize: 40, ///Text size
+                          ///Text size
+                          fontSize: 40,
+
+                          ///Text color
+                          color: AppColors.buttonColor,
+
+                          ///Text weight
+                          fontWeight: FontWeight.w900,
+
+                          ///Text spacing
+                          letterSpacing: 1,
                         ),
                       ),
                     ),
-
                     SizedBox(
                       height: 100,
                     ),
-
                     Text(
                       "Username",
                       style: TextStyle(
-                          fontWeight: FontWeight.w600, ///Text weight
-                          letterSpacing: 1, ///Text spacing
-                          fontSize: 16, ///Text size
+                        ///Text weight
+                        fontWeight: FontWeight.w600,
+
+                        ///Text size
+                        fontSize: 16,
+
+                        ///Text spacing
+                        letterSpacing: 1,
                       ),
                     ),
-
                     SizedBox(
                       height: 10,
                     ),
 
                     ///Email box
                     XTextFormField(
-                      hintText: "Enter your email (ex@gmail.com)", ///Hint text
-                      controller: controllerEmail, ///
-                      textInputType: TextInputType.emailAddress, ///
-                      funcValidation: ValidateData.validEmail, ///Check validate email
+                      controller: controllerEmail,
+
+                      ///Hint text
+                      hintText: "Enter your email (ex@gmail.com)",
+
+                      ///Text type email address
+                      textInputType: TextInputType.emailAddress,
+
+                      ///Check validate email
+                      funcValidation: ValidateData.validEmail,
                       prefixIcon: Icon(
-                        Icons.person, ///Icon email box
-                        color: AppColors.buttonColor, ///Icon color
+                        ///Icon email box
+                        Icons.person,
+
+                        ///Icon color
+                        color: AppColors.buttonColor,
                       ),
                     ),
-
                     SizedBox(
                       height: 20,
                     ),
-
                     Text(
                       "Password",
                       style: TextStyle(
-                        fontWeight: FontWeight.w600, ///Text weight
-                        letterSpacing: 1, ///Text spacing
-                        fontSize: 16, ///Text size
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text size
+                        fontSize: 16,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-
                     SizedBox(
                       height: 10,
                     ),
 
                     ///Password box
                     XTextFormField(
-                      hintText: "Enter your password", ///Hint text
-                      controller: controllerPass, ///
-                      funcValidation: ValidateData.validEmpty, ///Check empty field
-                      obscureText: true, ///
+                      controller: controllerPass,
+                      obscureText: true,
+
+                      ///Hint text
+                      hintText: "Enter your password",
+
+                      ///Check empty field
+                      funcValidation: ValidateData.validEmpty,
+
                       prefixIcon: Icon(
-                        Icons.lock, ///Icon password box
-                        color: AppColors.buttonColor, ///Icon color
+                        ///Icon password box
+                        Icons.lock,
+
+                        ///Icon color
+                        color: AppColors.buttonColor,
                       ),
                     ),
-
                     SizedBox(
                       height: 25,
                     ),
-
                     Align(
-                      alignment: Alignment.centerRight, ///
+                      ///Alignment
+                      alignment: Alignment.centerRight,
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
-                                return ForgotPassScreen();
-                              }));
+                            return ForgotPassScreen();
+                          }));
                         },
                         child: Text(
                           "Forgot Password ?",
                           style: TextStyle(
-                              color: AppColors.buttonColor, ///Text color
-                              fontWeight: FontWeight.w400, ///Text weight
-                              fontSize: 15, ///Text size
+                            ///Text size
+                            fontSize: 15,
+
+                            ///Text color
+                            color: AppColors.buttonColor,
+
+                            ///Text weight
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
                     ),
-
                     SizedBox(
                       height: 25,
                     ),
@@ -187,9 +225,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         " or ",
                         style: TextStyle(
-                            color: Colors.grey, ///Text color
-                            fontWeight: FontWeight.w400, ///Text weight
-                            fontSize: 15, ///Text size
+                          ///Text color
+                          color: Colors.grey,
+
+                          ///Text size
+                          fontSize: 15,
+
+                          ///Text weight
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
@@ -199,29 +242,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
 
                     ///Register button
-                    XButton(
-                        "Register",
-                            () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                                return RegisterScreen();
-                              })
-                          );
+                    XButton("Register", () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return RegisterScreen();
+                      }));
                     }),
                   ],
                 ),
               ),
             ),
           ),
-
           StreamBuilder<UIState>(
-              stream: loginBloc.loginStream, ///
+              stream: loginBloc.loginStream,
               builder: (context, snapshot) {
                 if (snapshot.hasData && snapshot.data == UIState.LOADING)
                   return LoadingBar();
                 else
                   return Center();
-              })
+              }),
         ],
       ),
     );
