@@ -16,7 +16,7 @@ import 'package:flutter_booking_mobile_app/app/history_booking/history_booking_s
 
 ///BookingScreen StatefulWidget
 class BookingScreen extends StatefulWidget {
-  /// tại đây sẽ khai báo các biến cần truyền vào cho màn hình
+  ///Declare the variables to be passed to the screen
   final Room room;
   final MyHomeStay myHomeStay;
   const BookingScreen({Key key, this.room, this.myHomeStay}) : super(key: key);
@@ -26,7 +26,7 @@ class BookingScreen extends StatefulWidget {
 
 /// _BookingScreenState State<>
 class _BookingScreenState extends State<BookingScreen> {
-  ///Khởi tạo
+  ///Initialization
   ThemeData themeData;
   TextEditingController controllerCheckIn;
   TextEditingController controllerCheckOut;
