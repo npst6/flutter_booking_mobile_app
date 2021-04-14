@@ -30,6 +30,8 @@ class _LoginScreenState extends State<ForgotPassScreen> {
       appBar: AppBar(
         ///Background color
         backgroundColor: Colors.transparent,
+
+        ///Elevation
         elevation: 0,
         leading: IconButton(
             icon: Icon(
@@ -58,6 +60,7 @@ class _LoginScreenState extends State<ForgotPassScreen> {
             children: [
               Center(
                 child: Text(
+                  ///Text
                   "Forgot Password",
                   style: TextStyle(
                     ///Text size
@@ -78,6 +81,7 @@ class _LoginScreenState extends State<ForgotPassScreen> {
                 height: 100,
               ),
               Text(
+                ///Text
                 "Your Email",
                 style: TextStyle(
                   ///Text size

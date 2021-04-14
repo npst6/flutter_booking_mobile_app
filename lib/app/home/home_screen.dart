@@ -18,9 +18,9 @@ import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 import 'package:flutter_booking_mobile_app/base/text_field_choose.dart';
 import 'package:flutter_booking_mobile_app/app/home/bloc/home_bloc.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
-// import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
+import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
-// import "package:flutter_booking_mobile_app/app/search/output_search_screen.dart";
+import "package:flutter_booking_mobile_app/app/search/output_search_screen.dart";
 import 'package:flutter_booking_mobile_app/remote/province_response/province_response.dart';
 
 ///HomeScreen StatefulWidget

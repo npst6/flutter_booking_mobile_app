@@ -423,7 +423,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ),
               ),
               Padding(
-                ///Pading
+                ///Padding
                 padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
                 child: Column(
                   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.

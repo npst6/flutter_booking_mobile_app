@@ -75,7 +75,9 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                               Navigator.pop(context);
                             },
                             child: Container(
+                              ///Container height
                               height: 30,
+                              ///Container width
                               width: 30,
                               decoration: BoxDecoration(
                                 ///Color box
@@ -270,7 +272,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                                       ///Text
                                       widget.room.desc,
 
-                                      ///
+                                      ///Use the ... sign to indicate overflow of text
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         ///Text weight

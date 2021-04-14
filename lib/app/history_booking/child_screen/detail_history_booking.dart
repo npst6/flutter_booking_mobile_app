@@ -10,13 +10,13 @@ import 'package:flutter_booking_mobile_app/base/item_service.dart';
 import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 import 'package:flutter_booking_mobile_app/app/booking/widget/item_details_tax.dart';
 
-/// class DetailsHistoryBookingScreen extends StatefulWidget
+/// DetailsHistoryBookingScreen StatefulWidget
 class DetailsHistoryBookingScreen extends StatefulWidget {
   @override
   _BookingScreenState createState() => _BookingScreenState();
 }
 
-/// class _BookingScreenState extends State<DetailsHistoryBookingScreen>
+/// _BookingScreenState State<>
 class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
   ThemeData themeData;
   @override

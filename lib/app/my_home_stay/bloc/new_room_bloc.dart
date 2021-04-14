@@ -81,31 +81,30 @@ class NewRoomBloc extends BaseBloc {
     newRoomStateStream.add(UIState.LOADING);
     try {
       FirebaseStorage storage = FirebaseStorage.instance;
-      FirAuth().createNewRoom(
-          "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg",
-          name,
-          startDay,
-          endDay,
-          adults,
-          child,
-          address,
-          city,
-          desc,
-          price,
-          discount, () {
-        newRoomStateStream.add(UIState.SUCCESS);
-        FlutterToast().showToast("Success");
-      }, (va) {
-        newRoomStateStream.add(UIState.ERROR);
-        FlutterToast().showToast(va);
-      });
-      /*Reference storageReference =
-      storage.ref().child('${Path.basename(file.path)}}');
+      Reference storageReference =
+          storage.ref().child('${Path.basename(file.path)}}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
-
+          FirAuth().createNewRoom(
+              "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg",
+              name,
+              startDay,
+              endDay,
+              adults,
+              child,
+              address,
+              city,
+              desc,
+              price,
+              discount, () {
+            newRoomStateStream.add(UIState.SUCCESS);
+            FlutterToast().showToast("Success");
+          }, (va) {
+            newRoomStateStream.add(UIState.ERROR);
+            FlutterToast().showToast(va);
+          });
         });
-      });*/
+      });
     } catch (e) {
       newRoomStateStream.add(UIState.ERROR);
       FlutterToast().showToast(e.message);

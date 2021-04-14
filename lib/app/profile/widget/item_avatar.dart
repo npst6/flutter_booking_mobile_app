@@ -134,7 +134,10 @@ class ItemAvatar extends StatelessWidget {
                           ),
 
                           ///Save button
-                          XButton("Save", () {})
+                          XButton("Save", () {
+                            profileBloc.updateImageAvatar(snapshot.data);
+                            Navigator.pop(context);
+                          })
                         ],
                       ),
                     ),
