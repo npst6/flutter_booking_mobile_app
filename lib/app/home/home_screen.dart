@@ -18,9 +18,7 @@ import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 import 'package:flutter_booking_mobile_app/base/text_field_choose.dart';
 import 'package:flutter_booking_mobile_app/app/home/bloc/home_bloc.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
-import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
-import "package:flutter_booking_mobile_app/app/search/output_search_screen.dart";
 import 'package:flutter_booking_mobile_app/remote/province_response/province_response.dart';
 
 ///HomeScreen StatefulWidget
@@ -103,17 +101,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                 return Container(
                                   ///Container width
                                   width: 40,
+
+                                  ///Container height
+                                  height: 40,
                                   decoration: BoxDecoration(
                                     ///Border box
-                                      borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10),
+
+                                    ///Image
+                                    image: DecorationImage(
                                       ///Image
-                                      image: DecorationImage(
-                                        ///Image
-                                          image: NetworkImage(
-                                              snapshot.data.avatar),
-                                        ///Image fit
-                                        fit: BoxFit.cover,
-                                      ),
+                                      image: NetworkImage(snapshot.data.avatar),
+
+                                      ///Image fit
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 );
                               } else
@@ -124,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon: Icon(
                           ///Icon
                           Icons.logout,
+
                           ///Icon color
                           color: AppColors.buttonColor,
                         ),
@@ -136,11 +139,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Container(
                                   ///Container height
                                   height: 150,
+
                                   ///Container width
                                   width: 200,
                                   decoration: BoxDecoration(
                                     ///Color box
                                     color: themeData.scaffoldBackgroundColor,
+
                                     ///Border box
                                     borderRadius: BorderRadius.circular(7),
                                   ),
@@ -481,7 +486,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
           StreamBuilder<UIState>(

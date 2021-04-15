@@ -94,7 +94,7 @@ class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
         obscureText: widget.obscureText,
         obscuringCharacter: "*",
         onTap: () {
-          widget.onTap();
+          widget.onTap?.call();
         },
         style: TextStyle(
           decoration: TextDecoration.none,

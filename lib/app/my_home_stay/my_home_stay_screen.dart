@@ -103,21 +103,27 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
           ),
         ),
         actions: [
-          IconButton(
-              icon: Icon(
-                ///Icon
-                Icons.edit,
+    StreamBuilder<MyHomeStay>(
+    stream: homeStayBloc.myHomeStayStream,
+    builder: (context, snapshot) {
+    if (snapshot.hasData) {
+              return IconButton(
+                  icon: Icon(
+                    ///Icon
+                    Icons.edit,
 
-                ///Icon color
-                color: AppColors.buttonColor,
-              ),
-              onPressed: () async {
-                await Navigator.push(context,
-                    MaterialPageRoute(builder: (context) {
-                  return EditHomeStay(myHomeStay);
-                }));
-                homeStayBloc.getMyHomeStay();
-              })
+                    ///Icon color
+                    color: AppColors.buttonColor,
+                  ),
+                  onPressed: () async {
+                    await Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return EditHomeStay(myHomeStay);
+                    }));
+                    homeStayBloc.getMyHomeStay();
+                  });
+            } else return const SizedBox();
+          })
         ],
       ),
       body: Stack(

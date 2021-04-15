@@ -40,9 +40,8 @@ class XButton extends StatelessWidget {
         width: double.infinity,
         child: Center(
           child: Text(
-            ///toUpperCase
+            ///Text toUpperCase
             title.toUpperCase(),
-
             style: TextStyle(
               ///Text weight
               fontWeight: FontWeight.w700,

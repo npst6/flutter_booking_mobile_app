@@ -66,43 +66,33 @@ class NewRoomBloc extends BaseBloc {
 
   ///Add room
   void addRoom(
-    File file,
-    String name,
-    String startDay,
-    String endDay,
-    int adults,
-    int child,
-    String address,
-    String city,
-    String desc,
-    double price,
-    double discount,
-  ) async {
+      File file,
+      String name,
+      String startDay,
+      String endDay,
+      int adults,
+      int child,
+      String address,
+      String city,
+      String desc,
+      double price,
+      double discount,
+      ) async {
     newRoomStateStream.add(UIState.LOADING);
     try {
       FirebaseStorage storage = FirebaseStorage.instance;
       Reference storageReference =
-          storage.ref().child('${Path.basename(file.path)}}');
+      storage.ref().child('${Path.basename(file.path)}}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
-          FirAuth().createNewRoom(
-              "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg",
-              name,
-              startDay,
-              endDay,
-              adults,
-              child,
-              address,
-              city,
-              desc,
-              price,
-              discount, () {
-            newRoomStateStream.add(UIState.SUCCESS);
-            FlutterToast().showToast("Success");
-          }, (va) {
-            newRoomStateStream.add(UIState.ERROR);
-            FlutterToast().showToast(va);
-          });
+          FirAuth().createNewRoom(val, name, startDay, endDay, adults, child,
+              address, city, desc, price, discount, () {
+                newRoomStateStream.add(UIState.SUCCESS);
+                FlutterToast().showToast("Success");
+              }, (va) {
+                newRoomStateStream.add(UIState.ERROR);
+                FlutterToast().showToast(va);
+              });
         });
       });
     } catch (e) {

@@ -25,7 +25,7 @@ class ProfileScreen extends StatefulWidget {
 /// _ProfileScreenState  State<>
 class _ProfileScreenState extends State<ProfileScreen> {
   ThemeData themeData;
-  bool isDark = true;
+  bool isDark = false;
   ProfileBloc profileBloc;
   Account account;
 
@@ -38,6 +38,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void didChangeDependencies() {
     themeData = Provider.of<ThemeChanger>(context).getTheme();
+    if (themeData == ThemeData.dark().copyWith(
+      ///Color of the main banner
+      primaryColor: AppColors.buttonColor,
+
+      ///Color
+      accentColor: AppColors.buttonColor,
+
+      ///Light background
+      scaffoldBackgroundColor: Colors.black,
+
+      ///Text color
+      // ignore: deprecated_member_use
+      textSelectionColor: Colors.white,
+    )) {
+      isDark = true;
+    }
     super.didChangeDependencies();
   }
 
@@ -205,9 +221,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                   AppColors.buttonColor,
                                               onChanged: (v) {
                                                 if (v) {
-                                                  theme.setTheme(1);
-                                                } else {
                                                   theme.setTheme(0);
+                                                } else {
+                                                  theme.setTheme(1);
                                                 }
                                                 setState(() {
                                                   isDark = v;

@@ -67,8 +67,8 @@ class ItemAvatar extends StatelessWidget {
 
   void showGetImage(BuildContext context) {
     showModalBottomSheet(
-        isScrollControlled: true,
         context: context,
+        isScrollControlled: true,
         backgroundColor: Colors.transparent,
         builder: (context) {
           return StreamBuilder<File>(
@@ -110,9 +110,8 @@ class ItemAvatar extends StatelessWidget {
                             height: 200,
 
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(7),
-
                               ///Border box
+                              borderRadius: BorderRadius.circular(7),
                             ),
 
                             child: Image.file(
@@ -154,6 +153,7 @@ class ItemAvatar extends StatelessWidget {
                       ///Color box
                       color: color,
 
+                      ///Border box
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(10),
                         topRight: Radius.circular(10),
@@ -161,12 +161,14 @@ class ItemAvatar extends StatelessWidget {
                     ),
 
                     child: Padding(
+                      ///Padding
                       padding: const EdgeInsets.symmetric(
                         horizontal: 20,
                         vertical: 10,
                       ),
                       child: Row(
                         children: [
+                          ///Camera button
                           Expanded(
                               child: XButton("Camera", () {
                             profileBloc.getImageByCamera(picker);
@@ -174,6 +176,8 @@ class ItemAvatar extends StatelessWidget {
                           SizedBox(
                             width: 10,
                           ),
+
+                          ///Library button
                           Expanded(
                               child: XButton("Library", () {
                             profileBloc.getImageByGallery(picker);
