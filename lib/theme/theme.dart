@@ -49,6 +49,8 @@ class ThemeChanger with ChangeNotifier {
         textSelectionColor: Colors.black,
       );
     }
+
+    ///notifyListeners()
     notifyListeners();
   }
 }

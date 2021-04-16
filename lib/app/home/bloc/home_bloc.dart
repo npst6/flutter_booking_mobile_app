@@ -76,7 +76,10 @@ class HomeBloc extends BaseBloc {
       showDialog(
         context: context,
         builder: (_) => Scaffold(
+          ///backgroundColor
           backgroundColor: Colors.transparent,
+
+          ///body
           body: Center(
             child: Container(
               ///Container height
@@ -84,6 +87,7 @@ class HomeBloc extends BaseBloc {
 
               ///Container width
               width: 200,
+
               decoration: BoxDecoration(
                 ///Color box
                 color: Colors.white,
@@ -94,11 +98,14 @@ class HomeBloc extends BaseBloc {
               child: Padding(
                 ///Padding
                 padding: const EdgeInsets.fromLTRB(10, 20, 10, 15),
+
                 child: Column(
                   ///Using mainAxisAlignment in a Column will align its children vertically.
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                   children: [
                     Text(
+                      ///Text
                       "Logout",
                       style: TextStyle(
                         ///Font size
@@ -128,7 +135,8 @@ class HomeBloc extends BaseBloc {
                             color: Colors.grey,
                           ),
                         ),
-                        SizedBox(
+
+                        const SizedBox(
                           width: 10,
                         ),
 
@@ -138,10 +146,14 @@ class HomeBloc extends BaseBloc {
                             "OK",
                             () {
                               FirAuth().signOut();
-                              Navigator.pushReplacement(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return LoginScreen();
-                              }));
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return LoginScreen();
+                                  },
+                                ),
+                              );
                             },
                           ),
                         ),
@@ -160,9 +172,11 @@ class HomeBloc extends BaseBloc {
   ///Get account from firebase
   void getAccount() async {
     try {
-      FirAuth().getUserByUID((Account val) {
-        accountStream.add(val);
-      });
+      FirAuth().getUserByUID(
+        (Account val) {
+          accountStream.add(val);
+        },
+      );
     } catch (e) {
       FlutterToast().showToast(e.message);
     }

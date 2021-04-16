@@ -8,10 +8,21 @@ import 'package:flutter_booking_mobile_app/app/my_home_stay/bloc/my_home_stay_bl
 
 ///ItemMyRoom StatelessWidget
 class ItemMyRoom extends StatelessWidget {
+  ///themeData
   final ThemeData themeData;
+
+  ///room
   final Room room;
+
+  ///homeStayBloc
   final HomeStayBloc homeStayBloc;
-  ItemMyRoom(this.themeData, this.room, this.homeStayBloc);
+
+  ItemMyRoom(
+    this.themeData,
+    this.room,
+    this.homeStayBloc,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,26 +31,37 @@ class ItemMyRoom extends StatelessWidget {
 
       ///Container margin
       margin: const EdgeInsets.all(10),
+
       decoration: BoxDecoration(
         ///Color box
         color: themeData.scaffoldBackgroundColor,
 
         ///Border box
         borderRadius: BorderRadius.circular(10),
+
         boxShadow: [
           BoxShadow(
+            ///color
             color: Colors.grey.withOpacity(0.5),
+
+            ///offset
             offset: Offset(0, 3),
+
+            ///blurRadius
             blurRadius: 5,
+
+            ///spreadRadius
             spreadRadius: 3, // changes position of shadow
           ),
         ],
       ),
+
       child: Row(
         children: [
           Expanded(
             ///Flex
             flex: 1,
+
             child: Container(
               decoration: BoxDecoration(
                 ///Border box
@@ -60,27 +82,34 @@ class ItemMyRoom extends StatelessWidget {
             ),
           ),
           Expanded(
+            ///Flex
             flex: 4,
+
             child: Padding(
               ///Padding
               padding: const EdgeInsets.all(10),
+
               child: Column(
                 ///Using mainAxisAlignment in a Column will align its children vertically.
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                 ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                 crossAxisAlignment: CrossAxisAlignment.start,
+
                 children: [
                   Row(
                     children: [
                       Expanded(
+                        ///Flex
                         flex: 5,
+
                         child: Text(
                           ///Text
                           room.nameRoom.toUpperCase(),
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                           maxLines: 1,
+
                           style: TextStyle(
                             ///Text size
                             fontSize: 15,
@@ -93,16 +122,20 @@ class ItemMyRoom extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Expanded(
                         child: GestureDetector(
                           onTap: () async {
-                            await Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return EditRoomScreen(room);
-                            }));
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return EditRoomScreen(room);
+                                },
+                              ),
+                            );
                             homeStayBloc.getMyRoom();
                           },
                           child: Icon(
@@ -116,13 +149,15 @@ class ItemMyRoom extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
                     children: [
                       Expanded(
+                        ///Flex
                         flex: 2,
+
                         child: Text(
                           ///Text
                           "${room.numberChild} children - ${room.numberAdults} adults",
@@ -132,6 +167,7 @@ class ItemMyRoom extends StatelessWidget {
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                           maxLines: 1,
+
                           style: TextStyle(
                             ///Text size
                             fontSize: 16,
@@ -146,6 +182,7 @@ class ItemMyRoom extends StatelessWidget {
                       ),
                       Expanded(
                         child: Text(
+                          ///Text
                           "x${room.numberRoom} Room",
 
                           ///Text align
@@ -153,6 +190,7 @@ class ItemMyRoom extends StatelessWidget {
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                           maxLines: 1,
+
                           style: TextStyle(
                             ///Text color
                             color: Colors.grey,
@@ -170,7 +208,7 @@ class ItemMyRoom extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
@@ -185,6 +223,7 @@ class ItemMyRoom extends StatelessWidget {
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                           maxLines: 1,
+
                           style: TextStyle(
                             ///Text weight
                             fontWeight: FontWeight.w600,
@@ -207,6 +246,7 @@ class ItemMyRoom extends StatelessWidget {
                       Expanded(
                         ///Flex
                         flex: 2,
+
                         child: Text(
                           ///Text
                           "${DateTime.parse(room.endDay).day}/${DateTime.parse(room.endDay).month}/${DateTime.parse(room.endDay).year}",
@@ -216,6 +256,7 @@ class ItemMyRoom extends StatelessWidget {
 
                           ///Text align
                           textAlign: TextAlign.start,
+
                           style: TextStyle(
                             ///Text spacing
                             letterSpacing: 1,
@@ -227,7 +268,7 @@ class ItemMyRoom extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
@@ -260,7 +301,7 @@ class ItemMyRoom extends StatelessWidget {
                               ),
                             )
                           : SizedBox(),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
@@ -272,6 +313,7 @@ class ItemMyRoom extends StatelessWidget {
 
                         ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                         maxLines: 1,
+
                         style: TextStyle(
                           ///Text size
                           fontSize: 23,

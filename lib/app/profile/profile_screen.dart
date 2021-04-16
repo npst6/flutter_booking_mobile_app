@@ -24,9 +24,16 @@ class ProfileScreen extends StatefulWidget {
 
 /// _ProfileScreenState  State<>
 class _ProfileScreenState extends State<ProfileScreen> {
+  ///themeData
   ThemeData themeData;
+
+  ///isDark
   bool isDark = false;
+
+  ///profileBloc
   ProfileBloc profileBloc;
+
+  ///account
   Account account;
 
   @override
@@ -37,21 +44,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   void didChangeDependencies() {
+    ///themeData
     themeData = Provider.of<ThemeChanger>(context).getTheme();
-    if (themeData == ThemeData.dark().copyWith(
-      ///Color of the main banner
-      primaryColor: AppColors.buttonColor,
+    if (themeData ==
+        ThemeData.dark().copyWith(
+          ///Color of the main banner
+          primaryColor: AppColors.buttonColor,
 
-      ///Color
-      accentColor: AppColors.buttonColor,
+          ///Color
+          accentColor: AppColors.buttonColor,
 
-      ///Light background
-      scaffoldBackgroundColor: Colors.black,
+          ///Light background
+          scaffoldBackgroundColor: Colors.black,
 
-      ///Text color
-      // ignore: deprecated_member_use
-      textSelectionColor: Colors.white,
-    )) {
+          ///Text color
+          // ignore: deprecated_member_use
+          textSelectionColor: Colors.white,
+        )) {
       isDark = true;
     }
     super.didChangeDependencies();
@@ -65,94 +74,114 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ///theme
     final theme = Provider.of<ThemeChanger>(context);
-    return Scaffold(
-        body: Stack(
-      children: [
-        Container(
-          ///Container width
-          width: double.infinity,
 
-          ///Container height
-          height: MediaQuery.of(context).size.height,
-        ),
-        Positioned(
-          top: -MediaQuery.of(context).size.width * 1.3,
-          left: -MediaQuery.of(context).size.width / 2,
-          child: Container(
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
             ///Container width
-            width: MediaQuery.of(context).size.width * 2,
+            width: double.infinity,
 
             ///Container height
-            height: MediaQuery.of(context).size.width * 2,
+            height: MediaQuery.of(context).size.height,
+          ),
+          Positioned(
+            ///top
+            top: -MediaQuery.of(context).size.width * 1.3,
 
-            decoration: BoxDecoration(
-              ///Color box
-              color: AppColors.buttonColor,
+            ///left
+            left: -MediaQuery.of(context).size.width / 2,
 
-              ///Shape box
-              shape: BoxShape.circle,
+            child: Container(
+              ///Container width
+              width: MediaQuery.of(context).size.width * 2,
+
+              ///Container height
+              height: MediaQuery.of(context).size.width * 2,
+
+              decoration: BoxDecoration(
+                ///Color box
+                color: AppColors.buttonColor,
+
+                ///Shape box
+                shape: BoxShape.circle,
+              ),
             ),
           ),
-        ),
-        Center(
-          child: Stack(
-            alignment: Alignment.topCenter,
-            children: [
-              Container(
-                ///Container width
-                width: MediaQuery.of(context).size.width * 0.85,
+          Center(
+            child: Stack(
+              ///Alignment
+              alignment: Alignment.topCenter,
 
-                ///Container height
-                height: MediaQuery.of(context).size.height * 0.7,
+              children: [
+                Container(
+                  ///Container width
+                  width: MediaQuery.of(context).size.width * 0.85,
 
-                child: Column(
-                  children: [
-                    Container(
-                      ///Container height
-                      height: 100,
+                  ///Container height
+                  height: MediaQuery.of(context).size.height * 0.7,
 
-                      ///Container width
-                      width: double.infinity,
-                    ),
-                    Expanded(
-                      child: Container(
+                  child: Column(
+                    children: [
+                      Container(
+                        ///Container height
+                        height: 100,
+
                         ///Container width
                         width: double.infinity,
+                      ),
+                      Expanded(
+                        child: Container(
+                          ///Container width
+                          width: double.infinity,
 
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                ///color
+                                color: Colors.grey.withOpacity(0.5),
 
-                          ///Color container
-                          color: themeData.scaffoldBackgroundColor,
+                                ///spreadRadius
+                                spreadRadius: 5,
 
-                          ///Border container
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                                ///blurRadius
+                                blurRadius: 7,
 
-                        child: Padding(
-                          ///Padding
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 90,
+                                ///offset
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
                               ),
-                              StreamBuilder<Account>(
+                            ],
+
+                            ///Color container
+                            color: themeData.scaffoldBackgroundColor,
+
+                            ///Border container
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+
+                          child: Padding(
+                            ///Padding
+                            padding: const EdgeInsets.all(10),
+
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 90,
+                                ),
+                                StreamBuilder<Account>(
                                   stream: profileBloc.accountStream,
                                   builder: (context, snapshot) {
                                     if (snapshot.hasData) {
+                                      ///account
                                       account = snapshot.data;
+
                                       return Text(
+                                        ///Text
                                         snapshot.data.name.toUpperCase(),
+
                                         style: TextStyle(
                                           ///Text size
                                           fontSize: 16,
@@ -166,7 +195,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       );
                                     } else
                                       return Text(
+                                        ///Text
                                         "...".toUpperCase(),
+
                                         style: TextStyle(
                                           ///Text size
                                           fontSize: 16,
@@ -178,128 +209,184 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           letterSpacing: 1.5,
                                         ),
                                       );
-                                  }),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  ///Padding
-                                  padding: const EdgeInsets.all(10),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Expanded(
-                                            child: Row(
-                                              children: [
-                                                SvgPicture.asset(
-                                                  'assets/svg/dark.svg',
-                                                  width: 20,
-                                                ),
-                                                SizedBox(
-                                                  width: 15,
-                                                ),
-                                                Text(
-                                                  "Dark/Light",
-                                                  style: TextStyle(
-                                                    ///Text size
-                                                    fontSize: 16,
+                                  },
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    ///Padding
+                                    padding: const EdgeInsets.all(10),
 
-                                                    ///Text spacing
-                                                    letterSpacing: 1,
+                                    child: Column(
+                                      ///Using mainAxisAlignment in a Column will align its children vertically.
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: Row(
+                                                children: [
+                                                  SvgPicture.asset(
+                                                    ///Image
+                                                    'assets/svg/dark.svg',
+
+                                                    ///Image width
+                                                    width: 20,
                                                   ),
-                                                ),
-                                              ],
+                                                  const SizedBox(
+                                                    width: 15,
+                                                  ),
+                                                  Text(
+                                                    ///Text
+                                                    "Dark/Light",
+                                                    style: TextStyle(
+                                                      ///Text size
+                                                      fontSize: 16,
+
+                                                      ///Text spacing
+                                                      letterSpacing: 1,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                          CupertinoSwitch(
+
+                                            ///Switch light theme, dark theme
+                                            CupertinoSwitch(
+                                              ///value
                                               value: isDark,
+
+                                              ///activeColor
                                               activeColor:
                                                   AppColors.buttonColor,
+
+                                              ///onChanged
                                               onChanged: (v) {
                                                 if (v) {
                                                   theme.setTheme(0);
                                                 } else {
                                                   theme.setTheme(1);
                                                 }
-                                                setState(() {
-                                                  isDark = v;
-                                                });
-                                              }),
-                                        ],
-                                      ),
-                                      ItemFunction(
-                                        // ignore: deprecated_member_use
-                                        color: themeData.textSelectionColor,
-                                        urlSVG: "assets/svg/user.svg",
-                                        title: "Account",
-                                        onTap: () {
-                                          showAccount();
-                                        },
-                                      ),
-                                      ItemFunction(
-                                        // ignore: deprecated_member_use
-                                        color: themeData.textSelectionColor,
-                                        urlSVG: "assets/svg/house.svg",
-                                        title: "My HomeStay",
-                                        onTap: () {
-                                          Navigator.push(context,
+                                                setState(
+                                                  () {
+                                                    isDark = v;
+                                                  },
+                                                );
+                                              },
+                                            ),
+                                          ],
+                                        ),
+
+                                        ///Account
+                                        ItemFunction(
+                                          ///color
+                                          // ignore: deprecated_member_use
+                                          color: themeData.textSelectionColor,
+
+                                          ///urlSVG
+                                          urlSVG: "assets/svg/user.svg",
+
+                                          ///title
+                                          title: "Account",
+
+                                          ///onTap
+                                          onTap: () {
+                                            showAccount();
+                                          },
+                                        ),
+
+                                        ///My home stay
+                                        ItemFunction(
+                                          ///color
+                                          // ignore: deprecated_member_use
+                                          color: themeData.textSelectionColor,
+
+                                          ///urlSVG
+                                          urlSVG: "assets/svg/house.svg",
+
+                                          ///title
+                                          title: "My HomeStay",
+
+                                          ///onTap
+                                          onTap: () {
+                                            Navigator.push(context,
+                                                MaterialPageRoute(
+                                                    builder: (context) {
+                                              return MyHomeStayScreen();
+                                            }));
+                                          },
+                                        ),
+
+                                        ///Transaction history
+                                        ItemFunction(
+                                          ///color
+                                          // ignore: deprecated_member_use
+                                          color: themeData.textSelectionColor,
+
+                                          ///urlSVG
+                                          urlSVG: "assets/svg/history.svg",
+
+                                          ///title
+                                          title: "Transaction history",
+
+                                          ///onTap
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
                                               MaterialPageRoute(
-                                                  builder: (context) {
-                                            return MyHomeStayScreen();
-                                          }));
-                                        },
-                                      ),
-                                      ItemFunction(
-                                        // ignore: deprecated_member_use
-                                        color: themeData.textSelectionColor,
-                                        urlSVG: "assets/svg/history.svg",
-                                        title: "Transaction history",
-                                        onTap: () {
-                                          Navigator.push(context,
-                                              MaterialPageRoute(
-                                                  builder: (context) {
-                                            return HistoryBookingScreen();
-                                          }));
-                                        },
-                                      ),
-                                      StreamBuilder<Account>(
+                                                builder: (context) {
+                                                  return HistoryBookingScreen();
+                                                },
+                                              ),
+                                            );
+                                          },
+                                        ),
+
+                                        StreamBuilder<Account>(
                                           stream: profileBloc.accountStream,
                                           builder: (context, snapshot) {
                                             if (snapshot.hasData) {
                                               return snapshot.data.permission ==
                                                       1
                                                   ? ItemFunction(
+                                                      ///color
                                                       color: themeData
                                                           // ignore: deprecated_member_use
                                                           .textSelectionColor,
+
+                                                      ///urlSVG
                                                       urlSVG:
                                                           "assets/svg/admin.svg",
+
+                                                      ///title
                                                       title: "Admin",
+
+                                                      ///onTap
                                                       onTap: () {},
                                                     )
                                                   : SizedBox();
                                             } else
                                               return SizedBox();
-                                          }),
-                                    ],
+                                          },
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
 
-              ///StreamBuilder
-              StreamBuilder<Account>(
+                StreamBuilder<Account>(
                   stream: profileBloc.accountStream,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
@@ -310,42 +397,50 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       );
                     } else
                       return SizedBox();
-                  }),
-
-              Text(
-                "Profile",
-                style: TextStyle(
-                  ///Text size
-                  fontSize: 20,
-
-                  ///Text weight
-                  fontWeight: FontWeight.w900,
-
-                  ///Text spacing
-                  letterSpacing: 2,
+                  },
                 ),
-              ),
-            ],
+
+                Text(
+                  ///Text
+                  "Profile",
+                  style: TextStyle(
+                    ///Text size
+                    fontSize: 20,
+
+                    ///Text weight
+                    fontWeight: FontWeight.w900,
+
+                    ///Text spacing
+                    letterSpacing: 2,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        StreamBuilder<UIState>(
-          stream: profileBloc.accountStateStream,
-          builder: (context, snapshot) {
-            if (snapshot.hasData && snapshot.data == UIState.LOADING)
-              return LoadingBar();
-            else
-              return Center();
-          },
-        ),
-      ],
-    ));
+          StreamBuilder<UIState>(
+            stream: profileBloc.accountStateStream,
+            builder: (context, snapshot) {
+              if (snapshot.hasData && snapshot.data == UIState.LOADING)
+                return LoadingBar();
+              else
+                return Center();
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   ///Show account
   void showAccount() {
     showModalBottomSheet(
+      ///context
       context: context,
+
+      ///backgroundColor
       backgroundColor: Colors.transparent,
+
+      ///builder
       builder: (BuildContext _) {
         return Center(
           child: AccountScreen(
@@ -355,6 +450,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         );
       },
+
+      ///isScrollControlled
       isScrollControlled: true,
     );
   }

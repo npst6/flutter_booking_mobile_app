@@ -21,38 +21,74 @@ import 'package:flutter_booking_mobile_app/remote/province_response/province_res
 
 ///EditRoomScreen StatefulWidget
 class EditRoomScreen extends StatefulWidget {
+  ///room
   final Room room;
+
   EditRoomScreen(this.room);
+
   @override
   _NewRoomState createState() => _NewRoomState();
 }
 
 /// _NewRoomState State<>
 class _NewRoomState extends State<EditRoomScreen> {
+  ///themeData
   ThemeData themeData;
+
+  ///_formKey
   final _formKey = GlobalKey<FormState>();
+
+  ///controllerName
   TextEditingController controllerName;
+
+  ///controllerDesc
   TextEditingController controllerDesc;
+
+  ///controllerAddress
   TextEditingController controllerAddress;
+
+  ///controllerFreeTime
   TextEditingController controllerFreeTime;
+
+  ///controllerCity
   TextEditingController controllerCity;
+
+  ///child
   int child;
+
+  ///adults
   int adults;
+
+  ///controllerPrice
   TextEditingController controllerPrice;
+
+  ///controllerDiscountPercent
   TextEditingController controllerDiscountPercent;
 
+  ///startDay
   String startDay;
+
+  ///endDay
   String endDay;
+
+  ///picker
   final picker = ImagePicker();
+
+  ///editRoomBloc
   EditRoomBloc editRoomBloc;
+
   @override
   void didChangeDependencies() {
+    ///themeData
     themeData = Provider.of<ThemeChanger>(context).getTheme();
-    editRoomBloc.editRoomStateStream.listen((value) {
-      if (value == UIState.SUCCESS) {
-        Navigator.pop(context);
-      }
-    });
+
+    editRoomBloc.editRoomStateStream.listen(
+      (value) {
+        if (value == UIState.SUCCESS) {
+          Navigator.pop(context);
+        }
+      },
+    );
     super.didChangeDependencies();
   }
 
@@ -84,34 +120,50 @@ class _NewRoomState extends State<EditRoomScreen> {
     super.dispose();
   }
 
+  ///file
   File file;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         ///Background color
         backgroundColor: themeData.scaffoldBackgroundColor,
+
+        ///elevation
         elevation: 0,
+
         leading: GestureDetector(
+          ///onTap
           onTap: () {
             Navigator.pop(context);
           },
           child: Padding(
             ///Padding
             padding: const EdgeInsets.all(10),
+
             child: Icon(
               ///Icon
               Icons.arrow_back_ios,
+
               ///Icon size
               size: 15,
+
               ///Icon color
               color: AppColors.buttonColor,
             ),
           ),
         ),
+
+        ///Title center
         centerTitle: true,
+
+        ///Title spacing
         titleSpacing: 1,
+
+        ///Title
         title: Text(
+          ///Text
           "Edit Room".toUpperCase(),
           style: TextStyle(
             ///Text size
@@ -124,107 +176,129 @@ class _NewRoomState extends State<EditRoomScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
+
+        ///actions
         actions: [
           IconButton(
-              icon: Icon(
-                ///Icon
-                Icons.delete,
+            icon: Icon(
+              ///Icon
+              Icons.delete,
 
-                ///Icon color
-                color: AppColors.buttonColor,
-              ),
-              onPressed: () {
-                editRoomBloc.deleteRoomById(widget.room.idRoom);
-              }),
+              ///Icon color
+              color: AppColors.buttonColor,
+            ),
+
+            ///onPressed
+            onPressed: () {
+              editRoomBloc.deleteRoomById(widget.room.idRoom);
+            },
+          ),
         ],
       ),
+
+      ///Body
       body: Stack(
         children: [
           Padding(
             ///Padding
             padding: const EdgeInsets.all(15),
+
             child: SingleChildScrollView(
               child: Form(
+                ///_formKey
                 key: _formKey,
                 child: Column(
+                  ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     StreamBuilder<File>(
-                        stream: editRoomBloc.fileImageStream,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            file = snapshot.data;
-                            return Container(
-                              ///Container height
-                              height: 200,
+                      stream: editRoomBloc.fileImageStream,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          ///file
+                          file = snapshot.data;
 
-                              ///Container width
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                ///Border box
-                                borderRadius: BorderRadius.circular(7),
+                          return Container(
+                            ///Container height
+                            height: 200,
 
+                            ///Container width
+                            width: double.infinity,
+
+                            decoration: BoxDecoration(
+                              ///Border box
+                              borderRadius: BorderRadius.circular(7),
+
+                              ///Image
+                              image: DecorationImage(
                                 ///Image
-                                image: DecorationImage(
-                                  ///Image
-                                  image: FileImage(
-                                    snapshot.data,
-                                  ),
+                                image: FileImage(
+                                  snapshot.data,
+                                ),
 
-                                  ///Image fit
-                                  fit: BoxFit.cover,
+                                ///Image fit
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          );
+                        } else
+                          return Stack(
+                            ///Alignment
+                            alignment: Alignment.center,
+
+                            children: [
+                              Container(
+                                ///Container height
+                                height: 200,
+
+                                ///Container width
+                                width: double.infinity,
+
+                                decoration: BoxDecoration(
+                                  ///Border box
+                                  borderRadius: BorderRadius.circular(7),
+
+                                  ///Image
+                                  image: DecorationImage(
+                                    ///Image
+                                    image: NetworkImage(
+                                      widget.room.urlImage,
+                                    ),
+
+                                    ///Image fit
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                            );
-                          } else
-                            return Stack(
-                              ///Alignment
-                              alignment: Alignment.center,
-                              children: [
-                                Container(
-                                  ///Container height
-                                  height: 200,
+                              IconButton(
+                                icon: Icon(
+                                  ///Icon
+                                  Icons.camera_alt,
 
-                                  ///Container width
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    ///Border box
-                                    borderRadius: BorderRadius.circular(7),
+                                  ///Icon size
+                                  size: 100,
 
-                                    ///Image
-                                    image: DecorationImage(
-                                      ///Image
-                                      image: NetworkImage(
-                                        widget.room.urlImage,
-                                      ),
-
-                                      ///Image fit
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
+                                  ///Icon color
+                                  color: Colors.grey,
                                 ),
-                                IconButton(
-                                    icon: Icon(
-                                      ///Icon
-                                      Icons.camera_alt,
 
-                                      ///Icon size
-                                      size: 100,
-
-                                      ///Icon color
-                                      color: Colors.grey,
-                                    ),
-                                    onPressed: () {
-                                      showGetImage(context);
-                                    })
-                              ],
-                            );
-                        }),
+                                ///onPressed
+                                onPressed: () {
+                                  showGetImage(context);
+                                },
+                              ),
+                            ],
+                          );
+                      },
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
+                      ///Text
                       "Name",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -240,6 +314,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerName
                       controller: controllerName,
 
                       ///Hint text
@@ -247,6 +322,8 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.drive_file_rename_outline,
@@ -259,7 +336,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Description",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -275,6 +354,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerDesc
                       controller: controllerDesc,
 
                       ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
@@ -285,6 +365,8 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.note,
@@ -297,7 +379,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Address",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -313,6 +397,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerAddress
                       controller: controllerAddress,
 
                       ///Hint text
@@ -320,6 +405,8 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.comment_bank,
@@ -332,7 +419,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "City",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -348,31 +437,42 @@ class _NewRoomState extends State<EditRoomScreen> {
                       height: 10,
                     ),
                     StreamBuilder<List<Province>>(
-                        stream: editRoomBloc.listProvinceStream,
-                        builder: (context, snapshot1) {
-                          if (snapshot1.hasData) {
-                            List<ItemModel> items = [];
-                            snapshot1.data.forEach((element) {
-                              items.add(new ItemModel(
-                                  id: element.code, name: element.name));
-                            });
-                            return TextFieldChoose(
-                              ///Item
-                              items: items,
+                      stream: editRoomBloc.listProvinceStream,
+                      builder: (context, snapshot1) {
+                        if (snapshot1.hasData) {
+                          List<ItemModel> items = [];
+                          snapshot1.data.forEach(
+                            (element) {
+                              items.add(
+                                new ItemModel(
+                                  id: element.code,
+                                  name: element.name,
+                                ),
+                              );
+                            },
+                          );
+                          return TextFieldChoose(
+                            ///Item
+                            items: items,
 
-                              ///Hint text
-                              hintText: "City",
+                            ///Hint text
+                            hintText: "City",
 
-                              ///Icon
-                              iconData: Icons.location_on,
-                              intiText: controllerCity.text,
-                              callBack: (val) {
-                                controllerCity.text = val;
-                              },
-                            );
-                          } else
-                            return SizedBox();
-                        }),
+                            ///Icon
+                            iconData: Icons.location_on,
+
+                            ///intiText
+                            intiText: controllerCity.text,
+
+                            ///callBack
+                            callBack: (val) {
+                              controllerCity.text = val;
+                            },
+                          );
+                        } else
+                          return SizedBox();
+                      },
+                    ),
                     const SizedBox(
                       height: 15,
                     ),
@@ -382,9 +482,12 @@ class _NewRoomState extends State<EditRoomScreen> {
                           child: Column(
                             ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                             crossAxisAlignment: CrossAxisAlignment.start,
+
                             children: [
                               Text(
+                                ///Text
                                 "Price",
+
                                 style: TextStyle(
                                   ///Text size
                                   fontSize: 15,
@@ -410,6 +513,8 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
+
+                                ///prefixIcon
                                 prefixIcon: Icon(
                                   ///Icon
                                   Icons.money,
@@ -421,16 +526,19 @@ class _NewRoomState extends State<EditRoomScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Expanded(
                           child: Column(
                             ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                             crossAxisAlignment: CrossAxisAlignment.start,
+
                             children: [
                               Text(
+                                ///Text
                                 "Discount",
+
                                 style: TextStyle(
                                   ///Text size
                                   fontSize: 15,
@@ -446,6 +554,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                                 height: 10,
                               ),
                               XTextFormField(
+                                ///controllerDiscountPercent
                                 controller: controllerDiscountPercent,
 
                                 ///Hint text
@@ -456,11 +565,17 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
+
+                                ///prefixIcon
                                 prefixIcon: Container(
+                                  ///width
                                   width: 20,
+
                                   child: Center(
                                     child: Text(
+                                      ///Text
                                       "%",
+
                                       style: TextStyle(
                                         ///Text size
                                         fontSize: 16,
@@ -492,10 +607,16 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                             ///Icon
                             iconData: Icons.person,
+
+                            ///intiText
                             intiText: adults.toString(),
+
+                            ///callBack
                             callBack: (val) {
                               adults = int.parse(val);
                             },
+
+                            ///items
                             items: [
                               ItemModel(id: '1', name: "01"),
                               ItemModel(id: '2', name: "02"),
@@ -510,7 +631,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Expanded(
@@ -520,10 +641,16 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                             ///Icon
                             iconData: Icons.person,
+
+                            ///intiText
                             intiText: child.toString(),
+
+                            ///callBack
                             callBack: (val) {
                               child = int.parse(val);
                             },
+
+                            ///items
                             items: [
                               ItemModel(id: '1', name: "01"),
                               ItemModel(id: '2', name: "02"),
@@ -563,28 +690,49 @@ class _NewRoomState extends State<EditRoomScreen> {
                       onTap: () async {
                         final List<DateTime> picked =
                             await DateRagePicker.showDatePicker(
-                                context: context,
-                                initialFirstDate: new DateTime.now(),
-                                initialLastDate: (new DateTime.now())
-                                    .add(new Duration(days: 7)),
-                                firstDate: new DateTime(2015),
-                                lastDate: new DateTime(2022));
+                          ///context
+                          context: context,
+
+                          ///initialFirstDate
+                          initialFirstDate: new DateTime.now(),
+
+                          ///initialLastDate
+                          initialLastDate: (new DateTime.now()).add(
+                            new Duration(days: 7),
+                          ),
+
+                          ///firstDate
+                          firstDate: new DateTime(2015),
+
+                          ///lastDate
+                          lastDate: new DateTime(2022),
+                        );
                         if (picked != null && picked.length == 2) {
+                          ///startDay
                           startDay = picked[0].toIso8601String();
+
+                          ///endDay
                           endDay = picked[1].toIso8601String();
+
+                          ///controllerFreeTime
                           controllerFreeTime.text =
                               "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
                         }
                       },
                       child: XTextFormField(
-                        controller: controllerFreeTime,
+                        ///enable
                         enable: false,
+
+                        ///controller
+                        controller: controllerFreeTime,
 
                         ///Hint text
                         hintText: "Time",
 
                         ///Check empty data
                         funcValidation: ValidateData.validEmpty,
+
+                        ///prefixIcon
                         prefixIcon: Icon(
                           ///Icon
                           Icons.calendar_today,
@@ -600,13 +748,14 @@ class _NewRoomState extends State<EditRoomScreen> {
             ),
           ),
           StreamBuilder<UIState>(
-              stream: editRoomBloc.editRoomStateStream,
-              builder: (context, snapshot) {
-                if (snapshot.hasData && snapshot.data == UIState.LOADING)
-                  return LoadingBar();
-                else
-                  return Center();
-              })
+            stream: editRoomBloc.editRoomStateStream,
+            builder: (context, snapshot) {
+              if (snapshot.hasData && snapshot.data == UIState.LOADING)
+                return LoadingBar();
+              else
+                return Center();
+            },
+          )
         ],
       ),
       bottomNavigationBar: Padding(
@@ -614,11 +763,13 @@ class _NewRoomState extends State<EditRoomScreen> {
         padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
 
         ///Save button
-        child: XButton("Save", () {
-          if (_formKey.currentState.validate()) {
-            try {
-              if (file == null) {
-                editRoomBloc.updateRoomNotFile(
+        child: XButton(
+          "Save",
+          () {
+            if (_formKey.currentState.validate()) {
+              try {
+                if (file == null) {
+                  editRoomBloc.updateRoomNotFile(
                     widget.room.urlImage,
                     widget.room.idRoom,
                     controllerName.text,
@@ -630,9 +781,10 @@ class _NewRoomState extends State<EditRoomScreen> {
                     controllerCity.text ?? "",
                     controllerDesc.text ?? "",
                     double.parse(controllerPrice.text ?? 0),
-                    double.parse(controllerDiscountPercent.text ?? 0));
-              } else {
-                editRoomBloc.updateRoomHaveFile(
+                    double.parse(controllerDiscountPercent.text ?? 0),
+                  );
+                } else {
+                  editRoomBloc.updateRoomHaveFile(
                     file,
                     widget.room.idRoom,
                     controllerName.text,
@@ -644,60 +796,79 @@ class _NewRoomState extends State<EditRoomScreen> {
                     controllerCity.text ?? "",
                     controllerDesc.text ?? "",
                     double.parse(controllerPrice.text ?? 0),
-                    double.parse(controllerDiscountPercent.text ?? 0));
+                    double.parse(controllerDiscountPercent.text ?? 0),
+                  );
+                }
+              } catch (e) {
+                FlutterToast().showToast(e.message);
               }
-            } catch (e) {
-              FlutterToast().showToast(e.message);
             }
-          }
-        }),
+          },
+        ),
       ),
     );
   }
 
   void showGetImage(BuildContext context) {
     showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        builder: (context) {
-          return Container(
-            ///Container height
-            height: 100,
+      ///context
+      context: context,
 
-            ///Container width
-            width: double.infinity,
-            decoration: BoxDecoration(
-              ///Color box
-              color: themeData.scaffoldBackgroundColor,
+      ///isScrollControlled
+      isScrollControlled: true,
 
-              ///Border box
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+      ///backgroundColor
+      backgroundColor: Colors.transparent,
+
+      ///builder
+      builder: (context) {
+        return Container(
+          ///Container height
+          height: 100,
+
+          ///Container width
+          width: double.infinity,
+
+          decoration: BoxDecoration(
+            ///Color box
+            color: themeData.scaffoldBackgroundColor,
+
+            ///Border box
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
             ),
-            child: Padding(
-              ///Padding
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Row(
-                children: [
-                  ///Camera button
-                  Expanded(
-                      child: XButton("Camera", () {
-                    editRoomBloc.getImageByCamera(picker);
-                  })),
-                  SizedBox(
-                    width: 10,
+          ),
+
+          child: Padding(
+            ///Padding
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+
+            child: Row(
+              children: [
+                ///Camera button
+                Expanded(
+                    child: XButton("Camera", () {
+                  editRoomBloc.getImageByCamera(picker);
+                })),
+                SizedBox(
+                  width: 10,
+                ),
+
+                ///Library button
+                Expanded(
+                  child: XButton(
+                    "Library",
+                    () {
+                      editRoomBloc.getImageByGallery(picker);
+                    },
                   ),
-
-                  ///Library button
-                  Expanded(
-                      child: XButton("Library", () {
-                    editRoomBloc.getImageByGallery(picker);
-                  })),
-                ],
-              ),
+                ),
+              ],
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

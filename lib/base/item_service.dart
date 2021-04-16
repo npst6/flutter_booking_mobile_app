@@ -4,9 +4,17 @@ import 'package:flutter/material.dart';
 
 ///ItemService StatelessWidget
 class ItemService extends StatelessWidget {
+  ///widget
   final Widget widget;
+
+  ///title
   final String title;
-  ItemService(this.widget, this.title);
+
+  ItemService(
+    this.widget,
+    this.title,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,12 +29,17 @@ class ItemService extends StatelessWidget {
 
       child: Column(
         children: [
+          ///widget
           widget,
-          SizedBox(
+
+          const SizedBox(
             height: 5,
           ),
+
           Text(
+            ///Text
             title,
+
             style: TextStyle(
               ///Text weight
               fontWeight: FontWeight.w600,

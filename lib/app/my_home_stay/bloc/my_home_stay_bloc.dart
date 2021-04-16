@@ -10,8 +10,11 @@ import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 ///HomeStayBloc extends BaseBloc
 class HomeStayBloc extends BaseBloc {
   ///Declare stream to listen to the results returned
+  ///myHomeStayStream
   BehaviorSubject<MyHomeStay> myHomeStayStream = new BehaviorSubject();
+  ///myHomeStayStateStream
   BehaviorSubject<UIState> myHomeStayStateStream = new BehaviorSubject();
+  ///listRoomStream
   BehaviorSubject<List<Room>> listRoomStream = new BehaviorSubject();
 
   ///Clean

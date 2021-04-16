@@ -5,6 +5,7 @@ import 'package:flutter_booking_mobile_app/model/account.dart';
 ///Account utils
 class AccountUtils {
   static final AccountUtils _singleton = AccountUtils._internal();
+
   AccountUtils._internal();
 
   factory AccountUtils() {
@@ -12,6 +13,7 @@ class AccountUtils {
   }
 
   String uid;
+
   Account account;
 
   void setAccount({

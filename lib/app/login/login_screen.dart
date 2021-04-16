@@ -21,10 +21,18 @@ class LoginScreen extends StatefulWidget {
 
 /// _LoginScreenState State<>
 class _LoginScreenState extends State<LoginScreen> {
+  ///controllerEmail
   TextEditingController controllerEmail;
+
+  ///controllerPass
   TextEditingController controllerPass;
+
+  ///_formKey
   final _formKey = GlobalKey<FormState>();
+
+  ///loginBloc
   LoginBloc loginBloc;
+
   @override
   void initState() {
     loginBloc = new LoginBloc();
@@ -35,14 +43,20 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void didChangeDependencies() {
-    loginBloc.loginStream.listen((value) {
-      if (value == UIState.SUCCESS) {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) {
-          return HomeScreen();
-        }));
-      }
-    });
+    loginBloc.loginStream.listen(
+      (value) {
+        if (value == UIState.SUCCESS) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return HomeScreen();
+              },
+            ),
+          );
+        }
+      },
+    );
     super.didChangeDependencies();
   }
 
@@ -62,26 +76,35 @@ class _LoginScreenState extends State<LoginScreen> {
         ///Elevation
         elevation: 0,
       ),
+
+      ///Body
       body: Stack(
         ///Alignment
         alignment: Alignment.center,
+
         children: [
           Padding(
-            ///padding
+            ///Padding
             padding: const EdgeInsets.fromLTRB(20, 35, 20, 10),
+
             child: SingleChildScrollView(
               child: Form(
+                ///_formKey
                 key: _formKey,
+
                 child: Column(
                   ///Using mainAxisAlignment in a Column will align its children vertically.
                   mainAxisAlignment: MainAxisAlignment.center,
 
                   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     Center(
                       child: Text(
+                        ///Text
                         "Booking Hotels",
+
                         style: TextStyle(
                           ///Text size
                           fontSize: 40,
@@ -97,11 +120,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+
+                    const SizedBox(
                       height: 100,
                     ),
+
                     Text(
+                      ///Text
                       "Username",
+
                       style: TextStyle(
                         ///Text weight
                         fontWeight: FontWeight.w600,
@@ -113,12 +140,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         letterSpacing: 1,
                       ),
                     ),
-                    SizedBox(
+
+                    const SizedBox(
                       height: 10,
                     ),
 
                     ///Email box
                     XTextFormField(
+                      ///controllerEmail
                       controller: controllerEmail,
 
                       ///Hint text
@@ -129,6 +158,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       ///Check validate email
                       funcValidation: ValidateData.validEmail,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon email box
                         Icons.person,
@@ -137,11 +168,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: AppColors.buttonColor,
                       ),
                     ),
-                    SizedBox(
+
+                    const SizedBox(
                       height: 20,
                     ),
+
                     Text(
+                      ///Text
                       "Password",
+
                       style: TextStyle(
                         ///Text spacing
                         letterSpacing: 1,
@@ -153,13 +188,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(
+
+                    const SizedBox(
                       height: 10,
                     ),
 
                     ///Password box
                     XTextFormField(
+                      ///controllerPass
                       controller: controllerPass,
+
+                      ///obscureText
                       obscureText: true,
 
                       ///Hint text
@@ -176,21 +215,32 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: AppColors.buttonColor,
                       ),
                     ),
-                    SizedBox(
+
+                    const SizedBox(
                       height: 25,
                     ),
+
                     Align(
                       ///Alignment
                       alignment: Alignment.centerRight,
+
                       child: GestureDetector(
+                        ///onTap
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return ForgotPassScreen();
-                          }));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ForgotPassScreen();
+                              },
+                            ),
+                          );
                         },
+
                         child: Text(
+                          ///Text
                           "Forgot Password ?",
+
                           style: TextStyle(
                             ///Text size
                             fontSize: 15,
@@ -204,26 +254,36 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+
+                    const SizedBox(
                       height: 25,
                     ),
 
                     ///Login button
-                    XButton("Login", () {
-                      if (_formKey.currentState.validate()) {
-                        loginBloc.login(
+                    XButton(
+                      "Login",
+                      () {
+                        if (_formKey.currentState.validate()) {
+                          loginBloc.login(
+                            ///email
                             email: controllerEmail.text,
-                            pass: controllerPass.text);
-                      }
-                    }),
 
-                    SizedBox(
+                            ///pass
+                            pass: controllerPass.text,
+                          );
+                        }
+                      },
+                    ),
+
+                    const SizedBox(
                       height: 15,
                     ),
 
                     Center(
                       child: Text(
+                        ///Text
                         " or ",
+
                         style: TextStyle(
                           ///Text color
                           color: Colors.grey,
@@ -237,30 +297,38 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
 
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
 
                     ///Register button
-                    XButton("Register", () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return RegisterScreen();
-                      }));
-                    }),
+                    XButton(
+                      "Register",
+                      () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return RegisterScreen();
+                            },
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
             ),
           ),
           StreamBuilder<UIState>(
-              stream: loginBloc.loginStream,
-              builder: (context, snapshot) {
-                if (snapshot.hasData && snapshot.data == UIState.LOADING)
-                  return LoadingBar();
-                else
-                  return Center();
-              }),
+            stream: loginBloc.loginStream,
+            builder: (context, snapshot) {
+              if (snapshot.hasData && snapshot.data == UIState.LOADING)
+                return LoadingBar();
+              else
+                return Center();
+            },
+          ),
         ],
       ),
     );

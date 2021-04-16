@@ -17,28 +17,47 @@ import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 
 ///EditHomeStay StatefulWidget
 class EditHomeStay extends StatefulWidget {
+  ///myHomeStay
   final MyHomeStay myHomeStay;
+
   EditHomeStay(this.myHomeStay);
+
   @override
   _NewHomeStayState createState() => _NewHomeStayState();
 }
 
 ///_NewHomeStayState State<>
 class _NewHomeStayState extends State<EditHomeStay> {
+  ///themeData
   ThemeData themeData;
+
+  ///_formKey
   final _formKey = GlobalKey<FormState>();
+
+  ///controllerName
   TextEditingController controllerName;
+
+  ///controllerPhone
   TextEditingController controllerPhone;
+
+  ///controllerBankName
   TextEditingController controllerBankName;
+
+  ///controllerNumberBank
   TextEditingController controllerNumberBank;
+
+  ///controllerAccountBankName
   TextEditingController controllerAccountBankName;
+
+  ///picker
   final picker = ImagePicker();
+
+  ///editHomeStayBloc
   EditHomeStayBloc editHomeStayBloc;
 
   @override
   void didChangeDependencies() {
     themeData = Provider.of<ThemeChanger>(context).getTheme();
-
     editHomeStayBloc.editHomeStayStateStream.listen((value) {
       if (value == UIState.SUCCESS) {
         Navigator.pop(context);
@@ -49,13 +68,24 @@ class _NewHomeStayState extends State<EditHomeStay> {
 
   @override
   void initState() {
+    ///editHomeStayBloc
     editHomeStayBloc = new EditHomeStayBloc();
+
+    ///controllerPhone
     controllerPhone = new TextEditingController(text: widget.myHomeStay.phone);
+
+    ///controllerName
     controllerName = new TextEditingController(text: widget.myHomeStay.name);
+
+    ///controllerBankName
     controllerBankName =
         new TextEditingController(text: widget.myHomeStay.bankName);
+
+    ///controllerNumberBank
     controllerNumberBank =
         new TextEditingController(text: widget.myHomeStay.bankNumber);
+
+    ///controllerAccountBankName
     controllerAccountBankName =
         new TextEditingController(text: widget.myHomeStay.accountNameBank);
     super.initState();
@@ -74,14 +104,20 @@ class _NewHomeStayState extends State<EditHomeStay> {
       appBar: AppBar(
         ///Background color
         backgroundColor: themeData.scaffoldBackgroundColor,
+
+        ///elevation
         elevation: 0,
+
         leading: GestureDetector(
+          ///onTap
           onTap: () {
             Navigator.pop(context);
           },
+
           child: Padding(
             ///padding
             padding: const EdgeInsets.all(10),
+
             child: Icon(
               ///Icon
               Icons.arrow_back_ios,
@@ -94,10 +130,18 @@ class _NewHomeStayState extends State<EditHomeStay> {
             ),
           ),
         ),
+
+        ///Title center
         centerTitle: true,
+
+        ///Title spacing
         titleSpacing: 1,
+
+        ///Title
         title: Text(
+          ///Text
           "Edit Home Stay".toUpperCase(),
+
           style: TextStyle(
             ///Text size
             fontSize: 20,
@@ -109,6 +153,8 @@ class _NewHomeStayState extends State<EditHomeStay> {
             fontWeight: FontWeight.bold,
           ),
         ),
+
+        ///actions
         actions: [
           IconButton(
               icon: Icon(
@@ -118,91 +164,110 @@ class _NewHomeStayState extends State<EditHomeStay> {
                 ///Icon color
                 color: AppColors.buttonColor,
               ),
+
+              ///onPressed
               onPressed: () {
                 editHomeStayBloc.deleteHomeStay();
               }),
         ],
       ),
+
+      ///body
       body: Stack(
         children: [
           Padding(
             ///Padding
             padding: const EdgeInsets.all(15),
+
             child: SingleChildScrollView(
               child: Form(
+                ///_formKey
                 key: _formKey,
+
                 child: Column(
                   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     StreamBuilder<File>(
-                        stream: editHomeStayBloc.fileImageStream,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            file = snapshot.data;
-                            return Container(
-                              ///Container height
-                              height: 200,
+                      stream: editHomeStayBloc.fileImageStream,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          ///file
+                          file = snapshot.data;
 
-                              ///Container width
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                ///Border box
-                                borderRadius: BorderRadius.circular(7),
+                          return Container(
+                            ///Container height
+                            height: 200,
 
+                            ///Container width
+                            width: double.infinity,
+
+                            decoration: BoxDecoration(
+                              ///Border box
+                              borderRadius: BorderRadius.circular(7),
+
+                              ///Image
+                              image: DecorationImage(
                                 ///Image
-                                image: DecorationImage(
-                                  ///Image
-                                  image: FileImage(
-                                    snapshot.data,
-                                  ),
-
-                                  ///Image fit
-                                  fit: BoxFit.cover,
+                                image: FileImage(
+                                  snapshot.data,
                                 ),
+
+                                ///Image fit
+                                fit: BoxFit.cover,
                               ),
-                            );
-                          } else
-                            return Container(
+                            ),
+                          );
+                        } else
+                          return Container(
+                            ///Container height
+                            height: 200,
 
-                                ///Container height
-                                height: 200,
+                            ///Container width
+                            width: double.infinity,
 
-                                ///Container width
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  ///Border box
-                                  borderRadius: BorderRadius.circular(7),
+                            decoration: BoxDecoration(
+                              ///Border box
+                              borderRadius: BorderRadius.circular(7),
 
-                                  ///Image
-                                  image: DecorationImage(
-                                    ///Image
-                                    image: NetworkImage(
-                                      widget.myHomeStay.urlImage,
-                                    ),
-
-                                    ///Image fit
-                                    fit: BoxFit.cover,
-                                  ),
+                              ///Image
+                              image: DecorationImage(
+                                ///Image
+                                image: NetworkImage(
+                                  widget.myHomeStay.urlImage,
                                 ),
-                                child: Center(
-                                    child: IconButton(
-                                        icon: Icon(
-                                          ///Icon
-                                          Icons.camera_alt,
 
-                                          ///Icon color
-                                          color: Colors.grey.withOpacity(.6),
-                                        ),
-                                        onPressed: () {
-                                          showGetImage(context);
-                                        })));
-                        }),
+                                ///Image fit
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Center(
+                              child: IconButton(
+                                icon: Icon(
+                                  ///Icon
+                                  Icons.camera_alt,
+
+                                  ///Icon color
+                                  color: Colors.grey.withOpacity(.6),
+                                ),
+
+                                ///onPressed
+                                onPressed: () {
+                                  showGetImage(context);
+                                },
+                              ),
+                            ),
+                          );
+                      },
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
+                      ///Text
                       "Name",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -218,6 +283,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerName
                       controller: controllerName,
 
                       ///Hint text
@@ -225,6 +291,8 @@ class _NewHomeStayState extends State<EditHomeStay> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.drive_file_rename_outline,
@@ -237,7 +305,9 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Phone number",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -253,6 +323,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerPhone
                       controller: controllerPhone,
 
                       ///Hint text
@@ -263,6 +334,8 @@ class _NewHomeStayState extends State<EditHomeStay> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.phone,
@@ -274,12 +347,14 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     const SizedBox(
                       height: 15,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Center(
                       child: Text(
+                        ///Text
                         "Account Bank".toUpperCase(),
+
                         style: TextStyle(
                           ///Text size
                           fontSize: 18,
@@ -297,9 +372,14 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     ),
                     Center(
                       child: SizedBox(
+                        ///width
                         width: 200,
+
                         child: Divider(
+                          ///height
                           height: 2,
+
+                          ///color
                           color: AppColors.buttonColor,
                         ),
                       ),
@@ -308,7 +388,9 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       height: 10,
                     ),
                     Text(
+                      ///Test
                       "Bank name",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -324,11 +406,16 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerBankName
                       controller: controllerBankName,
+
+                      ///Hint text
                       hintText: "Bank name",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.comment_bank,
@@ -341,7 +428,9 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Account number",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -357,6 +446,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerNumberBank
                       controller: controllerNumberBank,
 
                       ///Hint text
@@ -367,6 +457,8 @@ class _NewHomeStayState extends State<EditHomeStay> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.confirmation_number,
@@ -379,7 +471,9 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Account name",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -395,6 +489,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerAccountBankName
                       controller: controllerAccountBankName,
 
                       ///Hint text
@@ -402,6 +497,8 @@ class _NewHomeStayState extends State<EditHomeStay> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.drive_file_rename_outline,
@@ -419,13 +516,14 @@ class _NewHomeStayState extends State<EditHomeStay> {
             ),
           ),
           StreamBuilder<UIState>(
-              stream: editHomeStayBloc.editHomeStayStateStream,
-              builder: (context, snapshot) {
-                if (snapshot.hasData && snapshot.data == UIState.LOADING)
-                  return LoadingBar();
-                else
-                  return Center();
-              })
+            stream: editHomeStayBloc.editHomeStayStateStream,
+            builder: (context, snapshot) {
+              if (snapshot.hasData && snapshot.data == UIState.LOADING)
+                return LoadingBar();
+              else
+                return Center();
+            },
+          )
         ],
       ),
       bottomNavigationBar: Padding(
@@ -433,77 +531,99 @@ class _NewHomeStayState extends State<EditHomeStay> {
         padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
 
         ///Save button
-        child: XButton("Save", () {
-          if (_formKey.currentState.validate()) {
-            if (file != null) {
-              editHomeStayBloc.editHomeStayNotFile(
+        child: XButton(
+          "Save",
+          () {
+            if (_formKey.currentState.validate()) {
+              if (file != null) {
+                editHomeStayBloc.editHomeStayNotFile(
                   widget.myHomeStay.urlImage,
                   controllerName.text,
                   controllerPhone.text,
                   controllerBankName.text,
                   controllerNumberBank.text,
-                  controllerAccountBankName.text);
-            } else
-              editHomeStayBloc.editHomeStayHaveFile(
+                  controllerAccountBankName.text,
+                );
+              } else
+                editHomeStayBloc.editHomeStayHaveFile(
                   file,
                   controllerName.text,
                   controllerPhone.text,
                   controllerBankName.text,
                   controllerNumberBank.text,
-                  controllerAccountBankName.text);
-          }
-        }),
+                  controllerAccountBankName.text,
+                );
+            }
+          },
+        ),
       ),
     );
   }
 
   void showGetImage(BuildContext context) {
     showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
+      ///context
+      context: context,
 
-        ///Background color
-        backgroundColor: Colors.transparent,
-        builder: (context) {
-          return Container(
-            ///Container height
-            height: 100,
+      ///isScrollControlled
+      isScrollControlled: true,
 
-            ///Container width
-            width: double.infinity,
-            decoration: BoxDecoration(
-              ///Color box
-              color: themeData.scaffoldBackgroundColor,
+      ///Background color
+      backgroundColor: Colors.transparent,
 
-              ///Border box
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              ),
+      ///builder
+      builder: (context) {
+        return Container(
+          ///Container height
+          height: 100,
+
+          ///Container width
+          width: double.infinity,
+
+          decoration: BoxDecoration(
+            ///Color box
+            color: themeData.scaffoldBackgroundColor,
+
+            ///Border box
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
             ),
-            child: Padding(
-              ///Padding
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Row(
-                children: [
-                  ///Camera button
-                  Expanded(
-                      child: XButton("Camera", () {
-                    editHomeStayBloc.getImageByCamera(picker);
-                  })),
-                  SizedBox(
-                    width: 10,
+          ),
+          child: Padding(
+            ///Padding
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+
+            child: Row(
+              children: [
+                ///Camera button
+                Expanded(
+                  child: XButton(
+                    "Camera",
+                    () {
+                      editHomeStayBloc.getImageByCamera(picker);
+                    },
                   ),
+                ),
 
-                  ///Library button
-                  Expanded(
-                      child: XButton("Library", () {
-                    editHomeStayBloc.getImageByGallery(picker);
-                  })),
-                ],
-              ),
+                const SizedBox(
+                  width: 10,
+                ),
+
+                ///Library button
+                Expanded(
+                  child: XButton(
+                    "Library",
+                    () {
+                      editHomeStayBloc.getImageByGallery(picker);
+                    },
+                  ),
+                ),
+              ],
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

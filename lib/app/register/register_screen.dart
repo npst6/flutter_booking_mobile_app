@@ -19,12 +19,22 @@ class RegisterScreen extends StatefulWidget {
 
 /// _LoginScreenState State<>
 class _LoginScreenState extends State<RegisterScreen> {
+  ///controllerEmail
   TextEditingController controllerEmail;
+
+  ///controllerPass
   TextEditingController controllerPass;
+
+  ///controllerPhone
   TextEditingController controllerPhone;
+
+  ///controllerName
   TextEditingController controllerName;
+
+  ///registerBloc
   RegisterBloc registerBloc;
 
+  /// _formKey
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -78,6 +88,8 @@ class _LoginScreenState extends State<RegisterScreen> {
             ///Icon color
             color: AppColors.buttonColor,
           ),
+
+          ///onPressed
           onPressed: () {
             Navigator.pop(context);
           },
@@ -90,6 +102,7 @@ class _LoginScreenState extends State<RegisterScreen> {
           Padding(
             ///Padding
             padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+
             child: SingleChildScrollView(
               child: Form(
                 key: _formKey,
@@ -99,10 +112,13 @@ class _LoginScreenState extends State<RegisterScreen> {
 
                   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     Center(
                       child: Text(
+                        ///Text
                         "Register Account",
+
                         style: TextStyle(
                           ///Text color
                           color: AppColors.buttonColor,
@@ -120,11 +136,12 @@ class _LoginScreenState extends State<RegisterScreen> {
                     ),
 
                     ///Height between two fields
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
 
                     Text(
+                      ///Text
                       "Your Name",
                       style: TextStyle(
                         ///Text weight
@@ -139,11 +156,12 @@ class _LoginScreenState extends State<RegisterScreen> {
                     ),
 
                     ///Height between two fields
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
 
                     XTextFormField(
+                      ///controllerName
                       controller: controllerName,
 
                       ///Hint text in name box
@@ -152,6 +170,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                       ///Check empty field
                       funcValidation: ValidateData.validEmpty,
 
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon in name box
                         Icons.person,
@@ -162,12 +181,14 @@ class _LoginScreenState extends State<RegisterScreen> {
                     ),
 
                     ///Height between name box and email text
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
 
                     Text(
+                      ///Text
                       "Your Email",
+
                       style: TextStyle(
                         ///Text weight
                         fontWeight: FontWeight.w600,
@@ -181,11 +202,12 @@ class _LoginScreenState extends State<RegisterScreen> {
                     ),
 
                     ///Height between email text and email box
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
 
                     XTextFormField(
+                      ///controllerEmail
                       controller: controllerEmail,
 
                       ///Hint text in email box
@@ -207,12 +229,14 @@ class _LoginScreenState extends State<RegisterScreen> {
                     ),
 
                     ///Height between email box and phone text
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
 
                     Text(
+                      ///Text
                       "Your Phone",
+
                       style: TextStyle(
                         ///Text weight
                         fontWeight: FontWeight.w600,
@@ -226,11 +250,12 @@ class _LoginScreenState extends State<RegisterScreen> {
                     ),
 
                     ///Height between your phone text and phone box
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
 
                     XTextFormField(
+                      ///controllerPhone
                       controller: controllerPhone,
 
                       ///Hint text in phone box
@@ -242,6 +267,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                       ///Input type phone
                       textInputType: TextInputType.phone,
 
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon in phone box
                         Icons.phone,
@@ -252,12 +278,14 @@ class _LoginScreenState extends State<RegisterScreen> {
                     ),
 
                     ///Height between phone box and password text
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
 
                     Text(
+                      ///Text
                       "Your Password",
+
                       style: TextStyle(
                         ///Text weight
                         fontWeight: FontWeight.w600,
@@ -271,11 +299,12 @@ class _LoginScreenState extends State<RegisterScreen> {
                     ),
 
                     ///Height between password text and password box
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
 
                     XTextFormField(
+                      ///controllerPass
                       controller: controllerPass,
 
                       ///Hint text of password box
@@ -284,9 +313,10 @@ class _LoginScreenState extends State<RegisterScreen> {
                       ///Check empty field
                       funcValidation: ValidateData.validEmpty,
 
-                      ///
+                      ///obscureText
                       obscureText: true,
 
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon in password box
                         Icons.lock,
@@ -297,31 +327,34 @@ class _LoginScreenState extends State<RegisterScreen> {
                     ),
 
                     ///Height between password box and register box
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
 
                     ///Register button
-                    XButton("Register", () {
-                      if (_formKey.currentState.validate()) {
-                        registerBloc.register(
-                          ///Register email
-                          email: controllerEmail.text,
+                    XButton(
+                      "Register",
+                      () {
+                        if (_formKey.currentState.validate()) {
+                          registerBloc.register(
+                            ///Register email
+                            email: controllerEmail.text,
 
-                          ///Register pass
-                          pass: controllerPass.text,
+                            ///Register pass
+                            pass: controllerPass.text,
 
-                          ///Register name
-                          name: controllerName.text,
+                            ///Register name
+                            name: controllerName.text,
 
-                          ///Register phone
-                          phone: controllerPhone.text,
-                        );
-                      }
-                    }),
+                            ///Register phone
+                            phone: controllerPhone.text,
+                          );
+                        }
+                      },
+                    ),
 
                     ///Height between register button and page
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                   ],
@@ -330,13 +363,14 @@ class _LoginScreenState extends State<RegisterScreen> {
             ),
           ),
           StreamBuilder<UIState>(
-              stream: registerBloc.registerStream,
-              builder: (context, snapshot) {
-                if (snapshot.hasData && snapshot.data == UIState.LOADING)
-                  return LoadingBar();
-                else
-                  return Center();
-              })
+            stream: registerBloc.registerStream,
+            builder: (context, snapshot) {
+              if (snapshot.hasData && snapshot.data == UIState.LOADING)
+                return LoadingBar();
+              else
+                return Center();
+            },
+          )
         ],
       ),
     );

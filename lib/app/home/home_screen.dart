@@ -29,15 +29,34 @@ class HomeScreen extends StatefulWidget {
 
 /// _HomeScreenState State<>
 class _HomeScreenState extends State<HomeScreen> {
+  ///themeData
   ThemeData themeData;
+
+  ///homeBloc
   HomeBloc homeBloc;
+
+  ///startDay
   String startDay;
+
+  ///endDay
   String endDay;
+
+  ///controllerSearch
   TextEditingController controllerSearch;
+
+  ///controllerCity
   TextEditingController controllerCity;
+
+  ///controllerTime
   TextEditingController controllerTime;
+
+  ///adults
   int adults = 0;
+
+  ///child
   int child = 0;
+
+  ///numberRoom
   int numberRoom = 0;
 
   @override
@@ -55,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
+  ///_formKey
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -73,6 +93,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       ///Background color
       backgroundColor: AppColors.grey,
+
+      ///Body
       body: Stack(
         children: [
           Column(
@@ -80,47 +102,56 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 ///Container padding
                 padding: const EdgeInsets.fromLTRB(30, 50, 15, 10),
+
                 child: Container(
                   ///Container height
                   height: 40,
+
                   child: Row(
                     ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return ProfileScreen();
-                          }));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ProfileScreen();
+                              },
+                            ),
+                          );
                         },
                         child: StreamBuilder<Account>(
-                            stream: homeBloc.accountStream,
-                            builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                return Container(
-                                  ///Container width
-                                  width: 40,
+                          stream: homeBloc.accountStream,
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              return Container(
+                                ///Container width
+                                width: 40,
 
-                                  ///Container height
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                    ///Border box
-                                    borderRadius: BorderRadius.circular(10),
+                                ///Container height
+                                height: 40,
 
+                                decoration: BoxDecoration(
+                                  ///Border box
+                                  borderRadius: BorderRadius.circular(10),
+
+                                  ///Image
+                                  image: DecorationImage(
                                     ///Image
-                                    image: DecorationImage(
-                                      ///Image
-                                      image: NetworkImage(snapshot.data.avatar),
+                                    image: NetworkImage(snapshot.data.avatar),
 
-                                      ///Image fit
-                                      fit: BoxFit.cover,
-                                    ),
+                                    ///Image fit
+                                    fit: BoxFit.cover,
                                   ),
-                                );
-                              } else
-                                return LoadingBar();
-                            }),
+                                ),
+                              );
+                            } else
+                              return LoadingBar();
+                          },
+                        ),
                       ),
                       IconButton(
                         icon: Icon(
@@ -130,11 +161,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           ///Icon color
                           color: AppColors.buttonColor,
                         ),
+
+                        ///onPressed
                         onPressed: () {
                           showDialog(
+                            ///context
                             context: context,
+
+                            ///builder
                             builder: (_) => Scaffold(
+                              ///backgroundColor
                               backgroundColor: Colors.transparent,
+
+                              ///Body
                               body: Center(
                                 child: Container(
                                   ///Container height
@@ -142,6 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                                   ///Container width
                                   width: 200,
+
                                   decoration: BoxDecoration(
                                     ///Color box
                                     color: themeData.scaffoldBackgroundColor,
@@ -149,17 +189,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ///Border box
                                     borderRadius: BorderRadius.circular(7),
                                   ),
+
                                   child: Padding(
                                     ///Padding
                                     padding: const EdgeInsets.fromLTRB(
                                         10, 20, 10, 15),
+
                                     child: Column(
                                       ///Using mainAxisAlignment in a Column will align its children vertically.
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
+
                                       children: [
                                         Text(
+                                          ///Text
                                           "Logout",
+
                                           style: TextStyle(
                                             ///Text size
                                             fontSize: 18,
@@ -186,7 +231,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 color: Colors.grey,
                                               ),
                                             ),
-                                            SizedBox(
+
+                                            const SizedBox(
                                               width: 10,
                                             ),
 
@@ -197,11 +243,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 () {
                                                   FirAuth().signOut();
                                                   Navigator.pushReplacement(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) {
-                                                    return LoginScreen();
-                                                  }));
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) {
+                                                        return LoginScreen();
+                                                      },
+                                                    ),
+                                                  );
                                                 },
                                               ),
                                             ),
@@ -223,6 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 ///Flex
                 flex: 3,
+
                 child: Container(
                   decoration: BoxDecoration(
                     ///Image
@@ -237,9 +286,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Align(
                     ///Alignment
                     alignment: Alignment.topCenter,
+
                     child: Padding(
                       ///Padding
                       padding: const EdgeInsets.all(25),
+
                       child: Container(
                         decoration: BoxDecoration(
                           ///Color box
@@ -254,18 +305,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
                         ///Container width
                         width: double.infinity,
+
                         child: Padding(
                           ///Padding
                           padding: const EdgeInsets.fromLTRB(15, 0, 5, 0),
+
                           child: TextFormField(
+                            ///controllerSearch
                             controller: controllerSearch,
+
                             style: TextStyle(
                               ///Text color
                               color: Colors.black,
                             ),
+
                             decoration: InputDecoration(
                               ///Hint Text
                               hintText: "Search",
+
                               hintStyle: TextStyle(
                                 ///Hint text color
                                 color: Colors.grey,
@@ -273,15 +330,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ///Hint text weight
                                 fontWeight: FontWeight.w600,
                               ),
-                              suffixIcon: IconButton(
-                                  icon: Icon(
-                                    ///Icon
-                                    Icons.search,
 
-                                    ///Icon color
-                                    color: AppColors.buttonColor,
-                                  ),
-                                  onPressed: () {}),
+                              ///suffixIcon
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  ///Icon
+                                  Icons.search,
+
+                                  ///Icon color
+                                  color: AppColors.buttonColor,
+                                ),
+
+                                ///onPressed
+                                onPressed: () {},
+                              ),
 
                               ///Border box
                               border: InputBorder.none,
@@ -294,15 +356,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Expanded(
+                ///Flex
                 flex: 4,
+
                 child: Container(
+                  ///Container width
                   width: double.infinity,
 
-                  ///Container width
                   decoration: BoxDecoration(
+                    ///Color box
                     color: themeData.scaffoldBackgroundColor,
 
-                    ///Color box
+                    ///borderRadius
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(25),
                       topLeft: Radius.circular(25),
@@ -312,71 +377,106 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Padding(
                     ///Padding
                     padding: const EdgeInsets.all(15),
+
                     child: SingleChildScrollView(
                       child: Form(
+                        ///_formKey
                         key: _formKey,
                         child: Column(
                           ///Using mainAxisAlignment in a Column will align its children vertically.
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
+
                             StreamBuilder<List<Province>>(
-                                stream: homeBloc.listProvinceStream,
-                                builder: (context, snapshot1) {
-                                  if (snapshot1.hasData) {
-                                    List<ItemModel> items = [];
-                                    snapshot1.data.forEach((element) {
-                                      items.add(new ItemModel(
+                              stream: homeBloc.listProvinceStream,
+                              builder: (context, snapshot1) {
+                                if (snapshot1.hasData) {
+                                  List<ItemModel> items = [];
+                                  snapshot1.data.forEach(
+                                    (element) {
+                                      items.add(
+                                        new ItemModel(
                                           id: element.code,
-                                          name: element.name));
-                                    });
-                                    return TextFieldChoose(
-                                      ///Item
-                                      items: items,
+                                          name: element.name,
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  return TextFieldChoose(
+                                    ///Item
+                                    items: items,
 
-                                      ///Icon
-                                      iconData: Icons.location_pin,
+                                    ///Icon
+                                    iconData: Icons.location_pin,
 
-                                      ///Hint text
-                                      hintText: "Where Do You Want To Stay?",
-                                      callBack: (val) {
-                                        controllerCity.text = val;
-                                      },
-                                    );
-                                  } else
-                                    return SizedBox();
-                                }),
-                            SizedBox(
+                                    ///Hint text
+                                    hintText: "Where Do You Want To Stay?",
+
+                                    ///callBack
+                                    callBack: (val) {
+                                      controllerCity.text = val;
+                                    },
+                                  );
+                                } else
+                                  return SizedBox();
+                              },
+                            ),
+                            const SizedBox(
                               height: 15,
                             ),
                             GestureDetector(
+                              ///onTap
                               onTap: () async {
                                 final List<DateTime> picked =
                                     await DateRagePicker.showDatePicker(
-                                        context: context,
-                                        initialFirstDate: new DateTime.now(),
-                                        initialLastDate: (new DateTime.now())
-                                            .add(new Duration(days: 7)),
-                                        firstDate: new DateTime(2015),
-                                        lastDate: new DateTime(2025));
+                                  ///context
+                                  context: context,
+
+                                  ///initialFirstDate
+                                  initialFirstDate: new DateTime.now(),
+
+                                  ///initialLastDate
+                                  initialLastDate: (new DateTime.now()).add(
+                                    new Duration(days: 7),
+                                  ),
+
+                                  ///firstDate
+                                  firstDate: new DateTime(2015),
+
+                                  ///lastDate
+                                  lastDate: new DateTime(2025),
+                                );
                                 if (picked != null && picked.length == 2) {
+                                  ///startDay
                                   startDay = picked[0].toIso8601String();
+
+                                  ///endDay
                                   endDay = picked[1].toIso8601String();
+
+                                  ///controllerTime
                                   controllerTime.text =
                                       "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
                                 }
                               },
+
                               child: XTextFormField(
-                                controller: controllerTime,
+                                ///enable
                                 enable: false,
+
+                                ///controllerTime
+                                controller: controllerTime,
 
                                 ///Hint text
                                 hintText: "Check In - Check Out",
 
                                 ///Check empty field
                                 funcValidation: ValidateData.validEmpty,
+
+                                ///prefixIcon
                                 prefixIcon: Icon(
                                   ///Icon
                                   Icons.calendar_today,
@@ -386,7 +486,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             TextFieldChoose(
@@ -395,9 +495,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
                               ///Hint text
                               hintText: "Number of Rooms to Book",
+
+                              ///callBack
                               callBack: (val) {
                                 numberRoom = int.parse(val);
                               },
+
+                              ///items
                               items: [
                                 ItemModel(id: '1', name: "01"),
                                 ItemModel(id: '2', name: "02"),
@@ -420,9 +524,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
                               ///Hint text
                               hintText: "Adults Number",
+
+                              ///callBack
                               callBack: (val) {
                                 adults = int.parse(val);
                               },
+
+                              ///items
                               items: [
                                 ItemModel(id: '1', name: "01"),
                                 ItemModel(id: '2', name: "02"),
@@ -436,7 +544,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ItemModel(id: '10', name: "10"),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             TextFieldChoose(
@@ -445,9 +553,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
                               ///Hint text
                               hintText: "Children Number",
+
+                              ///callBack
                               callBack: (val) {
                                 child = int.parse(val);
                               },
+
+                              ///items
                               items: [
                                 ItemModel(id: '1', name: "01"),
                                 ItemModel(id: '2', name: "02"),
@@ -461,7 +573,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ItemModel(id: '10', name: "10"),
                               ],
                             ),
-                            SizedBox(
+
+                            const SizedBox(
                               height: 15,
                             ),
 

@@ -26,21 +26,51 @@ class NewRoom extends StatefulWidget {
 
 /// _NewRoomState State<>
 class _NewRoomState extends State<NewRoom> {
+  ///themeData
   ThemeData themeData;
+
+  ///_formKey
   final _formKey = GlobalKey<FormState>();
+
+  ///controllerName
   TextEditingController controllerName;
+
+  ///controllerDesc
   TextEditingController controllerDesc;
+
+  ///controllerAddress
   TextEditingController controllerAddress;
+
+  ///controllerFreeTime
   TextEditingController controllerFreeTime;
+
+  ///controllerCity
   TextEditingController controllerCity;
+
+  ///child
   int child;
+
+  ///adults
   int adults;
+
+  ///controllerPrice
   TextEditingController controllerPrice;
+
+  ///controllerDiscountPercent
   TextEditingController controllerDiscountPercent;
+
+  ///startDay
   String startDay;
+
+  ///endDay
   String endDay;
+
+  ///picker
   final picker = ImagePicker();
+
+  ///newRoomBloc
   NewRoomBloc newRoomBloc;
+
   @override
   void didChangeDependencies() {
     themeData = Provider.of<ThemeChanger>(context).getTheme();
@@ -74,21 +104,29 @@ class _NewRoomState extends State<NewRoom> {
     super.dispose();
   }
 
+  ///file
   File file;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         ///Background color
         backgroundColor: themeData.scaffoldBackgroundColor,
+
+        ///Elevation
         elevation: 0,
+
         leading: GestureDetector(
+          ///onTap
           onTap: () {
             Navigator.pop(context);
           },
+
           child: Padding(
             ///Padding
             padding: const EdgeInsets.all(10),
+
             child: Icon(
               ///Icon
               Icons.arrow_back_ios,
@@ -101,9 +139,15 @@ class _NewRoomState extends State<NewRoom> {
             ),
           ),
         ),
+
+        ///Title center
         centerTitle: true,
+
+        ///Title spacing
         titleSpacing: 1,
+
         title: Text(
+          ///Text
           "New Room".toUpperCase(),
           style: TextStyle(
             ///Text size
@@ -124,29 +168,37 @@ class _NewRoomState extends State<NewRoom> {
           Padding(
             ///Padding
             padding: const EdgeInsets.all(15),
+
             child: SingleChildScrollView(
               child: Form(
+                ///key
                 key: _formKey,
+
                 child: Column(
                   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     StreamBuilder<File>(
                         stream: newRoomBloc.fileImageStream,
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
+                            ///file
                             file = snapshot.data;
+
                             return Container(
                               ///Container height
                               height: 200,
 
                               ///Container width
                               width: double.infinity,
+
                               decoration: BoxDecoration(
                                 ///Border box
                                 borderRadius: BorderRadius.circular(7),
                                 image: DecorationImage(
                                   image: FileImage(
+                                    ///Image
                                     snapshot.data,
                                   ),
                                 ),
@@ -164,15 +216,16 @@ class _NewRoomState extends State<NewRoom> {
                                   ///Border box
                                   borderRadius: BorderRadius.circular(7),
                                   border: Border.all(
+                                    ///Border width
+                                    width: 2,
 
-                                      ///Border color
-                                      color: Colors.grey.withOpacity(.7),
-
-                                      ///Border width
-                                      width: 2),
+                                    ///Border color
+                                    color: Colors.grey.withOpacity(.7),
+                                  ),
                                 ),
                                 child: Center(
                                   child: GestureDetector(
+                                    ///onTap
                                     onTap: () {
                                       showGetImage(context);
                                     },
@@ -193,6 +246,7 @@ class _NewRoomState extends State<NewRoom> {
                       height: 10,
                     ),
                     Text(
+                      ///Text
                       "Name",
                       style: TextStyle(
                         ///Text size
@@ -209,6 +263,7 @@ class _NewRoomState extends State<NewRoom> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerName
                       controller: controllerName,
 
                       ///Hint text
@@ -216,6 +271,8 @@ class _NewRoomState extends State<NewRoom> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.drive_file_rename_outline,
@@ -228,6 +285,7 @@ class _NewRoomState extends State<NewRoom> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Description",
                       style: TextStyle(
                         ///Text size
@@ -244,6 +302,7 @@ class _NewRoomState extends State<NewRoom> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerDesc
                       controller: controllerDesc,
 
                       ///Hint text
@@ -254,6 +313,8 @@ class _NewRoomState extends State<NewRoom> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.note,
@@ -266,6 +327,7 @@ class _NewRoomState extends State<NewRoom> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Address",
                       style: TextStyle(
                         ///Text size
@@ -282,10 +344,13 @@ class _NewRoomState extends State<NewRoom> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerAddress
                       controller: controllerAddress,
 
                       ///Hint text
                       hintText: "Address",
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.comment_bank,
@@ -301,6 +366,7 @@ class _NewRoomState extends State<NewRoom> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "City",
                       style: TextStyle(
                         ///Text size
@@ -328,6 +394,8 @@ class _NewRoomState extends State<NewRoom> {
                             return TextFieldChoose(
                               ///Icon
                               iconData: Icons.location_on,
+
+                              ///callBack
                               callBack: (val) {
                                 controllerCity.text = val;
                               },
@@ -350,8 +418,10 @@ class _NewRoomState extends State<NewRoom> {
                           child: Column(
                             ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                             crossAxisAlignment: CrossAxisAlignment.start,
+
                             children: [
                               Text(
+                                ///Price
                                 "Price",
                                 style: TextStyle(
                                   ///Text size
@@ -368,6 +438,7 @@ class _NewRoomState extends State<NewRoom> {
                                 height: 10,
                               ),
                               XTextFormField(
+                                ///controllerPrice
                                 controller: controllerPrice,
 
                                 ///Hint text
@@ -375,6 +446,8 @@ class _NewRoomState extends State<NewRoom> {
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
+
+                                ///prefixIcon
                                 prefixIcon: Icon(
                                   ///Icon
                                   Icons.money,
@@ -382,22 +455,28 @@ class _NewRoomState extends State<NewRoom> {
                                   ///Icon color
                                   color: AppColors.buttonColor,
                                 ),
+
+                                ///suffixIcon
                                 suffixIcon: Container(
+                                  ///Icon width
                                   width: 20,
+
                                   child: Center(
-                                      child: Text(
-                                    "đ",
-                                    style: TextStyle(
-                                      ///Text color
-                                      color: AppColors.buttonColor,
+                                    child: Text(
+                                      ///Text
+                                      "đ",
+                                      style: TextStyle(
+                                        ///Text color
+                                        color: AppColors.buttonColor,
 
-                                      ///Text size
-                                      fontSize: 16,
+                                        ///Text size
+                                        fontSize: 16,
 
-                                      ///Text weight
-                                      fontWeight: FontWeight.w900,
+                                        ///Text weight
+                                        fontWeight: FontWeight.w900,
+                                      ),
                                     ),
-                                  )),
+                                  ),
                                 ),
 
                                 ///Text type phone
@@ -406,15 +485,17 @@ class _NewRoomState extends State<NewRoom> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Expanded(
                           child: Column(
                             ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                             crossAxisAlignment: CrossAxisAlignment.start,
+
                             children: [
                               Text(
+                                ///Text
                                 "Discount",
                                 style: TextStyle(
                                   ///Text size
@@ -431,6 +512,7 @@ class _NewRoomState extends State<NewRoom> {
                                 height: 10,
                               ),
                               XTextFormField(
+                                ///controllerDiscountPercent
                                 controller: controllerDiscountPercent,
 
                                 ///Hint text
@@ -438,22 +520,28 @@ class _NewRoomState extends State<NewRoom> {
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
+
+                                ///prefixIcon
                                 prefixIcon: Container(
+                                  ///width
                                   width: 20,
+
                                   child: Center(
-                                      child: Text(
-                                    "%",
-                                    style: TextStyle(
-                                      ///Text color
-                                      color: AppColors.buttonColor,
+                                    child: Text(
+                                      ///Text
+                                      "%",
+                                      style: TextStyle(
+                                        ///Text color
+                                        color: AppColors.buttonColor,
 
-                                      ///Text size
-                                      fontSize: 16,
+                                        ///Text size
+                                        fontSize: 16,
 
-                                      ///Text weight
-                                      fontWeight: FontWeight.w900,
+                                        ///Text weight
+                                        fontWeight: FontWeight.w900,
+                                      ),
                                     ),
-                                  )),
+                                  ),
                                 ),
 
                                 ///Text type phone
@@ -473,10 +561,16 @@ class _NewRoomState extends State<NewRoom> {
                           child: TextFieldChoose(
                             ///Icon
                             iconData: Icons.person,
+
+                            ///callBack
                             callBack: (val) {
                               adults = int.parse(val);
                             },
+
+                            ///Hint text
                             hintText: "Adults",
+
+                            ///items
                             items: [
                               ItemModel(id: '1', name: "01"),
                               ItemModel(id: '2', name: "02"),
@@ -491,19 +585,23 @@ class _NewRoomState extends State<NewRoom> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Expanded(
                           child: TextFieldChoose(
                             ///Icon
                             iconData: Icons.person,
+
+                            ///callBack
                             callBack: (val) {
                               child = int.parse(val);
                             },
 
                             ///Hint text
                             hintText: "Child",
+
+                            ///items
                             items: [
                               ItemModel(id: '1', name: "01"),
                               ItemModel(id: '2', name: "02"),
@@ -524,6 +622,7 @@ class _NewRoomState extends State<NewRoom> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Free time",
                       style: TextStyle(
                         ///Text size
@@ -540,28 +639,50 @@ class _NewRoomState extends State<NewRoom> {
                       height: 10,
                     ),
                     GestureDetector(
+                      ///onTap
                       onTap: () async {
+                        ///DateTime
                         final List<DateTime> picked =
                             await DateRagePicker.showDatePicker(
+
+                                ///context
                                 context: context,
+
+                                ///initialFirstDate
                                 initialFirstDate: new DateTime.now(),
+
+                                ///initialLastDate
                                 initialLastDate: (new DateTime.now())
                                     .add(new Duration(days: 7)),
+
+                                ///firstDate
                                 firstDate: new DateTime(2015),
+
+                                ///lastDate
                                 lastDate: new DateTime(2022));
                         if (picked != null && picked.length == 2) {
+                          ///startDay
                           startDay = picked[0].toIso8601String();
+
+                          ///endDay
                           endDay = picked[1].toIso8601String();
+
+                          ///controllerFreeTime
                           controllerFreeTime.text =
                               "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
                         }
                       },
                       child: XTextFormField(
-                        controller: controllerFreeTime,
+                        ///enable
                         enable: false,
+
+                        ///controllerFreeTime
+                        controller: controllerFreeTime,
 
                         ///Hint text
                         hintText: "Time",
+
+                        ///prefixIcon
                         prefixIcon: Icon(
                           ///Icon
                           Icons.calendar_today,
@@ -580,24 +701,28 @@ class _NewRoomState extends State<NewRoom> {
             ),
           ),
           StreamBuilder<UIState>(
-              stream: newRoomBloc.newRoomStateStream,
-              builder: (context, snapshot) {
-                if (snapshot.hasData && snapshot.data == UIState.LOADING)
-                  return LoadingBar();
-                else
-                  return Center();
-              })
+            stream: newRoomBloc.newRoomStateStream,
+            builder: (context, snapshot) {
+              if (snapshot.hasData && snapshot.data == UIState.LOADING)
+                return LoadingBar();
+              else
+                return Center();
+            },
+          ),
         ],
       ),
+
       bottomNavigationBar: Padding(
         ///Padding
         padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
 
         ///Save button
-        child: XButton("Save", () {
-          if (_formKey.currentState.validate()) {
-            try {
-              newRoomBloc.addRoom(
+        child: XButton(
+          "Save",
+          () {
+            if (_formKey.currentState.validate()) {
+              try {
+                newRoomBloc.addRoom(
                   file,
                   controllerName.text,
                   startDay,
@@ -608,63 +733,83 @@ class _NewRoomState extends State<NewRoom> {
                   controllerCity.text ?? "",
                   controllerDesc.text ?? "",
                   double.parse(controllerPrice.text ?? 0),
-                  double.parse(controllerDiscountPercent.text ?? 0));
-            } catch (e) {
-              FlutterToast().showToast(e.message);
+                  double.parse(controllerDiscountPercent.text ?? 0),
+                );
+              } catch (e) {
+                FlutterToast().showToast(e.message);
+              }
             }
-          }
-        }),
+          },
+        ),
       ),
     );
   }
 
+  ///showGetImage
   void showGetImage(BuildContext context) {
     showModalBottomSheet(
-        isScrollControlled: true,
-        context: context,
-        backgroundColor: Colors.transparent,
-        builder: (context) {
-          return Container(
-            ///Container height
-            height: 100,
+      ///context
+      context: context,
 
-            ///Container width
-            width: double.infinity,
-            decoration: BoxDecoration(
-              ///Color box
-              color: themeData.scaffoldBackgroundColor,
+      ///isScrollControlled
+      isScrollControlled: true,
 
-              ///Border box
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              ),
+      ///backgroundColor
+      backgroundColor: Colors.transparent,
+
+      builder: (context) {
+        return Container(
+          ///Container height
+          height: 100,
+
+          ///Container width
+          width: double.infinity,
+
+          decoration: BoxDecoration(
+            ///Color box
+            color: themeData.scaffoldBackgroundColor,
+
+            ///Border box
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
             ),
+          ),
 
-            child: Padding(
-              ///Padding
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Row(
-                children: [
-                  Expanded(
+          child: Padding(
+            ///Padding
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
 
-                      ///Button Camera
-                      child: XButton("Camera", () {
-                    newRoomBloc.getImageByCamera(picker);
-                  })),
-                  SizedBox(
-                    width: 10,
+            child: Row(
+              children: [
+                ///Button Camera
+                Expanded(
+                  child: XButton(
+                    "Camera",
+                    () {
+                      newRoomBloc.getImageByCamera(picker);
+                    },
                   ),
-                  Expanded(
+                ),
 
-                      ///Button Library
-                      child: XButton("Library", () {
-                    newRoomBloc.getImageByGallery(picker);
-                  })),
-                ],
-              ),
+                const SizedBox(
+                  width: 10,
+                ),
+
+                ///Button Library
+                Expanded(
+                  child: XButton(
+                    "Library",
+                    () {
+                      newRoomBloc.getImageByGallery(picker);
+                    },
+                  ),
+                ),
+              ],
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
           textSelectionColor: Colors.black,
         ),
       ),
+
       child: MyAppTheme(),
     );
   }
@@ -54,7 +55,9 @@ class MyAppTheme extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ///theme
     final theme = Provider.of<ThemeChanger>(context);
+
     return MaterialApp(
       ///Don't show debug banner
       debugShowCheckedModeBanner: false,

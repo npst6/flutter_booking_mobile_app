@@ -13,8 +13,13 @@ import 'package:flutter_booking_mobile_app/remote/province_response/province_res
 
 ///EditRoomBloc extends BaseBloc
 class EditRoomBloc extends BaseBloc {
+  ///editRoomStateStream
   BehaviorSubject<UIState> editRoomStateStream = new BehaviorSubject();
+
+  ///fileImageStream
   BehaviorSubject<File> fileImageStream = new BehaviorSubject();
+
+  ///listProvinceStream
   BehaviorSubject<List<Province>> listProvinceStream = new BehaviorSubject();
 
   @override
@@ -79,33 +84,33 @@ class EditRoomBloc extends BaseBloc {
 
   ///Add room
   void addRoom(
-      File file,
-      String name,
-      String startDay,
-      String endDay,
-      int adults,
-      int child,
-      String address,
-      String city,
-      String desc,
-      double price,
-      double discount,
-      ) async {
+    File file,
+    String name,
+    String startDay,
+    String endDay,
+    int adults,
+    int child,
+    String address,
+    String city,
+    String desc,
+    double price,
+    double discount,
+  ) async {
     editRoomStateStream.add(UIState.LOADING);
     try {
       FirebaseStorage storage = FirebaseStorage.instance;
       Reference storageReference =
-      storage.ref().child('${Path.basename(file.path)}}');
+          storage.ref().child('${Path.basename(file.path)}}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
           FirAuth().createNewRoom(val, name, startDay, endDay, adults, child,
               address, city, desc, price, discount, () {
-                editRoomStateStream.add(UIState.SUCCESS);
-                FlutterToast().showToast("Success");
-              }, (va) {
-                editRoomStateStream.add(UIState.ERROR);
-                FlutterToast().showToast(va);
-              });
+            editRoomStateStream.add(UIState.SUCCESS);
+            FlutterToast().showToast("Success");
+          }, (va) {
+            editRoomStateStream.add(UIState.ERROR);
+            FlutterToast().showToast(va);
+          });
         });
       });
     } catch (e) {
@@ -116,34 +121,34 @@ class EditRoomBloc extends BaseBloc {
 
   /// cập nhật phòng có hình ảnh
   void updateRoomHaveFile(
-      File file,
-      String id,
-      String name,
-      String startDay,
-      String endDay,
-      int adults,
-      int child,
-      String address,
-      String city,
-      String desc,
-      double price,
-      double discount,
-      ) async {
+    File file,
+    String id,
+    String name,
+    String startDay,
+    String endDay,
+    int adults,
+    int child,
+    String address,
+    String city,
+    String desc,
+    double price,
+    double discount,
+  ) async {
     editRoomStateStream.add(UIState.LOADING);
     try {
       FirebaseStorage storage = FirebaseStorage.instance;
       Reference storageReference =
-      storage.ref().child('${Path.basename(file.path)}}');
+          storage.ref().child('${Path.basename(file.path)}}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
           FirAuth().updateRoom(val, name, id, startDay, endDay, adults, child,
               address, city, desc, price, discount, () {
-                editRoomStateStream.add(UIState.SUCCESS);
-                FlutterToast().showToast("Success");
-              }, (va) {
-                editRoomStateStream.add(UIState.ERROR);
-                FlutterToast().showToast(va);
-              });
+            editRoomStateStream.add(UIState.SUCCESS);
+            FlutterToast().showToast("Success");
+          }, (va) {
+            editRoomStateStream.add(UIState.ERROR);
+            FlutterToast().showToast(va);
+          });
         });
       });
     } catch (e) {
@@ -154,29 +159,29 @@ class EditRoomBloc extends BaseBloc {
 
   /// cập nhật phòng khong có hình ảnh
   void updateRoomNotFile(
-      String urlImage,
-      String id,
-      String name,
-      String startDay,
-      String endDay,
-      int adults,
-      int child,
-      String address,
-      String city,
-      String desc,
-      double price,
-      double discount,
-      ) async {
+    String urlImage,
+    String id,
+    String name,
+    String startDay,
+    String endDay,
+    int adults,
+    int child,
+    String address,
+    String city,
+    String desc,
+    double price,
+    double discount,
+  ) async {
     editRoomStateStream.add(UIState.LOADING);
     try {
       FirAuth().updateRoom(urlImage, name, id, startDay, endDay, adults, child,
           address, city, desc, price, discount, () {
-            editRoomStateStream.add(UIState.SUCCESS);
-            FlutterToast().showToast("Success");
-          }, (va) {
-            editRoomStateStream.add(UIState.ERROR);
-            FlutterToast().showToast(va);
-          });
+        editRoomStateStream.add(UIState.SUCCESS);
+        FlutterToast().showToast("Success");
+      }, (va) {
+        editRoomStateStream.add(UIState.ERROR);
+        FlutterToast().showToast(va);
+      });
     } catch (e) {
       editRoomStateStream.add(UIState.ERROR);
       FlutterToast().showToast(e.message);

@@ -10,10 +10,18 @@ import 'package:flutter_booking_mobile_app/app/history_booking/bloc/history_book
 
 /// ItemHistory StatefulWidget
 class ItemHistory extends StatefulWidget {
+  ///historyBookingBloc
   final HistoryBookingBloc historyBookingBloc;
+
+  ///themeData
   final ThemeData themeData;
+
+  ///isCancel
   final bool isCancel;
+
+  ///transactions
   final Transactions transactions;
+
   ItemHistory(this.themeData, this.transactions, this.historyBookingBloc,
       {this.isCancel = false});
   @override
@@ -36,26 +44,37 @@ class _ItemHistoryState extends State<ItemHistory> {
 
       ///Container margin
       margin: const EdgeInsets.all(10),
+
       decoration: BoxDecoration(
         ///Color box
         color: widget.themeData.scaffoldBackgroundColor,
 
         ///Border box
         borderRadius: BorderRadius.circular(10),
+
         boxShadow: [
           BoxShadow(
+            ///color
             color: Colors.grey.withOpacity(0.5),
+
+            ///spreadRadius
             spreadRadius: 3,
+
+            ///blurRadius
             blurRadius: 5,
+
+            ///offset
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],
       ),
+
       child: Row(
         children: [
           Expanded(
             ///Flex
             flex: 1,
+
             child: StreamBuilder<Room>(
                 stream: widget.historyBookingBloc.myRoomStream,
                 builder: (context, snapshot) {
@@ -90,48 +109,55 @@ class _ItemHistoryState extends State<ItemHistory> {
           Expanded(
             ///Flex
             flex: 4,
+
             child: Padding(
               ///Padding
               padding: const EdgeInsets.all(10),
+
               child: Column(
                 ///Using mainAxisAlignment in a Column will align its children vertically.
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                 ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                 crossAxisAlignment: CrossAxisAlignment.start,
+
                 children: [
                   Row(
                     children: [
                       Expanded(
                         ///Flex
                         flex: 5,
+
                         child: StreamBuilder<Room>(
-                            stream: widget.historyBookingBloc.myRoomStream,
-                            builder: (context, snapshot) {
-                              return Text(
-                                ///Text
-                                snapshot.hasData
-                                    ? snapshot.data.nameRoom.toUpperCase()
-                                    : "",
+                          stream: widget.historyBookingBloc.myRoomStream,
+                          builder: (context, snapshot) {
+                            return Text(
+                              ///Text
+                              snapshot.hasData
+                                  ? snapshot.data.nameRoom.toUpperCase()
+                                  : "",
 
-                                ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
-                                maxLines: 1,
-                                style: TextStyle(
-                                  ///Text weight
-                                  fontWeight: FontWeight.w800,
+                              ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                              maxLines: 1,
 
-                                  ///Text size
-                                  fontSize: 17,
+                              style: TextStyle(
+                                ///Text weight
+                                fontWeight: FontWeight.w800,
 
-                                  ///Text spacing
-                                  letterSpacing: 1.6,
-                                ),
-                              );
-                            }),
+                                ///Text size
+                                fontSize: 17,
+
+                                ///Text spacing
+                                letterSpacing: 1.6,
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ],
                   ),
-                  SizedBox(
+
+                  const SizedBox(
                     height: 5,
                   ),
 
@@ -145,6 +171,7 @@ class _ItemHistoryState extends State<ItemHistory> {
 
                     ///Text align
                     textAlign: TextAlign.start,
+
                     style: TextStyle(
                       ///Text weight
                       fontWeight: FontWeight.w600,
@@ -162,9 +189,11 @@ class _ItemHistoryState extends State<ItemHistory> {
                       letterSpacing: 1,
                     ),
                   ),
-                  SizedBox(
+
+                  const SizedBox(
                     height: 5,
                   ),
+
                   Row(
                     children: [
                       Expanded(
@@ -178,6 +207,7 @@ class _ItemHistoryState extends State<ItemHistory> {
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                           maxLines: 1,
+
                           style: TextStyle(
                             ///Text weight
                             fontWeight: FontWeight.w600,
@@ -187,8 +217,6 @@ class _ItemHistoryState extends State<ItemHistory> {
                           ),
                         ),
                       ),
-
-                      ///Icon
                       Icon(
                         ///Icon
                         Icons.arrow_forward,
@@ -213,6 +241,7 @@ class _ItemHistoryState extends State<ItemHistory> {
 
                           ///Text align
                           textAlign: TextAlign.start,
+
                           style: TextStyle(
                             ///Text weight
                             fontWeight: FontWeight.w600,
@@ -224,7 +253,7 @@ class _ItemHistoryState extends State<ItemHistory> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
@@ -232,6 +261,7 @@ class _ItemHistoryState extends State<ItemHistory> {
                       Expanded(
                         ///Flex
                         flex: 2,
+
                         child: Text(
                           ///Text
                           "${widget.transactions.totalMoney.toInt()}\đ",
@@ -241,6 +271,7 @@ class _ItemHistoryState extends State<ItemHistory> {
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                           maxLines: 1,
+
                           style: TextStyle(
                             ///Text color
                             color: AppColors.buttonColor,
@@ -256,21 +287,25 @@ class _ItemHistoryState extends State<ItemHistory> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Expanded(
                         ///Flex
                         flex: 1,
+
                         child: widget.isCancel
                             ? XButton(
                                 "Cancel",
                                 () {
                                   FirAuth().updateOrderStatus(
-                                      3, widget.transactions.id, () {
-                                    widget.historyBookingBloc
-                                        .getHistoryBooking();
-                                  });
+                                    3,
+                                    widget.transactions.id,
+                                    () {
+                                      widget.historyBookingBloc
+                                          .getHistoryBooking();
+                                    },
+                                  );
                                 },
                                 color: Colors.grey,
                                 height: 30,

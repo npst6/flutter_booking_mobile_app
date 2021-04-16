@@ -2,6 +2,7 @@
 
 ///Order utils
 class OrderUtils {
+  /// _singleton
   static final OrderUtils _singleton = OrderUtils._internal();
   OrderUtils._internal();
   factory OrderUtils() {

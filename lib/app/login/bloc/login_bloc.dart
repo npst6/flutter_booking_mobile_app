@@ -7,7 +7,9 @@ import 'package:rxdart/rxdart.dart';
 
 class LoginBloc extends BaseBloc {
   ///Initialization stream
+  ///loginStream
   BehaviorSubject<UIState> loginStream = new BehaviorSubject();
+
   @override
   void dispose() {
     loginStream.close();

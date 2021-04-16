@@ -1,5 +1,5 @@
 ///Note file base_bloc.dart
-
+///BaseBloc
 abstract class BaseBloc {
   void init();
   void dispose();

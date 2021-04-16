@@ -7,17 +7,29 @@ import 'package:flutter_booking_mobile_app/app/detail_home_stay/detail_home_stay
 
 ///ItemSearch StatelessWidget
 class ItemSearch extends StatelessWidget {
+  ///room
   final Room room;
-  ItemSearch(this.room);
+
+  ItemSearch(
+    this.room,
+  );
+
   @override
   Widget build(BuildContext context) {
     ///GestureDetector
     return GestureDetector(
+      ///onTap
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return DetailHomeStayScreen(room); ///
-        }));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return DetailHomeStayScreen(room);
+            },
+          ),
+        );
       },
+
       child: Container(
         ///Container height
         height: 100,
@@ -27,15 +39,18 @@ class ItemSearch extends StatelessWidget {
 
         ///Container margin
         margin: const EdgeInsets.fromLTRB(15, 0, 15, 20),
+
         child: Row(
           children: [
             Expanded(
               ///Flex
               flex: 2,
+
               child: Container(
                 decoration: BoxDecoration(
-                  ///Border radius box
+                  ///Border box
                   borderRadius: BorderRadius.circular(20),
+
                   image: DecorationImage(
                     ///Image
                     image: NetworkImage(room.urlImage),
@@ -49,23 +64,28 @@ class ItemSearch extends StatelessWidget {
             Expanded(
               ///Flex
               flex: 3,
+
               child: Stack(
                 ///Alignment
                 alignment: Alignment.topRight,
+
                 children: [
                   Container(
                     ///Container height
                     height: 100,
+
                     decoration: BoxDecoration(
-                      ///Border radius box
+                      ///Border box
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(10),
                         bottomRight: Radius.circular(10),
                       ),
                     ),
+
                     child: Padding(
                       ///Padding
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+
                       child: Column(
                         ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,6 +95,7 @@ class ItemSearch extends StatelessWidget {
 
                         ///Use mainAxisSize to pack the child of a row or columns together.
                         mainAxisSize: MainAxisSize.min,
+
                         children: [
                           Text(
                             ///Text import from room name, toUpperCase
@@ -95,6 +116,7 @@ class ItemSearch extends StatelessWidget {
 
                                 ///Container width
                                 width: 25,
+
                                 decoration: BoxDecoration(
                                   ///Color box decoration
                                   color: AppColors.buttonColor,
@@ -102,10 +124,12 @@ class ItemSearch extends StatelessWidget {
                                   ///Border box decoration
                                   borderRadius: BorderRadius.circular(7),
                                 ),
+
                                 child: Center(
                                   child: Text(
-                                    ///toUpperCase
+                                    ///Text, toUpperCase
                                     "9.5".toUpperCase(),
+
                                     style: TextStyle(
                                       ///Text weight
                                       fontWeight: FontWeight.w600,
@@ -113,11 +137,13 @@ class ItemSearch extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text(
+                                ///Text
                                 "( 200reviews)",
+
                                 style: TextStyle(
                                   ///Text color
                                   color: Colors.grey,
@@ -140,41 +166,25 @@ class ItemSearch extends StatelessWidget {
                                 ///Icon size
                                 size: 18,
                               ),
-                              SizedBox(width: 10),
+                              const SizedBox(
+                                width: 10,
+                              ),
                               Container(
                                 ///Container width
                                 width: 150,
+
                                 child: Text(
                                   ///Text
                                   "${room.address}, ${room.city}".toUpperCase(),
 
                                   ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                                   maxLines: 2,
+
                                   style: TextStyle(),
                                 ),
                               ),
                             ],
                           ),
-//                    Expanded(
-//                      child: Container(
-//                        height: 30,
-//                        width: double.infinity,
-//                        child: ListView.builder(
-//                          scrollDirection: Axis.horizontal,
-//                          itemBuilder: (context, index) {
-//                            return Padding(
-//                              padding:
-//                                  const EdgeInsets.symmetric(horizontal: 5),
-//                              child: Icon(
-//                                Icons.location_on,
-//                                color: AppColors.buttonColor,
-//                              ),
-//                            );
-//                          },
-//                          itemCount: 5,
-//                        ),
-//                      ),
-//                    ),
                         ],
                       ),
                     ),
@@ -190,15 +200,18 @@ class ItemSearch extends StatelessWidget {
                       ///Color box
                       color: AppColors.buttonColor,
 
-                      ///Border radius box
+                      ///Border box
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(15),
                         bottomLeft: Radius.circular(10),
                       ),
                     ),
+
                     child: Center(
                       child: Text(
+                        ///Text
                         "${(room.money - room.money * room.discount / 100).toInt()}\đ",
+
                         style: TextStyle(
                           ///Text weight
                           fontWeight: FontWeight.bold,

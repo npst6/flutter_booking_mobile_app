@@ -11,22 +11,43 @@ import 'package:flutter_booking_mobile_app/utils/validate_data.dart';
 
 ///TextFieldChoose StatefulWidget
 class TextFieldChoose extends StatefulWidget {
-  final IconData iconData;
+  ///hintText
   final String hintText;
+
+  ///intiText
   final String intiText;
-  final List<ItemModel> items;
+
+  ///iconData
+  final IconData iconData;
+
+  ///callBack
   final Function callBack;
-  TextFieldChoose(
-      {this.iconData, this.hintText, this.intiText, this.items, this.callBack});
+
+  ///items
+  final List<ItemModel> items;
+
+  TextFieldChoose({
+    this.items,
+    this.iconData,
+    this.hintText,
+    this.intiText,
+    this.callBack,
+  });
   @override
   _TextFieldChooseState createState() => _TextFieldChooseState();
 }
 
 /// _TextFieldChooseState State<>
 class _TextFieldChooseState extends State<TextFieldChoose> {
-  TextEditingController controller;
+  /// _index
   int _index = -1;
+
+  ///themeData
   ThemeData themeData;
+
+  ///controller
+  TextEditingController controller;
+
   @override
   void initState() {
     controller = new TextEditingController(text: widget.intiText ?? "");
@@ -41,6 +62,7 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
 
   @override
   void didChangeDependencies() {
+    ///themeData
     themeData = Provider.of<ThemeChanger>(context).getTheme();
     super.didChangeDependencies();
   }
@@ -48,20 +70,37 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      ///onTap
       onTap: () {
         showModalItem();
       },
+
       child: XTextFormField(
         enable: false,
-        hintText: widget.hintText,
+
+        ///controller
         controller: controller,
+
+        ///hintText
+        hintText: widget.hintText,
+
+        ///funcValidation
         funcValidation: ValidateData.validEmpty,
+
+        ///prefixIcon
         prefixIcon: Icon(
           widget.iconData,
+
+          ///Icon color
           color: AppColors.buttonColor,
         ),
+
+        ///suffixIcon
         suffixIcon: Icon(
+          ///Icon
           Icons.arrow_drop_down,
+
+          ///Icon color
           color: AppColors.buttonColor,
         ),
       ),
@@ -70,40 +109,75 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
 
   void showModalItem() {
     showModalBottomSheet(
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      ///context
       context: context,
+
+      ///isScrollControlled
+      isScrollControlled: true,
+
+      ///backgroundColor
+      backgroundColor: Colors.transparent,
+
       builder: (context) => Center(
         child: Container(
+          ///Container width
           width: 250,
+
+          ///Container height
           height: 12.0 * widget.items.length,
+
           decoration: BoxDecoration(
+            ///Color box
             color: themeData.scaffoldBackgroundColor,
+
+            ///Border box
             borderRadius: BorderRadius.circular(10),
           ),
-          constraints: BoxConstraints(minHeight: 200, maxHeight: 500),
+
+          ///constraints
+          constraints: BoxConstraints(
+            ///minHeight
+            minHeight: 200,
+
+            ///maxHeight
+            maxHeight: 500,
+          ),
+
           child: Padding(
+            ///Padding
             padding: const EdgeInsets.all(20),
+
             child: widget.items.length > 0
                 ? ListView.builder(
+                    ///itemCount
                     itemCount: widget.items.length,
+
+                    ///itemBuilder
                     itemBuilder: (context, i) {
                       return Padding(
+                        ///Padding
                         padding: const EdgeInsets.symmetric(vertical: 7),
+
                         child: GestureDetector(
+                          ///onTap
                           onTap: () {
                             _index = i;
                             controller.text = widget.items[i].name;
                             widget.callBack(widget.items[i].name);
                             Navigator.pop(context);
                           },
+
                           child: Text(
+                            ///Text
                             widget.items[i].name,
                             style: TextStyle(
+                              ///Text color
                               color: _index == i
                                   ? AppColors.buttonColor
                                   // ignore: deprecated_member_use
                                   : themeData.textSelectionColor,
+
+                              ///Text weight
                               fontWeight: _index == i
                                   ? FontWeight.w800
                                   : FontWeight.w500,

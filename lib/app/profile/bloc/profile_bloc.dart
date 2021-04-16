@@ -12,9 +12,15 @@ import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 
 class ProfileBloc extends BaseBloc {
   ///Initialize stream
+  ///Account
   BehaviorSubject<Account> accountStream = new BehaviorSubject();
+
+  ///UIState
   BehaviorSubject<UIState> accountStateStream = new BehaviorSubject();
+
+  ///File
   BehaviorSubject<File> fileIamgeStream = new BehaviorSubject();
+
   @override
   void dispose() {
     accountStream.close();

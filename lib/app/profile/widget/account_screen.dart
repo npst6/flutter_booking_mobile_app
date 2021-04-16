@@ -9,20 +9,39 @@ import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 
 ///AccountScreen StatefulWidget
 class AccountScreen extends StatefulWidget {
+  ///color
   final Color color;
+
+  ///account
   final Account account;
+
+  ///profileBloc
   final ProfileBloc profileBloc;
-  AccountScreen(this.color, this.account, this.profileBloc);
+
+  AccountScreen(
+    this.color,
+    this.account,
+    this.profileBloc,
+  );
+
   @override
   _AccountScreenState createState() => _AccountScreenState();
 }
 
 /// _AccountScreenState State<>
 class _AccountScreenState extends State<AccountScreen> {
+  ///controllerEmail
   TextEditingController controllerEmail;
+
+  ///controllerName
   TextEditingController controllerName;
+
+  ///controllerPhone
   TextEditingController controllerPhone;
+
+  ///controllerPass
   TextEditingController controllerPass;
+
   @override
   void initState() {
     controllerEmail = new TextEditingController(text: widget.account.email);
@@ -35,11 +54,12 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      ///Container height
+      height: 550,
+
       ///Container width
       width: MediaQuery.of(context).size.width * 0.95,
 
-      ///Container height
-      height: 550,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -65,6 +85,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
             ///Container width
             width: double.infinity,
+
             decoration: BoxDecoration(
               ///Color box
               color: AppColors.buttonColor,
@@ -78,6 +99,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
             child: Center(
               child: Text(
+                ///Text
                 "Account",
                 style: TextStyle(
                   ///Text size
@@ -94,13 +116,17 @@ class _AccountScreenState extends State<AccountScreen> {
           ),
           Expanded(
             child: Padding(
+              ///Padding
               padding: const EdgeInsets.all(15),
+
               child: SingleChildScrollView(
                 child: Column(
                   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     Text(
+                      ///Text
                       "Email",
                       style: TextStyle(
                         ///Text size
@@ -119,7 +145,10 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     XTextFormField(
+                      ///controllerEmail
                       controller: controllerEmail,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon email box
                         Icons.email,
@@ -135,6 +164,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     Text(
+                      ///Text
                       "Name",
                       style: TextStyle(
                         ///Text size
@@ -153,7 +183,10 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     XTextFormField(
+                      ///controllerName
                       controller: controllerName,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.drive_file_rename_outline,
@@ -168,6 +201,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     Text(
+                      ///Text
                       "Phone number",
                       style: TextStyle(
                         ///Text size
@@ -186,7 +220,10 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     XTextFormField(
+                      ///controllerPhone
                       controller: controllerPhone,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon phone box
                         Icons.phone,
@@ -201,6 +238,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     Text(
+                      ///Text
                       "Password",
                       style: TextStyle(
                         ///Test size
@@ -219,7 +257,10 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     XTextFormField(
+                      ///controllerPass
                       controller: controllerPass,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon password box
                         Icons.vpn_key,
@@ -235,16 +276,21 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
 
                     ///Save button
-                    XButton("Save", () {
-                      widget.profileBloc.updateInfoAccount(controllerName.text,
-                          controllerPhone.text, controllerPass.text ?? "");
-                      Navigator.pop(context);
-                    })
+                    XButton(
+                      "Save",
+                      () {
+                        widget.profileBloc.updateInfoAccount(
+                            controllerName.text,
+                            controllerPhone.text,
+                            controllerPass.text ?? "");
+                        Navigator.pop(context);
+                      },
+                    ),
                   ],
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

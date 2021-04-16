@@ -14,8 +14,13 @@ import 'package:flutter_booking_mobile_app/remote/province_response/province_res
 ///NewRoomBloc extends BaseBloc
 class NewRoomBloc extends BaseBloc {
   ///Initialization stream
+  ///newRoomStateStream
   BehaviorSubject<UIState> newRoomStateStream = new BehaviorSubject();
+
+  ///fileImageStream
   BehaviorSubject<File> fileImageStream = new BehaviorSubject();
+
+  ///listProvinceStream
   BehaviorSubject<List<Province>> listProvinceStream = new BehaviorSubject();
 
   ///Clear stream
@@ -66,35 +71,37 @@ class NewRoomBloc extends BaseBloc {
 
   ///Add room
   void addRoom(
-      File file,
-      String name,
-      String startDay,
-      String endDay,
-      int adults,
-      int child,
-      String address,
-      String city,
-      String desc,
-      double price,
-      double discount,
-      ) async {
+    File file,
+    String name,
+    String startDay,
+    String endDay,
+    int adults,
+    int child,
+    String address,
+    String city,
+    String desc,
+    double price,
+    double discount,
+  ) async {
     newRoomStateStream.add(UIState.LOADING);
     try {
       FirebaseStorage storage = FirebaseStorage.instance;
       Reference storageReference =
-      storage.ref().child('${Path.basename(file.path)}}');
-      await storageReference.putFile(file).then((val) {
-        val.ref.getDownloadURL().then((val) {
-          FirAuth().createNewRoom(val, name, startDay, endDay, adults, child,
-              address, city, desc, price, discount, () {
-                newRoomStateStream.add(UIState.SUCCESS);
-                FlutterToast().showToast("Success");
-              }, (va) {
-                newRoomStateStream.add(UIState.ERROR);
-                FlutterToast().showToast(va);
-              });
-        });
-      });
+          storage.ref().child('${Path.basename(file.path)}}');
+      await storageReference.putFile(file).then(
+        (val) {
+          val.ref.getDownloadURL().then((val) {
+            FirAuth().createNewRoom(val, name, startDay, endDay, adults, child,
+                address, city, desc, price, discount, () {
+              newRoomStateStream.add(UIState.SUCCESS);
+              FlutterToast().showToast("Success");
+            }, (va) {
+              newRoomStateStream.add(UIState.ERROR);
+              FlutterToast().showToast(va);
+            });
+          });
+        },
+      );
     } catch (e) {
       newRoomStateStream.add(UIState.ERROR);
       FlutterToast().showToast(e.message);

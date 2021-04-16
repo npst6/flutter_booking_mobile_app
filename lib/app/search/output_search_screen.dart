@@ -13,15 +13,20 @@ import 'package:flutter_booking_mobile_app/app/home/bloc/home_bloc.dart';
 
 ///OutputSearchScreen StatefulWidget
 class OutputSearchScreen extends StatefulWidget {
+  ///homeBloc
   final HomeBloc homeBloc;
+
   OutputSearchScreen(this.homeBloc);
+
   @override
   _OutputSearchScreenState createState() => _OutputSearchScreenState();
 }
 
 /// _OutputSearchScreenState State<>
 class _OutputSearchScreenState extends State<OutputSearchScreen> {
+  ///themeData
   ThemeData themeData;
+
   @override
   void initState() {
     super.initState();
@@ -29,6 +34,7 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
 
   @override
   void didChangeDependencies() {
+    ///themeData
     themeData = Provider.of<ThemeChanger>(context).getTheme();
     super.didChangeDependencies();
   }
@@ -42,10 +48,14 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
 
         ///Elevation
         elevation: 0,
+
+        ///Leading
         leading: GestureDetector(
+          ///onTap
           onTap: () {
             Navigator.pop(context);
           },
+
           child: Padding(
             ///Padding
             padding: const EdgeInsets.all(15),
@@ -64,6 +74,7 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
                 ///Box border
                 borderRadius: BorderRadius.circular(10),
               ),
+
               child: Center(
                 child: Icon(
                   ///Icon
@@ -80,11 +91,12 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
           ),
         ),
 
+        ///Title center
         centerTitle: true,
 
         ///Title
         title: Text(
-          ///toUpperCase
+          ///Text, toUpperCase
           "Search".toUpperCase(),
 
           style: TextStyle(
@@ -105,7 +117,9 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
 
         actions: [
           Padding(
+            ///Padding
             padding: const EdgeInsets.all(8.0),
+
             child: StreamBuilder<Account>(
               stream: widget.homeBloc.accountStream,
               builder: (context, snapshot) {
@@ -113,9 +127,11 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
                   return Container(
                     ///Container width
                     width: 40,
+
                     decoration: BoxDecoration(
                       ///Border box
                       borderRadius: BorderRadius.circular(10),
+
                       image: DecorationImage(
                         ///Image
                         image: NetworkImage(snapshot.data.avatar),
@@ -136,25 +152,26 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
       ///Body
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Expanded(
             child: StreamBuilder<List<Room>>(
-                stream: widget.homeBloc.listRoomStream,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData && snapshot.data.length > 0) {
-                    return Container(
-                      child: ListView.builder(
-                        itemBuilder: (context, index) {
-                          return ItemSearch(snapshot.data[index]);
-                        },
-                        itemCount: snapshot.data.length,
-                      ),
-                    );
-                  } else
-                    return NoFoundWidget("No data");
-                }),
+              stream: widget.homeBloc.listRoomStream,
+              builder: (context, snapshot) {
+                if (snapshot.hasData && snapshot.data.length > 0) {
+                  return Container(
+                    child: ListView.builder(
+                      itemBuilder: (context, index) {
+                        return ItemSearch(snapshot.data[index]);
+                      },
+                      itemCount: snapshot.data.length,
+                    ),
+                  );
+                } else
+                  return NoFoundWidget("No data");
+              },
+            ),
           ),
         ],
       ),

@@ -6,12 +6,24 @@ import 'package:flutter_booking_mobile_app/ui/color.dart';
 
 /// MButton StatelessWidget
 class XButton extends StatelessWidget {
-  final String title;
-  final Function onTap;
+  ///color
   final Color color;
+
+  ///height
   final double height;
+
+  ///title
+  final String title;
+
+  ///onTap
+  final Function onTap;
+
+  ///Button
   XButton(
+    ///Button title
     this.title,
+
+    ///Button onTap
     this.onTap, {
 
     ///Button height
@@ -24,12 +36,15 @@ class XButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      ///onTap
       onTap: () {
         onTap();
       },
+
       child: Container(
         ///Container height
         height: height,
+
         decoration: BoxDecoration(
           ///Color box
           color: color,
@@ -37,11 +52,15 @@ class XButton extends StatelessWidget {
           ///Border box
           borderRadius: BorderRadius.circular(10),
         ),
+
+        ///Container width
         width: double.infinity,
+
         child: Center(
           child: Text(
             ///Text toUpperCase
             title.toUpperCase(),
+
             style: TextStyle(
               ///Text weight
               fontWeight: FontWeight.w700,

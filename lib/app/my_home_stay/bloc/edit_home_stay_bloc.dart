@@ -11,7 +11,10 @@ import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 
 ///EditHomeStayBloc extends BaseBloc
 class EditHomeStayBloc extends BaseBloc {
+  ///editHomeStayStateStream
   BehaviorSubject<UIState> editHomeStayStateStream = new BehaviorSubject();
+
+  ///fileImageStream
   BehaviorSubject<File> fileImageStream = new BehaviorSubject();
 
   @override

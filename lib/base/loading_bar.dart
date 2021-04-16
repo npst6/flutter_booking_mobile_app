@@ -23,7 +23,10 @@ class LoadingBar extends StatelessWidget {
 
         children: [
           new CircularProgressIndicator(
+            ///Background color
             backgroundColor: Colors.transparent,
+
+            ///Value color
             valueColor:
                 new AlwaysStoppedAnimation<Color>(AppColors.buttonColor),
           ),
@@ -31,6 +34,7 @@ class LoadingBar extends StatelessWidget {
             height: 15,
           ),
           const Text(
+            ///Text
             "Loading...",
             style: TextStyle(
               ///Text color

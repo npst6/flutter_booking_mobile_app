@@ -22,14 +22,31 @@ class NewHomeStay extends StatefulWidget {
 
 /// _NewHomeStayState State<>
 class _NewHomeStayState extends State<NewHomeStay> {
+  ///themeData
   ThemeData themeData;
+
+  ///_formKey
   final _formKey = GlobalKey<FormState>();
+
+  ///controllerName
   TextEditingController controllerName;
+
+  ///controllerPhone
   TextEditingController controllerPhone;
+
+  ///controllerBankName
   TextEditingController controllerBankName;
+
+  ///controllerNumberBank
   TextEditingController controllerNumberBank;
+
+  ///controllerAccountBankName
   TextEditingController controllerAccountBankName;
+
+  ///picker
   final picker = ImagePicker();
+
+  ///newHomeStayBloc
   NewHomeStayBloc newHomeStayBloc;
 
   @override
@@ -60,97 +77,140 @@ class _NewHomeStayState extends State<NewHomeStay> {
     super.dispose();
   }
 
+  ///file
   File file;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        ///backgroundColor
         backgroundColor: themeData.scaffoldBackgroundColor,
+
+        ///elevation
         elevation: 0,
+
         leading: GestureDetector(
+          ///onTap
           onTap: () {
             Navigator.pop(context);
           },
           child: Padding(
+            ///Padding
             padding: const EdgeInsets.all(10),
+
             child: Icon(
+              ///Icon
               Icons.arrow_back_ios,
+
+              ///Icon color
               color: AppColors.buttonColor,
+
+              ///Icon size
               size: 15,
             ),
           ),
         ),
+
+        ///Title center
         centerTitle: true,
+
+        ///Title spacing
         titleSpacing: 1,
+
+        ///Title
         title: Text(
+          ///Text
           "New Home Stay".toUpperCase(),
           style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+            ///Text color
+            color: Colors.black,
+
+            ///Text size
+            fontSize: 20,
+
+            ///Text weight
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: Stack(
         children: [
           Padding(
+            ///Padding
             padding: const EdgeInsets.all(15),
+
             child: SingleChildScrollView(
               child: Form(
+                ///_formKey
                 key: _formKey,
                 child: Column(
+                  ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     StreamBuilder<File>(
-                        stream: newHomeStayBloc.fileImageStream,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            file = snapshot.data;
-                            return Container(
-                              height: 200,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(7),
-                                image: DecorationImage(
-                                    image: FileImage(
+                      stream: newHomeStayBloc.fileImageStream,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          file = snapshot.data;
+                          return Container(
+                            ///Container height
+                            height: 200,
+
+                            ///Container width
+                            width: double.infinity,
+
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              image: DecorationImage(
+                                image: FileImage(
                                   snapshot.data,
-                                )),
-                              ),
-                            );
-                          } else
-                            return Container(
-
-                                ///Container height
-                                height: 200,
-
-                                ///Container width
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(7),
-                                  border: Border.all(
-                                      color: Colors.grey.withOpacity(.7),
-                                      width: 2),
                                 ),
-                                child: Center(
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      showGetImage(context);
-                                    },
-                                    child: Icon(
-                                      ///Icon
-                                      Icons.image,
+                              ),
+                            ),
+                          );
+                        } else
+                          return Container(
+                            ///Container height
+                            height: 200,
 
-                                      ///Icon size
-                                      size: 100,
+                            ///Container width
+                            width: double.infinity,
 
-                                      ///Icon color
-                                      color: Colors.grey.withOpacity(.7),
-                                    ),
-                                  ),
-                                ));
-                        }),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              border: Border.all(
+                                  color: Colors.grey.withOpacity(.7), width: 2),
+                            ),
+                            child: Center(
+                              child: GestureDetector(
+                                ///onTap
+                                onTap: () {
+                                  showGetImage(context);
+                                },
+                                child: Icon(
+                                  ///Icon
+                                  Icons.image,
+
+                                  ///Icon size
+                                  size: 100,
+
+                                  ///Icon color
+                                  color: Colors.grey.withOpacity(.7),
+                                ),
+                              ),
+                            ),
+                          );
+                      },
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
+                      ///Text
                       "Name",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -166,6 +226,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerName
                       controller: controllerName,
 
                       ///Hint text
@@ -173,6 +234,8 @@ class _NewHomeStayState extends State<NewHomeStay> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.drive_file_rename_outline,
@@ -185,7 +248,9 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Phone number",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -211,6 +276,8 @@ class _NewHomeStayState extends State<NewHomeStay> {
 
                       ///CHeck empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.phone,
@@ -222,12 +289,14 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     const SizedBox(
                       height: 15,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Center(
                       child: Text(
+                        ///Text, toUpperCase
                         "Account Bank".toUpperCase(),
+
                         style: TextStyle(
                           ///Text size
                           fontSize: 18,
@@ -240,14 +309,19 @@ class _NewHomeStayState extends State<NewHomeStay> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Center(
                       child: SizedBox(
+                        ///width
                         width: 200,
+
                         child: Divider(
+                          ///height
                           height: 2,
+
+                          ///color
                           color: AppColors.buttonColor,
                         ),
                       ),
@@ -256,7 +330,9 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       height: 10,
                     ),
                     Text(
+                      ///Text
                       "Bank name",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -279,6 +355,8 @@ class _NewHomeStayState extends State<NewHomeStay> {
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.comment_bank,
@@ -291,7 +369,9 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Account number",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -317,6 +397,8 @@ class _NewHomeStayState extends State<NewHomeStay> {
 
                       ///Text type phone
                       textInputType: TextInputType.phone,
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.phone,
@@ -329,7 +411,9 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       height: 15,
                     ),
                     Text(
+                      ///Text
                       "Account name",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -345,8 +429,13 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerAccountBankName
                       controller: controllerAccountBankName,
+
+                      ///hintText
                       hintText: "Account name",
+
+                      ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
                         Icons.drive_file_rename_outline,
@@ -367,71 +456,100 @@ class _NewHomeStayState extends State<NewHomeStay> {
             ),
           ),
           StreamBuilder<UIState>(
-              stream: newHomeStayBloc.newHomeStayStateStream,
-              builder: (context, snapshot) {
-                if (snapshot.hasData && snapshot.data == UIState.LOADING)
-                  return LoadingBar();
-                else
-                  return Center();
-              })
+            stream: newHomeStayBloc.newHomeStayStateStream,
+            builder: (context, snapshot) {
+              if (snapshot.hasData && snapshot.data == UIState.LOADING)
+                return LoadingBar();
+              else
+                return Center();
+            },
+          )
         ],
       ),
       bottomNavigationBar: Padding(
+        ///Padding
         padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
-        child: XButton("Save", () {
-          if (_formKey.currentState.validate()) {
-            newHomeStayBloc.addHomeStay(
+
+        child: XButton(
+          "Save",
+          () {
+            if (_formKey.currentState.validate()) {
+              newHomeStayBloc.addHomeStay(
                 file,
                 controllerName.text,
                 controllerPhone.text,
                 controllerBankName.text,
                 controllerNumberBank.text,
-                controllerAccountBankName.text);
-          }
-        }),
+                controllerAccountBankName.text,
+              );
+            }
+          },
+        ),
       ),
     );
   }
 
   void showGetImage(BuildContext context) {
     showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        builder: (context) {
-          return Container(
-            ///Container height
-            height: 100,
+      ///context
+      context: context,
 
-            ///Container width
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: themeData.scaffoldBackgroundColor,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              ),
+      ///isScrollControlled
+      isScrollControlled: true,
+
+      ///backgroundColor
+      backgroundColor: Colors.transparent,
+
+      ///builder
+      builder: (context) {
+        return Container(
+          ///Container height
+          height: 100,
+
+          ///Container width
+          width: double.infinity,
+
+          decoration: BoxDecoration(
+            ///Color box
+            color: themeData.scaffoldBackgroundColor,
+
+            ///Border box
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
             ),
-            child: Padding(
-              ///Padding
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Row(
-                children: [
-                  Expanded(
-                      child: XButton("Camera", () {
-                    newHomeStayBloc.getImageByCamera(picker);
-                  })),
-                  SizedBox(
-                    width: 10,
+          ),
+
+          child: Padding(
+            ///Padding
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+
+            child: Row(
+              children: [
+                Expanded(
+                  child: XButton(
+                    "Camera",
+                    () {
+                      newHomeStayBloc.getImageByCamera(picker);
+                    },
                   ),
-                  Expanded(
-                      child: XButton("Library", () {
-                    newHomeStayBloc.getImageByGallery(picker);
-                  })),
-                ],
-              ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: XButton(
+                    "Library",
+                    () {
+                      newHomeStayBloc.getImageByGallery(picker);
+                    },
+                  ),
+                ),
+              ],
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }
