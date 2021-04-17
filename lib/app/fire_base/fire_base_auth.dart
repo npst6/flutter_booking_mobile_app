@@ -38,7 +38,7 @@ class FirAuth {
       "email": email,
       "isActive": 1,
       "permission": 0,
-      'avatar': "",
+      'avatar': "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Clavulinopsis_sulcata_-_Lane_Cove_River.jpg/1024px-Clavulinopsis_sulcata_-_Lane_Cove_River.jpg",
       'create_day': DateTime.now().millisecondsSinceEpoch
     }).then((_) {
       print("success!");

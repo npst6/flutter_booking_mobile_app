@@ -76,35 +76,36 @@ class _ItemHistoryState extends State<ItemHistory> {
             flex: 1,
 
             child: StreamBuilder<Room>(
-                stream: widget.historyBookingBloc.myRoomStream,
-                builder: (context, snapshot) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      ///Border box
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        bottomLeft: Radius.circular(10),
-                      ),
-
-                      ///Image
-                      image: snapshot.hasData
-                          ? DecorationImage(
-                              ///Image
-                              image: NetworkImage(snapshot.data.urlImage),
-
-                              ///Image fit
-                              fit: BoxFit.cover,
-                            )
-                          : DecorationImage(
-                              ///Image
-                              image: AssetImage('assets/images/travel.png'),
-
-                              ///Image fit
-                              fit: BoxFit.cover,
-                            ),
+              stream: widget.historyBookingBloc.myRoomStream,
+              builder: (context, snapshot) {
+                return Container(
+                  decoration: BoxDecoration(
+                    ///Border box
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
                     ),
-                  );
-                }),
+
+                    ///Image
+                    image: snapshot.hasData
+                        ? DecorationImage(
+                            ///Image
+                            image: NetworkImage(snapshot.data.urlImage),
+
+                            ///Image fit
+                            fit: BoxFit.cover,
+                          )
+                        : DecorationImage(
+                            ///Image
+                            image: AssetImage('assets/images/travel.png'),
+
+                            ///Image fit
+                            fit: BoxFit.cover,
+                          ),
+                  ),
+                );
+              },
+            ),
           ),
           Expanded(
             ///Flex
@@ -161,7 +162,6 @@ class _ItemHistoryState extends State<ItemHistory> {
                     height: 5,
                   ),
 
-                  ///Text
                   Text(
                     ///Text
                     "x${widget.transactions.numberRoom} Room  x${widget.transactions.night} Night",
@@ -197,7 +197,6 @@ class _ItemHistoryState extends State<ItemHistory> {
                   Row(
                     children: [
                       Expanded(
-                        ///Text
                         child: Text(
                           ///Text
                           widget.transactions.checkIn,
@@ -315,7 +314,6 @@ class _ItemHistoryState extends State<ItemHistory> {
                     ],
                   ),
 
-                  ///Text
                   Text(
                     ///Text
                     "Create date: ${DateTime.parse(widget.transactions.createDay).day}/${DateTime.parse(widget.transactions.createDay).month}/${DateTime.parse(widget.transactions.createDay).year}",

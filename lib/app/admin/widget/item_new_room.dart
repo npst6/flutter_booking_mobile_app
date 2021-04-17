@@ -257,7 +257,7 @@ class ItemNewRoom extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: XButton(
-                          "Browse",
+                          "Ok",
                           () {
                             adminBloc.updateStatusRoomById(room.idRoom, 2);
                           },

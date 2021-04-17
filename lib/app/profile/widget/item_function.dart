@@ -56,6 +56,7 @@ class ItemFunction extends StatelessWidget {
                   Text(
                     ///Text
                     title,
+
                     style: TextStyle(
                       ///Text size
                       fontSize: 16,

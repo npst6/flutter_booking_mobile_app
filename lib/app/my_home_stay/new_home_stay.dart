@@ -209,7 +209,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Name",
+                      "Full Name",
 
                       style: TextStyle(
                         ///Text size
@@ -230,7 +230,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       controller: controllerName,
 
                       ///Hint text
-                      hintText: "Name",
+                      hintText: "Enter Your Full Name",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -249,7 +249,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Phone number",
+                      "Phone Number",
 
                       style: TextStyle(
                         ///Text size
@@ -266,10 +266,11 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerPhone
                       controller: controllerPhone,
 
                       ///Hint text
-                      hintText: "Phone",
+                      hintText: "Enter Your Phone Number",
 
                       ///Text type phone
                       textInputType: TextInputType.phone,
@@ -331,7 +332,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Bank name",
+                      "Bank Name".toUpperCase(),
 
                       style: TextStyle(
                         ///Text size
@@ -348,10 +349,11 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerBankName
                       controller: controllerBankName,
 
                       ///Hint text
-                      hintText: "Bank name",
+                      hintText: "Which Bank Do You Use?",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -370,7 +372,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Account number",
+                      "Bank Account Number".toUpperCase(),
 
                       style: TextStyle(
                         ///Text size
@@ -387,10 +389,11 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       height: 10,
                     ),
                     XTextFormField(
+                      ///controllerNumberBank
                       controller: controllerNumberBank,
 
                       ///Hint text
-                      hintText: "Number",
+                      hintText: "Enter Your Bank Account Number",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -412,7 +415,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Account name",
+                      "Bank Account Name".toUpperCase(),
 
                       style: TextStyle(
                         ///Text size
@@ -433,7 +436,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       controller: controllerAccountBankName,
 
                       ///hintText
-                      hintText: "Account name",
+                      hintText: "Enter Your Bank Account Name",
 
                       ///prefixIcon
                       prefixIcon: Icon(

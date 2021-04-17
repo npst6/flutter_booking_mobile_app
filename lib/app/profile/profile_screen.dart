@@ -12,6 +12,7 @@ import 'package:flutter_booking_mobile_app/theme/theme.dart';
 import 'package:flutter_booking_mobile_app/model/account.dart';
 import 'package:flutter_booking_mobile_app/base/base_bloc.dart';
 import 'package:flutter_booking_mobile_app/base/loading_bar.dart';
+import 'package:flutter_booking_mobile_app/app/admin/admin_screen.dart';
 import 'package:flutter_booking_mobile_app/app/profile/widget/account_screen.dart';
 import 'package:flutter_booking_mobile_app/app/my_home_stay/my_home_stay_screen.dart';
 import 'package:flutter_booking_mobile_app/app/history_booking/history_booking_screen.dart';
@@ -236,13 +237,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                                                     ///Image width
                                                     width: 20,
+
+                                                    ///color
+                                                    // ignore: deprecated_member_use
+                                                    color: themeData
+                                                        // ignore: deprecated_member_use
+                                                        .textSelectionColor,
                                                   ),
                                                   const SizedBox(
                                                     width: 15,
                                                   ),
                                                   Text(
                                                     ///Text
-                                                    "Dark/Light",
+                                                    "Dark / Light",
+
                                                     style: TextStyle(
                                                       ///Text size
                                                       fontSize: 16,
@@ -291,7 +299,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           urlSVG: "assets/svg/user.svg",
 
                                           ///title
-                                          title: "Account",
+                                          title: "My Account",
 
                                           ///onTap
                                           onTap: () {
@@ -309,7 +317,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           urlSVG: "assets/svg/house.svg",
 
                                           ///title
-                                          title: "My HomeStay",
+                                          title: "My Home Stay",
 
                                           ///onTap
                                           onTap: () {
@@ -331,7 +339,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           urlSVG: "assets/svg/history.svg",
 
                                           ///title
-                                          title: "Transaction history",
+                                          title: "Transaction History",
 
                                           ///onTap
                                           onTap: () {
@@ -363,10 +371,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                           "assets/svg/admin.svg",
 
                                                       ///title
-                                                      title: "Admin",
+                                                      title: "Administrator",
 
                                                       ///onTap
-                                                      onTap: () {},
+                                                      onTap: () {
+                                                        Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                            builder: (context) {
+                                                              return AdminScreen();
+                                                            },
+                                                          ),
+                                                        );
+                                                      },
                                                     )
                                                   : SizedBox();
                                             } else
@@ -385,7 +402,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   ),
                 ),
-
                 StreamBuilder<Account>(
                   stream: profileBloc.accountStream,
                   builder: (context, snapshot) {
@@ -399,10 +415,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       return SizedBox();
                   },
                 ),
-
                 Text(
                   ///Text
-                  "Profile",
+                  "Profile".toUpperCase(),
+
                   style: TextStyle(
                     ///Text size
                     fontSize: 20,

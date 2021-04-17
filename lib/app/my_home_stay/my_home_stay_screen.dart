@@ -90,7 +90,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
               child: Center(
                 child: Icon(
                   ///Icon
-                  Icons.arrow_back_ios,
+                  Icons.home,
 
                   ///Icon color
                   color: themeData.scaffoldBackgroundColor,
@@ -119,10 +119,10 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
             fontSize: 20,
 
             ///Text color
-            color: Colors.black,
+            fontWeight: FontWeight.bold,
 
             ///Text weight
-            fontWeight: FontWeight.bold,
+            color: Colors.black
           ),
         ),
 

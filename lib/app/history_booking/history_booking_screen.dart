@@ -98,13 +98,11 @@ class _BookingScreenState extends State<HistoryBookingScreen> {
         ///Tittle
         title: Text(
           ///Text
-          "History booking".toUpperCase(),
+          "History Booking".toUpperCase(),
+
           style: TextStyle(
             ///Text size
             fontSize: 20,
-
-            ///Text color
-            color: Colors.black,
 
             ///Text weight
             fontWeight: FontWeight.bold,
