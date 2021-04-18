@@ -414,7 +414,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     iconData: Icons.location_pin,
 
                                     ///Hint text
-                                    hintText: "Select the city you want to stay in",
+                                    hintText: "Where Your Location ?",
 
                                     ///callBack
                                     callBack: (val) {
@@ -494,7 +494,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               iconData: Icons.room_preferences,
 
                               ///Hint text
-                              hintText: "Number of Rooms to Book",
+                              hintText: "Choose Number of Rooms",
 
                               ///callBack
                               callBack: (val) {
@@ -579,7 +579,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
 
                             ///Search for button
-                            XButton("Search for", () {
+                            XButton("Search Home Stay", () {
                               if (_formKey.currentState.validate()) {
                                 OrderUtils()
                                     .setOrder(startDay, endDay, numberRoom);

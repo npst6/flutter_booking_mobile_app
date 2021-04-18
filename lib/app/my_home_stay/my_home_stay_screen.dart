@@ -374,7 +374,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
                         width: 200,
 
                         child: XButton(
-                          "Add",
+                          "Create New",
                           () async {
                             await Navigator.push(
                               context,
