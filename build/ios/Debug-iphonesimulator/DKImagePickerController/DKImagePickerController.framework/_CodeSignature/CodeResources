@@ -6,7 +6,7 @@
 	<dict>
 		<key>DKImagePickerController.bundle/Assets.car</key>
 		<data>
-		qOE3R55nwf6cDGTBZYtefGdSb8c=
+		TRp6XzT3JppRagzg5zBeO9wyZd0=
 		</data>
 		<key>DKImagePickerController.bundle/Base.lproj/DKImagePickerController.strings</key>
 		<dict>
@@ -23,7 +23,7 @@
 		</data>
 		<key>DKImagePickerController.bundle/_CodeSignature/CodeDirectory</key>
 		<data>
-		ysaC7kYCkheKjia2s4aOS99F3Bc=
+		prGSbcOuE6snitWtFbdwwK+9Jqc=
 		</data>
 		<key>DKImagePickerController.bundle/_CodeSignature/CodeRequirements</key>
 		<data>
@@ -31,11 +31,11 @@
 		</data>
 		<key>DKImagePickerController.bundle/_CodeSignature/CodeRequirements-1</key>
 		<data>
-		4sU8d/T2ziM2E+f7kE9Ucl6Q76E=
+		PT43bf7KuCIvCCiZDWZrdDwvPkI=
 		</data>
 		<key>DKImagePickerController.bundle/_CodeSignature/CodeResources</key>
 		<data>
-		rAWFRJehlmf+bQo2mxU/TVdvvPE=
+		dhS4H15WuFK7FRJai5dlhGQF0FQ=
 		</data>
 		<key>DKImagePickerController.bundle/_CodeSignature/CodeSignature</key>
 		<data>
@@ -259,11 +259,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qOE3R55nwf6cDGTBZYtefGdSb8c=
+			TRp6XzT3JppRagzg5zBeO9wyZd0=
 			</data>
 			<key>hash2</key>
 			<data>
-			MKATPoip2rEWzRB0ewSjdN8FUGSk9vfOHb27kAOO70g=
+			XukciBGMylMY/w3al8BltIwNUReFVoYZXpiUWIIATFY=
 			</data>
 		</dict>
 		<key>DKImagePickerController.bundle/Base.lproj/DKImagePickerController.strings</key>
@@ -294,11 +294,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ysaC7kYCkheKjia2s4aOS99F3Bc=
+			prGSbcOuE6snitWtFbdwwK+9Jqc=
 			</data>
 			<key>hash2</key>
 			<data>
-			mygfI6x1RNgQYGK/gEowseMkVV+L4NkQz7z+faBzF80=
+			Bl+nJ7Wm0sHFmcr7l3sLhkx2DaX8WmXHnfmT2+UCBOs=
 			</data>
 		</dict>
 		<key>DKImagePickerController.bundle/_CodeSignature/CodeRequirements</key>
@@ -316,22 +316,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4sU8d/T2ziM2E+f7kE9Ucl6Q76E=
+			PT43bf7KuCIvCCiZDWZrdDwvPkI=
 			</data>
 			<key>hash2</key>
 			<data>
-			G7WIhiIsug02hKsxADJphOoifEw8v3Xbd823JAfZP3Y=
+			CiEDyYNw7AP9IiYw2wFqlUU3XRdPUWBLmQiVmFcWAig=
 			</data>
 		</dict>
 		<key>DKImagePickerController.bundle/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rAWFRJehlmf+bQo2mxU/TVdvvPE=
+			dhS4H15WuFK7FRJai5dlhGQF0FQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			Gk9o8R9E2R+TV39NkPtayR9/YA2HN7uUF60Jor/PLS4=
+			7rS8TNLWtIJx6th6SbIq/EYTQ0LZ7LQy03cNRtNmZiM=
 			</data>
 		</dict>
 		<key>DKImagePickerController.bundle/_CodeSignature/CodeSignature</key>

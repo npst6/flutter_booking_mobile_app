@@ -414,7 +414,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     iconData: Icons.location_pin,
 
                                     ///Hint text
-                                    hintText: "Where Do You Want To Stay?",
+                                    hintText: "Select the city you want to stay in",
 
                                     ///callBack
                                     callBack: (val) {

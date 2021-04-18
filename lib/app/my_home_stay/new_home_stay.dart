@@ -122,9 +122,11 @@ class _NewHomeStayState extends State<NewHomeStay> {
         title: Text(
           ///Text
           "New Home Stay".toUpperCase(),
+
           style: TextStyle(
             ///Text color
-            color: Colors.black,
+            // ignore: deprecated_member_use
+            color: themeData.textSelectionColor,
 
             ///Text size
             fontSize: 20,
@@ -238,7 +240,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.drive_file_rename_outline,
+                        Icons.person_add_alt_1,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -281,7 +283,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.phone,
+                        Icons.smartphone,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -296,6 +298,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     Center(
                       child: Text(
                         ///Text, toUpperCase
+                        ///
                         "Account Bank".toUpperCase(),
 
                         style: TextStyle(
@@ -361,7 +364,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.comment_bank,
+                        Icons.home_sharp,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -404,7 +407,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.phone,
+                        Icons.contact_mail_outlined,
 
                         ///Icon color
                         color: AppColors.buttonColor,

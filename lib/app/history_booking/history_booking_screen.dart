@@ -104,6 +104,9 @@ class _BookingScreenState extends State<HistoryBookingScreen> {
             ///Text size
             fontSize: 20,
 
+            // ignore: deprecated_member_use
+            color: themeData.textSelectionColor,
+
             ///Text weight
             fontWeight: FontWeight.bold,
           ),

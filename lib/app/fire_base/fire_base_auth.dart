@@ -66,7 +66,7 @@ class FirAuth {
         onRegisterError("Email does not exist");
         break;
       default:
-        onRegisterError("reset pass fail, please try again");
+        onRegisterError("Reset pass fail, please try again");
         break;
     }
   }

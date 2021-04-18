@@ -118,11 +118,12 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
             ///Text size
             fontSize: 20,
 
-            ///Text color
-            fontWeight: FontWeight.bold,
+            // ignore: deprecated_member_use
+            color: themeData.textSelectionColor,
 
             ///Text weight
-            color: Colors.black
+            fontWeight: FontWeight.bold,
+
           ),
         ),
 
@@ -360,7 +361,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
                         ///Container height
                         height: 200,
 
-                        child: NoFoundWidget("Don`t home stay"),
+                        child: NoFoundWidget("Don`t have home stay"),
                       ),
 
                       const SizedBox(
