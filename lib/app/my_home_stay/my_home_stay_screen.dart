@@ -112,7 +112,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
         ///Title
         title: Text(
           ///Text
-          "My home stay".toUpperCase(),
+          "Home Stay".toUpperCase(),
 
           style: TextStyle(
             ///Text size

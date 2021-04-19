@@ -105,7 +105,7 @@ class _AccountScreenState extends State<AccountScreen> {
               child: Center(
                 child: Text(
                   ///Text
-                  "Account",
+                  "Account".toUpperCase(),
                   style: TextStyle(
                     ///Text size
                     fontSize: 17,
@@ -132,7 +132,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     children: [
                       Text(
                         ///Text
-                        "Email",
+                        "Your Email",
                         style: TextStyle(
                           ///Text size
                           fontSize: 15,
@@ -170,7 +170,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
                       Text(
                         ///Text
-                        "Name",
+                        "Your Name",
                         style: TextStyle(
                           ///Text size
                           fontSize: 15,
@@ -196,7 +196,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         ///prefixIcon
                         prefixIcon: Icon(
                           ///Icon
-                          Icons.drive_file_rename_outline,
+                          Icons.person,
 
                           ///Icon color
                           color: AppColors.buttonColor,
@@ -209,7 +209,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
                       Text(
                         ///Text
-                        "Phone number",
+                        "Your Contact Information",
                         style: TextStyle(
                           ///Text size
                           fontSize: 15,
@@ -227,6 +227,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
 
                       XTextFormField(
+                        ///check empty field
                         funcValidation: ValidateData.validEmpty,
 
                         ///controllerPhone
@@ -235,7 +236,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         ///prefixIcon
                         prefixIcon: Icon(
                           ///Icon phone box
-                          Icons.phone,
+                          Icons.contact_phone,
 
                           ///Icon color
                           color: AppColors.buttonColor,
@@ -248,7 +249,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
                       Text(
                         ///Text
-                        "Password",
+                        "Your Password",
                         style: TextStyle(
                           ///Test size
                           fontSize: 15,

@@ -249,7 +249,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                   ),
                                                   Text(
                                                     ///Text
-                                                    "Dark / Light",
+                                                    "Theme (Dark / Light)",
 
                                                     style: TextStyle(
                                                       ///Text size
@@ -299,7 +299,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           urlSVG: "assets/svg/user.svg",
 
                                           ///title
-                                          title: "My Account",
+                                          title: "Manage Account",
 
                                           ///onTap
                                           onTap: () {
@@ -317,7 +317,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           urlSVG: "assets/svg/house.svg",
 
                                           ///title
-                                          title: "My Home Stay",
+                                          title: "Manage Home Stay",
 
                                           ///onTap
                                           onTap: () {
@@ -339,7 +339,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           urlSVG: "assets/svg/history.svg",
 
                                           ///title
-                                          title: "Transaction History",
+                                          title: "Manage Transaction",
 
                                           ///onTap
                                           onTap: () {
