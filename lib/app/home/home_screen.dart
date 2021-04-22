@@ -2,21 +2,21 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/theme/theme.dart';
 import 'package:flutter_booking_mobile_app/base/x_button.dart';
 import 'package:flutter_booking_mobile_app/model/account.dart';
 import 'package:flutter_booking_mobile_app/base/base_bloc.dart';
-import 'package:flutter_booking_mobile_app/utils/validate_data.dart';
 import 'package:flutter_booking_mobile_app/base/loading_bar.dart';
 import 'package:flutter_booking_mobile_app/model/item_model.dart';
 import 'package:flutter_booking_mobile_app/utils/order_utils.dart';
+import 'package:flutter_booking_mobile_app/utils/validate_data.dart';
 import 'package:flutter_booking_mobile_app/app/login/login_screen.dart';
 import 'package:flutter_booking_mobile_app/base/x_text_form_field.dart';
 import 'package:flutter_booking_mobile_app/base/text_field_choose.dart';
 import 'package:flutter_booking_mobile_app/app/home/bloc/home_bloc.dart';
+import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 import 'package:flutter_booking_mobile_app/remote/province_response/province_response.dart';
@@ -603,13 +603,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           StreamBuilder<UIState>(
-              stream: homeBloc.searchStateStream,
-              builder: (context, snapshot) {
-                if (snapshot.hasData && snapshot.data == UIState.LOADING)
-                  return LoadingBar();
-                else
-                  return Center();
-              })
+            stream: homeBloc.searchStateStream,
+            builder: (context, snapshot) {
+              if (snapshot.hasData && snapshot.data == UIState.LOADING)
+                return LoadingBar();
+              else
+                return Center();
+            },
+          ),
         ],
       ),
     );

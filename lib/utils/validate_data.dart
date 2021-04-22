@@ -11,7 +11,7 @@ class ValidateData {
     if (text.isEmpty) {
       return 'Email field cannot be left blank';
     } else if (!regex.hasMatch(text)) {
-      return 'Email invalidate';
+      return 'Email invalidate (example: ex@gmail.com)';
     } else {
       return null;
     }
