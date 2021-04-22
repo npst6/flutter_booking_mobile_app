@@ -297,7 +297,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                     ),
                     Text(
                       ///Text
-                      "Name",
+                      "Room Name",
 
                       style: TextStyle(
                         ///Text size
@@ -318,7 +318,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       controller: controllerName,
 
                       ///Hint text
-                      hintText: "Name",
+                      hintText: "Name of Room",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -326,7 +326,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.drive_file_rename_outline,
+                        Icons.edit,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -337,7 +337,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                     ),
                     Text(
                       ///Text
-                      "Description",
+                      "Room Description",
 
                       style: TextStyle(
                         ///Text size
@@ -361,7 +361,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       maxLine: 4,
 
                       ///Hint text
-                      hintText: "Description",
+                      hintText: "Description Something About Room",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -380,7 +380,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                     ),
                     Text(
                       ///Text
-                      "Address",
+                      "Room Address",
 
                       style: TextStyle(
                         ///Text size
@@ -401,7 +401,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       controller: controllerAddress,
 
                       ///Hint text
-                      hintText: "Address",
+                      hintText: "Address of Room",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -409,7 +409,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.comment_bank,
+                        Icons.home_rounded,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -486,7 +486,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                             children: [
                               Text(
                                 ///Text
-                                "Price",
+                                "Room Price",
 
                                 style: TextStyle(
                                   ///Text size
@@ -506,7 +506,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                                 controller: controllerPrice,
 
                                 ///Hint text
-                                hintText: "0",
+                                hintText: "0\$",
 
                                 ///Text type phone
                                 textInputType: TextInputType.phone,
@@ -517,7 +517,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                                 ///prefixIcon
                                 prefixIcon: Icon(
                                   ///Icon
-                                  Icons.money,
+                                  Icons.attach_money,
 
                                   ///Icon color
                                   color: AppColors.buttonColor,
@@ -558,7 +558,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                                 controller: controllerDiscountPercent,
 
                                 ///Hint text
-                                hintText: "0",
+                                hintText: "0%",
 
                                 ///Text type phone
                                 textInputType: TextInputType.phone,
@@ -598,80 +598,72 @@ class _NewRoomState extends State<EditRoomScreen> {
                     const SizedBox(
                       height: 15,
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextFieldChoose(
-                            ///Hint text
-                            hintText: "Adults",
+                    TextFieldChoose(
+                      ///Hint text
+                      hintText: "How Many Adults ?",
 
-                            ///Icon
-                            iconData: Icons.person,
+                      ///Icon
+                      iconData: Icons.people,
 
-                            ///intiText
-                            intiText: adults.toString(),
+                      ///intiText
+                      intiText: adults.toString(),
 
-                            ///callBack
-                            callBack: (val) {
-                              adults = int.parse(val);
-                            },
+                      ///callBack
+                      callBack: (val) {
+                        adults = int.parse(val);
+                      },
 
-                            ///items
-                            items: [
-                              ItemModel(id: '1', name: "01"),
-                              ItemModel(id: '2', name: "02"),
-                              ItemModel(id: '3', name: "03"),
-                              ItemModel(id: '4', name: "04"),
-                              ItemModel(id: '5', name: "05"),
-                              ItemModel(id: '6', name: "06"),
-                              ItemModel(id: '7', name: "07"),
-                              ItemModel(id: '8', name: "08"),
-                              ItemModel(id: '9', name: "09"),
-                              ItemModel(id: '10', name: "10"),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          child: TextFieldChoose(
-                            ///Hint text
-                            hintText: "Child",
+                      ///items
+                      items: [
+                        ItemModel(id: '1', name: "01"),
+                        ItemModel(id: '2', name: "02"),
+                        ItemModel(id: '3', name: "03"),
+                        ItemModel(id: '4', name: "04"),
+                        ItemModel(id: '5', name: "05"),
+                        ItemModel(id: '6', name: "06"),
+                        ItemModel(id: '7', name: "07"),
+                        ItemModel(id: '8', name: "08"),
+                        ItemModel(id: '9', name: "09"),
+                        ItemModel(id: '10', name: "10"),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    TextFieldChoose(
+                      ///Hint text
+                      hintText: "How Many Children ?",
 
-                            ///Icon
-                            iconData: Icons.person,
+                      ///Icon
+                      iconData: Icons.person,
 
-                            ///intiText
-                            intiText: child.toString(),
+                      ///intiText
+                      intiText: child.toString(),
 
-                            ///callBack
-                            callBack: (val) {
-                              child = int.parse(val);
-                            },
+                      ///callBack
+                      callBack: (val) {
+                        child = int.parse(val);
+                      },
 
-                            ///items
-                            items: [
-                              ItemModel(id: '1', name: "01"),
-                              ItemModel(id: '2', name: "02"),
-                              ItemModel(id: '3', name: "03"),
-                              ItemModel(id: '4', name: "04"),
-                              ItemModel(id: '5', name: "05"),
-                              ItemModel(id: '6', name: "06"),
-                              ItemModel(id: '7', name: "07"),
-                              ItemModel(id: '8', name: "08"),
-                              ItemModel(id: '9', name: "09"),
-                              ItemModel(id: '10', name: "10"),
-                            ],
-                          ),
-                        ),
+                      ///items
+                      items: [
+                        ItemModel(id: '1', name: "01"),
+                        ItemModel(id: '2', name: "02"),
+                        ItemModel(id: '3', name: "03"),
+                        ItemModel(id: '4', name: "04"),
+                        ItemModel(id: '5', name: "05"),
+                        ItemModel(id: '6', name: "06"),
+                        ItemModel(id: '7', name: "07"),
+                        ItemModel(id: '8', name: "08"),
+                        ItemModel(id: '9', name: "09"),
+                        ItemModel(id: '10', name: "10"),
                       ],
                     ),
                     const SizedBox(
                       height: 15,
                     ),
                     Text(
-                      "Free time",
+                      "Free Time",
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -702,11 +694,12 @@ class _NewRoomState extends State<EditRoomScreen> {
                           ),
 
                           ///firstDate
-                          firstDate: new DateTime(2015),
+                          firstDate: new DateTime(2018),
 
                           ///lastDate
-                          lastDate: new DateTime(2022),
+                          lastDate: new DateTime(2025),
                         );
+
                         if (picked != null && picked.length == 2) {
                           ///startDay
                           startDay = picked[0].toIso8601String();
@@ -727,7 +720,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                         controller: controllerFreeTime,
 
                         ///Hint text
-                        hintText: "Time",
+                        hintText: "Free Time in Room",
 
                         ///Check empty data
                         funcValidation: ValidateData.validEmpty,
@@ -758,13 +751,14 @@ class _NewRoomState extends State<EditRoomScreen> {
           )
         ],
       ),
+
       bottomNavigationBar: Padding(
         ///Padding
         padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
 
         ///Save button
         child: XButton(
-          "Save",
+          "Update Information Room",
           () {
             if (_formKey.currentState.validate()) {
               try {

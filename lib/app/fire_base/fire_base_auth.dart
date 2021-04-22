@@ -33,7 +33,7 @@ class FirAuth {
   ///Create information user by User ID
   _createUser(String userId, String name, String phone, String email,
       Function onSuccess, Function(String) onRegisterError) {
-    fireStoreInstance.collection("Users").doc(userId).set({
+    fireStoreInstance.collection("users").doc(userId).set({
       "name": name,
       "phone": phone,
       "email": email,
@@ -49,9 +49,9 @@ class FirAuth {
 
     ///Create transaction history
     fireStoreInstance
-        .collection("Transaction_history")
+        .collection("transaction_history")
         .doc(userId)
-        .collection("Transaction")
+        .collection("transaction")
         .add({}).then((_) {
       print("Success!");
     });
@@ -91,9 +91,9 @@ class FirAuth {
   ///Take account
   void getUserByUID(Function callBack) async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
-    await fireStoreInstance.collection("Users").get().then((querySnapshot) {
+    await fireStoreInstance.collection("users").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
-        if (firebaseUser.email == element.data()["Email"]) {
+        if (firebaseUser.email == element.data()["email"]) {
           Account account = Account.formJson(element.data(), element.id);
           callBack(account);
         }
@@ -153,9 +153,9 @@ class FirAuth {
   ///Update status room by ID room
   void updateStatusRoomById(int status, String id, Function success) {
     fireStoreInstance
-        .collection("Room")
+        .collection("room")
         .doc(id)
-        .update({"Status": status}).then((_) {
+        .update({"status": status}).then((_) {
       success();
       FlutterToast().showToast("Success!");
     });
@@ -163,7 +163,7 @@ class FirAuth {
 
   ///Delete room
   void deleteRoomById(String id, Function success, Function error) {
-    fireStoreInstance.collection("Room").doc(id).delete().then((_) {
+    fireStoreInstance.collection("room").doc(id).delete().then((_) {
       success();
       FlutterToast().showToast("Success!");
     }).catchError((e) {
@@ -201,7 +201,7 @@ class FirAuth {
   void getListAccount(Function callBack) async {
     List<Account> listAccount = [];
 
-    await fireStoreInstance.collection("Users").get().then((querySnapshot) {
+    await fireStoreInstance.collection("users").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
         listAccount.add(Account.formJson(element.data(), element.id));
       });
@@ -212,9 +212,9 @@ class FirAuth {
   ///Update permissions account
   void updatePermissionAccount(String uid, int permission) {
     fireStoreInstance
-        .collection("Users")
+        .collection("users")
         .doc(uid)
-        .update({"Permission": permission}).then((_) {
+        .update({"permission": permission}).then((_) {
       FlutterToast().showToast("Success!");
     });
   }
@@ -223,9 +223,9 @@ class FirAuth {
   void updateInfoAccount(String name, String phone) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
     fireStoreInstance
-        .collection("Users")
+        .collection("users")
         .doc(firebaseUser.uid)
-        .update({"Name": name, "Phone": phone}).then((_) {
+        .update({"name": name, "phone": phone}).then((_) {
       FlutterToast().showToast("Success!");
     });
   }
@@ -234,9 +234,9 @@ class FirAuth {
   void updateAvatar(String url) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
     fireStoreInstance
-        .collection("Users")
+        .collection("users")
         .doc(firebaseUser.uid)
-        .update({"Avatar": url}).then((_) {
+        .update({"avatar": url}).then((_) {
       FlutterToast().showToast("Success!");
     });
   }
@@ -252,7 +252,7 @@ class FirAuth {
       Function onSuccess,
       Function(String) onRegisterError) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
-    fireStoreInstance.collection("Order").add({
+    fireStoreInstance.collection("order").add({
       "id_user": firebaseUser.uid,
       "id_room": idRoom,
       "check_in": checkIn,
@@ -271,9 +271,9 @@ class FirAuth {
   ///Update status order
   void updateOrderStatus(int status, String id, Function success) {
     fireStoreInstance
-        .collection("Order")
+        .collection("order")
         .doc(id)
-        .update({"Status": status}).then((_) {
+        .update({"status": status}).then((_) {
       success();
       FlutterToast().showToast("Success!");
     });
@@ -336,11 +336,11 @@ class FirAuth {
   ///Delete home stay
   void deleteMyHomeStay(Function onSuccess, Function onRegisterError) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
-    fireStoreInstance.collection("Room").get().then((querySnapshot) {
+    fireStoreInstance.collection("room").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
         if (element.data()["id_hotel"] == firebaseUser.uid) {
           fireStoreInstance
-              .collection("Room")
+              .collection("room")
               .doc(element.id)
               .delete()
               .then((_) {
@@ -381,7 +381,7 @@ class FirAuth {
       Function onSuccess,
       Function(String) onRegisterError) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
-    fireStoreInstance.collection("Room").add({
+    fireStoreInstance.collection("room").add({
       'name_room': name.toLowerCase(),
       'start_day': startDay,
       'end_day': endDay,
@@ -421,7 +421,7 @@ class FirAuth {
       Function onSuccess,
       Function(String) onRegisterError) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
-    fireStoreInstance.collection("Room").doc(id).update({
+    fireStoreInstance.collection("room").doc(id).update({
       'name_room': name.toLowerCase(),
       'start_day': startDay,
       'end_day': endDay,
@@ -446,7 +446,7 @@ class FirAuth {
 
   ///Get room by ID
   void getRoomById(Function callBack, String id) async {
-    await fireStoreInstance.collection("Room").get().then((querySnapshot) {
+    await fireStoreInstance.collection("room").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
         if (id == element.id) {
           Room room = Room.formJson(element.data(), element.id);
@@ -463,7 +463,7 @@ class FirAuth {
       String uid = id ?? firebaseUser.uid;
       List<Room> listRooms = [];
 
-      await fireStoreInstance.collection("Room").get().then((querySnapshot) {
+      await fireStoreInstance.collection("room").get().then((querySnapshot) {
         querySnapshot.docs.forEach((element) {
           if (element.data()["id_hotel"] == uid)
             listRooms.add(Room.formJson(element.data(), element.id));
@@ -480,9 +480,9 @@ class FirAuth {
     try {
       List<Room> listRooms = [];
 
-      await fireStoreInstance.collection("Room").get().then((querySnapshot) {
+      await fireStoreInstance.collection("room").get().then((querySnapshot) {
         querySnapshot.docs.forEach((element) {
-          if (element.data()["Status"] == status)
+          if (element.data()["status"] == status)
             listRooms.add(Room.formJson(element.data(), element.id));
         });
       });
@@ -506,7 +506,7 @@ class FirAuth {
     try {
       List<Room> listRooms = [];
       var result = await fireStoreInstance
-          .collection("Room")
+          .collection("room")
           .where("status", isEqualTo: 2)
           .where("city", isEqualTo: city.toLowerCase())
           .where("number_adults", isEqualTo: adults)
@@ -528,7 +528,7 @@ class FirAuth {
   void getListTransaction(Function callBack) async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
     List<Transactions> listTransaction = [];
-    await fireStoreInstance.collection("Order").get().then((querySnapshot) {
+    await fireStoreInstance.collection("order").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
         if (element.data()["id_user"] == firebaseUser.uid) {
           try {

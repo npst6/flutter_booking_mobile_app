@@ -160,7 +160,7 @@ class ItemMyRoom extends StatelessWidget {
 
                         child: Text(
                           ///Text
-                          "${room.numberChild} children - ${room.numberAdults} adults",
+                          "${room.numberAdults} Adults - ${room.numberChild} Child",
 
                           ///Text align
                           textAlign: TextAlign.start,
@@ -276,7 +276,7 @@ class ItemMyRoom extends StatelessWidget {
                       room.discount != 0
                           ? Text(
                               ///Text
-                              "${room.money.toInt()}\đ",
+                              "${room.money.toInt()}\$",
 
                               ///Text align
                               textAlign: TextAlign.start,
@@ -306,7 +306,7 @@ class ItemMyRoom extends StatelessWidget {
                       ),
                       Text(
                         ///Text
-                        "${(room.money - room.money * room.discount / 100).toInt()}\đ",
+                        "${(room.money - room.money * room.discount / 100).toInt()}\$",
 
                         ///Text align
                         textAlign: TextAlign.start,

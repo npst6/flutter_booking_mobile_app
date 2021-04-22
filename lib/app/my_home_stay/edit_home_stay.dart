@@ -266,7 +266,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Name",
+                      "Name Home Stay",
 
                       style: TextStyle(
                         ///Text size
@@ -295,7 +295,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.drive_file_rename_outline,
+                        Icons.edit,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -338,7 +338,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.phone,
+                        Icons.smartphone_rounded,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -389,7 +389,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     ),
                     Text(
                       ///Test
-                      "Bank name",
+                      "Bank Name".toUpperCase(),
 
                       style: TextStyle(
                         ///Text size
@@ -410,7 +410,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       controller: controllerBankName,
 
                       ///Hint text
-                      hintText: "Bank name",
+                      hintText: "Input Name of Bank",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -429,7 +429,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Account number",
+                      "Bank Account Number".toUpperCase(),
 
                       style: TextStyle(
                         ///Text size
@@ -450,7 +450,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       controller: controllerNumberBank,
 
                       ///Hint text
-                      hintText: "Number",
+                      hintText: "Input Number of Bank Account",
 
                       ///Text type phone
                       textInputType: TextInputType.phone,
@@ -472,7 +472,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Account name",
+                      "Bank Account Name".toUpperCase(),
 
                       style: TextStyle(
                         ///Text size
@@ -493,7 +493,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       controller: controllerAccountBankName,
 
                       ///Hint text
-                      hintText: "Account name",
+                      hintText: "Input Name of Bank Account",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -501,7 +501,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.drive_file_rename_outline,
+                        Icons.edit,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -532,7 +532,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
 
         ///Save button
         child: XButton(
-          "Save",
+          "Update Information Home Stay",
           () {
             if (_formKey.currentState.validate()) {
               if (file != null) {

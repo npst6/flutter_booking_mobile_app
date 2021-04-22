@@ -142,27 +142,29 @@ class ItemUser extends StatelessWidget {
                       SizedBox(
                         width: 10,
                       ),
-                      Text(
-                        ///Text
-                        account.email,
+                      Expanded(
+                        child: Text(
+                          ///Text
+                          account.email,
 
-                        ///Text align
-                        textAlign: TextAlign.start,
+                          ///Text align
+                          textAlign: TextAlign.start,
 
-                        ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
-                        maxLines: 1,
+                          ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                          maxLines: 1,
 
-                        ///Use the ... sign to indicate overflow of text
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          ///Text size
-                          fontSize: 16,
+                          ///Use the ... sign to indicate overflow of text
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            ///Text size
+                            fontSize: 16,
 
-                          ///Text style
-                          fontStyle: FontStyle.italic,
+                            ///Text style
+                            fontStyle: FontStyle.italic,
 
-                          ///Text spacing
-                          letterSpacing: 1,
+                            ///Text spacing
+                            letterSpacing: 1,
+                          ),
                         ),
                       ),
                     ],

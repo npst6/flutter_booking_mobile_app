@@ -2,6 +2,7 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_booking_mobile_app/app/search/output_search_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/theme/theme.dart';
@@ -82,6 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
     themeData = Provider.of<ThemeChanger>(context).getTheme();
     homeBloc.searchStateStream.listen((value) {
       if (value == UIState.SUCCESS) {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return OutputSearchScreen(homeBloc);
+        }));
         homeBloc.searchStateStream.add(null);
       }
     });
@@ -602,6 +606,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
+
           StreamBuilder<UIState>(
             stream: homeBloc.searchStateStream,
             builder: (context, snapshot) {

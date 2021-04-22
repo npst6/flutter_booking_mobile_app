@@ -275,7 +275,7 @@ class _NewRoomState extends State<NewRoom> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.drive_file_rename_outline,
+                        Icons.edit,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -348,12 +348,12 @@ class _NewRoomState extends State<NewRoom> {
                       controller: controllerAddress,
 
                       ///Hint text
-                      hintText: "Address",
+                      hintText: "Room Address",
 
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.comment_bank,
+                        Icons.home_rounded,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -464,7 +464,7 @@ class _NewRoomState extends State<NewRoom> {
                                   child: Center(
                                     child: Text(
                                       ///Text
-                                      "đ",
+                                      "\$",
                                       style: TextStyle(
                                         ///Text color
                                         color: AppColors.buttonColor,
@@ -555,75 +555,68 @@ class _NewRoomState extends State<NewRoom> {
                     const SizedBox(
                       height: 15,
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextFieldChoose(
-                            ///Icon
-                            iconData: Icons.person,
+                    TextFieldChoose(
+                      ///Icon
+                      iconData: Icons.people,
 
-                            ///callBack
-                            callBack: (val) {
-                              adults = int.parse(val);
-                            },
+                      ///callBack
+                      callBack: (val) {
+                        adults = int.parse(val);
+                      },
 
-                            ///Hint text
-                            hintText: "Adults",
+                      ///Hint text
+                      hintText: "How Many Adults ?",
 
-                            ///items
-                            items: [
-                              ItemModel(id: '1', name: "01"),
-                              ItemModel(id: '2', name: "02"),
-                              ItemModel(id: '3', name: "03"),
-                              ItemModel(id: '4', name: "04"),
-                              ItemModel(id: '5', name: "05"),
-                              ItemModel(id: '6', name: "06"),
-                              ItemModel(id: '7', name: "07"),
-                              ItemModel(id: '8', name: "08"),
-                              ItemModel(id: '9', name: "09"),
-                              ItemModel(id: '10', name: "10"),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          child: TextFieldChoose(
-                            ///Icon
-                            iconData: Icons.person,
-
-                            ///callBack
-                            callBack: (val) {
-                              child = int.parse(val);
-                            },
-
-                            ///Hint text
-                            hintText: "Child",
-
-                            ///items
-                            items: [
-                              ItemModel(id: '1', name: "01"),
-                              ItemModel(id: '2', name: "02"),
-                              ItemModel(id: '3', name: "03"),
-                              ItemModel(id: '4', name: "04"),
-                              ItemModel(id: '5', name: "05"),
-                              ItemModel(id: '6', name: "06"),
-                              ItemModel(id: '7', name: "07"),
-                              ItemModel(id: '8', name: "08"),
-                              ItemModel(id: '9', name: "09"),
-                              ItemModel(id: '10', name: "10"),
-                            ],
-                          ),
-                        ),
+                      ///items
+                      items: [
+                        ItemModel(id: '1', name: "01"),
+                        ItemModel(id: '2', name: "02"),
+                        ItemModel(id: '3', name: "03"),
+                        ItemModel(id: '4', name: "04"),
+                        ItemModel(id: '5', name: "05"),
+                        ItemModel(id: '6', name: "06"),
+                        ItemModel(id: '7', name: "07"),
+                        ItemModel(id: '8', name: "08"),
+                        ItemModel(id: '9', name: "09"),
+                        ItemModel(id: '10', name: "10"),
                       ],
                     ),
                     const SizedBox(
                       height: 15,
                     ),
+                    TextFieldChoose(
+                      ///Icon
+                      iconData: Icons.child_care,
+
+                      ///callBack
+                      callBack: (val) {
+                        child = int.parse(val);
+                      },
+
+                      ///Hint text
+                      hintText: "How Many Children ?",
+
+                      ///items
+                      items: [
+                        ItemModel(id: '1', name: "01"),
+                        ItemModel(id: '2', name: "02"),
+                        ItemModel(id: '3', name: "03"),
+                        ItemModel(id: '4', name: "04"),
+                        ItemModel(id: '5', name: "05"),
+                        ItemModel(id: '6', name: "06"),
+                        ItemModel(id: '7', name: "07"),
+                        ItemModel(id: '8', name: "08"),
+                        ItemModel(id: '9', name: "09"),
+                        ItemModel(id: '10', name: "10"),
+                      ],
+                    ),
+
+                    const SizedBox(
+                      height: 15,
+                    ),
                     Text(
                       ///Text
-                      "Free time",
+                      "Free Time",
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -680,7 +673,7 @@ class _NewRoomState extends State<NewRoom> {
                         controller: controllerFreeTime,
 
                         ///Hint text
-                        hintText: "Time",
+                        hintText: "Free Time in Room",
 
                         ///prefixIcon
                         prefixIcon: Icon(
@@ -718,7 +711,7 @@ class _NewRoomState extends State<NewRoom> {
 
         ///Save button
         child: XButton(
-          "Save",
+          "Create New Room",
           () {
             if (_formKey.currentState.validate()) {
               try {
