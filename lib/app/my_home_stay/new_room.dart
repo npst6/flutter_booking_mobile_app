@@ -148,7 +148,7 @@ class _NewRoomState extends State<NewRoom> {
 
         title: Text(
           ///Text
-          "New Room".toUpperCase(),
+          "Create New Room".toUpperCase(),
           style: TextStyle(
             ///Text size
             fontSize: 20,
@@ -247,7 +247,7 @@ class _NewRoomState extends State<NewRoom> {
                     ),
                     Text(
                       ///Text
-                      "Name",
+                      "Room Name",
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -267,7 +267,7 @@ class _NewRoomState extends State<NewRoom> {
                       controller: controllerName,
 
                       ///Hint text
-                      hintText: "Name",
+                      hintText: "Input Name of Room",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -286,7 +286,7 @@ class _NewRoomState extends State<NewRoom> {
                     ),
                     Text(
                       ///Text
-                      "Description",
+                      "Room Description",
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -306,7 +306,7 @@ class _NewRoomState extends State<NewRoom> {
                       controller: controllerDesc,
 
                       ///Hint text
-                      hintText: "Description",
+                      hintText: "Input Description of Room",
 
                       ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                       maxLine: 4,
@@ -328,7 +328,7 @@ class _NewRoomState extends State<NewRoom> {
                     ),
                     Text(
                       ///Text
-                      "Address",
+                      "Room Address",
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -348,7 +348,7 @@ class _NewRoomState extends State<NewRoom> {
                       controller: controllerAddress,
 
                       ///Hint text
-                      hintText: "Room Address",
+                      hintText: "Input Address of Room",
 
                       ///prefixIcon
                       prefixIcon: Icon(
@@ -422,7 +422,7 @@ class _NewRoomState extends State<NewRoom> {
                             children: [
                               Text(
                                 ///Price
-                                "Price",
+                                "Room Price",
                                 style: TextStyle(
                                   ///Text size
                                   fontSize: 15,
@@ -442,7 +442,7 @@ class _NewRoomState extends State<NewRoom> {
                                 controller: controllerPrice,
 
                                 ///Hint text
-                                hintText: "0",
+                                hintText: "0\$",
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
@@ -450,7 +450,7 @@ class _NewRoomState extends State<NewRoom> {
                                 ///prefixIcon
                                 prefixIcon: Icon(
                                   ///Icon
-                                  Icons.money,
+                                  Icons.attach_money,
 
                                   ///Icon color
                                   color: AppColors.buttonColor,
@@ -516,7 +516,7 @@ class _NewRoomState extends State<NewRoom> {
                                 controller: controllerDiscountPercent,
 
                                 ///Hint text
-                                hintText: "0",
+                                hintText: "0%",
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
@@ -586,7 +586,7 @@ class _NewRoomState extends State<NewRoom> {
                     ),
                     TextFieldChoose(
                       ///Icon
-                      iconData: Icons.child_care,
+                      iconData: Icons.emoji_people,
 
                       ///callBack
                       callBack: (val) {
@@ -711,7 +711,7 @@ class _NewRoomState extends State<NewRoom> {
 
         ///Save button
         child: XButton(
-          "Create New Room",
+          "Save",
           () {
             if (_formKey.currentState.validate()) {
               try {

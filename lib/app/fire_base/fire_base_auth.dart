@@ -330,6 +330,7 @@ class FirAuth {
       },
     }).then((e) {
       FlutterToast().showToast("Success!");
+      onSuccess();
     });
   }
 

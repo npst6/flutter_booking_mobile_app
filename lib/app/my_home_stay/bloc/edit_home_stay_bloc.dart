@@ -69,10 +69,10 @@ class EditHomeStayBloc extends BaseBloc {
     try {
       FirebaseStorage storage = FirebaseStorage.instance;
       Reference storageReference =
-          storage.ref().child('${Path.basename(file.path)}}');
+          storage.ref().child('${Path.basename(file.path)}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
-          FirAuth().createMyHomeStay(
+          FirAuth().updateMyHomeStay(
               val, name, phone, bankName, bankNumber, accountName, () {
             editHomeStayStateStream.add(UIState.SUCCESS);
             FlutterToast().showToast("Success");
@@ -93,7 +93,7 @@ class EditHomeStayBloc extends BaseBloc {
       String bankName, String bankNumber, String accountName) async {
     editHomeStayStateStream.add(UIState.LOADING);
     try {
-      FirAuth().createMyHomeStay(
+      FirAuth().updateMyHomeStay(
           urlImage, name, phone, bankName, bankNumber, accountName, () {
         editHomeStayStateStream.add(UIState.SUCCESS);
         FlutterToast().showToast("Success");

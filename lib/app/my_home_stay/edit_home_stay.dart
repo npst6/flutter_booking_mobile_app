@@ -532,27 +532,31 @@ class _NewHomeStayState extends State<EditHomeStay> {
 
         ///Save button
         child: XButton(
-          "Update Information Home Stay",
+          "Update",
           () {
             if (_formKey.currentState.validate()) {
-              if (file != null) {
-                editHomeStayBloc.editHomeStayNotFile(
-                  widget.myHomeStay.urlImage,
-                  controllerName.text,
-                  controllerPhone.text,
-                  controllerBankName.text,
-                  controllerNumberBank.text,
-                  controllerAccountBankName.text,
-                );
-              } else
-                editHomeStayBloc.editHomeStayHaveFile(
-                  file,
-                  controllerName.text,
-                  controllerPhone.text,
-                  controllerBankName.text,
-                  controllerNumberBank.text,
-                  controllerAccountBankName.text,
-                );
+              try {
+                if (file == null) {
+                  editHomeStayBloc.editHomeStayNotFile(
+                    widget.myHomeStay.urlImage,
+                    controllerName.text,
+                    controllerPhone.text,
+                    controllerBankName.text,
+                    controllerNumberBank.text,
+                    controllerAccountBankName.text,
+                  );
+                } else
+                  editHomeStayBloc.editHomeStayHaveFile(
+                    file,
+                    controllerName.text,
+                    controllerPhone.text,
+                    controllerBankName.text,
+                    controllerNumberBank.text,
+                    controllerAccountBankName.text,
+                  );
+              } catch (e) {
+                print(e);
+              }
             }
           },
         ),

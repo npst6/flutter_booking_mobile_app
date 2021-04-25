@@ -112,7 +112,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
         ///Title
         title: Text(
           ///Text
-          "Home Stay".toUpperCase(),
+          "My Home Stay".toUpperCase(),
 
           style: TextStyle(
             ///Text size
@@ -329,7 +329,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
 
                             ///Add room button
                             XButton(
-                              "Add room",
+                              "New Room",
                               () {
                                 Navigator.push(
                                   context,

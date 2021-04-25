@@ -211,7 +211,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Full Name",
+                      "Name Home Stay",
 
                       style: TextStyle(
                         ///Text size
@@ -232,7 +232,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       controller: controllerName,
 
                       ///Hint text
-                      hintText: "Enter Your Full Name",
+                      hintText: "Enter Name of Home Stay",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -240,7 +240,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.person_add_alt_1,
+                        Icons.home_filled,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -251,7 +251,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Phone Number",
+                      "Home Stay Phone Number",
 
                       style: TextStyle(
                         ///Text size
@@ -272,7 +272,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       controller: controllerPhone,
 
                       ///Hint text
-                      hintText: "Enter Your Phone Number",
+                      hintText: "Enter Phone Number of Home Stay",
 
                       ///Text type phone
                       textInputType: TextInputType.phone,
@@ -364,7 +364,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.home_sharp,
+                        Icons.local_atm,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -407,7 +407,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.contact_mail_outlined,
+                        Icons.confirmation_number,
 
                         ///Icon color
                         color: AppColors.buttonColor,
@@ -444,7 +444,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.drive_file_rename_outline,
+                        Icons.perm_contact_cal,
 
                         ///Icon color
                         color: AppColors.buttonColor,

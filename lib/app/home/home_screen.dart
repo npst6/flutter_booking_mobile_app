@@ -527,7 +527,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               iconData: Icons.people,
 
                               ///Hint text
-                              hintText: "Adults Number",
+                              hintText: "How Many Adults ?",
 
                               ///callBack
                               callBack: (val) {
@@ -556,7 +556,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               iconData: Icons.emoji_people,
 
                               ///Hint text
-                              hintText: "Children Number",
+                              hintText: "How Many Children ?",
 
                               ///callBack
                               callBack: (val) {

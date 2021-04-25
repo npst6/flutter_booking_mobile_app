@@ -635,7 +635,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       hintText: "How Many Children ?",
 
                       ///Icon
-                      iconData: Icons.person,
+                      iconData: Icons.emoji_people,
 
                       ///intiText
                       intiText: child.toString(),
