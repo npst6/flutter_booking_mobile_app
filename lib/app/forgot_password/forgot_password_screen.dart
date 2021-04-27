@@ -110,6 +110,7 @@ class _LoginScreenState extends State<ForgotPassScreen> {
 
                   ///Validate email
                   funcValidation: ValidateData.validEmail,
+
                   prefixIcon: Icon(
                     ///Icon
                     Icons.mail,
