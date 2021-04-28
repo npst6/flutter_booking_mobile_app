@@ -18,7 +18,7 @@ class ProfileBloc extends BaseBloc {
   ///UIState
   BehaviorSubject<UIState> accountStateStream = new BehaviorSubject();
 
-  ///File
+  ///File Image
   BehaviorSubject<File> fileIamgeStream = new BehaviorSubject();
 
   @override

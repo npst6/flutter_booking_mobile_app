@@ -34,7 +34,7 @@ class EditRoomBloc extends BaseBloc {
     _getProvince();
   }
 
-  ///Get list trỉnh
+  ///Get list
   void _getProvince() async {
     try {
       listProvinceStream.add([]);
@@ -119,7 +119,7 @@ class EditRoomBloc extends BaseBloc {
     }
   }
 
-  /// cập nhật phòng có hình ảnh
+  ///Update room have image
   void updateRoomHaveFile(
     File file,
     String id,
@@ -157,7 +157,7 @@ class EditRoomBloc extends BaseBloc {
     }
   }
 
-  /// cập nhật phòng khong có hình ảnh
+  ///Update room not have image
   void updateRoomNotFile(
     String urlImage,
     String id,

@@ -118,9 +118,11 @@ class HomeBloc extends BaseBloc {
                         letterSpacing: 1,
                       ),
                     ),
+
                     Text(
                       "Do you want to log out?",
                     ),
+
                     Row(
                       children: [
                         ///Cancel button
