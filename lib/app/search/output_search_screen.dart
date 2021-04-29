@@ -58,7 +58,7 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
 
           child: Padding(
             ///Padding
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(10),
 
             child: Container(
               ///Container height

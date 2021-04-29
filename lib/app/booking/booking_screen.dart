@@ -17,8 +17,12 @@ import 'package:flutter_booking_mobile_app/app/history_booking/history_booking_s
 ///BookingScreen StatefulWidget
 class BookingScreen extends StatefulWidget {
   ///Declare the variables to be passed to the screen
+  ///room
   final Room room;
+
+  ///myHomeStay
   final MyHomeStay myHomeStay;
+
   const BookingScreen({Key key, this.room, this.myHomeStay}) : super(key: key);
   @override
   _BookingScreenState createState() => _BookingScreenState();
@@ -27,11 +31,22 @@ class BookingScreen extends StatefulWidget {
 /// _BookingScreenState State<>
 class _BookingScreenState extends State<BookingScreen> {
   ///Initialization
+  ///themeData
   ThemeData themeData;
+
+  ///controllerCheckIn
   TextEditingController controllerCheckIn;
+
+  ///controllerCheckOut
   TextEditingController controllerCheckOut;
+
+  ///controllerNight
   TextEditingController controllerNight;
+
+  ///controllerNumberRoom
   TextEditingController controllerNumberRoom;
+
+  ///controllerType
   TextEditingController controllerType;
 
   @override
@@ -70,19 +85,22 @@ class _BookingScreenState extends State<BookingScreen> {
 
         ///Elevation
         elevation: 0,
+
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
           },
           child: Padding(
             ///Padding
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(10),
+
             child: Container(
               ///Container height
               height: 30,
 
               ///Container width
               width: 30,
+
               decoration: BoxDecoration(
                 ///Color box
                 color: AppColors.primaryColor,
@@ -90,6 +108,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ///Border box
                 borderRadius: BorderRadius.circular(10),
               ),
+
               child: Center(
                 child: Icon(
                   ///Icon
@@ -116,6 +135,7 @@ class _BookingScreenState extends State<BookingScreen> {
         title: Text(
           ///Text
           widget.myHomeStay.name.toUpperCase(),
+
           style: TextStyle(
             ///Text size
             fontSize: 20,
@@ -133,10 +153,12 @@ class _BookingScreenState extends State<BookingScreen> {
       body: Padding(
         ///Padding
         padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+
         child: SingleChildScrollView(
           child: Column(
             ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
             crossAxisAlignment: CrossAxisAlignment.start,
+
             children: [
               Container(
                 ///Container height
@@ -144,9 +166,11 @@ class _BookingScreenState extends State<BookingScreen> {
 
                 ///Container width
                 width: double.infinity,
+
                 child: Row(
                   ///Using crossAxisAlignment in the Row allows you to determine how its children are aligned vertically.
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     Expanded(
                       child: Container(
@@ -169,13 +193,16 @@ class _BookingScreenState extends State<BookingScreen> {
                       child: Padding(
                         ///Padding
                         padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+
                         child: Column(
                           ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                           crossAxisAlignment: CrossAxisAlignment.start,
+
                           children: [
                             Text(
                               ///Text
-                              widget.room.nameRoom,
+                              widget.room.nameRoom.toUpperCase(),
+
                               style: TextStyle(
                                 ///Text weight
                                 fontWeight: FontWeight.w800,
@@ -187,12 +214,13 @@ class _BookingScreenState extends State<BookingScreen> {
                                 letterSpacing: 1,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             Row(
                               ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
                               mainAxisAlignment: MainAxisAlignment.start,
+
                               children: [
                                 Icon(
                                   ///Icon
@@ -201,14 +229,46 @@ class _BookingScreenState extends State<BookingScreen> {
                                   ///Icon color
                                   color: Colors.yellow,
                                 ),
-                                Text(
-                                  ///Text
-                                  "4.5",
-                                  style: TextStyle(
-                                    ///Text weight
-                                    fontWeight: FontWeight.w700,
-                                  ),
+
+                                Icon(
+                                  ///Icon
+                                  Icons.star,
+
+                                  ///Icon color
+                                  color: Colors.yellow,
                                 ),
+
+                                Icon(
+                                  ///Icon
+                                  Icons.star,
+
+                                  ///Icon color
+                                  color: Colors.yellow,
+                                ),
+
+                                Icon(
+                                  ///Icon
+                                  Icons.star,
+
+                                  ///Icon color
+                                  color: Colors.yellow,
+                                ),
+
+                                Icon(
+                                  ///Icon
+                                  Icons.star_half,
+
+                                  ///Icon color
+                                  color: Colors.yellow,
+                                ),
+                                // Text(
+                                //   ///Text
+                                //   "4.5",
+                                //   style: TextStyle(
+                                //     ///Text weight
+                                //     fontWeight: FontWeight.w700,
+                                //   ),
+                                // ),
                               ],
                             ),
                           ],
@@ -218,8 +278,8 @@ class _BookingScreenState extends State<BookingScreen> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 35,
+              const SizedBox(
+                height: 50,
               ),
               Row(
                 children: [
@@ -227,10 +287,12 @@ class _BookingScreenState extends State<BookingScreen> {
                     child: Column(
                       ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                       crossAxisAlignment: CrossAxisAlignment.start,
+
                       children: [
                         Text(
                           ///Text
-                          "Check-in",
+                          "Check In",
+
                           style: TextStyle(
                             ///Text color
                             color: Colors.grey,
@@ -239,11 +301,16 @@ class _BookingScreenState extends State<BookingScreen> {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         XTextFormField(
+                          enable: false,
+
+                          ///controllerCheckIn
                           controller: controllerCheckIn,
+
+                          ///prefixIcon
                           prefixIcon: Icon(
                             ///Icon
                             Icons.calendar_today,
@@ -251,22 +318,22 @@ class _BookingScreenState extends State<BookingScreen> {
                             ///Icon color
                             color: AppColors.primaryColor,
                           ),
-                          enable: false,
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Expanded(
                     child: Column(
                       ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                       crossAxisAlignment: CrossAxisAlignment.start,
+
                       children: [
                         Text(
                           ///Text
-                          "Check-out",
+                          "Check Out",
                           style: TextStyle(
                             ///Text color
                             color: Colors.grey,
@@ -275,12 +342,16 @@ class _BookingScreenState extends State<BookingScreen> {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         XTextFormField(
-                          controller: controllerCheckOut,
                           enable: false,
+
+                          ///controllerCheckOut
+                          controller: controllerCheckOut,
+
+                          ///prefixIcon
                           prefixIcon: Icon(
                             ///Icon
                             Icons.calendar_today,
@@ -294,8 +365,8 @@ class _BookingScreenState extends State<BookingScreen> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 15,
+              const SizedBox(
+                height: 20,
               ),
               Row(
                 children: [
@@ -303,10 +374,12 @@ class _BookingScreenState extends State<BookingScreen> {
                     child: Column(
                       ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                       crossAxisAlignment: CrossAxisAlignment.start,
+
                       children: [
                         Text(
                           ///Text
                           "Night",
+
                           style: TextStyle(
                             ///Text color
                             color: Colors.grey,
@@ -315,15 +388,19 @@ class _BookingScreenState extends State<BookingScreen> {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         XTextFormField(
-                          controller: controllerNight,
                           enable: false,
+
+                          ///controllerNight
+                          controller: controllerNight,
+
+                          ///prefixIcon
                           prefixIcon: Icon(
                             ///Icon
-                            Icons.nights_stay_outlined,
+                            Icons.nights_stay,
 
                             ///Icon color
                             color: AppColors.primaryColor,
@@ -332,17 +409,19 @@ class _BookingScreenState extends State<BookingScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Expanded(
                     child: Column(
                       ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                       crossAxisAlignment: CrossAxisAlignment.start,
+
                       children: [
                         Text(
                           ///Text
-                          "Number room",
+                          "Number Rooms",
+
                           style: TextStyle(
                             ///Text color
                             color: Colors.grey,
@@ -351,15 +430,19 @@ class _BookingScreenState extends State<BookingScreen> {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         XTextFormField(
-                          controller: controllerNumberRoom,
                           enable: false,
+
+                          ///controllerNumberRoom
+                          controller: controllerNumberRoom,
+
+                          ///prefixIcon
                           prefixIcon: Icon(
                             ///Text icon
-                            Icons.night_shelter_outlined,
+                            Icons.room_preferences,
 
                             ///Text color
                             color: AppColors.primaryColor,
@@ -370,12 +453,12 @@ class _BookingScreenState extends State<BookingScreen> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 15,
+              const SizedBox(
+                height: 20,
               ),
               Text(
                 ///Text
-                "Type room",
+                "Adults & Children",
                 style: TextStyle(
                   ///Text color
                   color: Colors.grey,
@@ -384,15 +467,18 @@ class _BookingScreenState extends State<BookingScreen> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               XTextFormField(
+                ///controllerType
                 controller: controllerType,
+
                 enable: false,
 
                 ///Hint text
-                hintText: "One adult, two children",
+                hintText: "Two Adults - One Children",
+
                 prefixIcon: Icon(
                   ///Icon
                   Icons.person_outline,
@@ -401,19 +487,20 @@ class _BookingScreenState extends State<BookingScreen> {
                   color: AppColors.primaryColor,
                 ),
               ),
-              SizedBox(
-                height: 30,
+              const SizedBox(
+                height: 50,
               ),
               Divider(
                 color: Colors.grey,
                 height: 2,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 ///Text
                 "Fee and tax details:",
+
                 style: TextStyle(
                   ///Text weight
                   fontWeight: FontWeight.w700,
@@ -425,18 +512,21 @@ class _BookingScreenState extends State<BookingScreen> {
               Padding(
                 ///Padding
                 padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+
                 child: Column(
                   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     ItemDetailsTax(
+                      ///title
                       title: "Per night",
                       isShowNumber: true,
                       number: OrderUtils().numberRoom,
                       price: (widget.room.money -
                           widget.room.money * widget.room.discount / 100),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                   ],
@@ -446,15 +536,17 @@ class _BookingScreenState extends State<BookingScreen> {
                 color: Colors.grey,
                 height: 5,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
                 ///Padding
                 padding: const EdgeInsets.only(left: 10),
+
                 child: Row(
                   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                   children: [
                     Text(
                       ///Text
@@ -476,6 +568,7 @@ class _BookingScreenState extends State<BookingScreen> {
                     Text(
                       ///Text
                       "${(widget.room.money - widget.room.money * widget.room.discount / 100) * OrderUtils().numberRoom * int.parse(controllerNight.text)}\$",
+
                       style: TextStyle(
                         ///Text weight
                         fontWeight: FontWeight.w700,
@@ -497,47 +590,59 @@ class _BookingScreenState extends State<BookingScreen> {
           ),
         ),
       ),
+
       bottomNavigationBar: Padding(
         ///Padding
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(20),
 
         ///Book now button
-        child: XButton("Book now", () {
-          showBankTransfer(themeData);
-        }),
+        child: XButton(
+          "Book Now",
+          () {
+            showBankTransfer(themeData);
+          },
+        ),
       ),
     );
   }
 
+  ///showBankTransfer
   void showBankTransfer(ThemeData themeData) {
     showModalBottomSheet<void>(
       context: context,
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
         return Center(
-            child: PopUpBankTransfer(
-                themeData,
-                widget.myHomeStay,
-                (widget.room.money -
-                        widget.room.money * widget.room.discount / 100) *
-                    OrderUtils().numberRoom *
-                    int.parse(controllerNight.text), () {
-          FirAuth().createOrder(
-              widget.room.idRoom,
-              controllerCheckIn.text,
-              controllerCheckOut.text,
-              int.parse(controllerNight.text),
-              int.parse(controllerNumberRoom.text),
-              (widget.room.money -
-                      widget.room.money * widget.room.discount / 100) *
-                  OrderUtils().numberRoom *
-                  int.parse(controllerNight.text), () {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) {
-              return HistoryBookingScreen();
-            }));
-          }, (val) {});
-        }));
+          child: PopUpBankTransfer(
+            themeData,
+            widget.myHomeStay,
+            (widget.room.money -
+                    widget.room.money * widget.room.discount / 100) *
+                OrderUtils().numberRoom *
+                int.parse(controllerNight.text),
+            () {
+              FirAuth().createOrder(
+                  widget.room.idRoom,
+                  controllerCheckIn.text,
+                  controllerCheckOut.text,
+                  int.parse(controllerNight.text),
+                  int.parse(controllerNumberRoom.text),
+                  (widget.room.money -
+                          widget.room.money * widget.room.discount / 100) *
+                      OrderUtils().numberRoom *
+                      int.parse(controllerNight.text), () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return HistoryBookingScreen();
+                    },
+                  ),
+                );
+              }, (val) {});
+            },
+          ),
+        );
       },
       isScrollControlled: true,
     );

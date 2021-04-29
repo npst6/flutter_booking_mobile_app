@@ -5,10 +5,18 @@ import 'package:flutter/material.dart';
 
 ///ItemDetailsTax StatelessWidget
 class ItemDetailsTax extends StatelessWidget {
+  ///title
   final String title;
+
+  ///number
   final int number;
+
+  ///isShowNumber
   final bool isShowNumber;
+
+  ///price
   final double price;
+
   ItemDetailsTax({
     this.title,
     this.number,
@@ -23,9 +31,11 @@ class ItemDetailsTax extends StatelessWidget {
         Expanded(
           ///Flex
           flex: 5,
+
           child: Text(
             ///Text
             title,
+
             style: TextStyle(
               ///Text weight
               fontWeight: FontWeight.w600,
@@ -38,11 +48,13 @@ class ItemDetailsTax extends StatelessWidget {
         Expanded(
           ///Flex
           flex: 1,
+
           child: !isShowNumber
               ? SizedBox()
               : Text(
                   ///Text
                   "x$number",
+
                   style: TextStyle(
                     ///Text weight
                     fontWeight: FontWeight.w700,
@@ -55,12 +67,14 @@ class ItemDetailsTax extends StatelessWidget {
         Expanded(
           ///Flex
           flex: 2,
+
           child: Text(
             ///Text
             "${price * number}\$",
 
             ///Text align
             textAlign: TextAlign.right,
+
             style: TextStyle(
               ///Text weight
               fontWeight: FontWeight.w700,

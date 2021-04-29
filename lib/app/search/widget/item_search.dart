@@ -133,6 +133,9 @@ class ItemSearch extends StatelessWidget {
                                     style: TextStyle(
                                       ///Text weight
                                       fontWeight: FontWeight.w600,
+
+                                      ///Text size
+                                      fontSize: 9,
                                     ),
                                   ),
                                 ),
@@ -142,7 +145,7 @@ class ItemSearch extends StatelessWidget {
                               ),
                               Text(
                                 ///Text
-                                "( 200reviews)",
+                                "(420 Reviews)",
 
                                 style: TextStyle(
                                   ///Text color
@@ -164,7 +167,7 @@ class ItemSearch extends StatelessWidget {
                                 color: AppColors.primaryColor,
 
                                 ///Icon size
-                                size: 18,
+                                size: 30,
                               ),
                               const SizedBox(
                                 width: 10,
@@ -180,7 +183,10 @@ class ItemSearch extends StatelessWidget {
                                   ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                                   maxLines: 2,
 
-                                  style: TextStyle(),
+                                  style: TextStyle(
+                                    ///Text size
+                                    fontSize: 11,
+                                  ),
                                 ),
                               ),
                             ],
@@ -191,10 +197,10 @@ class ItemSearch extends StatelessWidget {
                   ),
                   Container(
                     ///Container width
-                    width: 80,
+                    width: 60,
 
                     ///Container height
-                    height: 35,
+                    height: 30,
 
                     decoration: BoxDecoration(
                       ///Color box
@@ -203,21 +209,21 @@ class ItemSearch extends StatelessWidget {
                       ///Border box
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(15),
-                        bottomLeft: Radius.circular(10),
+                        bottomLeft: Radius.circular(15),
                       ),
                     ),
 
                     child: Center(
                       child: Text(
                         ///Text
-                        "${(room.money - room.money * room.discount / 100).toInt()}\đ",
+                        "${(room.money - room.money * room.discount / 100).toInt()}\$",
 
                         style: TextStyle(
                           ///Text weight
                           fontWeight: FontWeight.bold,
 
                           ///Text size
-                          fontSize: 16,
+                          fontSize: 15,
                         ),
                       ),
                     ),

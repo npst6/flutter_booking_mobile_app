@@ -45,6 +45,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
 
             ///Container width
             width: double.infinity,
+
             child: Column(
               children: [
                 Stack(
@@ -52,6 +53,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                     Container(
                       ///Container height
                       height: MediaQuery.of(context).size.height * 0.6,
+
                       decoration: BoxDecoration(
                         ///Image
                         image: DecorationImage(
@@ -65,10 +67,12 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                     ),
                     Padding(
                       ///Padding
-                      padding: const EdgeInsets.fromLTRB(15, 30, 15, 10),
+                      padding: const EdgeInsets.fromLTRB(35, 50, 15, 10),
+
                       child: Row(
                         ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                         children: [
                           GestureDetector(
                             onTap: () {
@@ -77,8 +81,10 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                             child: Container(
                               ///Container height
                               height: 30,
+
                               ///Container width
                               width: 30,
+
                               decoration: BoxDecoration(
                                 ///Color box
                                 color: AppColors.primaryColor,
@@ -86,6 +92,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                                 ///Border box
                                 borderRadius: BorderRadius.circular(10),
                               ),
+
                               child: Center(
                                 child: Icon(
                                   ///Icon
@@ -109,205 +116,251 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
             ),
           ),
           StreamBuilder<MyHomeStay>(
-              stream: detailBloc.myHomeStayStream,
-              builder: (context, snapshot1) {
-                return Column(
-                  ///Using mainAxisAlignment in a Column will align its children vertically.
-                  mainAxisAlignment: MainAxisAlignment.end,
+            stream: detailBloc.myHomeStayStream,
+            builder: (context, snapshot1) {
+              return Column(
+                ///Using mainAxisAlignment in a Column will align its children vertically.
+                mainAxisAlignment: MainAxisAlignment.end,
 
-                  ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      ///Alignment
-                      alignment: Alignment.bottomCenter,
+                ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    ///Alignment
+                    alignment: Alignment.bottomCenter,
 
-                      ///Container height
-                      height: MediaQuery.of(context).size.height * 0.5,
-                      decoration: BoxDecoration(
-                        ///Border box
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(30),
-                          topLeft: Radius.circular(30),
-                        ),
-
-                        ///Color box
-                        color: themeData.scaffoldBackgroundColor,
+                    ///Container height
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    decoration: BoxDecoration(
+                      ///Border box
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(30),
+                        topLeft: Radius.circular(30),
                       ),
-                      child: Padding(
-                        ///Padding
-                        padding: const EdgeInsets.fromLTRB(30, 25, 30, 5),
-                        child: Column(
-                          ///Using mainAxisAlignment in a Column will align its children vertically.
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                          ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              ///Text
-                              snapshot1.data != null
-                                  ? snapshot1.data.name.toUpperCase()
-                                  : "".toUpperCase(),
-                              style: TextStyle(
-                                ///Text weight
-                                fontWeight: FontWeight.w900,
+                      ///Color box
+                      color: themeData.scaffoldBackgroundColor,
+                    ),
+                    child: Padding(
+                      ///Padding
+                      padding: const EdgeInsets.fromLTRB(30, 25, 30, 5),
+                      child: Column(
+                        ///Using mainAxisAlignment in a Column will align its children vertically.
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                                ///Text size
-                                fontSize: 20,
+                        ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            ///Text
+                            snapshot1.data != null
+                                ? snapshot1.data.name.toUpperCase()
+                                : "".toUpperCase(),
+                            style: TextStyle(
+                              ///Text weight
+                              fontWeight: FontWeight.w900,
 
-                                ///Text spacing
-                                letterSpacing: 1.5,
+                              ///Text size
+                              fontSize: 20,
+
+                              ///Text spacing
+                              letterSpacing: 1.5,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                ///Icon
+                                Icons.location_on,
+
+                                ///Icon color
+                                color: AppColors.primaryColor,
+
+                                ///Icon size
+                                size: 18,
                               ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Row(
-                              children: [
-                                Icon(
-                                  ///Icon
-                                  Icons.location_on,
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                ///Text
+                                "${widget.room.address}, ${widget.room.city}",
 
-                                  ///Icon color
-                                  color: AppColors.primaryColor,
-
-                                  ///Icon size
-                                  size: 18,
+                                ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                                maxLines: 2,
+                                style: TextStyle(
+                                  ///Text spacing
+                                  letterSpacing: .6,
                                 ),
-                                SizedBox(width: 10),
-                                Text(
-                                  ///Text
-                                  "${widget.room.address}, ${widget.room.city}",
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            ///Using crossAxisAlignment in the Row allows you to determine how its children are aligned vertically.
+                            crossAxisAlignment: CrossAxisAlignment.center,
 
-                                  ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
-                                  maxLines: 2,
+                            children: [
+                              Expanded(
+                                ///Flex
+                                flex: 3,
+
+                                child: Text(
+                                  ///Text
+                                  "${snapshot1.data != null ? snapshot1.data.listReviews.length : 0} Reviews",
+
+                                  ///Text align
+                                  textAlign: TextAlign.start,
+
                                   style: TextStyle(
-                                    ///Text spacing
-                                    letterSpacing: .6,
+                                    ///Text color
+                                    color: Colors.grey,
+
+                                    ///Text weight
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              ///Using crossAxisAlignment in the Row allows you to determine how its children are aligned vertically.
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  ///Flex
-                                  flex: 3,
-                                  child: Text(
-                                    ///Text
-                                    "${snapshot1.data != null ? snapshot1.data.listReviews.length : 0} reviews",
+                              ),
+                              Expanded(
+                                  flex: 2,
+                                  child: Row(
+                                    ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Icon(
+                                        ///Icon
+                                        Icons.star,
 
-                                    ///Text align
-                                    textAlign: TextAlign.start,
+                                        ///Icon color
+                                        color: Colors.yellow,
+                                      ),
+                                      Icon(
+                                        ///Icon
+                                        Icons.star,
+
+                                        ///Icon color
+                                        color: Colors.yellow,
+                                      ),
+                                      Icon(
+                                        ///Icon
+                                        Icons.star,
+
+                                        ///Icon color
+                                        color: Colors.yellow,
+                                      ),
+                                      Icon(
+                                        ///Icon
+                                        Icons.star,
+
+                                        ///Icon color
+                                        color: Colors.yellow,
+                                      ),
+                                      Icon(
+                                        ///Icon
+                                        Icons.star_half,
+
+                                        ///Icon color
+                                        color: Colors.yellow,
+                                      ),
+                                      // Text(
+                                      //   ///Text
+                                      //   "5",
+                                      //   style: TextStyle(
+                                      //     ///Text weight
+                                      //     fontWeight: FontWeight.w700,
+                                      //   ),
+                                      // ),
+                                    ],
+                                  )),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Expanded(
+                            child: Container(
+                              child: Column(
+                                ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    ///Text
+                                    widget.room.nameRoom.toUpperCase(),
+
+                                    ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                                    maxLines: 1,
+
                                     style: TextStyle(
-                                      ///Text color
-                                      color: Colors.grey,
+                                      ///Text size
+                                      fontSize: 16,
 
                                       ///Text weight
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w700,
+
+                                      ///Text spacing
+                                      letterSpacing: 1,
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                    flex: 2,
-                                    child: Row(
-                                      ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Icon(
-                                          ///Icon
-                                          Icons.star,
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    ///Text
+                                    widget.room.desc,
 
-                                          ///Icon color
-                                          color: Colors.yellow,
-                                        ),
-                                        Text(
-                                          ///Text
-                                          "5",
-                                          style: TextStyle(
-                                            ///Text weight
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                        ),
-                                      ],
-                                    )),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Expanded(
-                              child: Container(
-                                child: Column(
-                                  ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      ///Text
-                                      widget.room.nameRoom,
+                                    ///Use the ... sign to indicate overflow of text
+                                    overflow: TextOverflow.ellipsis,
 
-                                      ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
-                                      maxLines: 1,
-                                      style: TextStyle(
-                                        ///Text size
-                                        fontSize: 16,
-
-                                        ///Text weight
-                                        fontWeight: FontWeight.w700,
-
-                                        ///Text spacing
-                                        letterSpacing: 1,
-                                      ),
+                                    style: TextStyle(
+                                      ///Text weight
+                                      letterSpacing: 1,
                                     ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      ///Text
-                                      widget.room.desc,
 
-                                      ///Use the ... sign to indicate overflow of text
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        ///Text weight
-                                        letterSpacing: 1,
-                                      ),
-                                      maxLines: 5,
-                                    ),
-                                  ],
-                                ),
+                                    ///maxLines
+                                    maxLines: 5,
+                                  ),
+                                ],
                               ),
                             ),
-                            SizedBox(
-                              height: 10,
-                            ),
+                          ),
 
-                            ///Book now button
-                            XButton("Book now", () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return BookingScreen(
-                                  room: widget.room,
-                                  myHomeStay: snapshot1.data,
-                                );
-                              }));
-                            }),
-                            SizedBox(
-                              height: 10,
-                            ),
-                          ],
-                        ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+
+                          ///Book now button
+                          XButton(
+                            "Book now",
+                            () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return BookingScreen(
+                                      room: widget.room,
+                                      myHomeStay: snapshot1.data,
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                );
-              }),
+                  ),
+                ],
+              );
+            },
+          ),
         ],
       ),
     );
