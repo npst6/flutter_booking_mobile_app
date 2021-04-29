@@ -136,7 +136,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
                 return IconButton(
                   icon: Icon(
                     ///Icon
-                    Icons.edit,
+                    Icons.mode_edit,
 
                     ///Icon color
                     color: AppColors.primaryColor,
@@ -329,7 +329,9 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
 
                             ///Add room button
                             Padding(
+                              ///Padding
                               padding: const EdgeInsets.symmetric(horizontal: 20),
+
                               child: XButton(
                                 "New Room",
                                 () {

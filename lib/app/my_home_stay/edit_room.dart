@@ -333,7 +333,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.edit,
+                        Icons.home_rounded,
 
                         ///Icon color
                         color: AppColors.primaryColor,
@@ -416,7 +416,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.home_rounded,
+                        Icons.map,
 
                         ///Icon color
                         color: AppColors.primaryColor,
@@ -519,13 +519,36 @@ class _NewRoomState extends State<EditRoomScreen> {
                                 funcValidation: ValidateData.validEmpty,
 
                                 ///prefixIcon
+                                prefixIcon: Container(
+                                  ///width
+                                  width: 20,
+
+                                  child: Center(
+                                    child: Text(
+                                      ///Text
+                                      "\$",
+                                      style: TextStyle(
+                                        ///Text color
+                                        color: AppColors.primaryColor,
+
+                                        ///Text size
+                                        fontSize: 20,
+
+                                        ///Text weight
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                /*///prefixIcon
                                 prefixIcon: Icon(
                                   ///Icon
-                                  Icons.attach_money,
+                                  Icons.money,
 
                                   ///Icon color
                                   color: AppColors.primaryColor,
-                                ),
+                                ),*/
 
                                 ///suffixIcon
                                 suffixIcon: Container(
@@ -628,7 +651,8 @@ class _NewRoomState extends State<EditRoomScreen> {
                     ),
                     Text(
                       ///Price
-                      "Number room",
+                      "Number Room",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -720,7 +744,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                     ),
                     Text(
                       ///Price
-                      "Many Children",
+                      "Children",
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,

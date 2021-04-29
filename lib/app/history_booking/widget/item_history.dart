@@ -157,14 +157,12 @@ class _ItemHistoryState extends State<ItemHistory> {
                       ),
                     ],
                   ),
-
                   const SizedBox(
                     height: 5,
                   ),
-
                   Text(
                     ///Text
-                    "x${widget.transactions.numberRoom} Room  x${widget.transactions.night} Night",
+                    "x${widget.transactions.numberRoom} Rooms  x${widget.transactions.night} Nights",
 
                     ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                     maxLines: 1,
@@ -189,11 +187,9 @@ class _ItemHistoryState extends State<ItemHistory> {
                       letterSpacing: 1,
                     ),
                   ),
-
                   const SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
-
                   Row(
                     children: [
                       Expanded(
@@ -225,6 +221,9 @@ class _ItemHistoryState extends State<ItemHistory> {
 
                         ///Icon color
                         color: Colors.grey,
+                      ),
+                      const SizedBox(
+                        width: 15,
                       ),
                       Expanded(
                         ///Flex
@@ -313,10 +312,13 @@ class _ItemHistoryState extends State<ItemHistory> {
                       ),
                     ],
                   ),
-
+                  const SizedBox(
+                    height: 5,
+                  ),
                   Text(
                     ///Text
-                    "Create date: ${DateTime.parse(widget.transactions.createDay).day}/${DateTime.parse(widget.transactions.createDay).month}/${DateTime.parse(widget.transactions.createDay).year}",
+                    "Create: ${DateTime.parse(widget.transactions.createDay).day}/${DateTime.parse(widget.transactions.createDay).month}/${DateTime.parse(widget.transactions.createDay).year}",
+
                     style: TextStyle(
                       ///Text font style
                       fontStyle: FontStyle.italic,

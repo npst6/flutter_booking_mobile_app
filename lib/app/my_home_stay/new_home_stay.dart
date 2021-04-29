@@ -136,6 +136,8 @@ class _NewHomeStayState extends State<NewHomeStay> {
           ),
         ),
       ),
+
+      ///Body
       body: Stack(
         children: [
           Padding(
@@ -146,6 +148,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
               child: Form(
                 ///_formKey
                 key: _formKey,
+
                 child: Column(
                   ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,12 +188,14 @@ class _NewHomeStayState extends State<NewHomeStay> {
                               border: Border.all(
                                   color: Colors.grey.withOpacity(.7), width: 2),
                             ),
+
                             child: Center(
                               child: GestureDetector(
                                 ///onTap
                                 onTap: () {
                                   showGetImage(context);
                                 },
+
                                 child: Icon(
                                   ///Icon
                                   Icons.image,
@@ -211,7 +216,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Name Home Stay",
+                      "Name",
 
                       style: TextStyle(
                         ///Text size
@@ -232,7 +237,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       controller: controllerName,
 
                       ///Hint text
-                      hintText: "Enter Name of Home Stay",
+                      hintText: "Input Name of Home Stay",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -251,7 +256,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Home Stay Phone Number",
+                      "Contact",
 
                       style: TextStyle(
                         ///Text size
@@ -272,7 +277,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       controller: controllerPhone,
 
                       ///Hint text
-                      hintText: "Enter Phone Number of Home Stay",
+                      hintText: "Input Phone Number of Home Stay",
 
                       ///Text type phone
                       textInputType: TextInputType.phone,

@@ -377,12 +377,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   child: Padding(
                     ///Padding
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
 
                     child: SingleChildScrollView(
                       child: Form(
                         ///_formKey
                         key: _formKey,
+
                         child: Column(
                           ///Using mainAxisAlignment in a Column will align its children vertically.
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -495,7 +496,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               iconData: Icons.room_preferences,
 
                               ///Hint text
-                              hintText: "Choose Number of Rooms",
+                              hintText: "Number of Rooms",
 
                               ///callBack
                               callBack: (val) {
@@ -504,15 +505,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
                               ///items
                               items: [
-                                ItemModel(id: '1', name: "01"),
-                                ItemModel(id: '2', name: "02"),
-                                ItemModel(id: '3', name: "03"),
-                                ItemModel(id: '4', name: "04"),
-                                ItemModel(id: '5', name: "05"),
-                                ItemModel(id: '6', name: "06"),
-                                ItemModel(id: '7', name: "07"),
-                                ItemModel(id: '8', name: "08"),
-                                ItemModel(id: '9', name: "09"),
+                                ItemModel(id: '01', name: "01"),
+                                ItemModel(id: '02', name: "02"),
+                                ItemModel(id: '03', name: "03"),
+                                ItemModel(id: '04', name: "04"),
+                                ItemModel(id: '05', name: "05"),
+                                ItemModel(id: '06', name: "06"),
+                                ItemModel(id: '07', name: "07"),
+                                ItemModel(id: '08', name: "08"),
+                                ItemModel(id: '09', name: "09"),
                                 ItemModel(id: '10', name: "10"),
                               ],
                             ),
@@ -533,15 +534,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
                               ///items
                               items: [
-                                ItemModel(id: '1', name: "01"),
-                                ItemModel(id: '2', name: "02"),
-                                ItemModel(id: '3', name: "03"),
-                                ItemModel(id: '4', name: "04"),
-                                ItemModel(id: '5', name: "05"),
-                                ItemModel(id: '6', name: "06"),
-                                ItemModel(id: '7', name: "07"),
-                                ItemModel(id: '8', name: "08"),
-                                ItemModel(id: '9', name: "09"),
+                                ItemModel(id: '01', name: "01"),
+                                ItemModel(id: '02', name: "02"),
+                                ItemModel(id: '03', name: "03"),
+                                ItemModel(id: '04', name: "04"),
+                                ItemModel(id: '05', name: "05"),
+                                ItemModel(id: '06', name: "06"),
+                                ItemModel(id: '07', name: "07"),
+                                ItemModel(id: '08', name: "08"),
+                                ItemModel(id: '09', name: "09"),
                                 ItemModel(id: '10', name: "10"),
                               ],
                             ),
@@ -562,16 +563,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
                               ///items
                               items: [
-                                ItemModel(id: '1', name: "01"),
-                                ItemModel(id: '2', name: "02"),
-                                ItemModel(id: '3', name: "03"),
-                                ItemModel(id: '4', name: "04"),
-                                ItemModel(id: '5', name: "05"),
-                                ItemModel(id: '6', name: "06"),
-                                ItemModel(id: '7', name: "07"),
-                                ItemModel(id: '8', name: "08"),
-                                ItemModel(id: '9', name: "09"),
-                                ItemModel(id: '10', name: "10"),
+                                ItemModel(id: '00', name: "00"),
+                                ItemModel(id: '01', name: "01"),
+                                ItemModel(id: '02', name: "02"),
+                                ItemModel(id: '03', name: "03"),
+                                ItemModel(id: '04', name: "04"),
+                                ItemModel(id: '05', name: "05"),
+                                ItemModel(id: '06', name: "06"),
+                                ItemModel(id: '07', name: "07"),
+                                ItemModel(id: '08', name: "08"),
+                                ItemModel(id: '09', name: "09"),
                               ],
                             ),
 
@@ -580,20 +581,26 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
 
                             ///Search for button
-                            XButton("Search Home Stay", () {
-                              if (_formKey.currentState.validate()) {
-                                OrderUtils()
-                                    .setOrder(startDay, endDay, numberRoom);
-                                homeBloc.searchRoom(
-                                  numberRoom: numberRoom,
-                                  startDay: startDay,
-                                  endDay: endDay,
-                                  city: controllerCity.text,
-                                  child: child,
-                                  adults: adults,
-                                );
-                              }
-                            }),
+                            XButton(
+                              "Search Home Stay",
+                              () {
+                                if (_formKey.currentState.validate()) {
+                                  OrderUtils()
+                                      .setOrder(startDay, endDay, numberRoom);
+                                  homeBloc.searchRoom(
+                                    numberRoom: numberRoom,
+                                    startDay: startDay,
+                                    endDay: endDay,
+                                    city: controllerCity.text,
+                                    child: child,
+                                    adults: adults,
+                                  );
+                                }
+                              },
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
                           ],
                         ),
                       ),
@@ -603,7 +610,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-
           StreamBuilder<UIState>(
             stream: homeBloc.searchStateStream,
             builder: (context, snapshot) {

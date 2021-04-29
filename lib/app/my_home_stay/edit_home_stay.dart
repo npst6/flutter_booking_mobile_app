@@ -266,7 +266,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Name Home Stay",
+                      "Name",
 
                       style: TextStyle(
                         ///Text size
@@ -287,7 +287,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       controller: controllerName,
 
                       ///Hint text
-                      hintText: "Name",
+                      hintText: "Input Name of Home Stay",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -295,7 +295,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.edit,
+                        Icons.home_filled,
 
                         ///Icon color
                         color: AppColors.primaryColor,
@@ -306,7 +306,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                     ),
                     Text(
                       ///Text
-                      "Phone number",
+                      "Contact",
 
                       style: TextStyle(
                         ///Text size
@@ -327,7 +327,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       controller: controllerPhone,
 
                       ///Hint text
-                      hintText: "Phone",
+                      hintText: "Input Phone Number of Home Stay",
 
                       ///Text type phone
                       textInputType: TextInputType.phone,

@@ -140,7 +140,7 @@ class ItemMyRoom extends StatelessWidget {
                           },
                           child: Icon(
                             ///Icon
-                            Icons.error,
+                            Icons.mode_edit,
 
                             ///Icon color
                             color: AppColors.primaryColor,
@@ -160,7 +160,7 @@ class ItemMyRoom extends StatelessWidget {
 
                         child: Text(
                           ///Text
-                          "${room.numberAdults} Adults - ${room.numberChild} Child",
+                          "${room.numberAdults} Adults - ${room.numberChild} Children",
 
                           ///Text align
                           textAlign: TextAlign.start,
@@ -170,7 +170,7 @@ class ItemMyRoom extends StatelessWidget {
 
                           style: TextStyle(
                             ///Text size
-                            fontSize: 16,
+                            fontSize: 12,
 
                             ///Text weight
                             fontWeight: FontWeight.w700,
@@ -194,6 +194,9 @@ class ItemMyRoom extends StatelessWidget {
                           style: TextStyle(
                             ///Text color
                             color: Colors.grey,
+
+                            ///Text size
+                            fontSize: 12,
 
                             ///Text weight
                             fontWeight: FontWeight.w600,
@@ -227,6 +230,9 @@ class ItemMyRoom extends StatelessWidget {
                           ///Text weight
                           fontWeight: FontWeight.w600,
 
+                          ///Text size
+                          fontSize: 12,
+
                           ///Text spacing
                           letterSpacing: 1,
                         ),
@@ -246,21 +252,24 @@ class ItemMyRoom extends StatelessWidget {
                       ),
                       Text(
                         ///Text
-                          "${DateTime.parse(room.endDay).day}/${DateTime.parse(room.endDay).month}/${DateTime.parse(room.endDay).year}",
+                        "${DateTime.parse(room.endDay).day}/${DateTime.parse(room.endDay).month}/${DateTime.parse(room.endDay).year}",
 
-                          ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
-                          maxLines: 1,
+                        ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                        maxLines: 1,
 
-                          ///Text align
-                          textAlign: TextAlign.start,
+                        ///Text align
+                        textAlign: TextAlign.start,
 
-                          style: TextStyle(
-                            ///Text spacing
-                            letterSpacing: 1,
+                        style: TextStyle(
+                          ///Text spacing
+                          letterSpacing: 1,
 
-                            ///Text weight
-                            fontWeight: FontWeight.w600,
-                          )
+                          ///Text size
+                          fontSize: 12,
+
+                          ///Text weight
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ],
                   ),

@@ -79,11 +79,12 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                               Navigator.pop(context);
                             },
                             child: Container(
+
                               ///Container height
-                              height: 30,
+                              height: 35,
 
                               ///Container width
-                              width: 30,
+                              width: 35,
 
                               decoration: BoxDecoration(
                                 ///Color box
@@ -226,6 +227,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                                   ),
                                 ),
                               ),
+
                               Expanded(
                                   flex: 2,
                                   child: Row(

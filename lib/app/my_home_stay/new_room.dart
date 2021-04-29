@@ -455,7 +455,7 @@ int numberRoom;
                                 ///prefixIcon
                                 prefixIcon: Icon(
                                   ///Icon
-                                  Icons.attach_money,
+                                  Icons.local_atm,
 
                                   ///Icon color
                                   color: AppColors.primaryColor,
