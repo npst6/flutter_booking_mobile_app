@@ -30,7 +30,7 @@ class XButton extends StatelessWidget {
     this.height = 55,
 
     ///Button color
-    this.color = AppColors.buttonColor,
+    this.color = AppColors.primaryColor,
   });
 
   @override

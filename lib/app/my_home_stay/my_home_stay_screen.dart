@@ -81,7 +81,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
 
               decoration: BoxDecoration(
                 ///Color box
-                color: AppColors.buttonColor,
+                color: AppColors.primaryColor,
 
                 ///Border box
                 borderRadius: BorderRadius.circular(10),
@@ -139,7 +139,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
                     Icons.edit,
 
                     ///Icon color
-                    color: AppColors.buttonColor,
+                    color: AppColors.primaryColor,
                   ),
 
                   ///onPressed
@@ -236,7 +236,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
                                     Icons.phone,
 
                                     ///Icon color
-                                    color: AppColors.buttonColor,
+                                    color: AppColors.primaryColor,
                                   ),
                                   const SizedBox(
                                     width: 10,
@@ -298,7 +298,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
                           height: 2,
 
                           ///color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                       ),
                       Padding(
@@ -328,18 +328,21 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
                             ),
 
                             ///Add room button
-                            XButton(
-                              "New Room",
-                              () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return NewRoom();
-                                    },
-                                  ),
-                                );
-                              },
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              child: XButton(
+                                "New Room",
+                                () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return NewRoom();
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
                             ),
                           ],
                         ),

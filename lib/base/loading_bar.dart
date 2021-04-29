@@ -28,7 +28,7 @@ class LoadingBar extends StatelessWidget {
 
             ///Value color
             valueColor:
-                new AlwaysStoppedAnimation<Color>(AppColors.buttonColor),
+                new AlwaysStoppedAnimation<Color>(AppColors.primaryColor),
           ),
           const SizedBox(
             height: 15,
@@ -38,7 +38,7 @@ class LoadingBar extends StatelessWidget {
             "Loading...",
             style: TextStyle(
               ///Text color
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
 
               ///Text weight
               fontWeight: FontWeight.w600,

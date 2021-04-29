@@ -104,7 +104,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
               Icons.arrow_back_ios,
 
               ///Icon color
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
 
               ///Icon size
               size: 15,
@@ -243,7 +243,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                         Icons.home_filled,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -286,7 +286,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                         Icons.smartphone,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -326,7 +326,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                           height: 2,
 
                           ///color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                       ),
                     ),
@@ -367,7 +367,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                         Icons.local_atm,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -410,7 +410,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                         Icons.confirmation_number,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -447,7 +447,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                         Icons.perm_contact_cal,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
 
                       ///Check empty data

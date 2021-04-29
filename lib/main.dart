@@ -31,10 +31,10 @@ class MyApp extends StatelessWidget {
       create: (_) => ThemeChanger(
         themeData: ThemeData.light().copyWith(
           ///Color of the main banner
-          primaryColor: AppColors.buttonColor,
+          primaryColor: AppColors.primaryColor,
 
           ///Accent color
-          accentColor: AppColors.buttonColor,
+          accentColor: AppColors.primaryColor,
 
           ///Background color
           scaffoldBackgroundColor: Colors.white,

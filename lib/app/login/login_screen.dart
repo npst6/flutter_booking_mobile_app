@@ -110,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: 40,
 
                           ///Text color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
 
                           ///Text weight
                           fontWeight: FontWeight.w900,
@@ -165,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Icons.person,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
 
@@ -205,14 +205,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: "Enter your password",
 
                       ///Check empty field
-                      funcValidation: ValidateData.validEmpty,
+                      funcValidation: ValidateData.validPass,
 
                       prefixIcon: Icon(
                         ///Icon password box
                         Icons.lock,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
 
@@ -246,7 +246,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontSize: 15,
 
                             ///Text color
-                            color: AppColors.buttonColor,
+                            color: AppColors.primaryColor,
 
                             ///Text weight
                             fontWeight: FontWeight.w400,

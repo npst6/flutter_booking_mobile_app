@@ -107,7 +107,7 @@ class ItemUser extends StatelessWidget {
                           Icons.more_vert,
 
                           ///Icon
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
 
                           ///Icon color
                         ),
@@ -121,7 +121,7 @@ class ItemUser extends StatelessWidget {
                     children: [
                       Text(
                         ///Text
-                        "Email :",
+                        "Email:",
 
                         ///Text align
                         textAlign: TextAlign.start,
@@ -155,6 +155,7 @@ class ItemUser extends StatelessWidget {
 
                           ///Use the ... sign to indicate overflow of text
                           overflow: TextOverflow.ellipsis,
+
                           style: TextStyle(
                             ///Text size
                             fontSize: 16,
@@ -176,13 +177,14 @@ class ItemUser extends StatelessWidget {
                     children: [
                       Text(
                         ///Text
-                        "Phone :",
+                        "Phone:",
 
                         ///Text align
                         textAlign: TextAlign.start,
 
                         ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                         maxLines: 1,
+
                         style: TextStyle(
                           ///Text weight
                           fontWeight: FontWeight.w700,
@@ -206,8 +208,10 @@ class ItemUser extends StatelessWidget {
 
                         ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                         maxLines: 1,
+
                         ///Use the ... sign to indicate overflow of text
                         overflow: TextOverflow.ellipsis,
+
                         style: TextStyle(
                           ///Text size
                           fontSize: 16,
@@ -228,13 +232,14 @@ class ItemUser extends StatelessWidget {
                     children: [
                       Text(
                         ///Text
-                        "Create day :",
+                        "Create:",
 
                         ///Text align
                         textAlign: TextAlign.start,
 
                         ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                         maxLines: 1,
+
                         style: TextStyle(
                           ///Text weight
                           fontWeight: FontWeight.w700,
@@ -251,7 +256,7 @@ class ItemUser extends StatelessWidget {
                       ),
                       Text(
                         ///Text
-                        "11/12/2021",
+                        "04/05/2021",
 
                         ///Text align
                         textAlign: TextAlign.start,
@@ -261,6 +266,7 @@ class ItemUser extends StatelessWidget {
 
                         ///Use the ... sign to indicate overflow of text
                         overflow: TextOverflow.ellipsis,
+
                         style: TextStyle(
                           ///Text size
                           fontSize: 16,

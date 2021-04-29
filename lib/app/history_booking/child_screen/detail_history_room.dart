@@ -75,7 +75,7 @@ class _DetailHomeStayScreenState extends State<DetailsRoomHistoryScreen> {
                               width: 30,
                               decoration: BoxDecoration(
                                 ///Color box
-                                color: AppColors.buttonColor,
+                                color: AppColors.primaryColor,
 
                                 ///Border box
                                 borderRadius: BorderRadius.circular(10),
@@ -158,7 +158,7 @@ class _DetailHomeStayScreenState extends State<DetailsRoomHistoryScreen> {
                             Icons.location_on,
 
                             ///Icon color
-                            color: AppColors.buttonColor,
+                            color: AppColors.primaryColor,
 
                             ///Icon size
                             size: 18,
@@ -254,7 +254,7 @@ class _DetailHomeStayScreenState extends State<DetailsRoomHistoryScreen> {
                                 Icons.wifi,
 
                                 ///Icon color
-                                color: AppColors.buttonColor,
+                                color: AppColors.primaryColor,
                               ),
                               "Wifi",
                             ),
@@ -264,7 +264,7 @@ class _DetailHomeStayScreenState extends State<DetailsRoomHistoryScreen> {
                                 Icons.camera_rear,
 
                                 ///Icon color
-                                color: AppColors.buttonColor,
+                                color: AppColors.primaryColor,
                               ),
                               "Camera",
                             ),
@@ -274,7 +274,7 @@ class _DetailHomeStayScreenState extends State<DetailsRoomHistoryScreen> {
                                 Icons.gps_fixed,
 
                                 ///Icon color
-                                color: AppColors.buttonColor,
+                                color: AppColors.primaryColor,
                               ),
                               "Gps",
                             ),
@@ -284,7 +284,7 @@ class _DetailHomeStayScreenState extends State<DetailsRoomHistoryScreen> {
                                 Icons.access_alarms,
 
                                 ///Icon color
-                                color: AppColors.buttonColor,
+                                color: AppColors.primaryColor,
                               ),
                               "Alarms",
                             ),
@@ -294,7 +294,7 @@ class _DetailHomeStayScreenState extends State<DetailsRoomHistoryScreen> {
                                 Icons.airline_seat_recline_extra,
 
                                 ///Icon color
-                                color: AppColors.buttonColor,
+                                color: AppColors.primaryColor,
                               ),
                               "Seat",
                             ),

@@ -48,153 +48,169 @@ class _BookingScreenState extends State<AdminScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          ///Background color
-          backgroundColor: themeData.scaffoldBackgroundColor,
+      appBar: AppBar(
+        ///Background color
+        backgroundColor: themeData.scaffoldBackgroundColor,
 
-          ///Elevation
-          elevation: 0,
-          leading: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Padding(
-              ///Padding
-              padding: const EdgeInsets.all(15),
-              child: Container(
-                ///Container height
-                height: 20,
+        ///Elevation
+        elevation: 0,
 
-                ///Container width
-                width: 20,
-                decoration: BoxDecoration(
-                  ///Color box
-                  color: AppColors.buttonColor,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Padding(
+            ///Padding
+            padding: const EdgeInsets.all(10),
 
-                  ///Border box
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Icon(
-                    ///Icon
-                    Icons.home,
+            child: Container(
+              ///Container height
+              height: 20,
 
-                    ///Icon color
-                    color: themeData.scaffoldBackgroundColor,
+              ///Container width
+              width: 20,
 
-                    ///Icon size
-                    size: 15,
-                  ),
+              decoration: BoxDecoration(
+                ///Color box
+                color: AppColors.primaryColor,
+
+                ///Border box
+                borderRadius: BorderRadius.circular(10),
+              ),
+
+              child: Center(
+                child: Icon(
+                  ///Icon
+                  Icons.home,
+
+                  ///Icon color
+                  color: themeData.scaffoldBackgroundColor,
+
+                  ///Icon size
+                  size: 15,
                 ),
               ),
-            ),
-          ),
-
-          ///Title spacing
-          titleSpacing: 1,
-
-          ///Title center
-          centerTitle: true,
-
-          title: Text(
-            ///Text
-            "Admin".toUpperCase(),
-            style: TextStyle(
-              ///Text size
-              fontSize: 20,
-
-              ///Text weight
-              fontWeight: FontWeight.bold,
-
-              ///Text spacing
-              letterSpacing: 2,
-
-              ///Text color
-              // ignore: deprecated_member_use
-              color: themeData.textSelectionColor,
             ),
           ),
         ),
-        body: DefaultTabController(
-          ///Length
-          length: 2,
-          child: Column(
-            children: [
-              Padding(
-                ///Padding
-                padding: const EdgeInsets.fromLTRB(15, 20, 15, 20),
-                child: Container(
-                  ///Container width
-                  width: double.infinity,
-                  child: TabBar(
-                    ///Label color
-                    labelColor: AppColors.buttonColor,
 
-                    ///Unselected label color
-                    unselectedLabelColor: Colors.grey,
+        ///Title spacing
+        titleSpacing: 1,
 
-                    ///Indicator weight
-                    indicatorWeight: 2,
+        ///Title center
+        centerTitle: true,
 
-                    ///Indicator color
-                    indicatorColor: AppColors.buttonColor,
-                    tabs: [
-                      Tab(icon: Text("New Post")),
-                      Tab(icon: Text("Member")),
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TabBarView(
-                  children: [
-                    StreamBuilder<List<Room>>(
-                        stream: adminBloc.listRoomStream,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            if (snapshot.data.length > 0) {
-                              return Container(
-                                  child: SingleChildScrollView(
-                                child: Column(
-                                    children: snapshot.data
-                                        .map(
-                                          (e) => ItemNewRoom(
-                                              themeData, e, adminBloc),
-                                        )
-                                        .toList()),
-                              ));
-                            } else {
-                              return NoFoundWidget("No news");
-                            }
-                          } else {
-                            return LoadingBar();
-                          }
-                        }),
-                    StreamBuilder<List<Account>>(
-                        stream: adminBloc.accountStream,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            return Container(
-                                child: SingleChildScrollView(
-                              child: Column(
-                                  children: snapshot.data
-                                      .map(
-                                        (e) => ItemUser(
-                                          themeData,
-                                          account: e,
-                                          adminBloc: adminBloc,
-                                        ),
-                                      )
-                                      .toList()),
-                            ));
-                          } else
-                            return LoadingBar();
-                        }),
+        title: Text(
+          ///Text
+          "Admin".toUpperCase(),
+
+          style: TextStyle(
+            ///Text size
+            fontSize: 20,
+
+            ///Text weight
+            fontWeight: FontWeight.bold,
+
+            ///Text spacing
+            letterSpacing: 2,
+
+            ///Text color
+            // ignore: deprecated_member_use
+            color: themeData.textSelectionColor,
+          ),
+        ),
+      ),
+      body: DefaultTabController(
+        ///Length
+        length: 2,
+
+        child: Column(
+          children: [
+            Padding(
+              ///Padding
+              padding: const EdgeInsets.fromLTRB(15, 20, 15, 20),
+
+              child: Container(
+                ///Container width
+                width: double.infinity,
+
+                child: TabBar(
+                  ///Label color
+                  labelColor: AppColors.primaryColor,
+
+                  ///Unselected label color
+                  unselectedLabelColor: Colors.grey,
+
+                  ///Indicator weight
+                  indicatorWeight: 2,
+
+                  ///Indicator color
+                  indicatorColor: AppColors.primaryColor,
+
+                  ///Tabs
+                  tabs: [
+                    Tab(icon: Text("Approve Room")),
+                    Tab(icon: Text("Permission Account")),
                   ],
                 ),
               ),
-            ],
-          ),
-        ));
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  StreamBuilder<List<Room>>(
+                    stream: adminBloc.listRoomStream,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        if (snapshot.data.length > 0) {
+                          return Container(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                  children: snapshot.data
+                                      .map(
+                                        (e) => ItemNewRoom(
+                                            themeData, e, adminBloc),
+                                      )
+                                      .toList()),
+                            ),
+                          );
+                        } else {
+                          return NoFoundWidget("No news");
+                        }
+                      } else {
+                        return LoadingBar();
+                      }
+                    },
+                  ),
+                  StreamBuilder<List<Account>>(
+                    stream: adminBloc.accountStream,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Container(
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: snapshot.data
+                                  .map(
+                                    (e) => ItemUser(
+                                      themeData,
+                                      account: e,
+                                      adminBloc: adminBloc,
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                          ),
+                        );
+                      } else
+                        return LoadingBar();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -41,7 +41,7 @@ class PopUpBankTransfer extends StatelessWidget {
             height: 50,
             decoration: BoxDecoration(
               ///Color box
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
 
               ///Border box
               borderRadius: BorderRadius.only(
@@ -76,7 +76,7 @@ class PopUpBankTransfer extends StatelessWidget {
                     "${totalPrice / 100}\đ",
                     style: TextStyle(
                       ///Text color
-                      color: AppColors.buttonColor,
+                      color: AppColors.primaryColor,
 
                       ///Text size
                       fontSize: 30,

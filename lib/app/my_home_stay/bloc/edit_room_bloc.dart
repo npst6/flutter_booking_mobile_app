@@ -93,6 +93,7 @@ class EditRoomBloc extends BaseBloc {
     String address,
     String city,
     String desc,
+    int numberRoom,
     double price,
     double discount,
   ) async {
@@ -104,7 +105,7 @@ class EditRoomBloc extends BaseBloc {
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
           FirAuth().createNewRoom(val, name, startDay, endDay, adults, child,
-              address, city, desc, price, discount, () {
+              address, city, desc, price, discount, numberRoom,() {
             editRoomStateStream.add(UIState.SUCCESS);
             FlutterToast().showToast("Success");
           }, (va) {
@@ -122,6 +123,7 @@ class EditRoomBloc extends BaseBloc {
   ///Update room have image
   void updateRoomHaveFile(
     File file,
+      int numberRoom,
     String id,
     String name,
     String startDay,
@@ -141,7 +143,7 @@ class EditRoomBloc extends BaseBloc {
           storage.ref().child('${Path.basename(file.path)}}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
-          FirAuth().updateRoom(val, name, id, startDay, endDay, adults, child,
+          FirAuth().updateRoom(val,numberRoom, name, id, startDay, endDay, adults, child,
               address, city, desc, price, discount, () {
             editRoomStateStream.add(UIState.SUCCESS);
             FlutterToast().showToast("Success");
@@ -159,6 +161,7 @@ class EditRoomBloc extends BaseBloc {
 
   ///Update room not have image
   void updateRoomNotFile(
+      int numberRoom,
     String urlImage,
     String id,
     String name,
@@ -174,7 +177,7 @@ class EditRoomBloc extends BaseBloc {
   ) async {
     editRoomStateStream.add(UIState.LOADING);
     try {
-      FirAuth().updateRoom(urlImage, name, id, startDay, endDay, adults, child,
+      FirAuth().updateRoom(urlImage,numberRoom, name, id, startDay, endDay, adults, child,
           address, city, desc, price, discount, () {
         editRoomStateStream.add(UIState.SUCCESS);
         FlutterToast().showToast("Success");

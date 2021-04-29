@@ -119,7 +119,7 @@ class ItemSearch extends StatelessWidget {
 
                                 decoration: BoxDecoration(
                                   ///Color box decoration
-                                  color: AppColors.buttonColor,
+                                  color: AppColors.primaryColor,
 
                                   ///Border box decoration
                                   borderRadius: BorderRadius.circular(7),
@@ -161,7 +161,7 @@ class ItemSearch extends StatelessWidget {
                                 Icons.location_on,
 
                                 ///Icon color
-                                color: AppColors.buttonColor,
+                                color: AppColors.primaryColor,
 
                                 ///Icon size
                                 size: 18,
@@ -198,7 +198,7 @@ class ItemSearch extends StatelessWidget {
 
                     decoration: BoxDecoration(
                       ///Color box
-                      color: AppColors.buttonColor,
+                      color: AppColors.primaryColor,
 
                       ///Border box
                       borderRadius: BorderRadius.only(

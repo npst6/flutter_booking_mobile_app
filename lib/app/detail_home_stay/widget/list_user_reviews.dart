@@ -35,7 +35,7 @@ class ListUserReviews extends StatelessWidget {
                           shape: BoxShape.circle,
 
                           ///Color box
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                         child: Center(
                           child: Text(

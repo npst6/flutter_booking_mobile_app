@@ -11,5 +11,5 @@ class AppColors {
   static const Color hintColor = Color(0xff7f8080);
 
   ///Color(0xfff33418)
-  static const Color buttonColor = Color(0xfff33418);
+  static const Color primaryColor = Color(0xfff33418);
 }

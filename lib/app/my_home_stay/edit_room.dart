@@ -53,6 +53,10 @@ class _NewRoomState extends State<EditRoomScreen> {
   ///controllerCity
   TextEditingController controllerCity;
 
+  /// numberRoom
+
+  int numberRoom;
+
   ///child
   int child;
 
@@ -98,6 +102,7 @@ class _NewRoomState extends State<EditRoomScreen> {
     adults = widget.room.numberAdults;
     startDay = widget.room.startDay;
     endDay = widget.room.endDay;
+    numberRoom = widget.room.numberRoom;
     editRoomBloc = new EditRoomBloc()..init();
     controllerName = new TextEditingController(text: widget.room.nameRoom);
     controllerDiscountPercent =
@@ -150,7 +155,7 @@ class _NewRoomState extends State<EditRoomScreen> {
               size: 15,
 
               ///Icon color
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
             ),
           ),
         ),
@@ -185,7 +190,7 @@ class _NewRoomState extends State<EditRoomScreen> {
               Icons.delete,
 
               ///Icon color
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
             ),
 
             ///onPressed
@@ -248,46 +253,48 @@ class _NewRoomState extends State<EditRoomScreen> {
                             alignment: Alignment.center,
 
                             children: [
-                              Container(
-                                ///Container height
-                                height: 200,
+                              InkWell(
+                                onTap: () {
+                                  try {
+                                    showGetImage(context);
+                                  } catch (e) {
+                                    print(e);
+                                  }
+                                },
+                                child: Container(
+                                  ///Container height
+                                  height: 200,
 
-                                ///Container width
-                                width: double.infinity,
+                                  ///Container width
+                                  width: double.infinity,
 
-                                decoration: BoxDecoration(
-                                  ///Border box
-                                  borderRadius: BorderRadius.circular(7),
+                                  decoration: BoxDecoration(
+                                    ///Border box
+                                    borderRadius: BorderRadius.circular(7),
 
-                                  ///Image
-                                  image: DecorationImage(
                                     ///Image
-                                    image: NetworkImage(
-                                      widget.room.urlImage,
-                                    ),
+                                    image: DecorationImage(
+                                      ///Image
+                                      image: NetworkImage(
+                                        widget.room.urlImage,
+                                      ),
 
-                                    ///Image fit
-                                    fit: BoxFit.cover,
+                                      ///Image fit
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
-                              IconButton(
-                                icon: Icon(
-                                  ///Icon
-                                  Icons.camera_alt,
-
-                                  ///Icon size
-                                  size: 100,
-
-                                  ///Icon color
-                                  color: Colors.grey,
-                                ),
-
-                                ///onPressed
-                                onPressed: () {
-                                  showGetImage(context);
-                                },
-                              ),
+                              // Icon(
+                              //   ///Icon
+                              //   Icons.camera_alt,
+                              //
+                              //   ///Icon size
+                              //   size: 30,
+                              //
+                              //   ///Icon color
+                              //   color: Colors.grey,
+                              // ),
                             ],
                           );
                       },
@@ -329,7 +336,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                         Icons.edit,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -372,7 +379,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                         Icons.note,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -412,7 +419,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                         Icons.home_rounded,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -485,9 +492,8 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                             children: [
                               Text(
-                                ///Text
+                                ///Price
                                 "Room Price",
-
                                 style: TextStyle(
                                   ///Text size
                                   fontSize: 15,
@@ -503,13 +509,11 @@ class _NewRoomState extends State<EditRoomScreen> {
                                 height: 10,
                               ),
                               XTextFormField(
+                                ///controllerPrice
                                 controller: controllerPrice,
 
                                 ///Hint text
                                 hintText: "0\$",
-
-                                ///Text type phone
-                                textInputType: TextInputType.phone,
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
@@ -520,8 +524,34 @@ class _NewRoomState extends State<EditRoomScreen> {
                                   Icons.attach_money,
 
                                   ///Icon color
-                                  color: AppColors.buttonColor,
+                                  color: AppColors.primaryColor,
                                 ),
+
+                                ///suffixIcon
+                                suffixIcon: Container(
+                                  ///Icon width
+                                  width: 20,
+
+                                  child: Center(
+                                    child: Text(
+                                      ///Text
+                                      "\$",
+                                      style: TextStyle(
+                                        ///Text color
+                                        color: AppColors.primaryColor,
+
+                                        ///Text size
+                                        fontSize: 16,
+
+                                        ///Text weight
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                ///Text type phone
+                                textInputType: TextInputType.phone,
                               ),
                             ],
                           ),
@@ -538,16 +568,15 @@ class _NewRoomState extends State<EditRoomScreen> {
                               Text(
                                 ///Text
                                 "Discount",
-
                                 style: TextStyle(
                                   ///Text size
                                   fontSize: 15,
 
-                                  ///Text spacing
-                                  letterSpacing: 1,
-
                                   ///Text weight
                                   fontWeight: FontWeight.w500,
+
+                                  ///Text spacing
+                                  letterSpacing: 1,
                                 ),
                               ),
                               const SizedBox(
@@ -559,9 +588,6 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                                 ///Hint text
                                 hintText: "0%",
-
-                                ///Text type phone
-                                textInputType: TextInputType.phone,
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
@@ -575,13 +601,12 @@ class _NewRoomState extends State<EditRoomScreen> {
                                     child: Text(
                                       ///Text
                                       "%",
-
                                       style: TextStyle(
+                                        ///Text color
+                                        color: AppColors.primaryColor,
+
                                         ///Text size
                                         fontSize: 16,
-
-                                        ///Text color
-                                        color: AppColors.buttonColor,
 
                                         ///Text weight
                                         fontWeight: FontWeight.w900,
@@ -589,6 +614,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                                     ),
                                   ),
                                 ),
+
+                                ///Text type phone
+                                textInputType: TextInputType.phone,
                               ),
                             ],
                           ),
@@ -598,52 +626,34 @@ class _NewRoomState extends State<EditRoomScreen> {
                     const SizedBox(
                       height: 15,
                     ),
-                    TextFieldChoose(
-                      ///Hint text
-                      hintText: "How Many Adults ?",
+                    Text(
+                      ///Price
+                      "Number room",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
 
-                      ///Icon
-                      iconData: Icons.people,
+                        ///Text spacing
+                        letterSpacing: 1,
 
-                      ///intiText
-                      intiText: adults.toString(),
-
-                      ///callBack
-                      callBack: (val) {
-                        adults = int.parse(val);
-                      },
-
-                      ///items
-                      items: [
-                        ItemModel(id: '1', name: "01"),
-                        ItemModel(id: '2', name: "02"),
-                        ItemModel(id: '3', name: "03"),
-                        ItemModel(id: '4', name: "04"),
-                        ItemModel(id: '5', name: "05"),
-                        ItemModel(id: '6', name: "06"),
-                        ItemModel(id: '7', name: "07"),
-                        ItemModel(id: '8', name: "08"),
-                        ItemModel(id: '9', name: "09"),
-                        ItemModel(id: '10', name: "10"),
-                      ],
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: 10,
                     ),
                     TextFieldChoose(
-                      ///Hint text
-                      hintText: "How Many Children ?",
-
                       ///Icon
-                      iconData: Icons.emoji_people,
-
-                      ///intiText
-                      intiText: child.toString(),
+                      iconData: Icons.room_preferences_outlined,
 
                       ///callBack
                       callBack: (val) {
-                        child = int.parse(val);
+                        numberRoom = int.parse(val);
                       },
+
+                      ///Hint text
+                      hintText: "Number room",
 
                       ///items
                       items: [
@@ -663,7 +673,8 @@ class _NewRoomState extends State<EditRoomScreen> {
                       height: 15,
                     ),
                     Text(
-                      "Free Time",
+                      ///Price
+                      "Adults",
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -673,6 +684,98 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                         ///Text weight
                         fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextFieldChoose(
+                      ///Icon
+                      iconData: Icons.people,
+
+                      ///callBack
+                      callBack: (val) {
+                        adults = int.parse(val);
+                      },
+
+                      ///Hint text
+                      hintText: "How Many Adults ?",
+
+                      ///items
+                      items: [
+                        ItemModel(id: '1', name: "01"),
+                        ItemModel(id: '2', name: "02"),
+                        ItemModel(id: '3', name: "03"),
+                        ItemModel(id: '4', name: "04"),
+                        ItemModel(id: '5', name: "05"),
+                        ItemModel(id: '6', name: "06"),
+                        ItemModel(id: '7', name: "07"),
+                        ItemModel(id: '8', name: "08"),
+                        ItemModel(id: '9', name: "09"),
+                        ItemModel(id: '10', name: "10"),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      ///Price
+                      "Many Children",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextFieldChoose(
+                      ///Icon
+                      iconData: Icons.emoji_people,
+
+                      ///callBack
+                      callBack: (val) {
+                        child = int.parse(val);
+                      },
+
+                      ///Hint text
+                      hintText: "How Many Children ?",
+
+                      ///items
+                      items: [
+                        ItemModel(id: '1', name: "01"),
+                        ItemModel(id: '2', name: "02"),
+                        ItemModel(id: '3', name: "03"),
+                        ItemModel(id: '4', name: "04"),
+                        ItemModel(id: '5', name: "05"),
+                        ItemModel(id: '6', name: "06"),
+                        ItemModel(id: '7', name: "07"),
+                        ItemModel(id: '8', name: "08"),
+                        ItemModel(id: '9', name: "09"),
+                        ItemModel(id: '10', name: "10"),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      ///Text
+                      "Free Time",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+
+                        ///Text spacing
+                        letterSpacing: 1,
                       ),
                     ),
                     const SizedBox(
@@ -731,7 +834,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                           Icons.calendar_today,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                       ),
                     ),
@@ -754,7 +857,7 @@ class _NewRoomState extends State<EditRoomScreen> {
 
       bottomNavigationBar: Padding(
         ///Padding
-        padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+        padding: const EdgeInsets.fromLTRB(50, 5, 50, 20),
 
         ///Save button
         child: XButton(
@@ -764,6 +867,7 @@ class _NewRoomState extends State<EditRoomScreen> {
               try {
                 if (file == null) {
                   editRoomBloc.updateRoomNotFile(
+                    numberRoom,
                     widget.room.urlImage,
                     widget.room.idRoom,
                     controllerName.text,
@@ -780,6 +884,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                 } else {
                   editRoomBloc.updateRoomHaveFile(
                     file,
+                    numberRoom,
                     widget.room.idRoom,
                     controllerName.text,
                     startDay,

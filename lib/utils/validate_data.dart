@@ -16,6 +16,13 @@ class ValidateData {
       return null;
     }
   }
+  static String validChangePass(String text) {
+    return text.length < 8&&text.length>0 ? 'Pass length > 8' : null;
+  }
+
+  static String validPass(String text) {
+    return text.length < 8 ? 'Pass length > 8' : null;
+  }
 
   ///validEmpty - Check empty fields
   static String validEmpty(String text) {

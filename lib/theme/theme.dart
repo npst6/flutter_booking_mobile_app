@@ -20,10 +20,10 @@ class ThemeChanger with ChangeNotifier {
       ///Describe dark theme
       themeData = ThemeData.dark().copyWith(
         ///Color of the main banner
-        primaryColor: AppColors.buttonColor,
+        primaryColor: AppColors.primaryColor,
 
         ///Color
-        accentColor: AppColors.buttonColor,
+        accentColor: AppColors.primaryColor,
 
         ///Light background
         scaffoldBackgroundColor: Colors.black,
@@ -36,10 +36,10 @@ class ThemeChanger with ChangeNotifier {
       ///Describe light theme
       themeData = ThemeData.light().copyWith(
         ///Color of the main banner
-        primaryColor: AppColors.buttonColor,
+        primaryColor: AppColors.primaryColor,
 
         ///Color
-        accentColor: AppColors.buttonColor,
+        accentColor: AppColors.primaryColor,
 
         ///Light background
         scaffoldBackgroundColor: Colors.white,

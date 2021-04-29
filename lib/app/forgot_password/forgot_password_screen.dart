@@ -39,7 +39,7 @@ class _LoginScreenState extends State<ForgotPassScreen> {
               Icons.keyboard_backspace,
 
               ///Icon color
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
             ),
             onPressed: () {
               Navigator.pop(context);
@@ -73,7 +73,7 @@ class _LoginScreenState extends State<ForgotPassScreen> {
                     fontWeight: FontWeight.w900,
 
                     ///Text color
-                    color: AppColors.buttonColor,
+                    color: AppColors.primaryColor,
                   ),
                 ),
               ),
@@ -116,7 +116,7 @@ class _LoginScreenState extends State<ForgotPassScreen> {
                     Icons.mail,
 
                     ///Icon color
-                    color: AppColors.buttonColor,
+                    color: AppColors.primaryColor,
                   ),
                 ),
               ),

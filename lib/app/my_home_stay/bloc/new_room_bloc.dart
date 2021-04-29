@@ -77,6 +77,7 @@ class NewRoomBloc extends BaseBloc {
     String endDay,
     int adults,
     int child,
+    int numberRoom,
     String address,
     String city,
     String desc,
@@ -92,7 +93,7 @@ class NewRoomBloc extends BaseBloc {
         (val) {
           val.ref.getDownloadURL().then((val) {
             FirAuth().createNewRoom(val, name, startDay, endDay, adults, child,
-                address, city, desc, price, discount, () {
+                address, city, desc, price, discount,numberRoom, () {
               newRoomStateStream.add(UIState.SUCCESS);
               FlutterToast().showToast("Success");
             }, (va) {

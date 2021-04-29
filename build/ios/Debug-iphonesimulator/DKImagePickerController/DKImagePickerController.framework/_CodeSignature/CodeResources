@@ -226,11 +226,11 @@
 		</data>
 		<key>Modules/DKImagePickerController.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		H79jPapTJaPfnIf0dGN2A213qXg=
+		2JBHYsKYPXTIzxsT+QRTANsqWhU=
 		</data>
 		<key>Modules/DKImagePickerController.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		H79jPapTJaPfnIf0dGN2A213qXg=
+		2JBHYsKYPXTIzxsT+QRTANsqWhU=
 		</data>
 		<key>Modules/DKImagePickerController.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -238,7 +238,7 @@
 		</data>
 		<key>Modules/DKImagePickerController.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Oj5t2uympo+V9V3X6LAJA5JiNP8=
+		+4shfYuNj8xRPkuivZbm4IImXFY=
 		</data>
 		<key>Modules/DKImagePickerController.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -246,7 +246,7 @@
 		</data>
 		<key>Modules/DKImagePickerController.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		Oj5t2uympo+V9V3X6LAJA5JiNP8=
+		+4shfYuNj8xRPkuivZbm4IImXFY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -618,22 +618,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			H79jPapTJaPfnIf0dGN2A213qXg=
+			2JBHYsKYPXTIzxsT+QRTANsqWhU=
 			</data>
 			<key>hash2</key>
 			<data>
-			QVwU1h7BEKIuprWtY4Ld8IMhUUEqHgz6x5q4il+YLEU=
+			C9HRPfo2gFk0LOUndnfgpGJc+BfW0d0Sw5+h68v4irY=
 			</data>
 		</dict>
 		<key>Modules/DKImagePickerController.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			H79jPapTJaPfnIf0dGN2A213qXg=
+			2JBHYsKYPXTIzxsT+QRTANsqWhU=
 			</data>
 			<key>hash2</key>
 			<data>
-			QVwU1h7BEKIuprWtY4Ld8IMhUUEqHgz6x5q4il+YLEU=
+			C9HRPfo2gFk0LOUndnfgpGJc+BfW0d0Sw5+h68v4irY=
 			</data>
 		</dict>
 		<key>Modules/DKImagePickerController.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -651,11 +651,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Oj5t2uympo+V9V3X6LAJA5JiNP8=
+			+4shfYuNj8xRPkuivZbm4IImXFY=
 			</data>
 			<key>hash2</key>
 			<data>
-			1GU3eVrCPugZH8Nw16pZKvjYgaGwUR8dAnAHdjFr2Ds=
+			jiqdgOqvGjOK1CxGWNlOFUv2DPB7PCEyzT14BgJGJ/s=
 			</data>
 		</dict>
 		<key>Modules/DKImagePickerController.swiftmodule/x86_64.swiftdoc</key>
@@ -673,11 +673,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Oj5t2uympo+V9V3X6LAJA5JiNP8=
+			+4shfYuNj8xRPkuivZbm4IImXFY=
 			</data>
 			<key>hash2</key>
 			<data>
-			1GU3eVrCPugZH8Nw16pZKvjYgaGwUR8dAnAHdjFr2Ds=
+			jiqdgOqvGjOK1CxGWNlOFUv2DPB7PCEyzT14BgJGJ/s=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -47,7 +47,7 @@ class _ItemActiveUserState extends State<ItemActiveUser> {
           width: 20,
         ),
         CupertinoSwitch(
-            activeColor: AppColors.buttonColor,
+            activeColor: AppColors.primaryColor,
             value: isActive,
             onChanged: (v) {
               setState(() {

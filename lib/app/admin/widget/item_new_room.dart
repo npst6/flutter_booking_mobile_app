@@ -25,12 +25,14 @@ class ItemNewRoom extends StatelessWidget {
 
       ///Container margin
       margin: const EdgeInsets.all(10),
+
       decoration: BoxDecoration(
         ///Color box
         color: themeData.scaffoldBackgroundColor,
 
         ///Border box
         borderRadius: BorderRadius.circular(10),
+
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -40,11 +42,13 @@ class ItemNewRoom extends StatelessWidget {
           ),
         ],
       ),
+
       child: Row(
         children: [
           Expanded(
             ///Flex
             flex: 1,
+
             child: Container(
               decoration: BoxDecoration(
                 ///Border box
@@ -67,20 +71,25 @@ class ItemNewRoom extends StatelessWidget {
           Expanded(
             ///Flex
             flex: 4,
+
             child: Padding(
               ///Padding
               padding: const EdgeInsets.all(10),
+
               child: Column(
                 ///Using mainAxisAlignment in a Column will align its children vertically.
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                 ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                 crossAxisAlignment: CrossAxisAlignment.start,
+
                 children: [
                   Row(
                     children: [
                       Expanded(
+                        ///Flex
                         flex: 5,
+
                         child: Text(
                           ///Text
                           room.nameRoom.toUpperCase(),
@@ -115,7 +124,7 @@ class ItemNewRoom extends StatelessWidget {
                           Icons.error,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                       )),
                     ],
@@ -127,16 +136,17 @@ class ItemNewRoom extends StatelessWidget {
                     children: [
                       Expanded(
                         ///Flex
-                        flex: 3,
+                        flex: 2,
                         child: Text(
                           ///Text
-                          "${room.numberChild} children - ${room.numberAdults} adults",
+                          "${room.numberAdults} Adults - ${room.numberChild} Children",
 
                           ///Text align
                           textAlign: TextAlign.start,
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                           maxLines: 1,
+
                           style: TextStyle(
                             ///Text weight
                             fontWeight: FontWeight.w500,
@@ -148,9 +158,6 @@ class ItemNewRoom extends StatelessWidget {
                             letterSpacing: 1,
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
                       ),
                       Expanded(
                         ///Flex
@@ -204,13 +211,13 @@ class ItemNewRoom extends StatelessWidget {
                                 maxLines: 1,
                                 style: TextStyle(
                                   ///Text color
-                                  color: AppColors.buttonColor,
+                                  color: AppColors.primaryColor,
 
                                   ///Text weight
                                   fontWeight: FontWeight.w800,
 
                                   ///Text size
-                                  fontSize: 18,
+                                  fontSize: 15,
                                   decoration: TextDecoration.lineThrough,
 
                                   ///Text spacing
@@ -220,7 +227,7 @@ class ItemNewRoom extends StatelessWidget {
                             )
                           : SizedBox(),
                       SizedBox(
-                        width: 10,
+                        width: 5,
                       ),
                       Expanded(
                         ///Flex
@@ -236,13 +243,13 @@ class ItemNewRoom extends StatelessWidget {
                           maxLines: 1,
                           style: TextStyle(
                             ///Text color
-                            color: AppColors.buttonColor,
+                            color: AppColors.primaryColor,
 
                             ///Text weight
                             fontWeight: FontWeight.w900,
 
                             ///Text size
-                            fontSize: 23,
+                            fontSize: 18,
 
                             ///Text spacing
                             letterSpacing: 1,
@@ -261,7 +268,7 @@ class ItemNewRoom extends StatelessWidget {
                           () {
                             adminBloc.updateStatusRoomById(room.idRoom, 2);
                           },
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                           height: 40,
                         ),
                       ),

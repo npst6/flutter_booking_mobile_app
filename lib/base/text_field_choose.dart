@@ -92,7 +92,7 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
           widget.iconData,
 
           ///Icon color
-          color: AppColors.buttonColor,
+          color: AppColors.primaryColor,
         ),
 
         ///suffixIcon
@@ -101,7 +101,7 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
           Icons.arrow_drop_down,
 
           ///Icon color
-          color: AppColors.buttonColor,
+          color: AppColors.primaryColor,
         ),
       ),
     );
@@ -173,7 +173,7 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
                             style: TextStyle(
                               ///Text color
                               color: _index == i
-                                  ? AppColors.buttonColor
+                                  ? AppColors.primaryColor
                                   // ignore: deprecated_member_use
                                   : themeData.textSelectionColor,
 

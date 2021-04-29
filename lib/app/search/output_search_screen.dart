@@ -69,7 +69,7 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
 
               decoration: BoxDecoration(
                 ///Box color
-                color: AppColors.buttonColor,
+                color: AppColors.primaryColor,
 
                 ///Box border
                 borderRadius: BorderRadius.circular(10),

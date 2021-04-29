@@ -66,7 +66,7 @@ class _BookingScreenState extends State<HistoryBookingScreen> {
 
               decoration: BoxDecoration(
                 ///Color box
-                color: AppColors.buttonColor,
+                color: AppColors.primaryColor,
 
                 ///Border box
                 borderRadius: BorderRadius.circular(10),
@@ -118,7 +118,7 @@ class _BookingScreenState extends State<HistoryBookingScreen> {
         children: [
           DefaultTabController(
             ///length
-            length: 4,
+            length: 2,
 
             child: Column(
               children: [
@@ -132,10 +132,10 @@ class _BookingScreenState extends State<HistoryBookingScreen> {
 
                     child: TabBar(
                       ///isScrollable
-                      isScrollable: true,
+                      isScrollable: false,
 
                       ///labelColor
-                      labelColor: AppColors.buttonColor,
+                      labelColor: AppColors.primaryColor,
 
                       ///unselectedLabelColor
                       unselectedLabelColor: Colors.grey,
@@ -144,13 +144,11 @@ class _BookingScreenState extends State<HistoryBookingScreen> {
                       indicatorWeight: 2,
 
                       ///indicatorColor
-                      indicatorColor: AppColors.buttonColor,
+                      indicatorColor: AppColors.primaryColor,
 
                       ///tabs
                       tabs: [
-                        Tab(icon: Text("Waiting")),
                         Tab(icon: Text("Confirmed")),
-                        Tab(icon: Text("Accomplished")),
                         Tab(icon: Text("Cancelled")),
                       ],
                     ),
@@ -174,46 +172,6 @@ class _BookingScreenState extends State<HistoryBookingScreen> {
                                           historyBookingBloc,
                                           isCancel: true,
                                         ),
-                                      )
-                                      .toList(),
-                                ),
-                              ),
-                            );
-                          else
-                            return NoFoundWidget("No data");
-                        },
-                      ),
-                      StreamBuilder<List<Transactions>>(
-                        stream: historyBookingBloc.historyBookingStream2,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData && snapshot.data.length > 0)
-                            return Container(
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  children: snapshot.data
-                                      .map(
-                                        (e) => ItemHistory(
-                                            themeData, e, historyBookingBloc),
-                                      )
-                                      .toList(),
-                                ),
-                              ),
-                            );
-                          else
-                            return NoFoundWidget("No data");
-                        },
-                      ),
-                      StreamBuilder<List<Transactions>>(
-                        stream: historyBookingBloc.historyBookingStream3,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData && snapshot.data.length > 0)
-                            return Container(
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  children: snapshot.data
-                                      .map(
-                                        (e) => ItemHistory(
-                                            themeData, e, historyBookingBloc),
                                       )
                                       .toList(),
                                 ),

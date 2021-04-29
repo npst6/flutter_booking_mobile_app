@@ -60,7 +60,7 @@ class _PermissionUserState extends State<PermissionUser> {
             width: double.infinity,
             decoration: BoxDecoration(
               ///Color box
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
 
               ///Border box
               borderRadius: BorderRadius.only(

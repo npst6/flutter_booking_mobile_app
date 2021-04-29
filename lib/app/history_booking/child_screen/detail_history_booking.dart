@@ -54,7 +54,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                 width: 30,
                 decoration: BoxDecoration(
                   ///Color box
-                  color: AppColors.buttonColor,
+                  color: AppColors.primaryColor,
 
                   ///Border box
                   borderRadius: BorderRadius.circular(10),
@@ -225,7 +225,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                           Icons.wifi,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                         "Wifi",
                       ),
@@ -235,7 +235,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                           Icons.camera_rear,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                         "Camera",
                       ),
@@ -245,7 +245,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                           Icons.gps_fixed,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                         "Gps",
                       ),
@@ -255,7 +255,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                           Icons.access_alarms,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                         "Alarms",
                       ),
@@ -265,7 +265,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                           Icons.airline_seat_recline_extra,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                         "Seat",
                       ),
@@ -299,7 +299,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                               Icons.calendar_today,
 
                               ///Icon color
-                              color: AppColors.buttonColor,
+                              color: AppColors.primaryColor,
                             ),
 
                             ///Hint text
@@ -337,7 +337,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                               Icons.calendar_today,
 
                               ///Icon color
-                              color: AppColors.buttonColor,
+                              color: AppColors.primaryColor,
                             ),
 
                             ///Hint text
@@ -379,7 +379,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                               Icons.nights_stay_outlined,
 
                               ///Icon color
-                              color: AppColors.buttonColor,
+                              color: AppColors.primaryColor,
                             ),
 
                             ///Hint text
@@ -417,7 +417,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                               Icons.night_shelter_outlined,
 
                               ///Icon color
-                              color: AppColors.buttonColor,
+                              color: AppColors.primaryColor,
                             ),
 
                             ///Hint text
@@ -459,7 +459,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                     Icons.person_outline,
 
                     ///Icon color
-                    color: AppColors.buttonColor,
+                    color: AppColors.primaryColor,
                   ),
 
                   ///Hint text
@@ -561,7 +561,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                           fontWeight: FontWeight.w700,
 
                           ///Text color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
 
                           ///Text spacing
                           letterSpacing: 1,
@@ -581,7 +581,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                           letterSpacing: 1,
 
                           ///Text color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
 
                           ///Text size
                           fontSize: 20,
@@ -650,7 +650,7 @@ class _BookingScreenState extends State<DetailsHistoryBookingScreen> {
                   fontWeight: FontWeight.w500,
 
                   ///Text color
-                  color: AppColors.buttonColor,
+                  color: AppColors.primaryColor,
                 ),
               ),
             ),

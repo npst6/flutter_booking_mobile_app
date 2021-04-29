@@ -135,9 +135,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ///Container width
                                 width: 40,
 
-                                ///Container height
-                                height: 40,
-
                                 decoration: BoxDecoration(
                                   ///Border box
                                   borderRadius: BorderRadius.circular(10),
@@ -153,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               );
                             } else
-                              return LoadingBar();
+                              return Center();
                           },
                         ),
                       ),
@@ -163,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Icons.logout,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
 
                         ///onPressed
@@ -342,7 +339,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Icons.search,
 
                                   ///Icon color
-                                  color: AppColors.buttonColor,
+                                  color: AppColors.primaryColor,
                                 ),
 
                                 ///onPressed
@@ -486,7 +483,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Icons.calendar_today,
 
                                   ///Icon color
-                                  color: AppColors.buttonColor,
+                                  color: AppColors.primaryColor,
                                 ),
                               ),
                             ),

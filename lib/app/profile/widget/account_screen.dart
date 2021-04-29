@@ -93,7 +93,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
               decoration: BoxDecoration(
                 ///Color box
-                color: AppColors.buttonColor,
+                color: AppColors.primaryColor,
 
                 ///Border box
                 borderRadius: BorderRadius.only(
@@ -159,7 +159,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           Icons.email,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                         enable: false,
                       ),
@@ -199,7 +199,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           Icons.person,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                       ),
 
@@ -239,7 +239,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           Icons.contact_phone,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                       ),
 
@@ -253,7 +253,6 @@ class _AccountScreenState extends State<AccountScreen> {
                         style: TextStyle(
                           ///Test size
                           fontSize: 15,
-
                           ///Text weight
                           fontWeight: FontWeight.w500,
 
@@ -269,6 +268,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       XTextFormField(
                         ///controllerPass
                         controller: controllerPass,
+                        funcValidation: ValidateData.validChangePass,
 
                         ///prefixIcon
                         prefixIcon: Icon(
@@ -276,7 +276,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           Icons.vpn_key,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                         obscureText: true,
                       ),

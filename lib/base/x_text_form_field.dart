@@ -390,7 +390,7 @@ class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
                     width: 2,
 
                     ///Border side color
-                    color: AppColors.buttonColor,
+                    color: AppColors.primaryColor,
                   ),
                 )
               : OutlineInputBorder(
@@ -652,7 +652,7 @@ class _XDropBoxTextFormFieldState<T> extends State<XDropBoxTextFormField> {
 
               ///Icon color
               color: widget.isPrefixIcon
-                  ? AppColors.buttonColor
+                  ? AppColors.primaryColor
                   : Colors.transparent,
             ),
 
@@ -734,7 +734,7 @@ class _XDropBoxTextFormFieldState<T> extends State<XDropBoxTextFormField> {
                   width: 2,
 
                   ///Border side color
-                  color: AppColors.buttonColor,
+                  color: AppColors.primaryColor,
                 ),
               ),
 
@@ -748,7 +748,7 @@ class _XDropBoxTextFormFieldState<T> extends State<XDropBoxTextFormField> {
                   width: 2,
 
                   ///Border side color
-                  color: AppColors.buttonColor,
+                  color: AppColors.primaryColor,
                 ),
               ),
 

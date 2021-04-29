@@ -263,7 +263,7 @@ class _ItemHistoryState extends State<ItemHistory> {
 
                         child: Text(
                           ///Text
-                          "${widget.transactions.totalMoney.toInt()}\đ",
+                          "${widget.transactions.totalMoney.toInt()}\$",
 
                           ///Text align
                           textAlign: TextAlign.start,
@@ -273,7 +273,7 @@ class _ItemHistoryState extends State<ItemHistory> {
 
                           style: TextStyle(
                             ///Text color
-                            color: AppColors.buttonColor,
+                            color: AppColors.primaryColor,
 
                             ///Text weight
                             fontWeight: FontWeight.w900,

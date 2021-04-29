@@ -69,7 +69,7 @@ class ItemDetailsTax extends StatelessWidget {
               fontSize: 17,
 
               ///Text color
-              color: price >= 0 ? null : AppColors.buttonColor.withOpacity(.6),
+              color: price >= 0 ? null : AppColors.primaryColor.withOpacity(.6),
             ),
           ),
         ),

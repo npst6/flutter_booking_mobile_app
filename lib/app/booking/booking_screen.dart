@@ -85,7 +85,7 @@ class _BookingScreenState extends State<BookingScreen> {
               width: 30,
               decoration: BoxDecoration(
                 ///Color box
-                color: AppColors.buttonColor,
+                color: AppColors.primaryColor,
 
                 ///Border box
                 borderRadius: BorderRadius.circular(10),
@@ -249,7 +249,7 @@ class _BookingScreenState extends State<BookingScreen> {
                             Icons.calendar_today,
 
                             ///Icon color
-                            color: AppColors.buttonColor,
+                            color: AppColors.primaryColor,
                           ),
                           enable: false,
                         ),
@@ -286,7 +286,7 @@ class _BookingScreenState extends State<BookingScreen> {
                             Icons.calendar_today,
 
                             ///Icon color
-                            color: AppColors.buttonColor,
+                            color: AppColors.primaryColor,
                           ),
                         ),
                       ],
@@ -326,7 +326,7 @@ class _BookingScreenState extends State<BookingScreen> {
                             Icons.nights_stay_outlined,
 
                             ///Icon color
-                            color: AppColors.buttonColor,
+                            color: AppColors.primaryColor,
                           ),
                         ),
                       ],
@@ -362,7 +362,7 @@ class _BookingScreenState extends State<BookingScreen> {
                             Icons.night_shelter_outlined,
 
                             ///Text color
-                            color: AppColors.buttonColor,
+                            color: AppColors.primaryColor,
                           ),
                         ),
                       ],
@@ -398,7 +398,7 @@ class _BookingScreenState extends State<BookingScreen> {
                   Icons.person_outline,
 
                   ///Icon color
-                  color: AppColors.buttonColor,
+                  color: AppColors.primaryColor,
                 ),
               ),
               SizedBox(
@@ -464,7 +464,7 @@ class _BookingScreenState extends State<BookingScreen> {
                         fontWeight: FontWeight.w700,
 
                         ///Text color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
 
                         ///Text spacing
                         letterSpacing: 1,
@@ -484,7 +484,7 @@ class _BookingScreenState extends State<BookingScreen> {
                         letterSpacing: 1,
 
                         ///Text color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
 
                         ///Text size
                         fontSize: 20,

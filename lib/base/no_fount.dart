@@ -55,7 +55,7 @@ class NoFoundWidget extends StatelessWidget {
 
             style: TextStyle(
               ///Text color
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
 
               ///Text size
               fontSize: 15,

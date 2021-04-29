@@ -107,10 +107,11 @@ class FirAuth {
     user
         .updatePassword(pass)
         .then((value) =>
-            FlutterToast().showToast("Change Password Successfully!"))
+        FlutterToast().showToast("Change Password Successfully!"))
         .catchError((e) {
       FlutterToast().showToast(e.code);
     });
+
   }
 
   ///Forgot password
@@ -379,6 +380,7 @@ class FirAuth {
       String desc,
       double price,
       double discount,
+      int numberRoom,
       Function onSuccess,
       Function(String) onRegisterError) {
     final firebaseUser = FirebaseAuth.instance.currentUser;
@@ -387,7 +389,7 @@ class FirAuth {
       'start_day': startDay,
       'end_day': endDay,
       'status': 1,
-      'number_room': 2,
+      'number_room': numberRoom,
       "number_adults": adults,
       'number_child': child,
       'address': address,
@@ -407,7 +409,8 @@ class FirAuth {
 
   ///Update room
   void updateRoom(
-      String urlImage,
+      String urlImage,    int numberRoom,
+
       String name,
       String id,
       String startDay,
@@ -427,7 +430,7 @@ class FirAuth {
       'start_day': startDay,
       'end_day': endDay,
       'status': 1,
-      'number_room': 2,
+      'number_room': numberRoom,
       "number_adults": adults,
       'number_child': child,
       'address': address,

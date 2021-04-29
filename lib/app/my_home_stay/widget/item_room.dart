@@ -143,7 +143,7 @@ class ItemMyRoom extends StatelessWidget {
                             Icons.error,
 
                             ///Icon color
-                            color: AppColors.buttonColor,
+                            color: AppColors.primaryColor,
                           ),
                         ),
                       ),
@@ -213,42 +213,39 @@ class ItemMyRoom extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Expanded(
-                        child: Text(
-                          ///Text
-                          "${DateTime.parse(room.startDay).day}/${DateTime.parse(room.startDay).month}/${DateTime.parse(room.startDay).year}",
+                      Text(
+                        ///Text
+                        "${DateTime.parse(room.startDay).day}/${DateTime.parse(room.startDay).month}/${DateTime.parse(room.startDay).year}",
 
-                          ///Text align
-                          textAlign: TextAlign.start,
+                        ///Text align
+                        textAlign: TextAlign.start,
 
-                          ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
-                          maxLines: 1,
+                        ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                        maxLines: 1,
 
-                          style: TextStyle(
-                            ///Text weight
-                            fontWeight: FontWeight.w600,
+                        style: TextStyle(
+                          ///Text weight
+                          fontWeight: FontWeight.w600,
 
-                            ///Text spacing
-                            letterSpacing: 1,
-                          ),
+                          ///Text spacing
+                          letterSpacing: 1,
                         ),
                       ),
-                      Icon(
-                        ///icon
-                        Icons.arrow_forward,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Icon(
+                          ///icon
+                          Icons.arrow_forward,
 
-                        ///Icon size
-                        size: 15,
+                          ///Icon size
+                          size: 15,
 
-                        ///Icon color
-                        color: Colors.grey,
+                          ///Icon color
+                          color: Colors.grey,
+                        ),
                       ),
-                      Expanded(
-                        ///Flex
-                        flex: 2,
-
-                        child: Text(
-                          ///Text
+                      Text(
+                        ///Text
                           "${DateTime.parse(room.endDay).day}/${DateTime.parse(room.endDay).month}/${DateTime.parse(room.endDay).year}",
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
@@ -263,8 +260,7 @@ class ItemMyRoom extends StatelessWidget {
 
                             ///Text weight
                             fontWeight: FontWeight.w600,
-                          ),
-                        ),
+                          )
                       ),
                     ],
                   ),
@@ -285,7 +281,7 @@ class ItemMyRoom extends StatelessWidget {
                               maxLines: 1,
                               style: TextStyle(
                                 ///Text color
-                                color: AppColors.buttonColor,
+                                color: AppColors.primaryColor,
 
                                 ///Text size
                                 fontSize: 18,
@@ -322,7 +318,7 @@ class ItemMyRoom extends StatelessWidget {
                           letterSpacing: 1,
 
                           ///Text color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
 
                           ///Text weight
                           fontWeight: FontWeight.w900,

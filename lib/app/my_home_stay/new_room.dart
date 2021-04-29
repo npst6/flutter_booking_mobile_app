@@ -47,6 +47,10 @@ class _NewRoomState extends State<NewRoom> {
   ///controllerCity
   TextEditingController controllerCity;
 
+  ///NumberRoom
+
+int numberRoom;
+
   ///child
   int child;
 
@@ -85,7 +89,7 @@ class _NewRoomState extends State<NewRoom> {
 
   @override
   void initState() {
-    startDay = "10/10/2020";
+    startDay = DateTime.now().toIso8601String();
     endDay = DateTime.now().toIso8601String();
     newRoomBloc = new NewRoomBloc()..init();
     controllerName = new TextEditingController();
@@ -95,6 +99,7 @@ class _NewRoomState extends State<NewRoom> {
     controllerDesc = new TextEditingController();
     controllerAddress = new TextEditingController();
     controllerFreeTime = new TextEditingController();
+
     super.initState();
   }
 
@@ -135,7 +140,7 @@ class _NewRoomState extends State<NewRoom> {
               size: 15,
 
               ///Icon color
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
             ),
           ),
         ),
@@ -278,7 +283,7 @@ class _NewRoomState extends State<NewRoom> {
                         Icons.edit,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -320,7 +325,7 @@ class _NewRoomState extends State<NewRoom> {
                         Icons.note,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -356,7 +361,7 @@ class _NewRoomState extends State<NewRoom> {
                         Icons.home_rounded,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
 
                       ///Check empty data
@@ -453,7 +458,7 @@ class _NewRoomState extends State<NewRoom> {
                                   Icons.attach_money,
 
                                   ///Icon color
-                                  color: AppColors.buttonColor,
+                                  color: AppColors.primaryColor,
                                 ),
 
                                 ///suffixIcon
@@ -467,7 +472,7 @@ class _NewRoomState extends State<NewRoom> {
                                       "\$",
                                       style: TextStyle(
                                         ///Text color
-                                        color: AppColors.buttonColor,
+                                        color: AppColors.primaryColor,
 
                                         ///Text size
                                         fontSize: 16,
@@ -532,7 +537,7 @@ class _NewRoomState extends State<NewRoom> {
                                       "%",
                                       style: TextStyle(
                                         ///Text color
-                                        color: AppColors.buttonColor,
+                                        color: AppColors.primaryColor,
 
                                         ///Text size
                                         fontSize: 16,
@@ -554,6 +559,71 @@ class _NewRoomState extends State<NewRoom> {
                     ),
                     const SizedBox(
                       height: 15,
+                    ),
+                    Text(
+                      ///Price
+                      "Number room",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextFieldChoose(
+                      ///Icon
+                      iconData: Icons.room_preferences_outlined,
+
+                      ///callBack
+                      callBack: (val) {
+                        numberRoom = int.parse(val);
+                      },
+
+                      ///Hint text
+                      hintText: "Number room",
+
+                      ///items
+                      items: [
+                        ItemModel(id: '1', name: "01"),
+                        ItemModel(id: '2', name: "02"),
+                        ItemModel(id: '3', name: "03"),
+                        ItemModel(id: '4', name: "04"),
+                        ItemModel(id: '5', name: "05"),
+                        ItemModel(id: '6', name: "06"),
+                        ItemModel(id: '7', name: "07"),
+                        ItemModel(id: '8', name: "08"),
+                        ItemModel(id: '9', name: "09"),
+                        ItemModel(id: '10', name: "10"),
+                      ],
+                    ),
+
+                    const SizedBox(
+                      height: 15,
+                    ),
+
+                    Text(
+                      ///Price
+                      "Adults",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
                     ),
                     TextFieldChoose(
                       ///Icon
@@ -583,6 +653,24 @@ class _NewRoomState extends State<NewRoom> {
                     ),
                     const SizedBox(
                       height: 15,
+                    ),
+
+                    Text(
+                      ///Price
+                      "Many Children",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
                     ),
                     TextFieldChoose(
                       ///Icon
@@ -681,7 +769,7 @@ class _NewRoomState extends State<NewRoom> {
                           Icons.calendar_today,
 
                           ///Icon color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
 
                         ///Check empty data
@@ -707,7 +795,7 @@ class _NewRoomState extends State<NewRoom> {
 
       bottomNavigationBar: Padding(
         ///Padding
-        padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+        padding: const EdgeInsets.fromLTRB(15, 5, 15, 20),
 
         ///Save button
         child: XButton(
@@ -722,6 +810,7 @@ class _NewRoomState extends State<NewRoom> {
                   endDay,
                   adults,
                   child,
+                  numberRoom,
                   controllerAddress.text,
                   controllerCity.text ?? "",
                   controllerDesc.text ?? "",

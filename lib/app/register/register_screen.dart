@@ -86,7 +86,7 @@ class _LoginScreenState extends State<RegisterScreen> {
             Icons.keyboard_backspace,
 
             ///Icon color
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
 
           ///onPressed
@@ -121,7 +121,7 @@ class _LoginScreenState extends State<RegisterScreen> {
 
                         style: TextStyle(
                           ///Text color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
 
                           ///Text weight
                           fontWeight: FontWeight.w900,
@@ -176,7 +176,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                         Icons.person,
 
                         ///Icon color in name box
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
 
@@ -224,7 +224,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                         Icons.mail,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
 
@@ -273,7 +273,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                         Icons.phone,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
 
@@ -322,7 +322,7 @@ class _LoginScreenState extends State<RegisterScreen> {
                         Icons.lock,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
 

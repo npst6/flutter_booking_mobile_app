@@ -126,7 +126,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
               size: 15,
 
               ///Icon color
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
             ),
           ),
         ),
@@ -162,7 +162,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                 Icons.delete,
 
                 ///Icon color
-                color: AppColors.buttonColor,
+                color: AppColors.primaryColor,
               ),
 
               ///onPressed
@@ -298,7 +298,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                         Icons.edit,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -341,7 +341,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                         Icons.smartphone_rounded,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -380,7 +380,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                           height: 2,
 
                           ///color
-                          color: AppColors.buttonColor,
+                          color: AppColors.primaryColor,
                         ),
                       ),
                     ),
@@ -421,7 +421,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                         Icons.comment_bank,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -464,7 +464,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                         Icons.confirmation_number,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -504,7 +504,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                         Icons.edit,
 
                         ///Icon color
-                        color: AppColors.buttonColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     const SizedBox(
@@ -528,7 +528,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
       ),
       bottomNavigationBar: Padding(
         ///Padding
-        padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+        padding: const EdgeInsets.fromLTRB(50, 5, 50, 20),
 
         ///Save button
         child: XButton(

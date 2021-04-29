@@ -49,7 +49,7 @@ class ItemAvatar extends StatelessWidget {
 
         decoration: BoxDecoration(
           ///Color box
-          color: AppColors.buttonColor,
+          color: AppColors.primaryColor,
 
           ///Shape box
           shape: BoxShape.circle,

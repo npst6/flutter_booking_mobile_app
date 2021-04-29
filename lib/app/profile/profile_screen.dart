@@ -50,10 +50,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
     if (themeData ==
         ThemeData.dark().copyWith(
           ///Color of the main banner
-          primaryColor: AppColors.buttonColor,
+          primaryColor: AppColors.primaryColor,
 
           ///Color
-          accentColor: AppColors.buttonColor,
+          accentColor: AppColors.primaryColor,
 
           ///Light background
           scaffoldBackgroundColor: Colors.black,
@@ -104,7 +104,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               decoration: BoxDecoration(
                 ///Color box
-                color: AppColors.buttonColor,
+                color: AppColors.primaryColor,
 
                 ///Shape box
                 shape: BoxShape.circle,
@@ -249,7 +249,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                   ),
                                                   Text(
                                                     ///Text
-                                                    "Theme (Dark / Light)",
+                                                    "Theme (Light / Dark)",
 
                                                     style: TextStyle(
                                                       ///Text size
@@ -270,7 +270,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                                               ///activeColor
                                               activeColor:
-                                                  AppColors.buttonColor,
+                                                  AppColors.primaryColor,
 
                                               ///onChanged
                                               onChanged: (v) {
@@ -371,7 +371,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                           "assets/svg/admin.svg",
 
                                                       ///title
-                                                      title: "Administrator",
+                                                      title:
+                                                          "Role Administrator",
 
                                                       ///onTap
                                                       onTap: () {
@@ -441,6 +442,55 @@ class _ProfileScreenState extends State<ProfileScreen> {
               else
                 return Center();
             },
+          ),
+          Positioned(
+            ///Bottom
+            bottom: MediaQuery.of(context).size.height - 100,
+
+            ///Left
+            left: 5,
+
+            child: GestureDetector(
+              ///onTap
+              onTap: () {
+                Navigator.pop(context);
+              },
+
+              child: Padding(
+                ///Padding
+                padding: const EdgeInsets.all(10),
+
+                child: Container(
+                  ///Container height
+                  height: 35,
+
+                  ///Container width
+                  width: 35,
+
+                  decoration: BoxDecoration(
+                    ///Color box
+                    color: themeData.scaffoldBackgroundColor,
+
+                    ///Border box
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+
+                  child: Center(
+                    ///Icon
+                    child: Icon(
+                      ///Icon
+                      Icons.home,
+
+                      ///Icon color
+                      color: AppColors.primaryColor,
+
+                      ///Icon size
+                      size: 15,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),

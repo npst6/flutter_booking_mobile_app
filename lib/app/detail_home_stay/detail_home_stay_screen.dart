@@ -81,7 +81,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                               width: 30,
                               decoration: BoxDecoration(
                                 ///Color box
-                                color: AppColors.buttonColor,
+                                color: AppColors.primaryColor,
 
                                 ///Border box
                                 borderRadius: BorderRadius.circular(10),
@@ -170,7 +170,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                                   Icons.location_on,
 
                                   ///Icon color
-                                  color: AppColors.buttonColor,
+                                  color: AppColors.primaryColor,
 
                                   ///Icon size
                                   size: 18,
