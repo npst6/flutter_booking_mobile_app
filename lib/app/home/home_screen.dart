@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Padding(
                 ///Container padding
-                padding: const EdgeInsets.fromLTRB(30, 50, 15, 10),
+                padding: const EdgeInsets.fromLTRB(20, 45, 10, 10),
 
                 child: Container(
                   ///Container height

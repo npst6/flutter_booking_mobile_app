@@ -280,7 +280,7 @@ int numberRoom;
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.edit,
+                        Icons.home_work,
 
                         ///Icon color
                         color: AppColors.primaryColor,
@@ -447,7 +447,7 @@ int numberRoom;
                                 controller: controllerPrice,
 
                                 ///Hint text
-                                hintText: "0\$",
+                                hintText: "0",
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
@@ -521,7 +521,7 @@ int numberRoom;
                                 controller: controllerDiscountPercent,
 
                                 ///Hint text
-                                hintText: "0%",
+                                hintText: "0",
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
@@ -562,7 +562,7 @@ int numberRoom;
                     ),
                     Text(
                       ///Price
-                      "Number room",
+                      "Rooms",
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -579,7 +579,7 @@ int numberRoom;
                     ),
                     TextFieldChoose(
                       ///Icon
-                      iconData: Icons.room_preferences_outlined,
+                      iconData: Icons.room_preferences,
 
                       ///callBack
                       callBack: (val) {
@@ -587,7 +587,7 @@ int numberRoom;
                       },
 
                       ///Hint text
-                      hintText: "Number room",
+                      hintText: "How Many Rooms ?",
 
                       ///items
                       items: [
@@ -657,7 +657,7 @@ int numberRoom;
 
                     Text(
                       ///Price
-                      "Many Children",
+                      "Children",
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
