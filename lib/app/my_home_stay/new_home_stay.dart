@@ -361,7 +361,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       controller: controllerBankName,
 
                       ///Hint text
-                      hintText: "Which Bank Do You Use?",
+                      hintText: "Input Name of Bank",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -369,7 +369,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.local_atm,
+                        Icons.comment_bank,
 
                         ///Icon color
                         color: AppColors.primaryColor,
@@ -401,7 +401,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       controller: controllerNumberBank,
 
                       ///Hint text
-                      hintText: "Enter Your Bank Account Number",
+                      hintText: "Input Number of Bank Account",
 
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
@@ -444,7 +444,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                       controller: controllerAccountBankName,
 
                       ///hintText
-                      hintText: "Enter Your Bank Account Name",
+                      hintText: "Input Name of Bank Account",
 
                       ///prefixIcon
                       prefixIcon: Icon(

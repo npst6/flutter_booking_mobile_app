@@ -501,7 +501,7 @@ class _NewHomeStayState extends State<EditHomeStay> {
                       ///prefixIcon
                       prefixIcon: Icon(
                         ///Icon
-                        Icons.edit,
+                        Icons.perm_contact_cal,
 
                         ///Icon color
                         color: AppColors.primaryColor,
