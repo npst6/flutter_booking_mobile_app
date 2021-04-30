@@ -285,16 +285,16 @@ class _NewRoomState extends State<EditRoomScreen> {
                                   ),
                                 ),
                               ),
-                              // Icon(
-                              //   ///Icon
-                              //   Icons.camera_alt,
-                              //
-                              //   ///Icon size
-                              //   size: 30,
-                              //
-                              //   ///Icon color
-                              //   color: Colors.grey,
-                              // ),
+                              Icon(
+                                ///Icon
+                                Icons.camera_alt,
+
+                                ///Icon size
+                                size: 30,
+
+                                ///Icon color
+                                color: Colors.grey,
+                              ),
                             ],
                           );
                       },
@@ -518,7 +518,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
 
-                                ///prefixIcon
+                                /*///prefixIcon
                                 prefixIcon: Container(
                                   ///width
                                   width: 20,
@@ -539,16 +539,16 @@ class _NewRoomState extends State<EditRoomScreen> {
                                       ),
                                     ),
                                   ),
-                                ),
+                                ),*/
 
-                                /*///prefixIcon
+                                ///prefixIcon
                                 prefixIcon: Icon(
                                   ///Icon
-                                  Icons.money,
+                                  Icons.local_atm,
 
                                   ///Icon color
                                   color: AppColors.primaryColor,
-                                ),*/
+                                ),
 
                                 ///suffixIcon
                                 suffixIcon: Container(
@@ -677,19 +677,19 @@ class _NewRoomState extends State<EditRoomScreen> {
                       },
 
                       ///Hint text
-                      hintText: "Number room",
+                      hintText: "Number Rooms",
 
                       ///items
                       items: [
-                        ItemModel(id: '1', name: "01"),
-                        ItemModel(id: '2', name: "02"),
-                        ItemModel(id: '3', name: "03"),
-                        ItemModel(id: '4', name: "04"),
-                        ItemModel(id: '5', name: "05"),
-                        ItemModel(id: '6', name: "06"),
-                        ItemModel(id: '7', name: "07"),
-                        ItemModel(id: '8', name: "08"),
-                        ItemModel(id: '9', name: "09"),
+                        ItemModel(id: '01', name: "01"),
+                        ItemModel(id: '02', name: "02"),
+                        ItemModel(id: '03', name: "03"),
+                        ItemModel(id: '04', name: "04"),
+                        ItemModel(id: '05', name: "05"),
+                        ItemModel(id: '06', name: "06"),
+                        ItemModel(id: '07', name: "07"),
+                        ItemModel(id: '08', name: "08"),
+                        ItemModel(id: '09', name: "09"),
                         ItemModel(id: '10', name: "10"),
                       ],
                     ),
@@ -727,15 +727,15 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                       ///items
                       items: [
-                        ItemModel(id: '1', name: "01"),
-                        ItemModel(id: '2', name: "02"),
-                        ItemModel(id: '3', name: "03"),
-                        ItemModel(id: '4', name: "04"),
-                        ItemModel(id: '5', name: "05"),
-                        ItemModel(id: '6', name: "06"),
-                        ItemModel(id: '7', name: "07"),
-                        ItemModel(id: '8', name: "08"),
-                        ItemModel(id: '9', name: "09"),
+                        ItemModel(id: '01', name: "01"),
+                        ItemModel(id: '02', name: "02"),
+                        ItemModel(id: '03', name: "03"),
+                        ItemModel(id: '04', name: "04"),
+                        ItemModel(id: '05', name: "05"),
+                        ItemModel(id: '06', name: "06"),
+                        ItemModel(id: '07', name: "07"),
+                        ItemModel(id: '08', name: "08"),
+                        ItemModel(id: '09', name: "09"),
                         ItemModel(id: '10', name: "10"),
                       ],
                     ),
@@ -773,16 +773,16 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                       ///items
                       items: [
-                        ItemModel(id: '1', name: "01"),
-                        ItemModel(id: '2', name: "02"),
-                        ItemModel(id: '3', name: "03"),
-                        ItemModel(id: '4', name: "04"),
-                        ItemModel(id: '5', name: "05"),
-                        ItemModel(id: '6', name: "06"),
-                        ItemModel(id: '7', name: "07"),
-                        ItemModel(id: '8', name: "08"),
-                        ItemModel(id: '9', name: "09"),
-                        ItemModel(id: '10', name: "10"),
+                        ItemModel(id: '00', name: "00"),
+                        ItemModel(id: '01', name: "01"),
+                        ItemModel(id: '02', name: "02"),
+                        ItemModel(id: '03', name: "03"),
+                        ItemModel(id: '04', name: "04"),
+                        ItemModel(id: '05', name: "05"),
+                        ItemModel(id: '06', name: "06"),
+                        ItemModel(id: '07', name: "07"),
+                        ItemModel(id: '08', name: "08"),
+                        ItemModel(id: '09', name: "09"),
                       ],
                     ),
                     const SizedBox(

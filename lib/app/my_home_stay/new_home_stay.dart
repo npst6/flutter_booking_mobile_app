@@ -479,7 +479,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
       ),
       bottomNavigationBar: Padding(
         ///Padding
-        padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+        padding: const EdgeInsets.fromLTRB(15, 5, 15, 20),
 
         child: XButton(
           "Save",
