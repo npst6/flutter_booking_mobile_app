@@ -458,7 +458,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               child: Padding(
                 ///Padding
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(10),
 
                 child: Container(
                   ///Container height
@@ -485,7 +485,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       color: AppColors.primaryColor,
 
                       ///Icon size
-                      size: 15,
+                      size: 20,
                     ),
                   ),
                 ),

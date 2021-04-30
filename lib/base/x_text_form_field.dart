@@ -85,6 +85,8 @@ class XTextFormField extends StatefulWidget {
   ///textInputType
   final TextInputType textInputType;
 
+
+
   XTextFormField({
     this.key,
     this.maxLine = 1,
@@ -103,6 +105,7 @@ class XTextFormField extends StatefulWidget {
     this.onTap,
     this.onFocus,
     this.onChanged,
+
     this.onSubmitted,
     this.onClickPrefix,
     this.onClickSuffix,
@@ -143,6 +146,7 @@ class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
 
         ///enabled
         enabled: widget.enable,
+
 
         ///maxLines
         maxLines: widget.maxLine,

@@ -213,7 +213,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
 
                                 child: Text(
                                   ///Text
-                                  "${snapshot1.data != null ? snapshot1.data.listReviews.length : 0} Reviews",
+                                  "420 Reviews",
 
                                   ///Text align
                                   textAlign: TextAlign.start,

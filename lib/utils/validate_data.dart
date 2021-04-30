@@ -27,7 +27,9 @@ class ValidateData {
 
   ///validPass - Check length password
   static String validPass(String text) {
-    return text.length < 8 ? 'Pass length > 8 characters' : null;
+    return text.length < 8 && text.length > 0
+        ? 'Pass length > 8 characters'
+        : null;
   }
 
   ///validEmpty - Check empty fields

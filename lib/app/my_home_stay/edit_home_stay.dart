@@ -189,77 +189,77 @@ class _NewHomeStayState extends State<EditHomeStay> {
                   crossAxisAlignment: CrossAxisAlignment.start,
 
                   children: [
-                    StreamBuilder<File>(
-                      stream: editHomeStayBloc.fileImageStream,
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          ///file
-                          file = snapshot.data;
+                    GestureDetector(
+                      onTap: () {
+                        showGetImage(context);
+                      },
+                      child: StreamBuilder<File>(
+                        stream: editHomeStayBloc.fileImageStream,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            ///file
+                            file = snapshot.data;
 
-                          return Container(
-                            ///Container height
-                            height: 200,
+                            return Container(
+                              ///Container height
+                              height: 200,
 
-                            ///Container width
-                            width: double.infinity,
+                              ///Container width
+                              width: double.infinity,
 
-                            decoration: BoxDecoration(
-                              ///Border box
-                              borderRadius: BorderRadius.circular(7),
+                              decoration: BoxDecoration(
+                                ///Border box
+                                borderRadius: BorderRadius.circular(7),
 
-                              ///Image
-                              image: DecorationImage(
                                 ///Image
-                                image: FileImage(
-                                  snapshot.data,
+                                image: DecorationImage(
+                                  ///Image
+                                  image: FileImage(
+                                    snapshot.data,
+                                  ),
+
+                                  ///Image fit
+                                  fit: BoxFit.cover,
                                 ),
-
-                                ///Image fit
-                                fit: BoxFit.cover,
                               ),
-                            ),
-                          );
-                        } else
-                          return Container(
-                            ///Container height
-                            height: 200,
+                            );
+                          } else {
+                            return Container(
+                              ///Container height
+                              height: 200,
 
-                            ///Container width
-                            width: double.infinity,
+                              ///Container width
+                              width: double.infinity,
 
-                            decoration: BoxDecoration(
-                              ///Border box
-                              borderRadius: BorderRadius.circular(7),
+                              decoration: BoxDecoration(
+                                ///Border box
+                                borderRadius: BorderRadius.circular(7),
 
-                              ///Image
-                              image: DecorationImage(
                                 ///Image
-                                image: NetworkImage(
-                                  widget.myHomeStay.urlImage,
-                                ),
+                                image: DecorationImage(
+                                  ///Image
+                                  image: NetworkImage(
+                                    widget.myHomeStay.urlImage,
+                                  ),
 
-                                ///Image fit
-                                fit: BoxFit.cover,
+                                  ///Image fit
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
-                            child: Center(
-                              child: IconButton(
-                                icon: Icon(
+                              child: Center(
+                                child: Icon(
                                   ///Icon
                                   Icons.camera_alt,
+                                  size: 50,
 
                                   ///Icon color
-                                  color: Colors.grey.withOpacity(.6),
+                                  color: Colors.grey,
                                 ),
-
-                                ///onPressed
-                                onPressed: () {
-                                  showGetImage(context);
-                                },
                               ),
-                            ),
-                          );
-                      },
+                            );
+                          }
+                        },
+                      ),
                     ),
                     const SizedBox(
                       height: 10,

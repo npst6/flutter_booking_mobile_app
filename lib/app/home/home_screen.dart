@@ -66,6 +66,14 @@ class _HomeScreenState extends State<HomeScreen> {
     controllerSearch = new TextEditingController();
     controllerTime = new TextEditingController();
     homeBloc = new HomeBloc()..init();
+    homeBloc.searchStateStream.listen((value) {
+      if (value == UIState.SUCCESS) {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return OutputSearchScreen(homeBloc);
+        }));
+        homeBloc.searchStateStream.add(null);
+      }
+    });
     super.initState();
   }
 
@@ -81,14 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void didChangeDependencies() {
     themeData = Provider.of<ThemeChanger>(context).getTheme();
-    homeBloc.searchStateStream.listen((value) {
-      if (value == UIState.SUCCESS) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return OutputSearchScreen(homeBloc);
-        }));
-        homeBloc.searchStateStream.add(null);
-      }
-    });
+
     super.didChangeDependencies();
   }
 
@@ -101,253 +102,269 @@ class _HomeScreenState extends State<HomeScreen> {
       ///Body
       body: Stack(
         children: [
-          Column(
-            children: [
-              Padding(
-                ///Container padding
-                padding: const EdgeInsets.fromLTRB(20, 45, 10, 10),
+          Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                Padding(
+                  ///Container padding
+                  padding: const EdgeInsets.fromLTRB(15, 50, 10, 10),
 
-                child: Container(
-                  ///Container height
-                  height: 40,
+                  child: Container(
+                    ///Container height
+                    height: 40,
 
-                  child: Row(
-                    ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Row(
+                      ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return ProfileScreen();
-                              },
-                            ),
-                          );
-                        },
-                        child: StreamBuilder<Account>(
-                          stream: homeBloc.accountStream,
-                          builder: (context, snapshot) {
-                            if (snapshot.hasData) {
-                              return Container(
-                                ///Container width
-                                width: 40,
-
-                                decoration: BoxDecoration(
-                                  ///Border box
-                                  borderRadius: BorderRadius.circular(10),
-
-                                  ///Image
-                                  image: DecorationImage(
-                                    ///Image
-                                    image: NetworkImage(snapshot.data.avatar),
-
-                                    ///Image fit
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              );
-                            } else
-                              return Center();
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return ProfileScreen();
+                                },
+                              ),
+                            );
                           },
-                        ),
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          ///Icon
-                          Icons.logout,
-
-                          ///Icon color
-                          color: AppColors.primaryColor,
-                        ),
-
-                        ///onPressed
-                        onPressed: () {
-                          showDialog(
-                            ///context
-                            context: context,
-
-                            ///builder
-                            builder: (_) => Scaffold(
-                              ///backgroundColor
-                              backgroundColor: Colors.transparent,
-
-                              ///Body
-                              body: Center(
-                                child: Container(
-                                  ///Container height
-                                  height: 150,
-
+                          child: StreamBuilder<Account>(
+                            stream: homeBloc.accountStream,
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return Container(
                                   ///Container width
-                                  width: 200,
+                                  width: 40,
 
                                   decoration: BoxDecoration(
-                                    ///Color box
-                                    color: themeData.scaffoldBackgroundColor,
-
                                     ///Border box
-                                    borderRadius: BorderRadius.circular(7),
+                                    borderRadius: BorderRadius.circular(10),
+
+                                    ///Image
+                                    image: DecorationImage(
+                                      ///Image
+                                      image: NetworkImage(snapshot.data.avatar),
+
+                                      ///Image fit
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
+                                );
+                              } else
+                                return Center();
+                            },
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            ///Icon
+                            Icons.logout,
 
-                                  child: Padding(
-                                    ///Padding
-                                    padding: const EdgeInsets.fromLTRB(
-                                        10, 20, 10, 15),
+                            ///Icon color
+                            color: AppColors.primaryColor,
+                          ),
 
-                                    child: Column(
-                                      ///Using mainAxisAlignment in a Column will align its children vertically.
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                          ///onPressed
+                          onPressed: () {
+                            showDialog(
+                              ///context
+                              context: context,
 
-                                      children: [
-                                        Text(
-                                          ///Text
-                                          "Logout",
+                              ///builder
+                              builder: (_) => Scaffold(
+                                ///backgroundColor
+                                backgroundColor: Colors.transparent,
 
-                                          style: TextStyle(
-                                            ///Text size
-                                            fontSize: 18,
+                                ///Body
+                                body: Center(
+                                  child: Container(
+                                    ///Container height
+                                    height: 150,
 
-                                            ///Text weight
-                                            fontWeight: FontWeight.w900,
+                                    ///Container width
+                                    width: 200,
 
-                                            ///Text spacing
-                                            letterSpacing: 1,
+                                    decoration: BoxDecoration(
+                                      ///Color box
+                                      color: themeData.scaffoldBackgroundColor,
+
+                                      ///Border box
+                                      borderRadius: BorderRadius.circular(7),
+                                    ),
+
+                                    child: Padding(
+                                      ///Padding
+                                      padding: const EdgeInsets.fromLTRB(
+                                          10, 20, 10, 15),
+
+                                      child: Column(
+                                        ///Using mainAxisAlignment in a Column will align its children vertically.
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+
+                                        children: [
+                                          Text(
+                                            ///Text
+                                            "Logout",
+
+                                            style: TextStyle(
+                                              ///Text size
+                                              fontSize: 18,
+
+                                              ///Text weight
+                                              fontWeight: FontWeight.w900,
+
+                                              ///Text spacing
+                                              letterSpacing: 1,
+                                            ),
                                           ),
-                                        ),
-                                        Text(
-                                          "Do you want to log out?",
-                                        ),
-                                        Row(
-                                          children: [
-                                            ///Cancel button
-                                            Expanded(
-                                              child: XButton(
-                                                "Cancel",
-                                                () {
-                                                  Navigator.pop(context);
-                                                },
-                                                color: Colors.grey,
+                                          Text(
+                                            "Do you want to log out?",
+                                          ),
+                                          Row(
+                                            children: [
+                                              ///Cancel button
+                                              Expanded(
+                                                child: XButton(
+                                                  "Cancel",
+                                                  () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  color: Colors.grey,
+                                                ),
                                               ),
-                                            ),
 
-                                            const SizedBox(
-                                              width: 10,
-                                            ),
-
-                                            ///Ok button
-                                            Expanded(
-                                              child: XButton(
-                                                "OK",
-                                                () {
-                                                  FirAuth().signOut();
-                                                  Navigator.pushReplacement(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) {
-                                                        return LoginScreen();
-                                                      },
-                                                    ),
-                                                  );
-                                                },
+                                              const SizedBox(
+                                                width: 10,
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+
+                                              ///Ok button
+                                              Expanded(
+                                                child: XButton(
+                                                  "OK",
+                                                  () {
+                                                    FirAuth().signOut();
+                                                    Navigator.pushReplacement(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) {
+                                                          return LoginScreen();
+                                                        },
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                ///Flex
-                flex: 3,
-
-                child: Container(
-                  decoration: BoxDecoration(
-                    ///Image
-                    image: DecorationImage(
-                      ///Image
-                      image: AssetImage('assets/images/home.png'),
-
-                      ///Image fit
-                      fit: BoxFit.fitWidth,
+                            );
+                          },
+                        ),
+                      ],
                     ),
                   ),
-                  child: Align(
-                    ///Alignment
-                    alignment: Alignment.topCenter,
+                ),
+                Expanded(
+                  ///Flex
+                  flex: 3,
 
-                    child: Padding(
-                      ///Padding
-                      padding: const EdgeInsets.all(25),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      ///Image
+                      image: DecorationImage(
+                        ///Image
+                        image: AssetImage('assets/images/home.png'),
 
-                      child: Container(
-                        decoration: BoxDecoration(
-                          ///Color box
-                          color: Colors.white,
+                        ///Image fit
+                        fit: BoxFit.fitWidth,
+                      ),
+                    ),
+                    child: Align(
+                      ///Alignment
+                      alignment: Alignment.topCenter,
 
-                          ///Border box
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                      child: Padding(
+                        ///Padding
+                        padding: const EdgeInsets.all(10),
 
-                        ///Container height
-                        height: 50,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            ///Color box
+                            color: Colors.white,
 
-                        ///Container width
-                        width: double.infinity,
+                            ///Border box
+                            borderRadius: BorderRadius.circular(10),
+                          ),
 
-                        child: Padding(
-                          ///Padding
-                          padding: const EdgeInsets.fromLTRB(15, 0, 5, 0),
+                          ///Container height
+                          height: 50,
 
-                          child: TextFormField(
-                            ///controllerSearch
-                            controller: controllerSearch,
+                          ///Container width
+                          width: double.infinity,
 
-                            style: TextStyle(
-                              ///Text color
-                              color: Colors.black,
-                            ),
+                          child: Padding(
+                            ///Padding
+                            padding: const EdgeInsets.fromLTRB(15, 2.5, 0, 0),
 
-                            decoration: InputDecoration(
-                              ///Hint Text
-                              hintText: "Search",
+                            child: TextFormField(
+                              ///controllerSearch
+                              controller: controllerSearch,
 
-                              hintStyle: TextStyle(
-                                ///Hint text color
-                                color: Colors.grey,
-
-                                ///Hint text weight
-                                fontWeight: FontWeight.w600,
+                              style: TextStyle(
+                                ///Text color
+                                color: Colors.black,
                               ),
 
-                              ///suffixIcon
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  ///Icon
-                                  Icons.search,
+                              decoration: InputDecoration(
+                                ///Hint Text
+                                hintText: "Search",
 
-                                  ///Icon color
-                                  color: AppColors.primaryColor,
+                                hintStyle: TextStyle(
+                                  ///Hint text color
+                                  color: Colors.grey,
+
+                                  ///Hint text weight
+                                  fontWeight: FontWeight.w600,
                                 ),
 
-                                ///onPressed
-                                onPressed: () {},
-                              ),
+                                ///suffixIcon
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    ///Icon
+                                    Icons.search,
 
-                              ///Border box
-                              border: InputBorder.none,
+                                    ///Icon color
+                                    color: AppColors.primaryColor,
+                                  ),
+
+                                  ///onPressed
+                                  onPressed: () {
+                                    if (_formKey.currentState.validate()) {
+                                      OrderUtils()
+                                          .setOrder(startDay, endDay, numberRoom);
+                                      homeBloc.searchRoom(
+                                        numberRoom: numberRoom,
+                                        startDay: startDay,
+                                        endDay: endDay,
+                                        city: controllerCity.text,
+                                        child: child,
+                                        adults: adults,
+                                      );
+                                    }
+                                  },
+                                ),
+
+                                ///Border box
+                                border: InputBorder.none,
+                              ),
                             ),
                           ),
                         ),
@@ -355,44 +372,35 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                ///Flex
-                flex: 4,
+                Expanded(
+                  ///Flex
+                  flex: 4,
 
-                child: Container(
-                  ///Container width
-                  width: double.infinity,
+                  child: Container(
+                    ///Container width
+                    width: double.infinity,
 
-                  decoration: BoxDecoration(
-                    ///Color box
-                    color: themeData.scaffoldBackgroundColor,
+                    decoration: BoxDecoration(
+                      ///Color box
+                      color: themeData.scaffoldBackgroundColor,
 
-                    ///borderRadius
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(25),
-                      topLeft: Radius.circular(25),
+                      ///borderRadius
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(25),
+                        topLeft: Radius.circular(25),
+                      ),
                     ),
-                  ),
 
-                  child: Padding(
-                    ///Padding
-                    padding: const EdgeInsets.all(10),
+                    child: Padding(
+                      ///Padding
+                      padding: const EdgeInsets.all(10),
 
-                    child: SingleChildScrollView(
-                      child: Form(
-                        ///_formKey
-                        key: _formKey,
-
+                      child: SingleChildScrollView(
                         child: Column(
                           ///Using mainAxisAlignment in a Column will align its children vertically.
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                           children: [
-                            const SizedBox(
-                              height: 15,
-                            ),
-
                             StreamBuilder<List<Province>>(
                               stream: homeBloc.listProvinceStream,
                               builder: (context, snapshot1) {
@@ -412,11 +420,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ///Item
                                     items: items,
 
+
                                     ///Icon
                                     iconData: Icons.location_pin,
 
                                     ///Hint text
-                                    hintText: "Where Your Location ?",
+                                    hintText: "Where is Your Location ?",
 
                                     ///callBack
                                     callBack: (val) {
@@ -427,76 +436,89 @@ class _HomeScreenState extends State<HomeScreen> {
                                   return SizedBox();
                               },
                             ),
+
                             const SizedBox(
-                              height: 15,
+                              height: 10,
                             ),
-                            GestureDetector(
-                              ///onTap
-                              onTap: () async {
-                                final List<DateTime> picked =
-                                    await DateRagePicker.showDatePicker(
-                                  ///context
-                                  context: context,
 
-                                  ///initialFirstDate
-                                  initialFirstDate: new DateTime.now(),
+                            Stack(
+                              children: [
+                                XTextFormField(
+                                  ///enable
 
-                                  ///initialLastDate
-                                  initialLastDate: (new DateTime.now()).add(
-                                    new Duration(days: 7),
-                                  ),
-
-                                  ///firstDate
-                                  firstDate: new DateTime(2015),
-
-                                  ///lastDate
-                                  lastDate: new DateTime(2025),
-                                );
-                                if (picked != null && picked.length == 2) {
-                                  ///startDay
-                                  startDay = picked[0].toIso8601String();
-
-                                  ///endDay
-                                  endDay = picked[1].toIso8601String();
 
                                   ///controllerTime
-                                  controllerTime.text =
-                                      "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
-                                }
-                              },
+                                  controller: controllerTime,
 
-                              child: XTextFormField(
-                                ///enable
-                                enable: false,
+                                  ///Hint text
+                                  hintText: "Check In - Check Out",
 
-                                ///controllerTime
-                                controller: controllerTime,
+                                  ///Check empty field
+                                  funcValidation: ValidateData.validEmpty,
 
-                                ///Hint text
-                                hintText: "Check In - Check Out",
+                                  ///prefixIcon
+                                  prefixIcon: Icon(
+                                    ///Icon
+                                    Icons.calendar_today,
 
-                                ///Check empty field
-                                funcValidation: ValidateData.validEmpty,
-
-                                ///prefixIcon
-                                prefixIcon: Icon(
-                                  ///Icon
-                                  Icons.calendar_today,
-
-                                  ///Icon color
-                                  color: AppColors.primaryColor,
+                                    ///Icon color
+                                    color: AppColors.primaryColor,
+                                  ),
                                 ),
-                              ),
+                                GestureDetector(
+                                  ///onTap
+                                  onTap: () async{
+                                    final List<DateTime> picked =
+                                        await DateRagePicker.showDatePicker(
+                                      ///context
+                                      context: context,
+
+                                      ///initialFirstDate
+                                      initialFirstDate: new DateTime.now(),
+
+                                      ///initialLastDate
+                                      initialLastDate: (new DateTime.now()).add(
+                                        new Duration(days: 7),
+                                      ),
+
+                                      ///firstDate
+                                      firstDate: new DateTime(2015),
+
+                                      ///lastDate
+                                      lastDate: new DateTime(2025),
+                                    );
+                                    if (picked != null && picked.length == 2) {
+                                      ///startDay
+                                      startDay = picked[0].toIso8601String();
+
+                                      ///endDay
+                                      endDay = picked[1].toIso8601String();
+
+                                      ///controllerTime
+                                      controllerTime.text =
+                                      "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
+                                    }
+                                  },
+                                  child: Container(
+
+                                    height: 55,
+                                    color:Colors.transparent,
+                                    width:double.infinity,
+                                  ),
+                                )
+                              ],
                             ),
+
                             const SizedBox(
-                              height: 15,
+                              height: 10,
                             ),
+
                             TextFieldChoose(
                               ///Icon
                               iconData: Icons.room_preferences,
 
                               ///Hint text
-                              hintText: "Number of Rooms",
+                              hintText: "How Many Rooms ?",
 
                               ///callBack
                               callBack: (val) {
@@ -517,9 +539,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ItemModel(id: '10', name: "10"),
                               ],
                             ),
-                            SizedBox(
-                              height: 15,
+
+                            const SizedBox(
+                              height: 10,
                             ),
+
                             TextFieldChoose(
                               ///Icon
                               iconData: Icons.people,
@@ -546,9 +570,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ItemModel(id: '10', name: "10"),
                               ],
                             ),
+
                             const SizedBox(
-                              height: 15,
+                              height: 10,
                             ),
+
                             TextFieldChoose(
                               ///Icon
                               iconData: Icons.emoji_people,
@@ -577,27 +603,31 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
 
                             const SizedBox(
-                              height: 15,
+                              height: 10,
                             ),
 
                             ///Search for button
-                            XButton(
-                              "Search Home Stay",
-                              () {
-                                if (_formKey.currentState.validate()) {
-                                  OrderUtils()
-                                      .setOrder(startDay, endDay, numberRoom);
-                                  homeBloc.searchRoom(
-                                    numberRoom: numberRoom,
-                                    startDay: startDay,
-                                    endDay: endDay,
-                                    city: controllerCity.text,
-                                    child: child,
-                                    adults: adults,
-                                  );
-                                }
-                              },
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 25),
+                              child: XButton(
+                                "Search Home Stay",
+                                () {
+                                  if (_formKey.currentState.validate()) {
+                                    OrderUtils()
+                                        .setOrder(startDay, endDay, numberRoom);
+                                    homeBloc.searchRoom(
+                                      numberRoom: numberRoom,
+                                      startDay: startDay,
+                                      endDay: endDay,
+                                      city: controllerCity.text,
+                                      child: child,
+                                      adults: adults,
+                                    );
+                                  }
+                                },
+                              ),
                             ),
+
                             const SizedBox(
                               height: 10,
                             ),
@@ -607,8 +637,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           StreamBuilder<UIState>(
             stream: homeBloc.searchStateStream,

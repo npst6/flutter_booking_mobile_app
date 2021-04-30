@@ -62,41 +62,46 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
         ///elevation
         elevation: 0,
 
-        leading: GestureDetector(
-          ///onTap
-          onTap: () {
-            Navigator.pop(context);
-          },
+        leadingWidth: 70,
 
-          child: Padding(
-            ///Padding
-            padding: const EdgeInsets.all(10),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: GestureDetector(
+            ///onTap
+            onTap: () {
+              Navigator.pop(context);
+            },
 
-            child: Container(
-              ///Container height
-              height: 30,
+            child: Padding(
+              ///Padding
+              padding: const EdgeInsets.all(10),
 
-              ///Container width
-              width: 30,
+              child: Container(
+                ///Container height
+                height: 30,
 
-              decoration: BoxDecoration(
-                ///Color box
-                color: AppColors.primaryColor,
+                ///Container width
+                width: 30,
 
-                ///Border box
-                borderRadius: BorderRadius.circular(10),
-              ),
+                decoration: BoxDecoration(
+                  ///Color box
+                  color: AppColors.primaryColor,
 
-              child: Center(
-                child: Icon(
-                  ///Icon
-                  Icons.home,
+                  ///Border box
+                  borderRadius: BorderRadius.circular(10),
+                ),
 
-                  ///Icon color
-                  color: themeData.scaffoldBackgroundColor,
+                child: Center(
+                  child: Icon(
+                    ///Icon
+                    Icons.home,
 
-                  ///Icon size
-                  size: 15,
+                    ///Icon color
+                    color: themeData.scaffoldBackgroundColor,
+
+                    ///Icon size
+                    size: 15,
+                  ),
                 ),
               ),
             ),
@@ -123,7 +128,6 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
 
             ///Text weight
             fontWeight: FontWeight.bold,
-
           ),
         ),
 
@@ -330,7 +334,8 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
                             ///Add room button
                             Padding(
                               ///Padding
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
 
                               child: XButton(
                                 "New Room",

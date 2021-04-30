@@ -50,7 +50,7 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
 
   @override
   void initState() {
-    controller = new TextEditingController(text: widget.intiText ?? "");
+    controller = new TextEditingController(text: widget.intiText);
     if (widget.intiText != null) {
       widget.items.forEach((element) {
         if (element.name == widget.intiText)
@@ -69,41 +69,49 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      ///onTap
-      onTap: () {
-        showModalItem();
-      },
+    return Stack(
+      children: [
+        XTextFormField(
 
-      child: XTextFormField(
-        enable: false,
+          ///controller
+          controller: controller,
 
-        ///controller
-        controller: controller,
+          ///hintText
+          hintText: widget.hintText,
 
-        ///hintText
-        hintText: widget.hintText,
 
-        ///funcValidation
-        funcValidation: ValidateData.validEmpty,
+          ///funcValidation
+          funcValidation: ValidateData.validEmpty,
 
-        ///prefixIcon
-        prefixIcon: Icon(
-          widget.iconData,
+          ///prefixIcon
+          prefixIcon: Icon(
+            widget.iconData,
 
-          ///Icon color
-          color: AppColors.primaryColor,
-        ),
+            ///Icon color
+            color: AppColors.primaryColor,
+          ),
 
-        ///suffixIcon
-        suffixIcon: Icon(
-          ///Icon
-          Icons.arrow_drop_down,
+          ///suffixIcon
+          suffixIcon: Icon(
+            ///Icon
+            Icons.arrow_drop_down,
 
-          ///Icon color
-          color: AppColors.primaryColor,
-        ),
-      ),
+            ///Icon color
+            color: AppColors.primaryColor,
+          ),
+        ),GestureDetector(
+          ///onTap
+          onTap: () {
+            showModalItem();
+          },
+          child: Container(
+
+            height: 55,
+            color:Colors.transparent,
+            width:double.infinity,
+          ),
+        )
+      ],
     );
   }
 

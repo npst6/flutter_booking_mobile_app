@@ -1,3 +1,5 @@
+import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
+
 ///Note file output_search_screen.dart
 
 import 'widget/item_search.dart';
@@ -124,20 +126,32 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
               stream: widget.homeBloc.accountStream,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return Container(
-                    ///Container width
-                    width: 40,
+                  return       GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ProfileScreen();
+                          },
+                        ),
+                      );
+                    },
+                    child: Container(
+                      ///Container width
+                      width: 40,
 
-                    decoration: BoxDecoration(
-                      ///Border box
-                      borderRadius: BorderRadius.circular(10),
+                      decoration: BoxDecoration(
+                        ///Border box
+                        borderRadius: BorderRadius.circular(10),
 
-                      image: DecorationImage(
-                        ///Image
-                        image: NetworkImage(snapshot.data.avatar),
+                        image: DecorationImage(
+                          ///Image
+                          image: NetworkImage(snapshot.data.avatar),
 
-                        ///Image fit
-                        fit: BoxFit.cover,
+                          ///Image fit
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   );

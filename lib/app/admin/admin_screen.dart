@@ -55,39 +55,45 @@ class _BookingScreenState extends State<AdminScreen> {
         ///Elevation
         elevation: 0,
 
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Padding(
-            ///Padding
-            padding: const EdgeInsets.all(10),
+        leadingWidth: 70,
 
-            child: Container(
-              ///Container height
-              height: 20,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
 
-              ///Container width
-              width: 20,
+            child: Padding(
+              ///Padding
+              padding: const EdgeInsets.all(10),
 
-              decoration: BoxDecoration(
-                ///Color box
-                color: AppColors.primaryColor,
+              child: Container(
+                ///Container height
+                height: 20,
 
-                ///Border box
-                borderRadius: BorderRadius.circular(10),
-              ),
+                ///Container width
+                width: 20,
 
-              child: Center(
-                child: Icon(
-                  ///Icon
-                  Icons.home,
+                decoration: BoxDecoration(
+                  ///Color box
+                  color: AppColors.primaryColor,
 
-                  ///Icon color
-                  color: themeData.scaffoldBackgroundColor,
+                  ///Border box
+                  borderRadius: BorderRadius.circular(10),
+                ),
 
-                  ///Icon size
-                  size: 15,
+                child: Center(
+                  child: Icon(
+                    ///Icon
+                    Icons.home,
+
+                    ///Icon color
+                    color: themeData.scaffoldBackgroundColor,
+
+                    ///Icon size
+                    size: 20,
+                  ),
                 ),
               ),
             ),
@@ -102,7 +108,7 @@ class _BookingScreenState extends State<AdminScreen> {
 
         title: Text(
           ///Text
-          "Admin".toUpperCase(),
+          "Administrator".toUpperCase(),
 
           style: TextStyle(
             ///Text size
