@@ -12,8 +12,10 @@ class AccountUtils {
     return _singleton;
   }
 
+  ///uid
   String uid;
 
+  ///account
   Account account;
 
   void setAccount({

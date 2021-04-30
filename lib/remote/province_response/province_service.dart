@@ -17,6 +17,7 @@ class ProvinceService {
       if (jsonResponse["status"] == "Success") {
         return ProvinceResponse.fromJson(jsonResponse).provinces;
       }
+
       throw Exception('');
     } catch (e) {
       throw Exception('');

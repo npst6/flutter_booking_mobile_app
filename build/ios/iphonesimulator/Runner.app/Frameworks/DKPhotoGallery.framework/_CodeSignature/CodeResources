@@ -6,7 +6,7 @@
 	<dict>
 		<key>DKPhotoGallery.bundle/Assets.car</key>
 		<data>
-		tRLxd3nMDqV69r92InT86a6fZuM=
+		640Rp1k5EEBwNZQjCiayphJlMbo=
 		</data>
 		<key>DKPhotoGallery.bundle/Base.lproj/DKPhotoGallery.strings</key>
 		<dict>
@@ -23,7 +23,7 @@
 		</data>
 		<key>DKPhotoGallery.bundle/_CodeSignature/CodeDirectory</key>
 		<data>
-		XJzQpcqFYjLKs46jv4OVd3YsvR4=
+		nnzM6s5bLK/aF1ae/G1os5LmTFI=
 		</data>
 		<key>DKPhotoGallery.bundle/_CodeSignature/CodeRequirements</key>
 		<data>
@@ -31,11 +31,11 @@
 		</data>
 		<key>DKPhotoGallery.bundle/_CodeSignature/CodeRequirements-1</key>
 		<data>
-		9TlbdM4uyhV4p84nhGPNGN+bVLg=
+		K2CoSxIG8Xy254Fua+NlcKgQB+8=
 		</data>
 		<key>DKPhotoGallery.bundle/_CodeSignature/CodeResources</key>
 		<data>
-		6ovCZRbMuL6/Lc9AaxRj3Mh6lcc=
+		uKfW3Gwo0yWJPAeAg7HpKpjcfEg=
 		</data>
 		<key>DKPhotoGallery.bundle/_CodeSignature/CodeSignature</key>
 		<data>
@@ -70,11 +70,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tRLxd3nMDqV69r92InT86a6fZuM=
+			640Rp1k5EEBwNZQjCiayphJlMbo=
 			</data>
 			<key>hash2</key>
 			<data>
-			CsmvQno8vC03BsHGWrpN9CV22Uva312hf4LFX2RcKys=
+			1ifLK+CSN6yIO4X9Pw0NX973aBXTvNPdhFViHbHf/IU=
 			</data>
 		</dict>
 		<key>DKPhotoGallery.bundle/Base.lproj/DKPhotoGallery.strings</key>
@@ -105,11 +105,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XJzQpcqFYjLKs46jv4OVd3YsvR4=
+			nnzM6s5bLK/aF1ae/G1os5LmTFI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q89sit36ageGWHKM3K7u2EAp4F2y/+7TC6EGkuaz3d4=
+			P4Wi5o+7Bs/7n8xWRktWd4Lp/WKxHJKEji2GebnbUcc=
 			</data>
 		</dict>
 		<key>DKPhotoGallery.bundle/_CodeSignature/CodeRequirements</key>
@@ -127,22 +127,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9TlbdM4uyhV4p84nhGPNGN+bVLg=
+			K2CoSxIG8Xy254Fua+NlcKgQB+8=
 			</data>
 			<key>hash2</key>
 			<data>
-			8aRwG2g+e087K9sJFjh1FYyaz16syEvxlxq01g2Jvnk=
+			sBb2sxW12FtK+TpaywzlEn6Ih2qZlt0qw+C9tF7CXF0=
 			</data>
 		</dict>
 		<key>DKPhotoGallery.bundle/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6ovCZRbMuL6/Lc9AaxRj3Mh6lcc=
+			uKfW3Gwo0yWJPAeAg7HpKpjcfEg=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZyC5oZ8b8kVTwJUsTMWp+OK4e8DncA8UdMwZezIDzkw=
+			QSkF08Iyi7fktnJYyPa8KvSp0aH73MrBjkJM51Js2wA=
 			</data>
 		</dict>
 		<key>DKPhotoGallery.bundle/_CodeSignature/CodeSignature</key>
