@@ -148,7 +148,7 @@ class FirAuth {
   Future<void> signOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     print("Logout");
-    prefs.setString("uid", null);
+    prefs.setString("uid", "");
     return _fireBaseAuth.signOut();
   }
 
