@@ -550,7 +550,7 @@ int numberRoom;
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
 
-                                ///prefixIcon
+                                /*///prefixIcon
                                 prefixIcon: Container(
                                   ///width
                                   width: 20,
@@ -571,8 +571,39 @@ int numberRoom;
                                       ),
                                     ),
                                   ),
-                                ),
+                                ),*/
+                                ///prefixIcon
+                                prefixIcon: Icon(
+                                  ///Icon
+                                  Icons.money_off,
 
+                                  size: 20,
+
+                                  ///Icon color
+                                  color: AppColors.primaryColor,
+                                ),
+                                ///suffixIcon
+                                suffixIcon: Container(
+                                  ///Icon width
+                                  width: 20,
+
+                                  child: Center(
+                                    child: Text(
+                                      ///Text
+                                      "%",
+                                      style: TextStyle(
+                                        ///Text color
+                                        color: AppColors.primaryColor,
+
+                                        ///Text size
+                                        fontSize: 16,
+
+                                        ///Text weight
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 ///Text type phone
                                 textInputType: TextInputType.phone,
                               ),
@@ -664,57 +695,6 @@ int numberRoom;
                         funcValidation: ValidateData.validEmpty,
                       ),
                     ),
-
-                    const SizedBox(
-                      height: 15,
-                    ),
-
-                    Text(
-                      ///Text
-                      "City",
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 15,
-
-                        ///Text spacing
-                        letterSpacing: 1,
-
-                        ///Text weight
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-
-                    const SizedBox(
-                      height: 10,
-                    ),
-
-                    StreamBuilder<List<Province>>(
-                        stream: newRoomBloc.listProvinceStream,
-                        builder: (context, snapshot1) {
-                          if (snapshot1.hasData) {
-                            List<ItemModel> items = [];
-                            snapshot1.data.forEach((element) {
-                              items.add(new ItemModel(
-                                  id: element.code, name: element.name));
-                            });
-                            return TextFieldChoose(
-                              ///Icon
-                              iconData: Icons.location_on,
-
-                              ///callBack
-                              callBack: (val) {
-                                controllerCity.text = val;
-                              },
-
-                              ///Hint text
-                              hintText: "Where Your City ?",
-
-                              ///Item
-                              items: items,
-                            );
-                          } else
-                            return SizedBox();
-                        }),
 
                     const SizedBox(
                       height: 15,
@@ -813,6 +793,16 @@ int numberRoom;
                         ItemModel(id: '08', name: "08"),
                         ItemModel(id: '09', name: "09"),
                         ItemModel(id: '10', name: "10"),
+                        ItemModel(id: '11', name: "11"),
+                        ItemModel(id: '12', name: "12"),
+                        ItemModel(id: '13', name: "13"),
+                        ItemModel(id: '14', name: "14"),
+                        ItemModel(id: '15', name: "15"),
+                        ItemModel(id: '16', name: "16"),
+                        ItemModel(id: '17', name: "17"),
+                        ItemModel(id: '18', name: "18"),
+                        ItemModel(id: '19', name: "19"),
+                        ItemModel(id: '20', name: "20"),
                       ],
                     ),
 
@@ -863,6 +853,16 @@ int numberRoom;
                         ItemModel(id: '07', name: "07"),
                         ItemModel(id: '08', name: "08"),
                         ItemModel(id: '09', name: "09"),
+                        ItemModel(id: '10', name: "10"),
+                        ItemModel(id: '11', name: "11"),
+                        ItemModel(id: '12', name: "12"),
+                        ItemModel(id: '13', name: "13"),
+                        ItemModel(id: '14', name: "14"),
+                        ItemModel(id: '15', name: "15"),
+                        ItemModel(id: '16', name: "16"),
+                        ItemModel(id: '17', name: "17"),
+                        ItemModel(id: '18', name: "18"),
+                        ItemModel(id: '19', name: "19"),
                       ],
                     ),
                   ],

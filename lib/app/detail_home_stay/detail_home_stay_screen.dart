@@ -67,7 +67,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                     ),
                     Padding(
                       ///Padding
-                      padding: const EdgeInsets.fromLTRB(35, 50, 15, 10),
+                      padding: const EdgeInsets.fromLTRB(20, 50, 15, 10),
 
                       child: Row(
                         ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
@@ -81,10 +81,10 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                             child: Container(
 
                               ///Container height
-                              height: 35,
+                              height: 40,
 
                               ///Container width
-                              width: 35,
+                              width: 40,
 
                               decoration: BoxDecoration(
                                 ///Color box

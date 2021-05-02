@@ -69,7 +69,7 @@ class NewHomeStayBloc extends BaseBloc {
     try {
       FirebaseStorage storage = FirebaseStorage.instance;
       Reference storageReference =
-      storage.ref().child('${Path.basename(file.path)}}');
+      storage.ref().child('${Path.basename(file.path)}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
           FirAuth().createMyHomeStay(

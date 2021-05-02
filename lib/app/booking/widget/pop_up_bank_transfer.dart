@@ -8,12 +8,21 @@ import 'package:flutter_booking_mobile_app/model/my_home_stay.dart';
 
 ///PopUpBankTransfer StatelessWidget
 class PopUpBankTransfer extends StatelessWidget {
+  ///themeData
   final ThemeData themeData;
+
+  ///myHomeStay
   final MyHomeStay myHomeStay;
+
+  ///totalPrice
   final double totalPrice;
+
+  ///onOK
   final Function onOK;
+
   PopUpBankTransfer(
       this.themeData, this.myHomeStay, this.totalPrice, this.onOK);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,16 +38,19 @@ class PopUpBankTransfer extends StatelessWidget {
         ///Border box
         borderRadius: BorderRadius.circular(20),
       ),
+
       child: Column(
         ///Using mainAxisAlignment in a Column will align its children vertically.
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
         ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
         crossAxisAlignment: CrossAxisAlignment.start,
+
         children: [
           Container(
             ///Container height
             height: 50,
+
             decoration: BoxDecoration(
               ///Color box
               color: AppColors.primaryColor,
@@ -49,6 +61,7 @@ class PopUpBankTransfer extends StatelessWidget {
                 topRight: Radius.circular(20),
               ),
             ),
+
             child: Center(
               child: Text(
                 ///Text
@@ -66,14 +79,16 @@ class PopUpBankTransfer extends StatelessWidget {
           Padding(
             ///Padding
             padding: const EdgeInsets.fromLTRB(15, 10, 15, 15),
+
             child: Column(
               ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
               crossAxisAlignment: CrossAxisAlignment.start,
+
               children: [
                 Center(
                   child: Text(
                     ///Text
-                    "${totalPrice / 100}\đ",
+                    "${totalPrice / 100}\$",
                     style: TextStyle(
                       ///Text color
                       color: AppColors.primaryColor,
@@ -86,16 +101,18 @@ class PopUpBankTransfer extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
                   ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                   children: [
                     Text(
                       ///Text
-                      "Bank",
+                      "Bank: ",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 17,
@@ -107,6 +124,7 @@ class PopUpBankTransfer extends StatelessWidget {
                     Text(
                       ///Text
                       myHomeStay.bankName.toUpperCase(),
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 16,
@@ -117,16 +135,17 @@ class PopUpBankTransfer extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                   children: [
                     Text(
                       ///Text
-                      "Name account",
+                      "Name: ",
                       style: TextStyle(
                         ///Text size
                         fontSize: 17,
@@ -138,6 +157,7 @@ class PopUpBankTransfer extends StatelessWidget {
                     Text(
                       ///Text
                       myHomeStay.accountNameBank.toUpperCase(),
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 16,
@@ -148,16 +168,17 @@ class PopUpBankTransfer extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                   children: [
                     Text(
                       ///Text
-                      "Bank number",
+                      "Bank Number: ",
                       style: TextStyle(
                         ///Text size
                         fontSize: 17,
@@ -169,6 +190,7 @@ class PopUpBankTransfer extends StatelessWidget {
                     Text(
                       ///Text
                       myHomeStay.bankNumber.toUpperCase(),
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 16,
@@ -179,7 +201,7 @@ class PopUpBankTransfer extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
               ],
@@ -188,6 +210,7 @@ class PopUpBankTransfer extends StatelessWidget {
           Padding(
             ///Padding
             padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
+
             child: Row(
               children: [
                 ///Cancel button
@@ -205,23 +228,25 @@ class PopUpBankTransfer extends StatelessWidget {
                     height: 40,
                   ),
                 ),
-                SizedBox(
+
+                const SizedBox(
                   width: 10,
                 ),
 
                 ///Ok button
                 Expanded(
-                    child: XButton(
-                  "OK",
-                  () {
-                    onOK();
-                  },
-                  height: 40,
-                )),
+                  child: XButton(
+                    "OK",
+                    () {
+                      onOK();
+                    },
+                    height: 40,
+                  ),
+                ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
         ],

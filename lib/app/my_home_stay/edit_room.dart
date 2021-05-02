@@ -299,132 +299,11 @@ class _NewRoomState extends State<EditRoomScreen> {
                           );
                       },
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      ///Text
-                      "Room Name",
 
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 15,
-
-                        ///Text spacing
-                        letterSpacing: 1,
-
-                        ///Text weight
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    XTextFormField(
-                      ///controllerName
-                      controller: controllerName,
-
-                      ///Hint text
-                      hintText: "Name of Room",
-
-                      ///Check empty data
-                      funcValidation: ValidateData.validEmpty,
-
-                      ///prefixIcon
-                      prefixIcon: Icon(
-                        ///Icon
-                        Icons.home_rounded,
-
-                        ///Icon color
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
                     const SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      ///Text
-                      "Room Description",
 
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 15,
-
-                        ///Text spacing
-                        letterSpacing: 1,
-
-                        ///Text weight
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    XTextFormField(
-                      ///controllerDesc
-                      controller: controllerDesc,
-
-                      ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
-                      maxLine: 4,
-
-                      ///Hint text
-                      hintText: "Description Something About Room",
-
-                      ///Check empty data
-                      funcValidation: ValidateData.validEmpty,
-
-                      ///prefixIcon
-                      prefixIcon: Icon(
-                        ///Icon
-                        Icons.note,
-
-                        ///Icon color
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      ///Text
-                      "Room Address",
-
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 15,
-
-                        ///Text spacing
-                        letterSpacing: 1,
-
-                        ///Text weight
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    XTextFormField(
-                      ///controllerAddress
-                      controller: controllerAddress,
-
-                      ///Hint text
-                      hintText: "Address of Room",
-
-                      ///Check empty data
-                      funcValidation: ValidateData.validEmpty,
-
-                      ///prefixIcon
-                      prefixIcon: Icon(
-                        ///Icon
-                        Icons.map,
-
-                        ///Icon color
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
                     Text(
                       ///Text
                       "City",
@@ -440,16 +319,18 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     const SizedBox(
                       height: 10,
                     ),
+
                     StreamBuilder<List<Province>>(
                       stream: editRoomBloc.listProvinceStream,
                       builder: (context, snapshot1) {
                         if (snapshot1.hasData) {
                           List<ItemModel> items = [];
                           snapshot1.data.forEach(
-                            (element) {
+                                (element) {
                               items.add(
                                 new ItemModel(
                                   id: element.code,
@@ -480,9 +361,150 @@ class _NewRoomState extends State<EditRoomScreen> {
                           return SizedBox();
                       },
                     ),
+
                     const SizedBox(
                       height: 15,
                     ),
+
+                    Text(
+                      ///Text
+                      "Room Name",
+
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    XTextFormField(
+                      ///controllerName
+                      controller: controllerName,
+
+                      ///Hint text
+                      hintText: "Name of Room",
+
+                      ///Check empty data
+                      funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
+                      prefixIcon: Icon(
+                        ///Icon
+                        Icons.home_rounded,
+
+                        ///Icon color
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 15,
+                    ),
+
+                    Text(
+                      ///Text
+                      "Room Address",
+
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    XTextFormField(
+                      ///controllerAddress
+                      controller: controllerAddress,
+
+                      ///Hint text
+                      hintText: "Address of Room",
+
+                      ///Check empty data
+                      funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
+                      prefixIcon: Icon(
+                        ///Icon
+                        Icons.map,
+
+                        ///Icon color
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+
+
+                    const SizedBox(
+                      height: 15,
+                    ),
+
+                    Text(
+                      ///Text
+                      "Room Description",
+
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    XTextFormField(
+                      ///controllerDesc
+                      controller: controllerDesc,
+
+                      ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                      maxLine: 4,
+
+                      ///Hint text
+                      hintText: "Description Something About Room",
+
+                      ///Check empty data
+                      funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
+                      prefixIcon: Icon(
+                        ///Icon
+                        Icons.note,
+
+                        ///Icon color
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+
+
+
+
+                    const SizedBox(
+                      height: 15,
+                    ),
+
                     Row(
                       children: [
                         Expanded(
@@ -505,41 +527,20 @@ class _NewRoomState extends State<EditRoomScreen> {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
+
                               const SizedBox(
                                 height: 10,
                               ),
+
                               XTextFormField(
                                 ///controllerPrice
                                 controller: controllerPrice,
 
                                 ///Hint text
-                                hintText: "0\$",
+                                hintText: "0",
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
-
-                                /*///prefixIcon
-                                prefixIcon: Container(
-                                  ///width
-                                  width: 20,
-
-                                  child: Center(
-                                    child: Text(
-                                      ///Text
-                                      "\$",
-                                      style: TextStyle(
-                                        ///Text color
-                                        color: AppColors.primaryColor,
-
-                                        ///Text size
-                                        fontSize: 20,
-
-                                        ///Text weight
-                                        fontWeight: FontWeight.w900,
-                                      ),
-                                    ),
-                                  ),
-                                ),*/
 
                                 ///prefixIcon
                                 prefixIcon: Icon(
@@ -579,9 +580,11 @@ class _NewRoomState extends State<EditRoomScreen> {
                             ],
                           ),
                         ),
+
                         const SizedBox(
                           width: 10,
                         ),
+
                         Expanded(
                           child: Column(
                             ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
@@ -590,7 +593,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                             children: [
                               Text(
                                 ///Text
-                                "Discount",
+                                "Room Discount",
                                 style: TextStyle(
                                   ///Text size
                                   fontSize: 15,
@@ -602,20 +605,22 @@ class _NewRoomState extends State<EditRoomScreen> {
                                   letterSpacing: 1,
                                 ),
                               ),
+
                               const SizedBox(
                                 height: 10,
                               ),
+
                               XTextFormField(
                                 ///controllerDiscountPercent
                                 controller: controllerDiscountPercent,
 
                                 ///Hint text
-                                hintText: "0%",
+                                hintText: "0",
 
                                 ///Check empty data
                                 funcValidation: ValidateData.validEmpty,
 
-                                ///prefixIcon
+                                /*///prefixIcon
                                 prefixIcon: Container(
                                   ///width
                                   width: 20,
@@ -636,8 +641,39 @@ class _NewRoomState extends State<EditRoomScreen> {
                                       ),
                                     ),
                                   ),
-                                ),
+                                ),*/
+                                ///prefixIcon
+                                prefixIcon: Icon(
+                                  ///Icon
+                                  Icons.money_off,
 
+                                  size: 20,
+
+                                  ///Icon color
+                                  color: AppColors.primaryColor,
+                                ),
+                                ///suffixIcon
+                                suffixIcon: Container(
+                                  ///Icon width
+                                  width: 20,
+
+                                  child: Center(
+                                    child: Text(
+                                      ///Text
+                                      "%",
+                                      style: TextStyle(
+                                        ///Text color
+                                        color: AppColors.primaryColor,
+
+                                        ///Text size
+                                        fontSize: 16,
+
+                                        ///Text weight
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 ///Text type phone
                                 textInputType: TextInputType.phone,
                               ),
@@ -646,13 +682,97 @@ class _NewRoomState extends State<EditRoomScreen> {
                         ),
                       ],
                     ),
+
                     const SizedBox(
                       height: 15,
                     ),
+
+                    Text(
+                      ///Text
+                      "Free Time",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    GestureDetector(
+                      ///onTap
+                      onTap: () async {
+                        ///DateTime
+                        final List<DateTime> picked =
+                        await DateRagePicker.showDatePicker(
+
+                          ///context
+                            context: context,
+
+                            ///initialFirstDate
+                            initialFirstDate: new DateTime.now(),
+
+                            ///initialLastDate
+                            initialLastDate: (new DateTime.now())
+                                .add(new Duration(days: 7)),
+
+                            ///firstDate
+                            firstDate: new DateTime(2015),
+
+                            ///lastDate
+                            lastDate: new DateTime(2022));
+
+                        if (picked != null && picked.length == 2) {
+                          ///startDay
+                          startDay = picked[0].toIso8601String();
+
+                          ///endDay
+                          endDay = picked[1].toIso8601String();
+
+                          ///controllerFreeTime
+                          controllerFreeTime.text =
+                          "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
+                        }
+                      },
+
+                      child: XTextFormField(
+                        ///enable
+                        enable: false,
+
+                        ///controllerFreeTime
+                        controller: controllerFreeTime,
+
+                        ///Hint text
+                        hintText: "Free Time in Room",
+
+                        ///prefixIcon
+                        prefixIcon: Icon(
+                          ///Icon
+                          Icons.calendar_today,
+
+                          ///Icon color
+                          color: AppColors.primaryColor,
+                        ),
+
+                        ///Check empty data
+                        funcValidation: ValidateData.validEmpty,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 15,
+                    ),
+
                     Text(
                       ///Price
-                      "Number Room",
-
+                      "Rooms",
                       style: TextStyle(
                         ///Text size
                         fontSize: 15,
@@ -664,9 +784,11 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     const SizedBox(
                       height: 10,
                     ),
+
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.room_preferences,
@@ -677,7 +799,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                       },
 
                       ///Hint text
-                      hintText: "Number Rooms",
+                      hintText: "How Many Rooms ?",
 
                       ///items
                       items: [
@@ -693,9 +815,11 @@ class _NewRoomState extends State<EditRoomScreen> {
                         ItemModel(id: '10', name: "10"),
                       ],
                     ),
+
                     const SizedBox(
                       height: 15,
                     ),
+
                     Text(
                       ///Price
                       "Adults",
@@ -710,9 +834,11 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     const SizedBox(
                       height: 10,
                     ),
+
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.people,
@@ -737,11 +863,23 @@ class _NewRoomState extends State<EditRoomScreen> {
                         ItemModel(id: '08', name: "08"),
                         ItemModel(id: '09', name: "09"),
                         ItemModel(id: '10', name: "10"),
+                        ItemModel(id: '11', name: "11"),
+                        ItemModel(id: '12', name: "12"),
+                        ItemModel(id: '13', name: "13"),
+                        ItemModel(id: '14', name: "14"),
+                        ItemModel(id: '15', name: "15"),
+                        ItemModel(id: '16', name: "16"),
+                        ItemModel(id: '17', name: "17"),
+                        ItemModel(id: '18', name: "18"),
+                        ItemModel(id: '19', name: "19"),
+                        ItemModel(id: '20', name: "20"),
                       ],
                     ),
+
                     const SizedBox(
                       height: 15,
                     ),
+
                     Text(
                       ///Price
                       "Children",
@@ -756,9 +894,11 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     const SizedBox(
                       height: 10,
                     ),
+
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.emoji_people,
@@ -783,84 +923,17 @@ class _NewRoomState extends State<EditRoomScreen> {
                         ItemModel(id: '07', name: "07"),
                         ItemModel(id: '08', name: "08"),
                         ItemModel(id: '09', name: "09"),
+                        ItemModel(id: '10', name: "10"),
+                        ItemModel(id: '11', name: "11"),
+                        ItemModel(id: '12', name: "12"),
+                        ItemModel(id: '13', name: "13"),
+                        ItemModel(id: '14', name: "14"),
+                        ItemModel(id: '15', name: "15"),
+                        ItemModel(id: '16', name: "16"),
+                        ItemModel(id: '17', name: "17"),
+                        ItemModel(id: '18', name: "18"),
+                        ItemModel(id: '19', name: "19"),
                       ],
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      ///Text
-                      "Free Time",
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 15,
-
-                        ///Text weight
-                        fontWeight: FontWeight.w500,
-
-                        ///Text spacing
-                        letterSpacing: 1,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        final List<DateTime> picked =
-                            await DateRagePicker.showDatePicker(
-                          ///context
-                          context: context,
-
-                          ///initialFirstDate
-                          initialFirstDate: new DateTime.now(),
-
-                          ///initialLastDate
-                          initialLastDate: (new DateTime.now()).add(
-                            new Duration(days: 7),
-                          ),
-
-                          ///firstDate
-                          firstDate: new DateTime(2018),
-
-                          ///lastDate
-                          lastDate: new DateTime(2025),
-                        );
-
-                        if (picked != null && picked.length == 2) {
-                          ///startDay
-                          startDay = picked[0].toIso8601String();
-
-                          ///endDay
-                          endDay = picked[1].toIso8601String();
-
-                          ///controllerFreeTime
-                          controllerFreeTime.text =
-                              "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
-                        }
-                      },
-                      child: XTextFormField(
-                        ///enable
-                        enable: false,
-
-                        ///controller
-                        controller: controllerFreeTime,
-
-                        ///Hint text
-                        hintText: "Free Time in Room",
-
-                        ///Check empty data
-                        funcValidation: ValidateData.validEmpty,
-
-                        ///prefixIcon
-                        prefixIcon: Icon(
-                          ///Icon
-                          Icons.calendar_today,
-
-                          ///Icon color
-                          color: AppColors.primaryColor,
-                        ),
-                      ),
                     ),
                   ],
                 ),
