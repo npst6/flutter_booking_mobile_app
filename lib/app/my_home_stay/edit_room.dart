@@ -669,7 +669,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                     ),
                     TextFieldChoose(
                       ///Icon
-                      iconData: Icons.room_preferences,
+                      iconData: Icons.room_preferences_outlined,
 
                       ///callBack
                       callBack: (val) {

@@ -2,6 +2,7 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_booking_mobile_app/app/search/output_search_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/theme/theme.dart';
@@ -19,7 +20,6 @@ import 'package:flutter_booking_mobile_app/app/home/bloc/home_bloc.dart';
 import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
-import 'package:flutter_booking_mobile_app/app/search/output_search_screen.dart';
 import 'package:flutter_booking_mobile_app/remote/province_response/province_response.dart';
 
 ///HomeScreen StatefulWidget
@@ -208,11 +208,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                         children: [
                                           Text(
                                             ///Text
-                                            "Logout".toUpperCase(),
+                                            "Logout",
 
                                             style: TextStyle(
                                               ///Text size
-                                              fontSize: 20,
+                                              fontSize: 18,
 
                                               ///Text weight
                                               fontWeight: FontWeight.w900,
@@ -294,7 +294,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       child: Padding(
                         ///Padding
-                        padding: const EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(10),
 
                         child: Container(
                           decoration: BoxDecoration(
@@ -349,8 +349,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ///onPressed
                                   onPressed: () {
                                     if (_formKey.currentState.validate()) {
-                                      OrderUtils().setOrder(
-                                          startDay, endDay, numberRoom);
+                                      OrderUtils()
+                                          .setOrder(startDay, endDay, numberRoom);
                                       homeBloc.searchRoom(
                                         numberRoom: numberRoom,
                                         startDay: startDay,
@@ -375,7 +375,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Expanded(
                   ///Flex
-                  flex: 5,
+                  flex: 4,
 
                   child: Container(
                     ///Container width
@@ -394,7 +394,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     child: Padding(
                       ///Padding
-                      padding: const EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(10),
 
                       child: SingleChildScrollView(
                         child: Column(
@@ -421,6 +421,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ///Item
                                     items: items,
 
+
                                     ///Icon
                                     iconData: Icons.location_pin,
 
@@ -438,106 +439,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
 
                             const SizedBox(
-                              height: 15,
-                            ),
-
-                            TextFieldChoose(
-                              ///Icon
-                              iconData: Icons.room_preferences,
-
-                              ///Hint text
-                              hintText: "How Many Rooms ?",
-
-                              ///callBack
-                              callBack: (val) {
-                                numberRoom = int.parse(val);
-                              },
-
-                              ///items
-                              items: [
-                                ItemModel(id: '01', name: "01"),
-                                ItemModel(id: '02', name: "02"),
-                                ItemModel(id: '03', name: "03"),
-                                ItemModel(id: '04', name: "04"),
-                                ItemModel(id: '05', name: "05"),
-                                ItemModel(id: '06', name: "06"),
-                                ItemModel(id: '07', name: "07"),
-                                ItemModel(id: '08', name: "08"),
-                                ItemModel(id: '09', name: "09"),
-                                ItemModel(id: '10', name: "10"),
-                              ],
-                            ),
-
-                            const SizedBox(
-                              height: 15,
-                            ),
-
-                            TextFieldChoose(
-                              ///Icon
-                              iconData: Icons.people,
-
-                              ///Hint text
-                              hintText: "How Many Adults ?",
-
-                              ///callBack
-                              callBack: (val) {
-                                adults = int.parse(val);
-                              },
-
-                              ///items
-                              items: [
-                                ItemModel(id: '01', name: "01"),
-                                ItemModel(id: '02', name: "02"),
-                                ItemModel(id: '03', name: "03"),
-                                ItemModel(id: '04', name: "04"),
-                                ItemModel(id: '05', name: "05"),
-                                ItemModel(id: '06', name: "06"),
-                                ItemModel(id: '07', name: "07"),
-                                ItemModel(id: '08', name: "08"),
-                                ItemModel(id: '09', name: "09"),
-                                ItemModel(id: '10', name: "10"),
-                              ],
-                            ),
-
-                            const SizedBox(
-                              height: 15,
-                            ),
-
-                            TextFieldChoose(
-                              ///Icon
-                              iconData: Icons.emoji_people,
-
-                              ///Hint text
-                              hintText: "How Many Children ?",
-
-                              ///callBack
-                              callBack: (val) {
-                                child = int.parse(val);
-                              },
-
-                              ///items
-                              items: [
-                                ItemModel(id: '00', name: "00"),
-                                ItemModel(id: '01', name: "01"),
-                                ItemModel(id: '02', name: "02"),
-                                ItemModel(id: '03', name: "03"),
-                                ItemModel(id: '04', name: "04"),
-                                ItemModel(id: '05', name: "05"),
-                                ItemModel(id: '06', name: "06"),
-                                ItemModel(id: '07', name: "07"),
-                                ItemModel(id: '08', name: "08"),
-                                ItemModel(id: '09', name: "09"),
-                              ],
-                            ),
-
-                            const SizedBox(
-                              height: 15,
+                              height: 10,
                             ),
 
                             Stack(
                               children: [
                                 XTextFormField(
                                   ///enable
+
 
                                   ///controllerTime
                                   controller: controllerTime,
@@ -559,9 +468,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 GestureDetector(
                                   ///onTap
-                                  onTap: () async {
+                                  onTap: () async{
                                     final List<DateTime> picked =
-                                    await DateRagePicker.showDatePicker(
+                                        await DateRagePicker.showDatePicker(
                                       ///context
                                       context: context,
 
@@ -592,22 +501,115 @@ class _HomeScreenState extends State<HomeScreen> {
                                     }
                                   },
                                   child: Container(
+
                                     height: 55,
-                                    color: Colors.transparent,
-                                    width: double.infinity,
+                                    color:Colors.transparent,
+                                    width:double.infinity,
                                   ),
                                 )
                               ],
                             ),
 
                             const SizedBox(
-                              height: 15,
+                              height: 10,
+                            ),
+
+                            TextFieldChoose(
+                              ///Icon
+                              iconData: Icons.room_preferences,
+
+                              ///Hint text
+                              hintText: "How Many Rooms ?",
+
+                              ///callBack
+                              callBack: (val) {
+                                numberRoom = int.parse(val);
+                              },
+
+                              ///items
+                              items: [
+                                ItemModel(id: '01', name: "01"),
+                                ItemModel(id: '02', name: "02"),
+                                ItemModel(id: '03', name: "03"),
+                                ItemModel(id: '04', name: "04"),
+                                ItemModel(id: '05', name: "05"),
+                                ItemModel(id: '06', name: "06"),
+                                ItemModel(id: '07', name: "07"),
+                                ItemModel(id: '08', name: "08"),
+                                ItemModel(id: '09', name: "09"),
+                                ItemModel(id: '10', name: "10"),
+                              ],
+                            ),
+
+                            const SizedBox(
+                              height: 10,
+                            ),
+
+                            TextFieldChoose(
+                              ///Icon
+                              iconData: Icons.people,
+
+                              ///Hint text
+                              hintText: "How Many Adults ?",
+
+                              ///callBack
+                              callBack: (val) {
+                                adults = int.parse(val);
+                              },
+
+                              ///items
+                              items: [
+                                ItemModel(id: '01', name: "01"),
+                                ItemModel(id: '02', name: "02"),
+                                ItemModel(id: '03', name: "03"),
+                                ItemModel(id: '04', name: "04"),
+                                ItemModel(id: '05', name: "05"),
+                                ItemModel(id: '06', name: "06"),
+                                ItemModel(id: '07', name: "07"),
+                                ItemModel(id: '08', name: "08"),
+                                ItemModel(id: '09', name: "09"),
+                                ItemModel(id: '10', name: "10"),
+                              ],
+                            ),
+
+                            const SizedBox(
+                              height: 10,
+                            ),
+
+                            TextFieldChoose(
+                              ///Icon
+                              iconData: Icons.emoji_people,
+
+                              ///Hint text
+                              hintText: "How Many Children ?",
+
+                              ///callBack
+                              callBack: (val) {
+                                child = int.parse(val);
+                              },
+
+                              ///items
+                              items: [
+                                ItemModel(id: '00', name: "00"),
+                                ItemModel(id: '01', name: "01"),
+                                ItemModel(id: '02', name: "02"),
+                                ItemModel(id: '03', name: "03"),
+                                ItemModel(id: '04', name: "04"),
+                                ItemModel(id: '05', name: "05"),
+                                ItemModel(id: '06', name: "06"),
+                                ItemModel(id: '07', name: "07"),
+                                ItemModel(id: '08', name: "08"),
+                                ItemModel(id: '09', name: "09"),
+                              ],
+                            ),
+
+                            const SizedBox(
+                              height: 10,
                             ),
 
                             ///Search for button
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 25),
+                              padding: const EdgeInsets.symmetric(horizontal: 25),
                               child: XButton(
                                 "Search Home Stay",
                                 () {

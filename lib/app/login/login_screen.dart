@@ -205,7 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: "Enter your password",
 
                       ///Check empty field
-                      funcValidation: ValidateData.validPassword,
+                      funcValidation: ValidateData.validPass,
 
                       prefixIcon: Icon(
                         ///Icon password box
