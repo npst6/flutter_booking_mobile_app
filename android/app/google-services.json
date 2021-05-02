@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "654543533605",
+    "firebase_url": "https://bookinghomestay-3b796-default-rtdb.firebaseio.com",
+    "project_id": "bookinghomestay-3b796",
+    "storage_bucket": "bookinghomestay-3b796.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654543533605:android:425238534e093ad1cbb1cc",
+        "android_client_info": {
+          "package_name": "com.example.flutter_booking_mobileapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654543533605-2ko2tjvfide3tithmov6lbcbk8t5a5tg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqefmf6p9mf2QLBrdxFOsMsUTS2t_Wups"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654543533605-2ko2tjvfide3tithmov6lbcbk8t5a5tg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "654543533605-ui5hn2ic7ud1s2qmd5po71m2fasqjb8d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterBookingMobileapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

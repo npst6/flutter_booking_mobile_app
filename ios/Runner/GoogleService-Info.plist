@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>654543533605-ui5hn2ic7ud1s2qmd5po71m2fasqjb8d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.654543533605-ui5hn2ic7ud1s2qmd5po71m2fasqjb8d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBBs0RGeeCibmO6tZ-2yudcf78e2SnxD5c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>654543533605</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterBookingMobileapp</string>
+	<key>PROJECT_ID</key>
+	<string>bookinghomestay-3b796</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bookinghomestay-3b796.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:654543533605:ios:200118a9afd0208dcbb1cc</string>
+</dict>
+</plist>
