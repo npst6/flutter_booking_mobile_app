@@ -18,17 +18,11 @@ class ValidateData {
     }
   }
 
-  ///validChangePass - Check length update password
-  static String validChangePass(String text) {
-    return text.length < 8 && text.length > 0
-        ? 'Pass length > 8 characters'
-        : null;
-  }
 
   ///validPass - Check length password
-  static String validPass(String text) {
+  static String validPassword(String text) {
     return text.length < 8 && text.length > 0
-        ? 'Pass length > 8 characters'
+        ? 'Password must have length > 8 characters'
         : null;
   }
 

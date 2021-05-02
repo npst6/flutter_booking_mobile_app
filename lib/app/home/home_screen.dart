@@ -2,7 +2,6 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_booking_mobile_app/app/search/output_search_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/theme/theme.dart';
@@ -20,6 +19,7 @@ import 'package:flutter_booking_mobile_app/app/home/bloc/home_bloc.dart';
 import 'package:flutter_booking_mobile_app/app/profile/profile_screen.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
+import 'package:flutter_booking_mobile_app/app/search/output_search_screen.dart';
 import 'package:flutter_booking_mobile_app/remote/province_response/province_response.dart';
 
 ///HomeScreen StatefulWidget
@@ -208,11 +208,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                         children: [
                                           Text(
                                             ///Text
-                                            "Logout",
+                                            "Logout".toUpperCase(),
 
                                             style: TextStyle(
                                               ///Text size
-                                              fontSize: 18,
+                                              fontSize: 20,
 
                                               ///Text weight
                                               fontWeight: FontWeight.w900,
@@ -294,7 +294,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       child: Padding(
                         ///Padding
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(15),
 
                         child: Container(
                           decoration: BoxDecoration(
@@ -349,8 +349,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ///onPressed
                                   onPressed: () {
                                     if (_formKey.currentState.validate()) {
-                                      OrderUtils()
-                                          .setOrder(startDay, endDay, numberRoom);
+                                      OrderUtils().setOrder(
+                                          startDay, endDay, numberRoom);
                                       homeBloc.searchRoom(
                                         numberRoom: numberRoom,
                                         startDay: startDay,
@@ -375,7 +375,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Expanded(
                   ///Flex
-                  flex: 4,
+                  flex: 5,
 
                   child: Container(
                     ///Container width
@@ -394,7 +394,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     child: Padding(
                       ///Padding
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(15),
 
                       child: SingleChildScrollView(
                         child: Column(
@@ -421,7 +421,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ///Item
                                     items: items,
 
-
                                     ///Icon
                                     iconData: Icons.location_pin,
 
@@ -439,79 +438,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
 
                             const SizedBox(
-                              height: 10,
-                            ),
-
-                            Stack(
-                              children: [
-                                XTextFormField(
-                                  ///enable
-
-
-                                  ///controllerTime
-                                  controller: controllerTime,
-
-                                  ///Hint text
-                                  hintText: "Check In - Check Out",
-
-                                  ///Check empty field
-                                  funcValidation: ValidateData.validEmpty,
-
-                                  ///prefixIcon
-                                  prefixIcon: Icon(
-                                    ///Icon
-                                    Icons.calendar_today,
-
-                                    ///Icon color
-                                    color: AppColors.primaryColor,
-                                  ),
-                                ),
-                                GestureDetector(
-                                  ///onTap
-                                  onTap: () async{
-                                    final List<DateTime> picked =
-                                        await DateRagePicker.showDatePicker(
-                                      ///context
-                                      context: context,
-
-                                      ///initialFirstDate
-                                      initialFirstDate: new DateTime.now(),
-
-                                      ///initialLastDate
-                                      initialLastDate: (new DateTime.now()).add(
-                                        new Duration(days: 7),
-                                      ),
-
-                                      ///firstDate
-                                      firstDate: new DateTime(2015),
-
-                                      ///lastDate
-                                      lastDate: new DateTime(2025),
-                                    );
-                                    if (picked != null && picked.length == 2) {
-                                      ///startDay
-                                      startDay = picked[0].toIso8601String();
-
-                                      ///endDay
-                                      endDay = picked[1].toIso8601String();
-
-                                      ///controllerTime
-                                      controllerTime.text =
-                                      "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
-                                    }
-                                  },
-                                  child: Container(
-
-                                    height: 55,
-                                    color:Colors.transparent,
-                                    width:double.infinity,
-                                  ),
-                                )
-                              ],
-                            ),
-
-                            const SizedBox(
-                              height: 10,
+                              height: 15,
                             ),
 
                             TextFieldChoose(
@@ -542,7 +469,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
 
                             const SizedBox(
-                              height: 10,
+                              height: 15,
                             ),
 
                             TextFieldChoose(
@@ -573,7 +500,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
 
                             const SizedBox(
-                              height: 10,
+                              height: 15,
                             ),
 
                             TextFieldChoose(
@@ -604,12 +531,83 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
 
                             const SizedBox(
-                              height: 10,
+                              height: 15,
+                            ),
+
+                            Stack(
+                              children: [
+                                XTextFormField(
+                                  ///enable
+
+                                  ///controllerTime
+                                  controller: controllerTime,
+
+                                  ///Hint text
+                                  hintText: "Check In - Check Out",
+
+                                  ///Check empty field
+                                  funcValidation: ValidateData.validEmpty,
+
+                                  ///prefixIcon
+                                  prefixIcon: Icon(
+                                    ///Icon
+                                    Icons.calendar_today,
+
+                                    ///Icon color
+                                    color: AppColors.primaryColor,
+                                  ),
+                                ),
+                                GestureDetector(
+                                  ///onTap
+                                  onTap: () async {
+                                    final List<DateTime> picked =
+                                    await DateRagePicker.showDatePicker(
+                                      ///context
+                                      context: context,
+
+                                      ///initialFirstDate
+                                      initialFirstDate: new DateTime.now(),
+
+                                      ///initialLastDate
+                                      initialLastDate: (new DateTime.now()).add(
+                                        new Duration(days: 7),
+                                      ),
+
+                                      ///firstDate
+                                      firstDate: new DateTime(2015),
+
+                                      ///lastDate
+                                      lastDate: new DateTime(2025),
+                                    );
+                                    if (picked != null && picked.length == 2) {
+                                      ///startDay
+                                      startDay = picked[0].toIso8601String();
+
+                                      ///endDay
+                                      endDay = picked[1].toIso8601String();
+
+                                      ///controllerTime
+                                      controllerTime.text =
+                                      "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
+                                    }
+                                  },
+                                  child: Container(
+                                    height: 55,
+                                    color: Colors.transparent,
+                                    width: double.infinity,
+                                  ),
+                                )
+                              ],
+                            ),
+
+                            const SizedBox(
+                              height: 15,
                             ),
 
                             ///Search for button
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 25),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 25),
                               child: XButton(
                                 "Search Home Stay",
                                 () {
