@@ -275,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Expanded(
                   ///Flex
-                  flex: 3,
+                  flex: 4,
 
                   child: Container(
                     decoration: BoxDecoration(
