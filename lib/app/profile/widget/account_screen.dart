@@ -209,7 +209,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
                       Text(
                         ///Text
-                        "Your Contact Information",
+                        "Your Contact",
                         style: TextStyle(
                           ///Text size
                           fontSize: 15,
@@ -268,7 +268,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       XTextFormField(
                         ///controllerPass
                         controller: controllerPass,
-                        funcValidation: ValidateData.validChangePass,
+                        funcValidation: ValidateData.validPassword,
 
                         ///prefixIcon
                         prefixIcon: Icon(
