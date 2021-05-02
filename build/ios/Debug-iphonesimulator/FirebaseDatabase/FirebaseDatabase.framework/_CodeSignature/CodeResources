@@ -18,11 +18,11 @@
 		</data>
 		<key>Headers/FIRDatabaseQuery.h</key>
 		<data>
-		Oc4/w2NK7RxrGlt7K9QpjLA+Sz4=
+		rzkpm0gO0QyJjLtQjfMuRzlVpxE=
 		</data>
 		<key>Headers/FIRDatabaseReference.h</key>
 		<data>
-		3bkHccZtIlN7u1EEoYZQkJcTf7w=
+		E92680g4lOukZb8iW10yO7QwvIs=
 		</data>
 		<key>Headers/FIRMutableData.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		N9SH33LkPCGfSAKLhzdJAAXLhH0=
+		WZOzB6hylmj1GE65yawpmLL0hs8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -92,22 +92,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Oc4/w2NK7RxrGlt7K9QpjLA+Sz4=
+			rzkpm0gO0QyJjLtQjfMuRzlVpxE=
 			</data>
 			<key>hash2</key>
 			<data>
-			uNk0JeAB1xRAht4S4Xp3LkzP4hKo7b1w8V5UUddUAxw=
+			tH0AW7dDc/M5SIQ5HH73t8d/U8087eHsfF5MpTXMltg=
 			</data>
 		</dict>
 		<key>Headers/FIRDatabaseReference.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3bkHccZtIlN7u1EEoYZQkJcTf7w=
+			E92680g4lOukZb8iW10yO7QwvIs=
 			</data>
 			<key>hash2</key>
 			<data>
-			D8XAkZ3z1db2waQdzzbCKV0zbgXiT2GU0q0lfX2Gd1w=
+			XETIxNej8yKN/Pry80gp2hQ4LYyew7bJ2Cxn00uyN10=
 			</data>
 		</dict>
 		<key>Headers/FIRMutableData.h</key>

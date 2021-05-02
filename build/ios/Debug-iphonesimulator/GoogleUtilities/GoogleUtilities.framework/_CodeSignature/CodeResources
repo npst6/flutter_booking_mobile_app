@@ -16,9 +16,17 @@
 		<data>
 		7eqiPaw5GXPL0Rb2twRgpT07iNg=
 		</data>
+		<key>Headers/GULHeartbeatDateStorable.h</key>
+		<data>
+		4OtriHMHMXlkFjw9E9asMucvYBk=
+		</data>
 		<key>Headers/GULHeartbeatDateStorage.h</key>
 		<data>
-		dQjZtlXKLOHOKRu3PyACBqLdb3I=
+		P/qw3G71G5PCb2AWoGkwoMPbwkg=
+		</data>
+		<key>Headers/GULHeartbeatDateStorageUserDefaults.h</key>
+		<data>
+		yIxvciZTWSq2QppEk0lfLQw8Fno=
 		</data>
 		<key>Headers/GULKeychainStorage.h</key>
 		<data>
@@ -82,7 +90,7 @@
 		</data>
 		<key>Headers/GoogleUtilities-umbrella.h</key>
 		<data>
-		5otSjC4RafCYMyBPV29HUdOBLEE=
+		tbzE09mXhbZml+RuhHussRpAFW4=
 		</data>
 		<key>Headers/NSURLSession+GULPromises.h</key>
 		<data>
@@ -90,7 +98,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		lM1WKEnx7Je+CMXGO8vjWefMLBs=
+		e57wuJf9iMCeQpejDqfmTo1VG8U=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -132,15 +140,37 @@
 			eZpoHvYOXMgzAAEqsISAZMJGy+uKtlq+EUPNiZkZUv0=
 			</data>
 		</dict>
+		<key>Headers/GULHeartbeatDateStorable.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4OtriHMHMXlkFjw9E9asMucvYBk=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZL4+u/A2OdvbAUp+BaAuMCVi16wtPtXr+2KLKvE4JWg=
+			</data>
+		</dict>
 		<key>Headers/GULHeartbeatDateStorage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dQjZtlXKLOHOKRu3PyACBqLdb3I=
+			P/qw3G71G5PCb2AWoGkwoMPbwkg=
 			</data>
 			<key>hash2</key>
 			<data>
-			RkyYx6fyC+iLb58QnDqqepC0KSKTyr27hZerf7lE4Rg=
+			8K7xliqi/Ra8UCIsxcyw25YHd85HTBjTMXO/Lj4+Ruc=
+			</data>
+		</dict>
+		<key>Headers/GULHeartbeatDateStorageUserDefaults.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yIxvciZTWSq2QppEk0lfLQw8Fno=
+			</data>
+			<key>hash2</key>
+			<data>
+			8WE865QHH0tAjEOd/jVjNJ/AF3AbLWDNrWwDchiYNTY=
 			</data>
 		</dict>
 		<key>Headers/GULKeychainStorage.h</key>
@@ -312,11 +342,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5otSjC4RafCYMyBPV29HUdOBLEE=
+			tbzE09mXhbZml+RuhHussRpAFW4=
 			</data>
 			<key>hash2</key>
 			<data>
-			wtuEPmVpRGW5I/phSyscz4WVrVEOQJCiZxN0UcyD87E=
+			Uyi/iehAs+Io+cvwJtg4xEvdGHbCWwNzILkix1lIJnA=
 			</data>
 		</dict>
 		<key>Headers/NSURLSession+GULPromises.h</key>

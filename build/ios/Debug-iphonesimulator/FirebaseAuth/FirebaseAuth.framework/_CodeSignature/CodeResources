@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/FIRAuth.h</key>
 		<data>
-		dgRz1IOiEMiZqDhPwLVIea0x+cU=
+		N85aAVwHh1PK25eb/iDFd3Tn2dA=
 		</data>
 		<key>Headers/FIRAuthAPNSTokenType.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/FIRAuthErrors.h</key>
 		<data>
-		KJKxUu0vlmPuaPe2GMmMjiaUn9A=
+		g/y3EYJuvW06SZbawhR+JKMX384=
 		</data>
 		<key>Headers/FIRAuthSettings.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/FIREmailAuthProvider.h</key>
 		<data>
-		4H0QexXjIG87+V26CeWEbcPnpc8=
+		vt6sPSm5be2bw84Pt4uiY6ABpHQ=
 		</data>
 		<key>Headers/FIRFacebookAuthProvider.h</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>Headers/FIRUser.h</key>
 		<data>
-		5GwKXEACFv7We0Y5kf15ggeoCrc=
+		fQLzm5+R9mCxeM4vlSoHzG6RALo=
 		</data>
 		<key>Headers/FIRUserInfo.h</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Cbt93rHMPRTci2uysx9lg8ELPck=
+		x8ieFNw4GnRfVDZw64ylvFq/SnU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -177,11 +177,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dgRz1IOiEMiZqDhPwLVIea0x+cU=
+			N85aAVwHh1PK25eb/iDFd3Tn2dA=
 			</data>
 			<key>hash2</key>
 			<data>
-			ooBdzYJ2BUEDZMp5PyCnA8vhHfe57llhSGD/HYugepw=
+			DHJ8RZBjkBookTC4wuTlFZhsX+0jxLaqGwfx4ZWxiIg=
 			</data>
 		</dict>
 		<key>Headers/FIRAuthAPNSTokenType.h</key>
@@ -221,11 +221,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KJKxUu0vlmPuaPe2GMmMjiaUn9A=
+			g/y3EYJuvW06SZbawhR+JKMX384=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vp0B8gX0MKnxSaizoHNPf4OExaIEo+2aU0UA0SN47Ms=
+			wZ2t+04kPkDypXrEQwgYi5GP1y7wtE8ROc7quuKiSjE=
 			</data>
 		</dict>
 		<key>Headers/FIRAuthSettings.h</key>
@@ -265,11 +265,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4H0QexXjIG87+V26CeWEbcPnpc8=
+			vt6sPSm5be2bw84Pt4uiY6ABpHQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			kFRlb1AxUjQC0Myi+AxUNE3Uf8CPh2X+WW9aAm6NMAc=
+			jH6bITQ6CFjcvgCYzMTP++noDob43pTLOby5vV7i/EQ=
 			</data>
 		</dict>
 		<key>Headers/FIRFacebookAuthProvider.h</key>
@@ -474,11 +474,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5GwKXEACFv7We0Y5kf15ggeoCrc=
+			fQLzm5+R9mCxeM4vlSoHzG6RALo=
 			</data>
 			<key>hash2</key>
 			<data>
-			L6yjzJWFtj3T95IzAqn3a+p5bxACqE3rjllExA0OApg=
+			yG0b3zY5oe7/TP+9otCUCCe++eLtfMTQ34Th27nwSGg=
 			</data>
 		</dict>
 		<key>Headers/FIRUserInfo.h</key>

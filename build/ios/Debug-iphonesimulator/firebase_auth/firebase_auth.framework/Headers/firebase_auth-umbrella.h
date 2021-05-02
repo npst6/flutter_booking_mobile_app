@@ -10,6 +10,9 @@
 #endif
 #endif
 
+#import "FLTAuthStateChannelStreamHandler.h"
+#import "FLTIdTokenChannelStreamHandler.h"
+#import "FLTPhoneNumberVerificationStreamHandler.h"
 #import "FLTFirebaseAuthPlugin.h"
 
 FOUNDATION_EXPORT double firebase_authVersionNumber;

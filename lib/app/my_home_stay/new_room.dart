@@ -247,129 +247,11 @@ int numberRoom;
                                   ),
                                 ));
                         }),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      ///Text
-                      "Room Name",
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 15,
 
-                        ///Text spacing
-                        letterSpacing: 1,
-
-                        ///Text weight
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    XTextFormField(
-                      ///controllerName
-                      controller: controllerName,
-
-                      ///Hint text
-                      hintText: "Input Name of Room",
-
-                      ///Check empty data
-                      funcValidation: ValidateData.validEmpty,
-
-                      ///prefixIcon
-                      prefixIcon: Icon(
-                        ///Icon
-                        Icons.home_work,
-
-                        ///Icon color
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
                     const SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      ///Text
-                      "Room Description",
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 15,
 
-                        ///Text spacing
-                        letterSpacing: 1,
-
-                        ///Text weight
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    XTextFormField(
-                      ///controllerDesc
-                      controller: controllerDesc,
-
-                      ///Hint text
-                      hintText: "Input Description of Room",
-
-                      ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
-                      maxLine: 4,
-
-                      ///Check empty data
-                      funcValidation: ValidateData.validEmpty,
-
-                      ///prefixIcon
-                      prefixIcon: Icon(
-                        ///Icon
-                        Icons.note,
-
-                        ///Icon color
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      ///Text
-                      "Room Address",
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 15,
-
-                        ///Text spacing
-                        letterSpacing: 1,
-
-                        ///Text weight
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    XTextFormField(
-                      ///controllerAddress
-                      controller: controllerAddress,
-
-                      ///Hint text
-                      hintText: "Input Address of Room",
-
-                      ///prefixIcon
-                      prefixIcon: Icon(
-                        ///Icon
-                        Icons.home_rounded,
-
-                        ///Icon color
-                        color: AppColors.primaryColor,
-                      ),
-
-                      ///Check empty data
-                      funcValidation: ValidateData.validEmpty,
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
                     Text(
                       ///Text
                       "City",
@@ -384,9 +266,11 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     const SizedBox(
                       height: 10,
                     ),
+
                     StreamBuilder<List<Province>>(
                         stream: newRoomBloc.listProvinceStream,
                         builder: (context, snapshot1) {
@@ -414,9 +298,143 @@ int numberRoom;
                           } else
                             return SizedBox();
                         }),
+
                     const SizedBox(
                       height: 15,
                     ),
+
+                    Text(
+                      ///Text
+                      "Room Name",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    XTextFormField(
+                      ///controllerName
+                      controller: controllerName,
+
+                      ///Hint text
+                      hintText: "Input Name of Room",
+
+                      ///Check empty data
+                      funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
+                      prefixIcon: Icon(
+                        ///Icon
+                        Icons.home_work,
+
+                        ///Icon color
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 15,
+                    ),
+
+                    Text(
+                      ///Text
+                      "Room Address",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    XTextFormField(
+                      ///controllerAddress
+                      controller: controllerAddress,
+
+                      ///Hint text
+                      hintText: "Input Address of Room",
+
+                      ///prefixIcon
+                      prefixIcon: Icon(
+                        ///Icon
+                        Icons.home_rounded,
+
+                        ///Icon color
+                        color: AppColors.primaryColor,
+                      ),
+
+                      ///Check empty data
+                      funcValidation: ValidateData.validEmpty,
+                    ),
+
+                    const SizedBox(
+                      height: 15,
+                    ),
+
+                    Text(
+                      ///Text
+                      "Room Description",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    XTextFormField(
+                      ///controllerDesc
+                      controller: controllerDesc,
+
+                      ///Hint text
+                      hintText: "Input Description of Room",
+
+                      ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                      maxLine: 4,
+
+                      ///Check empty data
+                      funcValidation: ValidateData.validEmpty,
+
+                      ///prefixIcon
+                      prefixIcon: Icon(
+                        ///Icon
+                        Icons.note,
+
+                        ///Icon color
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 15,
+                    ),
+
                     Row(
                       children: [
                         Expanded(
@@ -439,9 +457,11 @@ int numberRoom;
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
+
                               const SizedBox(
                                 height: 10,
                               ),
+
                               XTextFormField(
                                 ///controllerPrice
                                 controller: controllerPrice,
@@ -490,9 +510,11 @@ int numberRoom;
                             ],
                           ),
                         ),
+
                         const SizedBox(
                           width: 10,
                         ),
+
                         Expanded(
                           child: Column(
                             ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
@@ -501,7 +523,7 @@ int numberRoom;
                             children: [
                               Text(
                                 ///Text
-                                "Discount",
+                                "Room Discount",
                                 style: TextStyle(
                                   ///Text size
                                   fontSize: 15,
@@ -513,9 +535,11 @@ int numberRoom;
                                   letterSpacing: 1,
                                 ),
                               ),
+
                               const SizedBox(
                                 height: 10,
                               ),
+
                               XTextFormField(
                                 ///controllerDiscountPercent
                                 controller: controllerDiscountPercent,
@@ -557,9 +581,145 @@ int numberRoom;
                         ),
                       ],
                     ),
+
                     const SizedBox(
                       height: 15,
                     ),
+
+                    Text(
+                      ///Text
+                      "Free Time",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    GestureDetector(
+                      ///onTap
+                      onTap: () async {
+                        ///DateTime
+                        final List<DateTime> picked =
+                        await DateRagePicker.showDatePicker(
+
+                          ///context
+                            context: context,
+
+                            ///initialFirstDate
+                            initialFirstDate: new DateTime.now(),
+
+                            ///initialLastDate
+                            initialLastDate: (new DateTime.now())
+                                .add(new Duration(days: 7)),
+
+                            ///firstDate
+                            firstDate: new DateTime(2015),
+
+                            ///lastDate
+                            lastDate: new DateTime(2022));
+
+                        if (picked != null && picked.length == 2) {
+                          ///startDay
+                          startDay = picked[0].toIso8601String();
+
+                          ///endDay
+                          endDay = picked[1].toIso8601String();
+
+                          ///controllerFreeTime
+                          controllerFreeTime.text =
+                          "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
+                        }
+                      },
+
+                      child: XTextFormField(
+                        ///enable
+                        enable: false,
+
+                        ///controllerFreeTime
+                        controller: controllerFreeTime,
+
+                        ///Hint text
+                        hintText: "Free Time in Room",
+
+                        ///prefixIcon
+                        prefixIcon: Icon(
+                          ///Icon
+                          Icons.calendar_today,
+
+                          ///Icon color
+                          color: AppColors.primaryColor,
+                        ),
+
+                        ///Check empty data
+                        funcValidation: ValidateData.validEmpty,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 15,
+                    ),
+
+                    Text(
+                      ///Text
+                      "City",
+                      style: TextStyle(
+                        ///Text size
+                        fontSize: 15,
+
+                        ///Text spacing
+                        letterSpacing: 1,
+
+                        ///Text weight
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    StreamBuilder<List<Province>>(
+                        stream: newRoomBloc.listProvinceStream,
+                        builder: (context, snapshot1) {
+                          if (snapshot1.hasData) {
+                            List<ItemModel> items = [];
+                            snapshot1.data.forEach((element) {
+                              items.add(new ItemModel(
+                                  id: element.code, name: element.name));
+                            });
+                            return TextFieldChoose(
+                              ///Icon
+                              iconData: Icons.location_on,
+
+                              ///callBack
+                              callBack: (val) {
+                                controllerCity.text = val;
+                              },
+
+                              ///Hint text
+                              hintText: "Where Your City ?",
+
+                              ///Item
+                              items: items,
+                            );
+                          } else
+                            return SizedBox();
+                        }),
+
+                    const SizedBox(
+                      height: 15,
+                    ),
+
                     Text(
                       ///Price
                       "Rooms",
@@ -574,9 +734,11 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     const SizedBox(
                       height: 10,
                     ),
+
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.room_preferences,
@@ -622,9 +784,11 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     const SizedBox(
                       height: 10,
                     ),
+
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.people,
@@ -651,6 +815,7 @@ int numberRoom;
                         ItemModel(id: '10', name: "10"),
                       ],
                     ),
+
                     const SizedBox(
                       height: 15,
                     ),
@@ -669,9 +834,11 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     const SizedBox(
                       height: 10,
                     ),
+
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.emoji_people,
@@ -698,89 +865,12 @@ int numberRoom;
                         ItemModel(id: '09', name: "09"),
                       ],
                     ),
-
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      ///Text
-                      "Free Time",
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 15,
-
-                        ///Text weight
-                        fontWeight: FontWeight.w500,
-
-                        ///Text spacing
-                        letterSpacing: 1,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    GestureDetector(
-                      ///onTap
-                      onTap: () async {
-                        ///DateTime
-                        final List<DateTime> picked =
-                            await DateRagePicker.showDatePicker(
-
-                                ///context
-                                context: context,
-
-                                ///initialFirstDate
-                                initialFirstDate: new DateTime.now(),
-
-                                ///initialLastDate
-                                initialLastDate: (new DateTime.now())
-                                    .add(new Duration(days: 7)),
-
-                                ///firstDate
-                                firstDate: new DateTime(2015),
-
-                                ///lastDate
-                                lastDate: new DateTime(2022));
-                        if (picked != null && picked.length == 2) {
-                          ///startDay
-                          startDay = picked[0].toIso8601String();
-
-                          ///endDay
-                          endDay = picked[1].toIso8601String();
-
-                          ///controllerFreeTime
-                          controllerFreeTime.text =
-                              "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
-                        }
-                      },
-                      child: XTextFormField(
-                        ///enable
-                        enable: false,
-
-                        ///controllerFreeTime
-                        controller: controllerFreeTime,
-
-                        ///Hint text
-                        hintText: "Free Time in Room",
-
-                        ///prefixIcon
-                        prefixIcon: Icon(
-                          ///Icon
-                          Icons.calendar_today,
-
-                          ///Icon color
-                          color: AppColors.primaryColor,
-                        ),
-
-                        ///Check empty data
-                        funcValidation: ValidateData.validEmpty,
-                      ),
-                    ),
                   ],
                 ),
               ),
             ),
           ),
+
           StreamBuilder<UIState>(
             stream: newRoomBloc.newRoomStateStream,
             builder: (context, snapshot) {

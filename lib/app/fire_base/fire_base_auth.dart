@@ -90,10 +90,11 @@ class FirAuth {
 
   ///Take account
   void getUserByUID(Function callBack) async {
-    var firebaseUser = FirebaseAuth.instance.currentUser;
+    ///var firebaseUser = FirebaseAuth.instance.currentUser;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     await fireStoreInstance.collection("users").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
-        if (firebaseUser.email == element.data()["email"]) {
+        if (prefs.getString("uid") == element.id) {
           Account account = Account.formJson(element.data(), element.id);
           callBack(account);
         }
@@ -175,10 +176,11 @@ class FirAuth {
 
   ///Get home stay
   void getHomeStay(Function callBack) async {
-    var firebaseUser = FirebaseAuth.instance.currentUser;
+    ///var firebaseUser = FirebaseAuth.instance.currentUser;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     await fireStoreInstance.collection("home_stay").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
-        if (firebaseUser.uid == element.id) {
+        if (prefs.getString("uid") == element.id) {
           MyHomeStay myHomeStay = MyHomeStay.formJson(element.data());
           callBack(myHomeStay);
         }
@@ -221,22 +223,24 @@ class FirAuth {
   }
 
   ///Update info account
-  void updateInfoAccount(String name, String phone) {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
+  void updateInfoAccount(String name, String phone) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    ///final firebaseUser = FirebaseAuth.instance.currentUser;
     fireStoreInstance
         .collection("users")
-        .doc(firebaseUser.uid)
+        .doc(prefs.getString("uid"))
         .update({"name": name, "phone": phone}).then((_) {
       FlutterToast().showToast("Success!");
     });
   }
 
   ///Update avatar
-  void updateAvatar(String url) {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
+  void updateAvatar(String url) async {
+    ///final firebaseUser = FirebaseAuth.instance.currentUser;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     fireStoreInstance
         .collection("users")
-        .doc(firebaseUser.uid)
+        .doc(prefs.getString("uid"))
         .update({"avatar": url}).then((_) {
       FlutterToast().showToast("Success!");
     });
@@ -251,10 +255,11 @@ class FirAuth {
       int numberRoom,
       double totalPrice,
       Function onSuccess,
-      Function(String) onRegisterError) {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
+      Function(String) onRegisterError) async {
+    ///final firebaseUser = FirebaseAuth.instance.currentUser;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     fireStoreInstance.collection("order").add({
-      "id_user": firebaseUser.uid,
+      "id_user": prefs.getString("uid"),
       "id_room": idRoom,
       "check_in": checkIn,
       "check_out": checkOut,
@@ -289,9 +294,10 @@ class FirAuth {
       String bankNumber,
       String accountName,
       Function onSuccess,
-      Function(String) onRegisterError) {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
-    fireStoreInstance.collection("home_stay").doc(firebaseUser.uid).set({
+      Function(String) onRegisterError) async {
+    ///final firebaseUser = FirebaseAuth.instance.currentUser;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    fireStoreInstance.collection("home_stay").doc(prefs.getString("uid")).set({
       "name": name.toLowerCase(),
       "url_image": urlImage,
       "phone": phone,
@@ -300,7 +306,7 @@ class FirAuth {
       "bank": {
         "name": bankName,
         "number": bankNumber,
-        "account_name": accountName
+        "account_name": accountName,
       },
       'create_day': DateTime.now().toIso8601String()
     }).then((e) {
@@ -318,9 +324,10 @@ class FirAuth {
       String bankNumber,
       String accountName,
       Function onSuccess,
-      Function(String) onRegisterError) {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
-    fireStoreInstance.collection("home_stay").doc(firebaseUser.uid).update({
+      Function(String) onRegisterError) async {
+    ///final firebaseUser = FirebaseAuth.instance.currentUser;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    fireStoreInstance.collection("home_stay").doc(prefs.getString("uid")).update({
       "name": name.toLowerCase(),
       "url_image": urlImage,
       "phone": phone,
@@ -336,11 +343,12 @@ class FirAuth {
   }
 
   ///Delete home stay
-  void deleteMyHomeStay(Function onSuccess, Function onRegisterError) {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
+  void deleteMyHomeStay(Function onSuccess, Function onRegisterError) async {
+    ///final firebaseUser = FirebaseAuth.instance.currentUser;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     fireStoreInstance.collection("room").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
-        if (element.data()["id_hotel"] == firebaseUser.uid) {
+        if (element.data()["id_hotel"] == prefs.getString("uid")) {
           fireStoreInstance
               .collection("room")
               .doc(element.id)
@@ -355,7 +363,7 @@ class FirAuth {
       });
       fireStoreInstance
           .collection("home_stay")
-          .doc(firebaseUser.uid)
+          .doc(prefs.getString("uid"))
           .delete()
           .then((e) {
         FlutterToast().showToast("Success!");
@@ -382,8 +390,9 @@ class FirAuth {
       double discount,
       int numberRoom,
       Function onSuccess,
-      Function(String) onRegisterError) {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
+      Function(String) onRegisterError) async {
+    ///final firebaseUser = FirebaseAuth.instance.currentUser;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     fireStoreInstance.collection("room").add({
       'name_room': name.toLowerCase(),
       'start_day': startDay,
@@ -397,7 +406,7 @@ class FirAuth {
       'desc': desc,
       'create_day': DateTime.now().toIso8601String(),
       'money': price,
-      "id_hotel": firebaseUser.uid,
+      "id_hotel": prefs.getString("uid"),
       'url_image': urlImage,
       'service': [1, 2, 3, 4],
       'discount': discount,
@@ -409,8 +418,8 @@ class FirAuth {
 
   ///Update room
   void updateRoom(
-      String urlImage,    int numberRoom,
-
+      String urlImage,
+      int numberRoom,
       String name,
       String id,
       String startDay,
@@ -423,8 +432,9 @@ class FirAuth {
       double price,
       double discount,
       Function onSuccess,
-      Function(String) onRegisterError) {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
+      Function(String) onRegisterError) async {
+    ///final firebaseUser = FirebaseAuth.instance.currentUser;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     fireStoreInstance.collection("room").doc(id).update({
       'name_room': name.toLowerCase(),
       'start_day': startDay,
@@ -438,7 +448,7 @@ class FirAuth {
       'desc': desc,
       'create_day': DateTime.now().toIso8601String(),
       'money': price,
-      "id_hotel": firebaseUser.uid,
+      "id_hotel": prefs.getString("uid"),
       'url_image': urlImage,
       'service': [1, 2, 3, 4],
       'discount': discount,
@@ -463,13 +473,13 @@ class FirAuth {
   ///Get list room by ID room
   void getListRoomByID(Function callBack, {String id}) async {
     try {
-      var firebaseUser = FirebaseAuth.instance.currentUser;
-      String uid = id ?? firebaseUser.uid;
+      ///var firebaseUser = FirebaseAuth.instance.currentUser;
+      ///String uid = id ?? firebaseUser.uid;
       List<Room> listRooms = [];
-
+      SharedPreferences prefs = await SharedPreferences.getInstance();
       await fireStoreInstance.collection("room").get().then((querySnapshot) {
         querySnapshot.docs.forEach((element) {
-          if (element.data()["id_hotel"] == uid)
+          if (element.data()["id_hotel"] == (id ?? prefs.getString("uid")))
             listRooms.add(Room.formJson(element.data(), element.id));
         });
       });
@@ -530,11 +540,12 @@ class FirAuth {
 
   ///Get list transaction
   void getListTransaction(Function callBack) async {
-    var firebaseUser = FirebaseAuth.instance.currentUser;
+    ///var firebaseUser = FirebaseAuth.instance.currentUser;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     List<Transactions> listTransaction = [];
     await fireStoreInstance.collection("order").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
-        if (element.data()["id_user"] == firebaseUser.uid) {
+        if (element.data()["id_user"] == prefs.getString("uid")) {
           try {
             listTransaction
                 .add(Transactions.formJson(element.data(), element.id));

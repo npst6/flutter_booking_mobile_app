@@ -120,8 +120,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       children: [
                         GestureDetector(
-                          onTap: () {
-                            Navigator.push(
+                          onTap: () async {
+                            await Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
@@ -129,6 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 },
                               ),
                             );
+                            homeBloc.getAccount();
                           },
                           child: StreamBuilder<Account>(
                             stream: homeBloc.accountStream,

@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/SDImageCacheConfig.h</key>
 		<data>
-		j3eTgTfDzklyUqv/4fFTT2lOCEQ=
+		354JE1Fab0xWduqhNWCDsyB57s0=
 		</data>
 		<key>Headers/SDImageCacheDefine.h</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Headers/SDImageLoader.h</key>
 		<data>
-		14MPNWq9MOzhV6TbNUJ9sumTfjM=
+		KaMJXtaQu+946SxQAvMGlmFuBwI=
 		</data>
 		<key>Headers/SDImageLoadersManager.h</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>Headers/SDWebImageDefine.h</key>
 		<data>
-		SlzrD8Hdg4jFA88jyjkSkNdU/Hk=
+		RrXhdlSA6JSwMh7BF5jl1BxYuUY=
 		</data>
 		<key>Headers/SDWebImageDownloader.h</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>Headers/SDWebImageDownloaderOperation.h</key>
 		<data>
-		kxdMnAaohZULMaju3DZhqHTZ6/c=
+		93ZgjLItxK72gftjqBSS4ZmbDjI=
 		</data>
 		<key>Headers/SDWebImageDownloaderRequestModifier.h</key>
 		<data>
@@ -246,7 +246,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		CDF885IWcIkugHhYSdvyfVrDlj4=
+		yKqWy2jSzn7taGVmy4kbxtdOO0c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -290,7 +290,7 @@
 		</data>
 		<key>PrivateHeaders/SDInternalMacros.h</key>
 		<data>
-		b4xO8RfcXmQGQ/dWXyKytChYc5w=
+		9sUyCkVoPgd/Kq7Vm1gzxurW7z8=
 		</data>
 		<key>PrivateHeaders/SDWeakProxy.h</key>
 		<data>
@@ -458,11 +458,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			j3eTgTfDzklyUqv/4fFTT2lOCEQ=
+			354JE1Fab0xWduqhNWCDsyB57s0=
 			</data>
 			<key>hash2</key>
 			<data>
-			O/MZL0SB+jgPbAYR/kE8thx3H5a8tLHKeEI8UQy79Zs=
+			D8pr++U/h/brGK0Xxfbe6jZXgigJAjcE0CgeomC85hs=
 			</data>
 		</dict>
 		<key>Headers/SDImageCacheDefine.h</key>
@@ -590,11 +590,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			14MPNWq9MOzhV6TbNUJ9sumTfjM=
+			KaMJXtaQu+946SxQAvMGlmFuBwI=
 			</data>
 			<key>hash2</key>
 			<data>
-			eMWfdIku10xHyEyh1c7k5TCnSBEFWngok2wR02Np58Q=
+			UCVVBHetaPMe4/pJbMxBg/4W5nhSKeY3N0z7qCWEYZ0=
 			</data>
 		</dict>
 		<key>Headers/SDImageLoadersManager.h</key>
@@ -689,11 +689,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SlzrD8Hdg4jFA88jyjkSkNdU/Hk=
+			RrXhdlSA6JSwMh7BF5jl1BxYuUY=
 			</data>
 			<key>hash2</key>
 			<data>
-			8i0c2GyJJWOQhyyN1xHxjgf4oyZvgF/N+/tVaBFaS9Q=
+			cCKYItESd9HqSQMu1bnaAo0Lh0yRszygkdqzCImxwqw=
 			</data>
 		</dict>
 		<key>Headers/SDWebImageDownloader.h</key>
@@ -733,11 +733,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kxdMnAaohZULMaju3DZhqHTZ6/c=
+			93ZgjLItxK72gftjqBSS4ZmbDjI=
 			</data>
 			<key>hash2</key>
 			<data>
-			IX5AwJ/DVpSDWwhBfmmJCO9Hkxi1bPKgWraJj0weaaE=
+			/eFsy/slG4gEn14kFdgi62Dc1/9G3BkhwyZZATnlk/M=
 			</data>
 		</dict>
 		<key>Headers/SDWebImageDownloaderRequestModifier.h</key>
@@ -1085,11 +1085,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b4xO8RfcXmQGQ/dWXyKytChYc5w=
+			9sUyCkVoPgd/Kq7Vm1gzxurW7z8=
 			</data>
 			<key>hash2</key>
 			<data>
-			QAZSlnS8T0XE3+7vg/1aei+qH/l+QuP0A57MzW2G9zI=
+			owVZyoZl9nP3V0tvjbmM2xXszT0jZE98n6aH6xe+YKY=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SDWeakProxy.h</key>

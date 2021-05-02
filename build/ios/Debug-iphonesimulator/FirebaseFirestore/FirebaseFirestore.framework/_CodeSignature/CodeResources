@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/FIRFirestore.h</key>
 		<data>
-		5MOh8Y2dOoJrIzKcKEWGY+kY+50=
+		SXgnoyjbXCr8cONFk0tQQY+Ui34=
 		</data>
 		<key>Headers/FIRFirestoreErrors.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/FIRFirestoreSettings.h</key>
 		<data>
-		kc7cRm1apGRLy/D3UZbgitqL3b4=
+		0SIPlJxZeahl3Xkiem4d4u6Ea48=
 		</data>
 		<key>Headers/FIRFirestoreSource.h</key>
 		<data>
@@ -52,9 +52,13 @@
 		<data>
 		mszZW0y1N7sAtmwfCyE19+rRevg=
 		</data>
+		<key>Headers/FIRLoadBundleTask.h</key>
+		<data>
+		yh3dvzHKny00cFWBXrGyCXJHEkY=
+		</data>
 		<key>Headers/FIRQuery.h</key>
 		<data>
-		Ilt78qr54IXF+sCTH7KseneZzRY=
+		1X/nnQ1cNvFxFSVkshDrQ2d5uMM=
 		</data>
 		<key>Headers/FIRQuerySnapshot.h</key>
 		<data>
@@ -78,15 +82,15 @@
 		</data>
 		<key>Headers/FirebaseFirestore-umbrella.h</key>
 		<data>
-		1jtP4gfMqeGzGupBWgqswxC/BUc=
+		CVMkZigtWueIuWJkK4HGrHbguwA=
 		</data>
 		<key>Headers/FirebaseFirestore.h</key>
 		<data>
-		zgGKj5LCLxjMxv62jqltcz7CvHc=
+		zxy48uX8XnezIbFQ4SnD+8YeWmk=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		93trDMjqr4HLVicOcdZJAVJlhbI=
+		T1N2Ml5vrCCRbiSz8YYNy6T2ykE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -165,11 +169,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5MOh8Y2dOoJrIzKcKEWGY+kY+50=
+			SXgnoyjbXCr8cONFk0tQQY+Ui34=
 			</data>
 			<key>hash2</key>
 			<data>
-			5yqM0UFaz5tPlceP+4D/DF5IE/Xk/hnIUuBURCC6HNM=
+			B/KTFsuzQWgox/DR/CrO5KTYZYDz4ex4Mta6HyAfIuc=
 			</data>
 		</dict>
 		<key>Headers/FIRFirestoreErrors.h</key>
@@ -187,11 +191,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kc7cRm1apGRLy/D3UZbgitqL3b4=
+			0SIPlJxZeahl3Xkiem4d4u6Ea48=
 			</data>
 			<key>hash2</key>
 			<data>
-			5BxxTcADZQtGaINIx2io5pG1lJlUDUrS6IMuIQa5PGw=
+			4pUsD8qwUBj4gsZpZB5gfznSYxRFPncKaaQt0oXZ5uo=
 			</data>
 		</dict>
 		<key>Headers/FIRFirestoreSource.h</key>
@@ -227,15 +231,26 @@
 			YtCR0aiVJ4Cx9itRMbWS7sRnbbjLObJITf9MVzwCztU=
 			</data>
 		</dict>
+		<key>Headers/FIRLoadBundleTask.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yh3dvzHKny00cFWBXrGyCXJHEkY=
+			</data>
+			<key>hash2</key>
+			<data>
+			okL3bHrtkjo779DPVOs0e7Qd3WCpKhFV+dXRcHhSLP0=
+			</data>
+		</dict>
 		<key>Headers/FIRQuery.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ilt78qr54IXF+sCTH7KseneZzRY=
+			1X/nnQ1cNvFxFSVkshDrQ2d5uMM=
 			</data>
 			<key>hash2</key>
 			<data>
-			nJh98KP+qy2vtNnb29hJwm+m1YXpz/F21O4ja8Yc0fI=
+			4QyrVpV46MKUmXa6+VgLfXtzJ41k3ZRbRl3HB2ctMfQ=
 			</data>
 		</dict>
 		<key>Headers/FIRQuerySnapshot.h</key>
@@ -297,22 +312,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1jtP4gfMqeGzGupBWgqswxC/BUc=
+			CVMkZigtWueIuWJkK4HGrHbguwA=
 			</data>
 			<key>hash2</key>
 			<data>
-			MmxthSORAaD28ZjTQjQha5IQtid9Dsbo7dCwXtXsYww=
+			FUYgu66KiVPBdiPLimGhmflfA1LADS3uUELoMd0pYRo=
 			</data>
 		</dict>
 		<key>Headers/FirebaseFirestore.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zgGKj5LCLxjMxv62jqltcz7CvHc=
+			zxy48uX8XnezIbFQ4SnD+8YeWmk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Mh4O7hlC7Hhsec4TemfklSdG3Cp/3FshWs9NU6zw3is=
+			H+WRPIkeSp+X2kO1I1vj5RrUQh4Toy/gIkPSN/5pVnI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
