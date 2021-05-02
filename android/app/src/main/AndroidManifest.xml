@@ -2,7 +2,7 @@
     package="com.example.flutter_booking_mobile_app">
    <application
         android:label="flutter_booking_mobile_app"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
