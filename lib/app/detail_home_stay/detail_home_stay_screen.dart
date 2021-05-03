@@ -205,16 +205,18 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                               const SizedBox(
                                 width: 10,
                               ),
-                              Text(
-                                ///Text
-                                "${widget.room.address}, ${widget.room.city}",
+                              Expanded(
+                                child: Text(
+                                  ///Text
+                                  "${widget.room.address}, ${widget.room.city}",
 
-                                ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
-                                maxLines: 2,
+                                  ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
+                                  maxLines: 2,
 
-                                style: TextStyle(
-                                  ///Text spacing
-                                  letterSpacing: .6,
+                                  style: TextStyle(
+                                    ///Text spacing
+                                    letterSpacing: .6,
+                                  ),
                                 ),
                               ),
                             ],

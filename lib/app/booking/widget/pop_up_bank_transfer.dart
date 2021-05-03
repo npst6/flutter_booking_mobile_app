@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/base/x_button.dart';
 import 'package:flutter_booking_mobile_app/model/my_home_stay.dart';
@@ -113,11 +114,11 @@ class PopUpBankTransfer extends StatelessWidget {
                   children: [
                     Text(
                       ///Text
-                      "Bank: ",
+                      "Bank: ".toUpperCase(),
 
                       style: TextStyle(
                         ///Text size
-                        fontSize: 17,
+                        fontSize: 16,
 
                         ///Text weight
                         fontWeight: FontWeight.w700,
@@ -129,7 +130,7 @@ class PopUpBankTransfer extends StatelessWidget {
 
                       style: TextStyle(
                         ///Text size
-                        fontSize: 16,
+                        fontSize: 14,
 
                         ///Text weight
                         fontWeight: FontWeight.w700,
@@ -147,19 +148,7 @@ class PopUpBankTransfer extends StatelessWidget {
                   children: [
                     Text(
                       ///Text
-                      "Name: ",
-
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 17,
-
-                        ///Text weight
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Text(
-                      ///Text
-                      myHomeStay.accountNameBank.toUpperCase(),
+                      "Name: ".toUpperCase(),
 
                       style: TextStyle(
                         ///Text size
@@ -167,6 +156,27 @@ class PopUpBankTransfer extends StatelessWidget {
 
                         ///Text weight
                         fontWeight: FontWeight.w700,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      width: 10,
+                    ),
+
+                    Expanded(
+                      child: Text(
+                        ///Text
+                        myHomeStay.accountNameBank.toUpperCase(),
+
+                        textAlign: TextAlign.end,
+
+                        style: TextStyle(
+                          ///Text size
+                          fontSize: 14,
+
+                          ///Text weight
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ],
@@ -181,11 +191,11 @@ class PopUpBankTransfer extends StatelessWidget {
                   children: [
                     Text(
                       ///Text
-                      "Bank Number: ",
+                      "Bank Number: ".toUpperCase(),
 
                       style: TextStyle(
                         ///Text size
-                        fontSize: 17,
+                        fontSize: 16,
 
                         ///Text weight
                         fontWeight: FontWeight.w700,
@@ -197,7 +207,7 @@ class PopUpBankTransfer extends StatelessWidget {
 
                       style: TextStyle(
                         ///Text size
-                        fontSize: 16,
+                        fontSize: 14,
 
                         ///Text weight
                         fontWeight: FontWeight.w700,

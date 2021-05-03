@@ -450,7 +450,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ///Left
             left: 5,
 
-            child: GestureDetector(
+            child: InkWell(
               ///onTap
               onTap: () {
                 Navigator.pop(context);
