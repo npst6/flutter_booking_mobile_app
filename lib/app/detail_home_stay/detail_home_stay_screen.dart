@@ -20,8 +20,12 @@ class DetailHomeStayScreen extends StatefulWidget {
 
 /// _DetailHomeStayScreenState State<>
 class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
+  ///themeData
   ThemeData themeData;
+
+  ///detailBloc
   DetailBloc detailBloc;
+
   @override
   void initState() {
     detailBloc = new DetailBloc()..getMyHomeStay(widget.room.idHotel);
@@ -75,11 +79,12 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
 
                         children: [
                           GestureDetector(
+                            ///onTap
                             onTap: () {
                               Navigator.pop(context);
                             },
-                            child: Container(
 
+                            child: Container(
                               ///Container height
                               height: 40,
 
@@ -116,6 +121,8 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
               ],
             ),
           ),
+
+          ///MyHomeStay
           StreamBuilder<MyHomeStay>(
             stream: detailBloc.myHomeStayStream,
             builder: (context, snapshot1) {
@@ -125,6 +132,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
 
                 ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                 crossAxisAlignment: CrossAxisAlignment.start,
+
                 children: [
                   Container(
                     ///Alignment
@@ -132,31 +140,40 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
 
                     ///Container height
                     height: MediaQuery.of(context).size.height * 0.5,
+
+                    ///decoration
                     decoration: BoxDecoration(
                       ///Border box
                       borderRadius: BorderRadius.only(
+                        ///topRight
                         topRight: Radius.circular(30),
+
+                        ///topLeft
                         topLeft: Radius.circular(30),
                       ),
 
                       ///Color box
                       color: themeData.scaffoldBackgroundColor,
                     ),
+
                     child: Padding(
                       ///Padding
                       padding: const EdgeInsets.fromLTRB(30, 25, 30, 5),
+
                       child: Column(
                         ///Using mainAxisAlignment in a Column will align its children vertically.
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                         ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                         crossAxisAlignment: CrossAxisAlignment.start,
+
                         children: [
                           Text(
                             ///Text
                             snapshot1.data != null
                                 ? snapshot1.data.name.toUpperCase()
                                 : "".toUpperCase(),
+
                             style: TextStyle(
                               ///Text weight
                               fontWeight: FontWeight.w900,
@@ -168,9 +185,11 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                               letterSpacing: 1.5,
                             ),
                           ),
+
                           const SizedBox(
                             height: 5,
                           ),
+
                           Row(
                             children: [
                               Icon(
@@ -192,6 +211,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
 
                                 ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                                 maxLines: 2,
+
                                 style: TextStyle(
                                   ///Text spacing
                                   letterSpacing: .6,
@@ -199,9 +219,11 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                               ),
                             ],
                           ),
+
                           const SizedBox(
                             height: 10,
                           ),
+
                           Row(
                             ///Using crossAxisAlignment in the Row allows you to determine how its children are aligned vertically.
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -227,58 +249,65 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                                   ),
                                 ),
                               ),
-
                               Expanded(
-                                  flex: 2,
-                                  child: Row(
-                                    ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Icon(
-                                        ///Icon
-                                        Icons.star,
+                                ///Flex
+                                flex: 2,
 
-                                        ///Icon color
-                                        color: Colors.yellow,
-                                      ),
-                                      Icon(
-                                        ///Icon
-                                        Icons.star,
+                                child: Row(
+                                  ///Using mainAxisAlignment in the Row allows you to align the row widgets horizontally.
+                                  mainAxisAlignment: MainAxisAlignment.end,
 
-                                        ///Icon color
-                                        color: Colors.yellow,
-                                      ),
-                                      Icon(
-                                        ///Icon
-                                        Icons.star,
+                                  children: [
+                                    Icon(
+                                      ///Icon
+                                      Icons.star,
 
-                                        ///Icon color
-                                        color: Colors.yellow,
-                                      ),
-                                      Icon(
-                                        ///Icon
-                                        Icons.star,
+                                      ///Icon color
+                                      color: Colors.yellow,
+                                    ),
 
-                                        ///Icon color
-                                        color: Colors.yellow,
-                                      ),
-                                      Icon(
-                                        ///Icon
-                                        Icons.star_half,
+                                    Icon(
+                                      ///Icon
+                                      Icons.star,
 
-                                        ///Icon color
-                                        color: Colors.yellow,
-                                      ),
-                                      // Text(
-                                      //   ///Text
-                                      //   "5",
-                                      //   style: TextStyle(
-                                      //     ///Text weight
-                                      //     fontWeight: FontWeight.w700,
-                                      //   ),
-                                      // ),
-                                    ],
-                                  )),
+                                      ///Icon color
+                                      color: Colors.yellow,
+                                    ),
+
+                                    Icon(
+                                      ///Icon
+                                      Icons.star,
+
+                                      ///Icon color
+                                      color: Colors.yellow,
+                                    ),
+
+                                    Icon(
+                                      ///Icon
+                                      Icons.star,
+
+                                      ///Icon color
+                                      color: Colors.yellow,
+                                    ),
+
+                                    Icon(
+                                      ///Icon
+                                      Icons.star_half,
+
+                                      ///Icon color
+                                      color: Colors.yellow,
+                                    ),
+                                    // Text(
+                                    //   ///Text
+                                    //   "5",
+                                    //   style: TextStyle(
+                                    //     ///Text weight
+                                    //     fontWeight: FontWeight.w700,
+                                    //   ),
+                                    // ),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                           const SizedBox(
@@ -289,6 +318,7 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
                               child: Column(
                                 ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                                 crossAxisAlignment: CrossAxisAlignment.start,
+
                                 children: [
                                   Text(
                                     ///Text
@@ -337,14 +367,19 @@ class _DetailHomeStayScreenState extends State<DetailHomeStayScreen> {
 
                           ///Book now button
                           XButton(
+                            ///Text
                             "Book now",
                             () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
+                                    ///ReturnBookingScreen
                                     return BookingScreen(
+                                      ///room
                                       room: widget.room,
+
+                                      ///myHomeStay
                                       myHomeStay: snapshot1.data,
                                     );
                                   },

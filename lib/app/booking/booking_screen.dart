@@ -51,20 +51,30 @@ class _BookingScreenState extends State<BookingScreen> {
 
   @override
   void initState() {
+    ///controllerCheckIn
     controllerCheckIn = new TextEditingController(
         text:
             "${DateTime.parse(OrderUtils().startDay).day}/${DateTime.parse(OrderUtils().startDay).month}/${DateTime.parse(OrderUtils().startDay).year}");
+
+    ///controllerCheckOut
     controllerCheckOut = new TextEditingController(
         text:
             "${DateTime.parse(OrderUtils().endDay).day}/${DateTime.parse(OrderUtils().endDay).month}/${DateTime.parse(OrderUtils().endDay).year}");
+
+    ///controllerNight
     controllerNight = new TextEditingController(
         text:
             "${DateTime.parse(OrderUtils().endDay).difference(DateTime.parse(OrderUtils().startDay)).inDays}");
+
+    ///controllerNumberRoom
     controllerNumberRoom =
         new TextEditingController(text: "${OrderUtils().numberRoom}");
+
+    ///controllerType
     controllerType = new TextEditingController(
         text:
             "${widget.room.numberAdults} Adults - ${widget.room.numberChild} Child");
+
     super.initState();
   }
 
@@ -87,9 +97,11 @@ class _BookingScreenState extends State<BookingScreen> {
         elevation: 0,
 
         leading: GestureDetector(
+          ///onTap
           onTap: () {
             Navigator.pop(context);
           },
+
           child: Padding(
             ///Padding
             padding: const EdgeInsets.all(10),
@@ -305,6 +317,7 @@ class _BookingScreenState extends State<BookingScreen> {
                           height: 10,
                         ),
                         XTextFormField(
+                          ///enable
                           enable: false,
 
                           ///controllerCheckIn
@@ -434,6 +447,7 @@ class _BookingScreenState extends State<BookingScreen> {
                           height: 10,
                         ),
                         XTextFormField(
+                          ///enable
                           enable: false,
 
                           ///controllerNumberRoom
@@ -459,6 +473,7 @@ class _BookingScreenState extends State<BookingScreen> {
               Text(
                 ///Text
                 "Adults & Children",
+
                 style: TextStyle(
                   ///Text color
                   color: Colors.grey,
@@ -471,10 +486,11 @@ class _BookingScreenState extends State<BookingScreen> {
                 height: 10,
               ),
               XTextFormField(
+                ///enable
+                enable: false,
+
                 ///controllerType
                 controller: controllerType,
-
-                enable: false,
 
                 ///Hint text
                 hintText: "Two Adults - One Children",
@@ -521,8 +537,14 @@ class _BookingScreenState extends State<BookingScreen> {
                     ItemDetailsTax(
                       ///title
                       title: "Per night",
+
+                      ///isShowNumber
                       isShowNumber: true,
+
+                      ///number
                       number: OrderUtils().numberRoom,
+
+                      ///price
                       price: (widget.room.money -
                           widget.room.money * widget.room.discount / 100),
                     ),
@@ -551,6 +573,7 @@ class _BookingScreenState extends State<BookingScreen> {
                     Text(
                       ///Text
                       "Total",
+
                       style: TextStyle(
                         ///Text weight
                         fontWeight: FontWeight.w700,
@@ -613,6 +636,7 @@ class _BookingScreenState extends State<BookingScreen> {
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
         return Center(
+          ///PopUpBankTransfer
           child: PopUpBankTransfer(
             themeData,
             widget.myHomeStay,
@@ -622,28 +646,33 @@ class _BookingScreenState extends State<BookingScreen> {
                 int.parse(controllerNight.text),
             () {
               FirAuth().createOrder(
-                  widget.room.idRoom,
-                  controllerCheckIn.text,
-                  controllerCheckOut.text,
-                  int.parse(controllerNight.text),
-                  int.parse(controllerNumberRoom.text),
-                  (widget.room.money -
-                          widget.room.money * widget.room.discount / 100) *
-                      OrderUtils().numberRoom *
-                      int.parse(controllerNight.text), () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return HistoryBookingScreen();
-                    },
-                  ),
-                );
-              }, (val) {});
+                widget.room.idRoom,
+                controllerCheckIn.text,
+                controllerCheckOut.text,
+                int.parse(controllerNight.text),
+                int.parse(controllerNumberRoom.text),
+                (widget.room.money -
+                        widget.room.money * widget.room.discount / 100) *
+                    OrderUtils().numberRoom *
+                    int.parse(controllerNight.text),
+                () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return HistoryBookingScreen();
+                      },
+                    ),
+                  );
+                },
+                (val) {},
+              );
             },
           ),
         );
       },
+
+      ///isScrollControlled
       isScrollControlled: true,
     );
   }

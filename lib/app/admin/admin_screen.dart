@@ -21,8 +21,12 @@ class AdminScreen extends StatefulWidget {
 ///_BookingScreenState State<>
 class _BookingScreenState extends State<AdminScreen> {
   ///Initialization
+  ///themeData
   ThemeData themeData;
+
+  ///adminBloc
   AdminBloc adminBloc;
+
   @override
   void initState() {
     adminBloc = new AdminBloc()..init();
@@ -169,6 +173,7 @@ class _BookingScreenState extends State<AdminScreen> {
             Expanded(
               child: TabBarView(
                 children: [
+                  ///List Room
                   StreamBuilder<List<Room>>(
                     stream: adminBloc.listRoomStream,
                     builder: (context, snapshot) {

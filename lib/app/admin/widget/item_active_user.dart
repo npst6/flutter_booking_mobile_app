@@ -6,8 +6,13 @@ import 'package:flutter_booking_mobile_app/ui/color.dart';
 
 ///ItemActiveUser StatefulWidget
 class ItemActiveUser extends StatefulWidget {
+  ///callBack
   final Function callBack;
+
+  ///title
   final String title;
+
+  ///initVal
   final int initVal;
 
   ItemActiveUser({this.callBack, this.title, this.initVal});
@@ -18,7 +23,9 @@ class ItemActiveUser extends StatefulWidget {
 
 /// _ItemActiveUserState State<>
 class _ItemActiveUserState extends State<ItemActiveUser> {
+  ///isActive
   bool isActive;
+
   @override
   void initState() {
     if (widget.initVal == 1)
@@ -35,6 +42,7 @@ class _ItemActiveUserState extends State<ItemActiveUser> {
         Text(
           ///Text
           "User",
+
           style: TextStyle(
             ///Text size
             fontSize: 15,
@@ -43,23 +51,32 @@ class _ItemActiveUserState extends State<ItemActiveUser> {
             fontWeight: FontWeight.w500,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
         CupertinoSwitch(
-            activeColor: AppColors.primaryColor,
-            value: isActive,
-            onChanged: (v) {
-              setState(() {
-                isActive = v;
-              });
-              widget.callBack(v);
-            }),
-        SizedBox(
+          ///activeColor
+          activeColor: AppColors.primaryColor,
+
+          ///value
+          value: isActive,
+
+          ///onChanged
+          onChanged: (v) {
+            setState(() {
+              ///isActive
+              isActive = v;
+            });
+            widget.callBack(v);
+          },
+        ),
+        const SizedBox(
           width: 20,
         ),
         Text(
+          ///Text
           "Admin",
+
           style: TextStyle(
             ///Text size
             fontSize: 15,

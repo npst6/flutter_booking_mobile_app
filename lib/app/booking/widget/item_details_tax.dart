@@ -17,12 +17,8 @@ class ItemDetailsTax extends StatelessWidget {
   ///price
   final double price;
 
-  ItemDetailsTax({
-    this.title,
-    this.number,
-    this.isShowNumber = false,
-    this.price,
-  });
+  ItemDetailsTax(
+      {this.title, this.number, this.isShowNumber = false, this.price});
 
   @override
   Widget build(BuildContext context) {

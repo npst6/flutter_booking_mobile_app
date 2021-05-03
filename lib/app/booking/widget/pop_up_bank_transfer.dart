@@ -31,6 +31,7 @@ class PopUpBankTransfer extends StatelessWidget {
 
       ///Container width
       width: 300,
+
       decoration: BoxDecoration(
         ///Color box
         color: themeData.scaffoldBackgroundColor,
@@ -89,6 +90,7 @@ class PopUpBankTransfer extends StatelessWidget {
                   child: Text(
                     ///Text
                     "${totalPrice / 100}\$",
+
                     style: TextStyle(
                       ///Text color
                       color: AppColors.primaryColor,
@@ -146,6 +148,7 @@ class PopUpBankTransfer extends StatelessWidget {
                     Text(
                       ///Text
                       "Name: ",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 17,
@@ -179,6 +182,7 @@ class PopUpBankTransfer extends StatelessWidget {
                     Text(
                       ///Text
                       "Bank Number: ",
+
                       style: TextStyle(
                         ///Text size
                         fontSize: 17,

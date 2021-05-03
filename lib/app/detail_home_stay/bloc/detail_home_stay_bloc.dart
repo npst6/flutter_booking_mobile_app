@@ -9,8 +9,10 @@ import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 ///DetailBloc extends BaseBloc
 class DetailBloc extends BaseBloc {
   ///Declare stream to listen to the results returned
+  ///myHomeStayStream
   BehaviorSubject<MyHomeStay> myHomeStayStream = new BehaviorSubject();
 
+  ///getMyHomeStay
   void getMyHomeStay(String id) async {
     try {
       FirAuth().getHomeStayById((val) {

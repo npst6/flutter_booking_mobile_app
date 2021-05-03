@@ -9,14 +9,17 @@ import 'package:flutter_booking_mobile_app/app/history_booking/child_screen/deta
 
 /// ItemNewRoom StatelessWidget
 class ItemNewRoom extends StatelessWidget {
+  ///themeData
   final ThemeData themeData;
+
+  ///room
   final Room room;
+
+  ///adminBloc
   final AdminBloc adminBloc;
-  ItemNewRoom(
-    this.themeData,
-    this.room,
-    this.adminBloc,
-  );
+
+  ItemNewRoom(this.themeData, this.room, this.adminBloc);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,11 +36,19 @@ class ItemNewRoom extends StatelessWidget {
         ///Border box
         borderRadius: BorderRadius.circular(10),
 
+        ///boxShadow
         boxShadow: [
           BoxShadow(
+            ///color
             color: Colors.grey.withOpacity(0.5),
+
+            ///spreadRadius
             spreadRadius: 3,
+
+            ///blurRadius
             blurRadius: 5,
+
+            ///offset
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],
@@ -50,10 +61,13 @@ class ItemNewRoom extends StatelessWidget {
             flex: 1,
 
             child: Container(
+              ///decoration
               decoration: BoxDecoration(
-                ///Border box
                 borderRadius: BorderRadius.only(
+                  ///topLeft
                   topLeft: Radius.circular(10),
+
+                  ///bottomLeft
                   bottomLeft: Radius.circular(10),
                 ),
 
@@ -96,6 +110,7 @@ class ItemNewRoom extends StatelessWidget {
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                           maxLines: 1,
+
                           style: TextStyle(
                             ///Text weight
                             fontWeight: FontWeight.w800,
@@ -108,28 +123,36 @@ class ItemNewRoom extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Expanded(
-                          child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return DetailsRoomHistoryScreen(room: room);
-                          }));
-                        },
-                        child: Icon(
-                          ///Icon
-                          Icons.error,
+                        child: GestureDetector(
+                          ///onTap
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  ///Return DetailsRoomHistoryScreen
+                                  return DetailsRoomHistoryScreen(room: room);
+                                },
+                              ),
+                            );
+                          },
 
-                          ///Icon color
-                          color: AppColors.primaryColor,
+                          child: Icon(
+                            ///Icon
+                            Icons.error,
+
+                            ///Icon color
+                            color: AppColors.primaryColor,
+                          ),
                         ),
-                      )),
+                      ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
@@ -137,6 +160,7 @@ class ItemNewRoom extends StatelessWidget {
                       Expanded(
                         ///Flex
                         flex: 2,
+
                         child: Text(
                           ///Text
                           "${room.numberAdults} Adults - ${room.numberChild} Children",
@@ -162,6 +186,7 @@ class ItemNewRoom extends StatelessWidget {
                       Expanded(
                         ///Flex
                         flex: 1,
+
                         child: Text(
                           ///Text
                           "x${room.numberRoom} Room",
@@ -171,6 +196,7 @@ class ItemNewRoom extends StatelessWidget {
 
                           ///Text align
                           textAlign: TextAlign.start,
+
                           style: TextStyle(
                             ///Text weight
                             fontWeight: FontWeight.w600,
@@ -191,7 +217,7 @@ class ItemNewRoom extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
@@ -200,6 +226,7 @@ class ItemNewRoom extends StatelessWidget {
                           ? Expanded(
                               ///Flex
                               flex: 1,
+
                               child: Text(
                                 ///Text
                                 "${room.money.toInt()}\$",
@@ -209,6 +236,7 @@ class ItemNewRoom extends StatelessWidget {
 
                                 ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                                 maxLines: 1,
+
                                 style: TextStyle(
                                   ///Text color
                                   color: AppColors.primaryColor,
@@ -218,6 +246,8 @@ class ItemNewRoom extends StatelessWidget {
 
                                   ///Text size
                                   fontSize: 15,
+
+                                  ///decoration
                                   decoration: TextDecoration.lineThrough,
 
                                   ///Text spacing
@@ -226,12 +256,15 @@ class ItemNewRoom extends StatelessWidget {
                               ),
                             )
                           : SizedBox(),
-                      SizedBox(
+
+                      const SizedBox(
                         width: 5,
                       ),
+
                       Expanded(
                         ///Flex
                         flex: 1,
+
                         child: Text(
                           ///Text
                           "${(room.money - room.money * room.discount / 100).toInt()}\$",
@@ -241,6 +274,7 @@ class ItemNewRoom extends StatelessWidget {
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                           maxLines: 1,
+
                           style: TextStyle(
                             ///Text color
                             color: AppColors.primaryColor,
@@ -256,7 +290,8 @@ class ItemNewRoom extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+
+                      const SizedBox(
                         width: 10,
                       ),
 
@@ -272,13 +307,16 @@ class ItemNewRoom extends StatelessWidget {
                           height: 40,
                         ),
                       ),
-                      SizedBox(
+
+                      const SizedBox(
                         width: 10,
                       ),
 
                       ///Cancel button
                       Expanded(
+                        ///Flex
                         flex: 1,
+
                         child: XButton(
                           "Cancel",
                           () {

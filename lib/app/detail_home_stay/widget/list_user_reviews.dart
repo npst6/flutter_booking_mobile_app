@@ -14,6 +14,7 @@ class ListUserReviews extends StatelessWidget {
 
       ///Container width
       width: double.infinity,
+
       child: Stack(
         children: list.map((e) {
           return list.indexOf(e) < 5
@@ -30,6 +31,7 @@ class ListUserReviews extends StatelessWidget {
 
                         ///Container height
                         height: 30,
+
                         decoration: BoxDecoration(
                           ///Share box
                           shape: BoxShape.circle,
@@ -37,10 +39,12 @@ class ListUserReviews extends StatelessWidget {
                           ///Color box
                           color: AppColors.primaryColor,
                         ),
+
                         child: Center(
                           child: Text(
                             ///Text
                             "${list.length - 5}+",
+
                             style: TextStyle(
                               ///Text weight
                               fontWeight: FontWeight.w600,

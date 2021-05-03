@@ -10,7 +10,10 @@ import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 ///AdminBloc to receive data and manipulate the UI
 class AdminBloc extends BaseBloc {
   ///Initialization
+  ///accountStream
   BehaviorSubject<List<Account>> accountStream = new BehaviorSubject();
+
+  ///listRoomStream
   BehaviorSubject<List<Room>> listRoomStream = new BehaviorSubject();
 
   ///Close

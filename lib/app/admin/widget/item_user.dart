@@ -8,10 +8,17 @@ import 'package:flutter/material.dart';
 
 ///ItemUser StatelessWidget
 class ItemUser extends StatelessWidget {
+  ///themeData
   final ThemeData themeData;
+
+  ///account
   final Account account;
+
+  ///adminBloc
   final AdminBloc adminBloc;
+
   ItemUser(this.themeData, {this.account, this.adminBloc});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,6 +34,8 @@ class ItemUser extends StatelessWidget {
 
         ///Border box
         borderRadius: BorderRadius.circular(10),
+
+        ///boxShadow
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -36,14 +45,15 @@ class ItemUser extends StatelessWidget {
           ),
         ],
       ),
+
       child: Row(
         children: [
           Expanded(
             ///Flex
             flex: 1,
+
             child: Container(
               decoration: BoxDecoration(
-                ///Border box
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
                   bottomLeft: Radius.circular(10),
@@ -61,16 +71,20 @@ class ItemUser extends StatelessWidget {
             ),
           ),
           Expanded(
+            ///Flex
             flex: 3,
+
             child: Padding(
               ///Padding
               padding: const EdgeInsets.all(10),
+
               child: Column(
                 ///Using mainAxisAlignment in a Column will align its children vertically.
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                 ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
                 crossAxisAlignment: CrossAxisAlignment.start,
+
                 children: [
                   Row(
                     children: [
@@ -83,6 +97,7 @@ class ItemUser extends StatelessWidget {
 
                           ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                           maxLines: 1,
+
                           style: TextStyle(
                             ///Text weight
                             fontWeight: FontWeight.w900,
@@ -95,26 +110,28 @@ class ItemUser extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Expanded(
-                          child: GestureDetector(
-                        onTap: () {
-                          showEditPermission(context);
-                        },
-                        child: Icon(
-                          Icons.more_vert,
+                        child: GestureDetector(
+                          ///onTap
+                          onTap: () {
+                            showEditPermission(context);
+                          },
 
-                          ///Icon
-                          color: AppColors.primaryColor,
+                          child: Icon(
+                            ///Icon
+                            Icons.more_vert,
 
-                          ///Icon color
+                            ///Icon color
+                            color: AppColors.primaryColor,
+                          ),
                         ),
-                      )),
+                      ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
@@ -128,6 +145,7 @@ class ItemUser extends StatelessWidget {
 
                         ///Used maxLines to determine the maximum display number of text if the text number is exceeded with maxLines, it will be shortly cut based on the overflow attribute.
                         maxLines: 1,
+
                         style: TextStyle(
                           ///Text weight
                           fontWeight: FontWeight.w700,
@@ -139,7 +157,7 @@ class ItemUser extends StatelessWidget {
                           letterSpacing: 1,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Expanded(
@@ -170,7 +188,7 @@ class ItemUser extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
@@ -196,7 +214,7 @@ class ItemUser extends StatelessWidget {
                           letterSpacing: 1,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
@@ -225,7 +243,7 @@ class ItemUser extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
@@ -251,7 +269,7 @@ class ItemUser extends StatelessWidget {
                           letterSpacing: 1,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
@@ -280,7 +298,7 @@ class ItemUser extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                 ],
@@ -295,11 +313,17 @@ class ItemUser extends StatelessWidget {
   ///Show edit permission
   void showEditPermission(BuildContext context) {
     showModalBottomSheet(
+      ///context
       context: context,
+
+      ///backgroundColor
       backgroundColor: Colors.transparent,
+
       builder: (BuildContext _) {
         return Center(child: PermissionUser(account, adminBloc));
       },
+
+      ///isScrollControlled
       isScrollControlled: true,
     );
   }

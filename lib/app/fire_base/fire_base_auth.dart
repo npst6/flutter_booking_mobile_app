@@ -11,17 +11,24 @@ import 'package:flutter_booking_mobile_app/base/flutter_show_toast.dart';
 
 ///Declare firebase
 class FirAuth {
+  ///_fireBaseAuth
   final FirebaseAuth _fireBaseAuth = FirebaseAuth.instance;
+
+  ///fireStoreInstance
   final fireStoreInstance = FirebaseFirestore.instance;
 
   ///SignUp account
   void signUp(String email, String pass, String name, String phone,
       Function onSuccess, Function(String) onRegisterError) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    ///_fireBaseAuth
     _fireBaseAuth
         .createUserWithEmailAndPassword(email: email, password: pass)
         .then((user) {
       prefs.setString("uid", user.user.uid);
+
+      ///_createUser
       _createUser(user.user.uid, name, phone, user.user.email, onSuccess,
           onRegisterError);
     }).catchError((err) {
@@ -33,6 +40,7 @@ class FirAuth {
   ///Create information user by User ID
   _createUser(String userId, String name, String phone, String email,
       Function onSuccess, Function(String) onRegisterError) {
+    ///fireStoreInstance
     fireStoreInstance.collection("users").doc(userId).set({
       "name": name,
       "phone": phone,
@@ -43,11 +51,15 @@ class FirAuth {
           "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Clavulinopsis_sulcata_-_Lane_Cove_River.jpg/1024px-Clavulinopsis_sulcata_-_Lane_Cove_River.jpg",
       'create_day': DateTime.now().millisecondsSinceEpoch
     }).then((_) {
+      ///print
       print("Success!");
+
+      ///onSuccess
       onSuccess();
     });
 
     ///Create transaction history
+    ///fireStoreInstance
     fireStoreInstance
         .collection("transaction_history")
         .doc(userId)
@@ -59,14 +71,18 @@ class FirAuth {
 
   ///(SignUp account)
   void _onSignUpErr(String code, Function(String) onRegisterError) {
+    ///print
     print(code);
+
     switch (code) {
       case "invalid-email":
         onRegisterError("Invalid Email, Please Try Again!");
         break;
+
       case "user-not-found":
         onRegisterError("Email doesn't exist, Please Try Again!");
         break;
+
       default:
         onRegisterError("Reset Password Fail, Please Try Again!");
         break;
@@ -77,13 +93,20 @@ class FirAuth {
   void signIn(String email, String pass, Function onSuccess,
       Function(String) onSignInError) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    ///_fireBaseAuth
     _fireBaseAuth
         .signInWithEmailAndPassword(email: email, password: pass)
         .then((user) {
       prefs.setString("uid", user.user.uid);
+
+      ///onSuccess
       onSuccess();
     }).catchError((err) {
+      ///print
       print("Error: " + err.toString());
+
+      ///onSignInError
       onSignInError("Login Fail, Please Try Again!");
     });
   }
@@ -95,7 +118,10 @@ class FirAuth {
     await fireStoreInstance.collection("users").get().then((querySnapshot) {
       querySnapshot.docs.forEach((element) {
         if (prefs.getString("uid") == element.id) {
+          ///account
           Account account = Account.formJson(element.data(), element.id);
+
+          ///callBack
           callBack(account);
         }
       });
@@ -105,24 +131,30 @@ class FirAuth {
   ///Update password
   void updatePassword(String pass) {
     var user = FirebaseAuth.instance.currentUser;
+
     user
         .updatePassword(pass)
         .then((value) =>
-        FlutterToast().showToast("Change Password Successfully!"))
+            FlutterToast().showToast("Change Password Successfully!"))
         .catchError((e) {
       FlutterToast().showToast(e.code);
     });
-
   }
 
   ///Forgot password
   void forgotPassWordByEmail(
       String email, Function onSuccess, Function(String) onSignInError) {
+    ///_fireBaseAuth
     _fireBaseAuth.sendPasswordResetEmail(email: email).then((doc) {
+      ///onSuccess
       onSuccess();
     }).catchError((err) {
+      ///print
       print("Error: " + err.toString());
+
+      ///_onResetPass
       _onResetPass(err.code, (val) {
+        ///print
         print(val);
       });
     });
@@ -131,13 +163,16 @@ class FirAuth {
   ///(Forgot password)
   void _onResetPass(String code, Function(String) onRegisterError) {
     print(code);
+
     switch (code) {
       case "invalid-email":
         onRegisterError("Invalid Email, Please Try Again!");
         break;
+
       case "user-not-found":
         onRegisterError("Email Doesn't Exist, Please Try Again!");
         break;
+
       default:
         onRegisterError("Reset Password Fail, Please Try Again!");
         break;
@@ -147,29 +182,38 @@ class FirAuth {
   ///Sign out
   Future<void> signOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    ///print
     print("Logout");
+
     prefs.setString("uid", "");
+
     return _fireBaseAuth.signOut();
   }
 
   ///Update status room by ID room
   void updateStatusRoomById(int status, String id, Function success) {
+    ///fireStoreInstance
     fireStoreInstance
         .collection("room")
         .doc(id)
         .update({"status": status}).then((_) {
       success();
+
       FlutterToast().showToast("Success!");
     });
   }
 
   ///Delete room
   void deleteRoomById(String id, Function success, Function error) {
+    ///fireStoreInstance
     fireStoreInstance.collection("room").doc(id).delete().then((_) {
       success();
+
       FlutterToast().showToast("Success!");
     }).catchError((e) {
       error();
+
       FlutterToast().showToast(e.message);
     });
   }
@@ -225,6 +269,7 @@ class FirAuth {
   ///Update info account
   void updateInfoAccount(String name, String phone) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
     ///final firebaseUser = FirebaseAuth.instance.currentUser;
     fireStoreInstance
         .collection("users")
@@ -327,7 +372,10 @@ class FirAuth {
       Function(String) onRegisterError) async {
     ///final firebaseUser = FirebaseAuth.instance.currentUser;
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    fireStoreInstance.collection("home_stay").doc(prefs.getString("uid")).update({
+    fireStoreInstance
+        .collection("home_stay")
+        .doc(prefs.getString("uid"))
+        .update({
       "name": name.toLowerCase(),
       "url_image": urlImage,
       "phone": phone,
