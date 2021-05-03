@@ -62,10 +62,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    ///controllerCity
     controllerCity = new TextEditingController();
+
+    ///controllerSearch
     controllerSearch = new TextEditingController();
+
+    ///controllerTime
     controllerTime = new TextEditingController();
+
+    ///homeBloc
     homeBloc = new HomeBloc()..init();
+
+    ///searchStateStream
     homeBloc.searchStateStream.listen((value) {
       if (value == UIState.SUCCESS) {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -74,6 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
         homeBloc.searchStateStream.add(null);
       }
     });
+
     super.initState();
   }
 
@@ -88,8 +98,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void didChangeDependencies() {
+    ///themeData
     themeData = Provider.of<ThemeChanger>(context).getTheme();
-
     super.didChangeDependencies();
   }
 
@@ -120,6 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       children: [
                         GestureDetector(
+                          ///onTap
                           onTap: () async {
                             await Navigator.push(
                               context,
@@ -581,7 +592,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ///onTap
                                   onTap: () async {
                                     final List<DateTime> picked =
-                                    await DateRagePicker.showDatePicker(
+                                        await DateRagePicker.showDatePicker(
                                       ///context
                                       context: context,
 
@@ -608,7 +619,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                                       ///controllerTime
                                       controllerTime.text =
-                                      "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
+                                          "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
                                     }
                                   },
                                   child: Container(
@@ -624,7 +635,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 15,
                             ),
 
-                            ///Search for button
+                            ///Search button
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 25),

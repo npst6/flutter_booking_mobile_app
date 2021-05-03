@@ -10,21 +10,33 @@ import 'package:flutter_booking_mobile_app/app/fire_base/fire_base_auth.dart';
 ///HistoryBookingBloc extends BaseBloc
 class HistoryBookingBloc extends BaseBloc {
   ///Initialization stream
+  ///historyBookingStream1
   BehaviorSubject<List<Transactions>> historyBookingStream1 =
       new BehaviorSubject();
+
+  ///historyBookingStream2
   BehaviorSubject<List<Transactions>> historyBookingStream2 =
       new BehaviorSubject();
+
+  ///historyBookingStream3
   BehaviorSubject<List<Transactions>> historyBookingStream3 =
       new BehaviorSubject();
+
+  ///historyBookingStream4
   BehaviorSubject<List<Transactions>> historyBookingStream4 =
       new BehaviorSubject();
+
+  ///historyBookingStateStream
   BehaviorSubject<UIState> historyBookingStateStream = new BehaviorSubject();
+
+  ///myRoomStream
   BehaviorSubject<Room> myRoomStream = new BehaviorSubject();
 
   ///Get room by id
   void getRoom(String id) async {
     try {
       FirAuth().getRoomById((val) {
+        ///myRoomStream
         myRoomStream.add(val);
       }, id);
     } catch (e) {

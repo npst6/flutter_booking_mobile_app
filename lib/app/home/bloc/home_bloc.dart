@@ -16,9 +16,16 @@ import 'package:flutter_booking_mobile_app/remote/province_response/province_res
 ///HomeBloc extends BaseBloc
 class HomeBloc extends BaseBloc {
   ///Declare stream to listen to the results returned
+  ///accountStream
   BehaviorSubject<Account> accountStream = new BehaviorSubject();
+
+  ///searchStateStream
   BehaviorSubject<UIState> searchStateStream = new BehaviorSubject();
+
+  ///listRoomStream
   BehaviorSubject<List<Room>> listRoomStream = new BehaviorSubject();
+
+  ///listProvinceStream
   BehaviorSubject<List<Province>> listProvinceStream = new BehaviorSubject();
 
   ///Clean
@@ -118,11 +125,9 @@ class HomeBloc extends BaseBloc {
                         letterSpacing: 1,
                       ),
                     ),
-
                     Text(
                       "Do you want to log out?",
                     ),
-
                     Row(
                       children: [
                         ///Cancel button

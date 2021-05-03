@@ -16,10 +16,15 @@ class ForgotPassScreen extends StatefulWidget {
 
 /// _LoginScreenState State<>
 class _LoginScreenState extends State<ForgotPassScreen> {
+  ///controllerEmail
   TextEditingController controllerEmail;
+
+  ///_formKey
   final _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
+    ///controllerEmail
     controllerEmail = new TextEditingController();
     super.initState();
   }
@@ -33,23 +38,29 @@ class _LoginScreenState extends State<ForgotPassScreen> {
 
         ///Elevation
         elevation: 0,
-        leading: IconButton(
-            icon: Icon(
-              ///Icon
-              Icons.keyboard_backspace,
 
-              ///Icon color
-              color: AppColors.primaryColor,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
+        ///Leading
+        leading: IconButton(
+          icon: Icon(
+            ///Icon
+            Icons.keyboard_backspace,
+
+            ///Icon color
+            color: AppColors.primaryColor,
+          ),
+
+          ///onPressed
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
 
-      ///body
+      ///Body
       body: Padding(
         ///Padding
         padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
+
         child: SingleChildScrollView(
           child: Column(
             ///Using mainAxisAlignment in a Column will align its children vertically.
@@ -57,11 +68,13 @@ class _LoginScreenState extends State<ForgotPassScreen> {
 
             ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
             crossAxisAlignment: CrossAxisAlignment.start,
+
             children: [
               Center(
                 child: Text(
                   ///Text
                   "Forgot Password",
+
                   style: TextStyle(
                     ///Text size
                     fontSize: 35,
@@ -77,12 +90,15 @@ class _LoginScreenState extends State<ForgotPassScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+
+              const SizedBox(
                 height: 100,
               ),
+
               Text(
                 ///Text
                 "Your Email",
+
                 style: TextStyle(
                   ///Text size
                   fontSize: 16,
@@ -94,12 +110,17 @@ class _LoginScreenState extends State<ForgotPassScreen> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(
+
+              const SizedBox(
                 height: 10,
               ),
+
               Form(
+                ///_formKey
                 key: _formKey,
+
                 child: XTextFormField(
+                  ///controllerEmail
                   controller: controllerEmail,
 
                   ///Hint text
@@ -120,10 +141,12 @@ class _LoginScreenState extends State<ForgotPassScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+
+              const SizedBox(
                 height: 20,
               ),
-              SizedBox(
+
+              const SizedBox(
                 height: 40,
               ),
 
@@ -131,10 +154,13 @@ class _LoginScreenState extends State<ForgotPassScreen> {
               XButton("Send", () {
                 if (_formKey.currentState.validate()) {
                   FirAuth().forgotPassWordByEmail(
-                      controllerEmail.text, () {}, (val) {});
+                    ///controllerEmail
+                    controllerEmail.text, () {}, (val) {},
+                  );
                 }
               }),
-              SizedBox(
+
+              const SizedBox(
                 height: 15,
               ),
             ],

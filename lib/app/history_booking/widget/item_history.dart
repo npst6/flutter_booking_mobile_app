@@ -24,6 +24,7 @@ class ItemHistory extends StatefulWidget {
 
   ItemHistory(this.themeData, this.transactions, this.historyBookingBloc,
       {this.isCancel = false});
+
   @override
   _ItemHistoryState createState() => _ItemHistoryState();
 }
@@ -52,6 +53,7 @@ class _ItemHistoryState extends State<ItemHistory> {
         ///Border box
         borderRadius: BorderRadius.circular(10),
 
+        ///boxShadow
         boxShadow: [
           BoxShadow(
             ///color
@@ -79,10 +81,14 @@ class _ItemHistoryState extends State<ItemHistory> {
               stream: widget.historyBookingBloc.myRoomStream,
               builder: (context, snapshot) {
                 return Container(
+                  ///decoration
                   decoration: BoxDecoration(
                     ///Border box
                     borderRadius: BorderRadius.only(
+                      ///topLeft
                       topLeft: Radius.circular(10),
+
+                      ///bottomLeft
                       bottomLeft: Radius.circular(10),
                     ),
 

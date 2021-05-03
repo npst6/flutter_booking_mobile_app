@@ -35,8 +35,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void initState() {
+    ///loginBloc
     loginBloc = new LoginBloc();
+
+    ///controllerPass
     controllerPass = new TextEditingController();
+
+    ///controllerEmail
     controllerEmail = new TextEditingController();
     super.initState();
   }

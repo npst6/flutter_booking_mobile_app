@@ -27,12 +27,14 @@ class _BookingScreenState extends State<HistoryBookingScreen> {
 
   @override
   void initState() {
+    ///historyBookingBloc
     historyBookingBloc = new HistoryBookingBloc()..init();
     super.initState();
   }
 
   @override
   void didChangeDependencies() {
+    ///themeData
     themeData = Provider.of<ThemeChanger>(context).getTheme();
     super.didChangeDependencies();
   }
