@@ -568,8 +568,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             Stack(
                               children: [
                                 XTextFormField(
-                                  ///enable
-
                                   ///controllerTime
                                   controller: controllerTime,
 

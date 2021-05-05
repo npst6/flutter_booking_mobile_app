@@ -201,7 +201,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
                                   Icons.image,
 
                                   ///Icon size
-                                  size: 100,
+                                  size: 200,
 
                                   ///Icon color
                                   color: Colors.grey.withOpacity(.7),
@@ -500,6 +500,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
     );
   }
 
+  ///showGetImage
   void showGetImage(BuildContext context) {
     showModalBottomSheet(
       ///context
@@ -526,7 +527,9 @@ class _NewHomeStayState extends State<NewHomeStay> {
 
             ///Border box
             borderRadius: BorderRadius.only(
+              ///topLeft
               topLeft: Radius.circular(10),
+              ///topRight
               topRight: Radius.circular(10),
             ),
           ),

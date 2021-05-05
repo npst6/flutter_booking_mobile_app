@@ -49,7 +49,7 @@ class _NewRoomState extends State<NewRoom> {
 
   ///NumberRoom
 
-int numberRoom;
+  int numberRoom;
 
   ///child
   int child;
@@ -185,73 +185,75 @@ int numberRoom;
 
                   children: [
                     StreamBuilder<File>(
-                        stream: newRoomBloc.fileImageStream,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            ///file
-                            file = snapshot.data;
+                      stream: newRoomBloc.fileImageStream,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          ///file
+                          file = snapshot.data;
 
-                            return Container(
-                              ///Container height
-                              height: 200,
+                          return Container(
+                            ///Container height
+                            height: 200,
 
-                              ///Container width
-                              width: double.infinity,
+                            ///Container width
+                            width: double.infinity,
 
-                              decoration: BoxDecoration(
-                                ///Border box
-                                borderRadius: BorderRadius.circular(7),
-                                image: DecorationImage(
-                                  image: FileImage(
-                                    ///Image
-                                    snapshot.data,
-                                  ),
+                            decoration: BoxDecoration(
+                              ///Border box
+                              borderRadius: BorderRadius.circular(7),
+
+                              image: DecorationImage(
+                                image: FileImage(
+                                  ///Image
+                                  snapshot.data,
                                 ),
                               ),
-                            );
-                          } else
-                            return Container(
+                            ),
+                          );
+                        } else
+                          return Container(
+                            ///Container height
+                            height: 200,
 
-                                ///Container height
-                                height: 200,
+                            ///Container width
+                            width: double.infinity,
 
-                                ///Container width
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  ///Border box
-                                  borderRadius: BorderRadius.circular(7),
-                                  border: Border.all(
-                                    ///Border width
-                                    width: 2,
+                            decoration: BoxDecoration(
+                              ///Border box
+                              borderRadius: BorderRadius.circular(7),
 
-                                    ///Border color
-                                    color: Colors.grey.withOpacity(.7),
-                                  ),
+                              border: Border.all(
+                                ///Border width
+                                width: 2,
+
+                                ///Border color
+                                color: Colors.grey.withOpacity(.7),
+                              ),
+                            ),
+                            child: Center(
+                              child: GestureDetector(
+                                ///onTap
+                                onTap: () {
+                                  showGetImage(context);
+                                },
+                                child: Icon(
+                                  ///Icon
+                                  Icons.image,
+
+                                  ///Icon size
+                                  size: 200,
+
+                                  ///Icon color
+                                  color: Colors.grey.withOpacity(.7),
                                 ),
-                                child: Center(
-                                  child: GestureDetector(
-                                    ///onTap
-                                    onTap: () {
-                                      showGetImage(context);
-                                    },
-                                    child: Icon(
-                                      ///Icon
-                                      Icons.image,
-
-                                      ///Icon size
-                                      size: 100,
-
-                                      ///Icon color
-                                      color: Colors.grey.withOpacity(.7),
-                                    ),
-                                  ),
-                                ));
-                        }),
-
+                              ),
+                            ),
+                          );
+                      },
+                    ),
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Text
                       "City",
@@ -266,43 +268,40 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     StreamBuilder<List<Province>>(
-                        stream: newRoomBloc.listProvinceStream,
-                        builder: (context, snapshot1) {
-                          if (snapshot1.hasData) {
-                            List<ItemModel> items = [];
-                            snapshot1.data.forEach((element) {
-                              items.add(new ItemModel(
-                                  id: element.code, name: element.name));
-                            });
-                            return TextFieldChoose(
-                              ///Icon
-                              iconData: Icons.location_on,
+                      stream: newRoomBloc.listProvinceStream,
+                      builder: (context, snapshot1) {
+                        if (snapshot1.hasData) {
+                          List<ItemModel> items = [];
+                          snapshot1.data.forEach((element) {
+                            items.add(new ItemModel(
+                                id: element.code, name: element.name));
+                          });
+                          return TextFieldChoose(
+                            ///Icon
+                            iconData: Icons.location_on,
 
-                              ///callBack
-                              callBack: (val) {
-                                controllerCity.text = val;
-                              },
+                            ///callBack
+                            callBack: (val) {
+                              controllerCity.text = val;
+                            },
 
-                              ///Hint text
-                              hintText: "City",
+                            ///Hint text
+                            hintText: "City",
 
-                              ///Item
-                              items: items,
-                            );
-                          } else
-                            return SizedBox();
-                        }),
-
+                            ///Item
+                            items: items,
+                          );
+                        } else
+                          return SizedBox();
+                      },
+                    ),
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Text
                       "Room Name",
@@ -317,11 +316,9 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     XTextFormField(
                       ///controllerName
                       controller: controllerName,
@@ -341,11 +338,9 @@ int numberRoom;
                         color: AppColors.primaryColor,
                       ),
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Text
                       "Room Address",
@@ -360,11 +355,9 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     XTextFormField(
                       ///controllerAddress
                       controller: controllerAddress,
@@ -384,11 +377,9 @@ int numberRoom;
                       ///Check empty data
                       funcValidation: ValidateData.validEmpty,
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Text
                       "Room Description",
@@ -403,11 +394,9 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     XTextFormField(
                       ///controllerDesc
                       controller: controllerDesc,
@@ -430,11 +419,9 @@ int numberRoom;
                         color: AppColors.primaryColor,
                       ),
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Row(
                       children: [
                         Expanded(
@@ -457,11 +444,9 @@ int numberRoom;
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-
                               const SizedBox(
                                 height: 10,
                               ),
-
                               XTextFormField(
                                 ///controllerPrice
                                 controller: controllerPrice,
@@ -510,11 +495,9 @@ int numberRoom;
                             ],
                           ),
                         ),
-
                         const SizedBox(
                           width: 10,
                         ),
-
                         Expanded(
                           child: Column(
                             ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
@@ -535,11 +518,9 @@ int numberRoom;
                                   letterSpacing: 1,
                                 ),
                               ),
-
                               const SizedBox(
                                 height: 10,
                               ),
-
                               XTextFormField(
                                 ///controllerDiscountPercent
                                 controller: controllerDiscountPercent,
@@ -582,6 +563,7 @@ int numberRoom;
                                   ///Icon color
                                   color: AppColors.primaryColor,
                                 ),
+
                                 ///suffixIcon
                                 suffixIcon: Container(
                                   ///Icon width
@@ -604,6 +586,7 @@ int numberRoom;
                                     ),
                                   ),
                                 ),
+
                                 ///Text type phone
                                 textInputType: TextInputType.phone,
                               ),
@@ -612,11 +595,9 @@ int numberRoom;
                         ),
                       ],
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Text
                       "Free Time",
@@ -631,33 +612,94 @@ int numberRoom;
                         letterSpacing: 1,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
+                    Stack(
+                      children: [
+                        XTextFormField(
+                          ///controllerTime
+                          controller: controllerFreeTime,
 
-                    GestureDetector(
+                          ///Hint text
+                          hintText: "Check In - Check Out",
+
+                          ///Check empty field
+                          funcValidation: ValidateData.validEmpty,
+
+                          ///prefixIcon
+                          prefixIcon: Icon(
+                            ///Icon
+                            Icons.calendar_today,
+
+                            ///Icon color
+                            color: AppColors.primaryColor,
+                          ),
+                        ),
+                        GestureDetector(
+                          ///onTap
+                          onTap: () async {
+                            final List<DateTime> picked =
+                                await DateRagePicker.showDatePicker(
+                              ///context
+                              context: context,
+
+                              ///initialFirstDate
+                              initialFirstDate: new DateTime.now(),
+
+                              ///initialLastDate
+                              initialLastDate: (new DateTime.now()).add(
+                                new Duration(days: 7),
+                              ),
+
+                              ///firstDate
+                              firstDate: new DateTime(2015),
+
+                              ///lastDate
+                              lastDate: new DateTime(2025),
+                            );
+                            if (picked != null && picked.length == 2) {
+                              ///startDay
+                              startDay = picked[0].toIso8601String();
+
+                              ///endDay
+                              endDay = picked[1].toIso8601String();
+
+                              ///controllerTime
+                              controllerFreeTime.text =
+                                  "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
+                            }
+                          },
+                          child: Container(
+                            height: 55,
+                            color: Colors.transparent,
+                            width: double.infinity,
+                          ),
+                        ),
+                      ],
+                    ),
+                    /*GestureDetector(
                       ///onTap
                       onTap: () async {
                         ///DateTime
                         final List<DateTime> picked =
-                        await DateRagePicker.showDatePicker(
+                            await DateRagePicker.showDatePicker(
 
-                          ///context
-                            context: context,
+                                ///context
+                                context: context,
 
-                            ///initialFirstDate
-                            initialFirstDate: new DateTime.now(),
+                                ///initialFirstDate
+                                initialFirstDate: new DateTime.now(),
 
-                            ///initialLastDate
-                            initialLastDate: (new DateTime.now())
-                                .add(new Duration(days: 7)),
+                                ///initialLastDate
+                                initialLastDate: (new DateTime.now())
+                                    .add(new Duration(days: 7)),
 
-                            ///firstDate
-                            firstDate: new DateTime(2015),
+                                ///firstDate
+                                firstDate: new DateTime(2015),
 
-                            ///lastDate
-                            lastDate: new DateTime(2022));
+                                ///lastDate
+                                lastDate: new DateTime(2025));
 
                         if (picked != null && picked.length == 2) {
                           ///startDay
@@ -668,7 +710,7 @@ int numberRoom;
 
                           ///controllerFreeTime
                           controllerFreeTime.text =
-                          "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
+                              "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
                         }
                       },
 
@@ -682,6 +724,9 @@ int numberRoom;
                         ///Hint text
                         hintText: "Free Time in Room",
 
+                        ///Check empty data
+                        funcValidation: ValidateData.validEmpty,
+
                         ///prefixIcon
                         prefixIcon: Icon(
                           ///Icon
@@ -690,16 +735,11 @@ int numberRoom;
                           ///Icon color
                           color: AppColors.primaryColor,
                         ),
-
-                        ///Check empty data
-                        funcValidation: ValidateData.validEmpty,
                       ),
-                    ),
-
+                    ),*/
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Price
                       "Rooms",
@@ -714,11 +754,9 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.room_preferences,
@@ -745,11 +783,9 @@ int numberRoom;
                         ItemModel(id: '10', name: "10"),
                       ],
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Price
                       "Adults",
@@ -764,11 +800,9 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.people,
@@ -805,11 +839,9 @@ int numberRoom;
                         ItemModel(id: '20', name: "20"),
                       ],
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Price
                       "Children",
@@ -824,11 +856,9 @@ int numberRoom;
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.emoji_people,
@@ -870,7 +900,6 @@ int numberRoom;
               ),
             ),
           ),
-
           StreamBuilder<UIState>(
             stream: newRoomBloc.newRoomStateStream,
             builder: (context, snapshot) {
