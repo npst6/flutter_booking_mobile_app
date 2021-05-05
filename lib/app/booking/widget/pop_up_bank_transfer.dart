@@ -118,7 +118,7 @@ class PopUpBankTransfer extends StatelessWidget {
 
                       style: TextStyle(
                         ///Text size
-                        fontSize: 16,
+                        fontSize: 13,
 
                         ///Text weight
                         fontWeight: FontWeight.w700,
@@ -130,7 +130,7 @@ class PopUpBankTransfer extends StatelessWidget {
 
                       style: TextStyle(
                         ///Text size
-                        fontSize: 14,
+                        fontSize: 13,
 
                         ///Text weight
                         fontWeight: FontWeight.w700,
@@ -152,7 +152,7 @@ class PopUpBankTransfer extends StatelessWidget {
 
                       style: TextStyle(
                         ///Text size
-                        fontSize: 16,
+                        fontSize: 13,
 
                         ///Text weight
                         fontWeight: FontWeight.w700,
@@ -168,11 +168,12 @@ class PopUpBankTransfer extends StatelessWidget {
                         ///Text
                         myHomeStay.accountNameBank.toUpperCase(),
 
+                        ///textAlign
                         textAlign: TextAlign.end,
 
                         style: TextStyle(
                           ///Text size
-                          fontSize: 14,
+                          fontSize: 13,
 
                           ///Text weight
                           fontWeight: FontWeight.w700,
@@ -195,22 +196,27 @@ class PopUpBankTransfer extends StatelessWidget {
 
                       style: TextStyle(
                         ///Text size
-                        fontSize: 16,
+                        fontSize: 13,
 
                         ///Text weight
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    Text(
-                      ///Text
-                      myHomeStay.bankNumber.toUpperCase(),
+                    Expanded(
+                      child: Text(
+                        ///Text
+                        myHomeStay.bankNumber.toUpperCase(),
 
-                      style: TextStyle(
-                        ///Text size
-                        fontSize: 14,
+                        ///textAlign
+                        textAlign: TextAlign.end,
 
-                        ///Text weight
-                        fontWeight: FontWeight.w700,
+                        style: TextStyle(
+                          ///Text size
+                          fontSize: 14,
+
+                          ///Text weight
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ],

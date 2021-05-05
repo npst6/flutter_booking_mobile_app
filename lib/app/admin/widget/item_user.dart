@@ -91,6 +91,7 @@ class ItemUser extends StatelessWidget {
                       Expanded(
                         ///Flex
                         flex: 5,
+
                         child: Text(
                           ///Text
                           account.name.toUpperCase(),
