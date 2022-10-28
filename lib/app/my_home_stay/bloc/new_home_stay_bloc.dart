@@ -14,6 +14,7 @@ class NewHomeStayBloc extends BaseBloc {
   ///Initialization stream
   ///newHomeStayStateStream
   BehaviorSubject<UIState> newHomeStayStateStream = new BehaviorSubject();
+
   ///fileImageStream
   BehaviorSubject<File> fileImageStream = new BehaviorSubject();
 
@@ -43,6 +44,7 @@ class NewHomeStayBloc extends BaseBloc {
   ///Get image from library
   void getImageByGallery(ImagePicker picker) async {
     try {
+      // ignore: deprecated_member_use
       final pickedFile = await picker.getImage(source: ImageSource.gallery);
       File _file = File(pickedFile.path);
       fileImageStream.add(_file);
@@ -54,6 +56,7 @@ class NewHomeStayBloc extends BaseBloc {
   ///Get image from camera
   void getImageByCamera(ImagePicker picker) async {
     try {
+      // ignore: deprecated_member_use
       final pickedFile = await picker.getImage(source: ImageSource.camera);
       File _file = File(pickedFile.path);
       fileImageStream.add(_file);
@@ -69,7 +72,7 @@ class NewHomeStayBloc extends BaseBloc {
     try {
       FirebaseStorage storage = FirebaseStorage.instance;
       Reference storageReference =
-      storage.ref().child('${Path.basename(file.path)}');
+          storage.ref().child('${Path.basename(file.path)}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
           FirAuth().createMyHomeStay(

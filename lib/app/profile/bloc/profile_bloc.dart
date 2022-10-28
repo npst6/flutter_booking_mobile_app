@@ -50,6 +50,7 @@ class ProfileBloc extends BaseBloc {
   ///Get image from library
   void getImageByGallery(ImagePicker picker) async {
     try {
+      // ignore: deprecated_member_use
       final pickedFile = await picker.getImage(source: ImageSource.gallery);
       File _file = File(pickedFile.path);
       fileIamgeStream.add(_file);
@@ -61,6 +62,7 @@ class ProfileBloc extends BaseBloc {
   ///Get image from camera
   void getImageByCamera(ImagePicker picker) async {
     try {
+      // ignore: deprecated_member_use
       final pickedFile = await picker.getImage(source: ImageSource.camera);
       File _file = File(pickedFile.path);
       fileIamgeStream.add(_file);

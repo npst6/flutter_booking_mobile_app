@@ -48,6 +48,7 @@ class EditRoomBloc extends BaseBloc {
   ///Get image from library
   void getImageByGallery(ImagePicker picker) async {
     try {
+      // ignore: deprecated_member_use
       final pickedFile = await picker.getImage(source: ImageSource.gallery);
       File _file = File(pickedFile.path);
       fileImageStream.add(_file);
@@ -59,6 +60,7 @@ class EditRoomBloc extends BaseBloc {
   ///Get image from camera
   void getImageByCamera(ImagePicker picker) async {
     try {
+      // ignore: deprecated_member_use
       final pickedFile = await picker.getImage(source: ImageSource.camera);
       File _file = File(pickedFile.path);
       fileImageStream.add(_file);
@@ -105,7 +107,7 @@ class EditRoomBloc extends BaseBloc {
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
           FirAuth().createNewRoom(val, name, startDay, endDay, adults, child,
-              address, city, desc, price, discount, numberRoom,() {
+              address, city, desc, price, discount, numberRoom, () {
             editRoomStateStream.add(UIState.SUCCESS);
             FlutterToast().showToast("Success");
           }, (va) {
@@ -123,7 +125,7 @@ class EditRoomBloc extends BaseBloc {
   ///Update room have image
   void updateRoomHaveFile(
     File file,
-      int numberRoom,
+    int numberRoom,
     String id,
     String name,
     String startDay,
@@ -143,8 +145,8 @@ class EditRoomBloc extends BaseBloc {
           storage.ref().child('${Path.basename(file.path)}}');
       await storageReference.putFile(file).then((val) {
         val.ref.getDownloadURL().then((val) {
-          FirAuth().updateRoom(val,numberRoom, name, id, startDay, endDay, adults, child,
-              address, city, desc, price, discount, () {
+          FirAuth().updateRoom(val, numberRoom, name, id, startDay, endDay,
+              adults, child, address, city, desc, price, discount, () {
             editRoomStateStream.add(UIState.SUCCESS);
             FlutterToast().showToast("Success");
           }, (va) {
@@ -161,7 +163,7 @@ class EditRoomBloc extends BaseBloc {
 
   ///Update room not have image
   void updateRoomNotFile(
-      int numberRoom,
+    int numberRoom,
     String urlImage,
     String id,
     String name,
@@ -177,8 +179,8 @@ class EditRoomBloc extends BaseBloc {
   ) async {
     editRoomStateStream.add(UIState.LOADING);
     try {
-      FirAuth().updateRoom(urlImage,numberRoom, name, id, startDay, endDay, adults, child,
-          address, city, desc, price, discount, () {
+      FirAuth().updateRoom(urlImage, numberRoom, name, id, startDay, endDay,
+          adults, child, address, city, desc, price, discount, () {
         editRoomStateStream.add(UIState.SUCCESS);
         FlutterToast().showToast("Success");
       }, (va) {

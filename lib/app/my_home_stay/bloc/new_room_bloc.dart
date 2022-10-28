@@ -39,6 +39,7 @@ class NewRoomBloc extends BaseBloc {
   ///Get image from library
   void getImageByGallery(ImagePicker picker) async {
     try {
+      // ignore: deprecated_member_use
       final pickedFile = await picker.getImage(source: ImageSource.gallery);
       File _file = File(pickedFile.path);
       fileImageStream.add(_file);
@@ -50,6 +51,7 @@ class NewRoomBloc extends BaseBloc {
   ///Get image from camera
   void getImageByCamera(ImagePicker picker) async {
     try {
+      // ignore: deprecated_member_use
       final pickedFile = await picker.getImage(source: ImageSource.camera);
       File _file = File(pickedFile.path);
       fileImageStream.add(_file);
@@ -93,7 +95,7 @@ class NewRoomBloc extends BaseBloc {
         (val) {
           val.ref.getDownloadURL().then((val) {
             FirAuth().createNewRoom(val, name, startDay, endDay, adults, child,
-                address, city, desc, price, discount,numberRoom, () {
+                address, city, desc, price, discount, numberRoom, () {
               newRoomStateStream.add(UIState.SUCCESS);
               FlutterToast().showToast("Success");
             }, (va) {
