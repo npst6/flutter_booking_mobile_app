@@ -72,13 +72,11 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
     return Stack(
       children: [
         XTextFormField(
-
           ///controller
           controller: controller,
 
           ///hintText
           hintText: widget.hintText,
-
 
           ///funcValidation
           funcValidation: ValidateData.validEmpty,
@@ -99,16 +97,16 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
             ///Icon color
             color: AppColors.primaryColor,
           ),
-        ),GestureDetector(
+        ),
+        GestureDetector(
           ///onTap
           onTap: () {
             showModalItem();
           },
           child: Container(
-
             height: 55,
-            color:Colors.transparent,
-            width:double.infinity,
+            color: Colors.transparent,
+            width: double.infinity,
           ),
         )
       ],
@@ -183,7 +181,7 @@ class _TextFieldChooseState extends State<TextFieldChoose> {
                               color: _index == i
                                   ? AppColors.primaryColor
                                   // ignore: deprecated_member_use
-                                  : themeData.textSelectionColor,
+                                  : themeData.textSelectionTheme.selectionColor,
 
                               ///Text weight
                               fontWeight: _index == i

@@ -1,7 +1,6 @@
 /// Note file x_text_form_field.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/model/item_model.dart';
 
@@ -85,8 +84,6 @@ class XTextFormField extends StatefulWidget {
   ///textInputType
   final TextInputType textInputType;
 
-
-
   XTextFormField({
     this.key,
     this.maxLine = 1,
@@ -105,7 +102,6 @@ class XTextFormField extends StatefulWidget {
     this.onTap,
     this.onFocus,
     this.onChanged,
-
     this.onSubmitted,
     this.onClickPrefix,
     this.onClickSuffix,
@@ -146,7 +142,6 @@ class _XTextFormFieldFocusNodeState extends State<XTextFormField> {
 
         ///enabled
         enabled: widget.enable,
-
 
         ///maxLines
         maxLines: widget.maxLine,

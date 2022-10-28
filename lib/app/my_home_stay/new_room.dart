@@ -160,7 +160,7 @@ class _NewRoomState extends State<NewRoom> {
 
             ///Text color
             // ignore: deprecated_member_use
-            color: themeData.textSelectionColor,
+            color: themeData.textSelectionTheme.selectionColor,
 
             ///Text weight
             fontWeight: FontWeight.bold,

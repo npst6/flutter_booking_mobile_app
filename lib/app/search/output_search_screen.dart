@@ -104,7 +104,7 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
           style: TextStyle(
             ///Text color
             // ignore: deprecated_member_use
-            color: themeData.textSelectionColor,
+            color: themeData.textSelectionTheme.selectionColor,
 
             ///Text size
             fontSize: 20,
@@ -126,7 +126,7 @@ class _OutputSearchScreenState extends State<OutputSearchScreen> {
               stream: widget.homeBloc.accountStream,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return       GestureDetector(
+                  return GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,

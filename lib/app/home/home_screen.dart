@@ -1,6 +1,5 @@
 ///Note file home_screen.dart
 
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';

@@ -22,15 +22,14 @@ class ThemeChanger with ChangeNotifier {
         ///Color of the main banner
         primaryColor: AppColors.primaryColor,
 
-        ///Color
-        accentColor: AppColors.primaryColor,
-
         ///Light background
         scaffoldBackgroundColor: Colors.black,
 
         ///Text color
         // ignore: deprecated_member_use
         textSelectionColor: Colors.white,
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: AppColors.primaryColor),
       );
     } else {
       ///Describe light theme
@@ -38,15 +37,14 @@ class ThemeChanger with ChangeNotifier {
         ///Color of the main banner
         primaryColor: AppColors.primaryColor,
 
-        ///Color
-        accentColor: AppColors.primaryColor,
-
         ///Light background
         scaffoldBackgroundColor: Colors.white,
 
         ///Text color
         // ignore: deprecated_member_use
         textSelectionColor: Colors.black,
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: AppColors.primaryColor),
       );
     }
 

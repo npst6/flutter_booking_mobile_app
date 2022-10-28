@@ -1,8 +1,6 @@
 ///Note file pop_up_bank_transfer.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/base/x_button.dart';
 import 'package:flutter_booking_mobile_app/model/my_home_stay.dart';
@@ -158,11 +156,9 @@ class PopUpBankTransfer extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-
                     const SizedBox(
                       width: 10,
                     ),
-
                     Expanded(
                       child: Text(
                         ///Text

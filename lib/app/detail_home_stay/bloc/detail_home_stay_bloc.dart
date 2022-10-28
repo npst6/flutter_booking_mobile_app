@@ -31,7 +31,5 @@ class DetailBloc extends BaseBloc {
   }
 
   @override
-  void init() {
-    // TODO: implement init
-  }
+  void init() {}
 }

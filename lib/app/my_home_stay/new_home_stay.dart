@@ -2,7 +2,6 @@
 
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
@@ -126,7 +125,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
           style: TextStyle(
             ///Text color
             // ignore: deprecated_member_use
-            color: themeData.textSelectionColor,
+            color: themeData.textSelectionTheme.selectionColor,
 
             ///Text size
             fontSize: 20,
@@ -529,6 +528,7 @@ class _NewHomeStayState extends State<NewHomeStay> {
             borderRadius: BorderRadius.only(
               ///topLeft
               topLeft: Radius.circular(10),
+
               ///topRight
               topRight: Radius.circular(10),
             ),

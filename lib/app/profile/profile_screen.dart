@@ -52,15 +52,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ///Color of the main banner
           primaryColor: AppColors.primaryColor,
 
-          ///Color
-          accentColor: AppColors.primaryColor,
-
           ///Light background
           scaffoldBackgroundColor: Colors.black,
 
           ///Text color
           // ignore: deprecated_member_use
           textSelectionColor: Colors.white,
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: AppColors.primaryColor),
         )) {
       isDark = true;
     }
@@ -241,8 +240,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                     ///color
                                                     // ignore: deprecated_member_use
                                                     color: themeData
-                                                        // ignore: deprecated_member_use
-                                                        .textSelectionColor,
+                                                        .textSelectionTheme
+                                                        .selectionColor,
                                                   ),
                                                   const SizedBox(
                                                     width: 15,
@@ -293,7 +292,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         ItemFunction(
                                           ///color
                                           // ignore: deprecated_member_use
-                                          color: themeData.textSelectionColor,
+                                          color: themeData.textSelectionTheme
+                                              .selectionColor,
 
                                           ///urlSVG
                                           urlSVG: "assets/svg/user.svg",
@@ -311,7 +311,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         ItemFunction(
                                           ///color
                                           // ignore: deprecated_member_use
-                                          color: themeData.textSelectionColor,
+                                          color: themeData.textSelectionTheme
+                                              .selectionColor,
 
                                           ///urlSVG
                                           urlSVG: "assets/svg/house.svg",
@@ -333,7 +334,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         ItemFunction(
                                           ///color
                                           // ignore: deprecated_member_use
-                                          color: themeData.textSelectionColor,
+                                          color: themeData.textSelectionTheme
+                                              .selectionColor,
 
                                           ///urlSVG
                                           urlSVG: "assets/svg/history.svg",
@@ -363,8 +365,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                   ? ItemFunction(
                                                       ///color
                                                       color: themeData
-                                                          // ignore: deprecated_member_use
-                                                          .textSelectionColor,
+                                                          .textSelectionTheme
+                                                          .selectionColor,
 
                                                       ///urlSVG
                                                       urlSVG:

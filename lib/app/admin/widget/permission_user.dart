@@ -2,7 +2,6 @@
 
 import 'item_active_user.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/model/account.dart';
 import 'package:flutter_booking_mobile_app/base/x_button.dart';

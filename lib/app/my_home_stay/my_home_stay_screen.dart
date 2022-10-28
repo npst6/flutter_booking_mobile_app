@@ -124,7 +124,7 @@ class _MyHomeStayScreenState extends State<MyHomeStayScreen> {
             fontSize: 20,
 
             // ignore: deprecated_member_use
-            color: themeData.textSelectionColor,
+            color: themeData.textSelectionTheme.selectionColor,
 
             ///Text weight
             fontWeight: FontWeight.bold,

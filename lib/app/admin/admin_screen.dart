@@ -129,7 +129,7 @@ class _BookingScreenState extends State<AdminScreen> {
 
             ///Text color
             // ignore: deprecated_member_use
-            color: themeData.textSelectionColor,
+            color: themeData.textSelectionTheme.selectionColor,
           ),
         ),
       ),

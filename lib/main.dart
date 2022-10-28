@@ -33,15 +33,14 @@ class MyApp extends StatelessWidget {
           ///Color of the main banner
           primaryColor: AppColors.primaryColor,
 
-          ///Accent color
-          accentColor: AppColors.primaryColor,
-
           ///Background color
           scaffoldBackgroundColor: Colors.white,
 
           ///Text color
           // ignore: deprecated_member_use
           textSelectionColor: Colors.black,
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: AppColors.primaryColor),
         ),
       ),
 

@@ -2,7 +2,6 @@
 
 import 'bloc/register_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_booking_mobile_app/ui/color.dart';
 import 'package:flutter_booking_mobile_app/base/x_button.dart';
 import 'package:flutter_booking_mobile_app/base/base_bloc.dart';

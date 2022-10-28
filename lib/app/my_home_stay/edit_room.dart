@@ -177,7 +177,7 @@ class _NewRoomState extends State<EditRoomScreen> {
 
             ///Text color
             // ignore: deprecated_member_use
-            color: themeData.textSelectionColor,
+            color: themeData.textSelectionTheme.selectionColor,
 
             ///Text weight
             fontWeight: FontWeight.bold,
@@ -301,11 +301,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                           );
                       },
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Text
                       "City",
@@ -321,18 +319,16 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     StreamBuilder<List<Province>>(
                       stream: editRoomBloc.listProvinceStream,
                       builder: (context, snapshot1) {
                         if (snapshot1.hasData) {
                           List<ItemModel> items = [];
                           snapshot1.data.forEach(
-                                (element) {
+                            (element) {
                               items.add(
                                 new ItemModel(
                                   id: element.code,
@@ -363,11 +359,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                           return SizedBox();
                       },
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Text
                       "Room Name",
@@ -383,11 +377,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     XTextFormField(
                       ///controllerName
                       controller: controllerName,
@@ -407,11 +399,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         color: AppColors.primaryColor,
                       ),
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Text
                       "Room Address",
@@ -427,11 +417,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     XTextFormField(
                       ///controllerAddress
                       controller: controllerAddress,
@@ -451,12 +439,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         color: AppColors.primaryColor,
                       ),
                     ),
-
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Text
                       "Room Description",
@@ -472,11 +457,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     XTextFormField(
                       ///controllerDesc
                       controller: controllerDesc,
@@ -499,14 +482,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         color: AppColors.primaryColor,
                       ),
                     ),
-
-
-
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Row(
                       children: [
                         Expanded(
@@ -529,11 +507,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-
                               const SizedBox(
                                 height: 10,
                               ),
-
                               XTextFormField(
                                 ///controllerPrice
                                 controller: controllerPrice,
@@ -582,11 +558,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                             ],
                           ),
                         ),
-
                         const SizedBox(
                           width: 10,
                         ),
-
                         Expanded(
                           child: Column(
                             ///Using crossAxisAlignment in a Column will determines how the children are horizontally aligned in that Column.
@@ -607,11 +581,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                                   letterSpacing: 1,
                                 ),
                               ),
-
                               const SizedBox(
                                 height: 10,
                               ),
-
                               XTextFormField(
                                 ///controllerDiscountPercent
                                 controller: controllerDiscountPercent,
@@ -654,6 +626,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                                   ///Icon color
                                   color: AppColors.primaryColor,
                                 ),
+
                                 ///suffixIcon
                                 suffixIcon: Container(
                                   ///Icon width
@@ -676,6 +649,7 @@ class _NewRoomState extends State<EditRoomScreen> {
                                     ),
                                   ),
                                 ),
+
                                 ///Text type phone
                                 textInputType: TextInputType.phone,
                               ),
@@ -684,11 +658,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         ),
                       ],
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Text
                       "Free Time",
@@ -703,33 +675,31 @@ class _NewRoomState extends State<EditRoomScreen> {
                         letterSpacing: 1,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     GestureDetector(
                       ///onTap
                       onTap: () async {
                         ///DateTime
                         final List<DateTime> picked =
-                        await DateRagePicker.showDatePicker(
+                            await DateRagePicker.showDatePicker(
 
-                          ///context
-                            context: context,
+                                ///context
+                                context: context,
 
-                            ///initialFirstDate
-                            initialFirstDate: new DateTime.now(),
+                                ///initialFirstDate
+                                initialFirstDate: new DateTime.now(),
 
-                            ///initialLastDate
-                            initialLastDate: (new DateTime.now())
-                                .add(new Duration(days: 7)),
+                                ///initialLastDate
+                                initialLastDate: (new DateTime.now())
+                                    .add(new Duration(days: 7)),
 
-                            ///firstDate
-                            firstDate: new DateTime(2015),
+                                ///firstDate
+                                firstDate: new DateTime(2015),
 
-                            ///lastDate
-                            lastDate: new DateTime(2022));
+                                ///lastDate
+                                lastDate: new DateTime(2022));
 
                         if (picked != null && picked.length == 2) {
                           ///startDay
@@ -740,7 +710,7 @@ class _NewRoomState extends State<EditRoomScreen> {
 
                           ///controllerFreeTime
                           controllerFreeTime.text =
-                          "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
+                              "${picked[0].day}/${picked[0].month}-${picked[1].day}/${picked[1].month}/${picked[0].year}";
                         }
                       },
 
@@ -767,11 +737,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         funcValidation: ValidateData.validEmpty,
                       ),
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Price
                       "Rooms",
@@ -786,11 +754,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.room_preferences,
@@ -817,11 +783,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         ItemModel(id: '10', name: "10"),
                       ],
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Price
                       "Adults",
@@ -836,11 +800,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.people,
@@ -877,11 +839,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         ItemModel(id: '20', name: "20"),
                       ],
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     Text(
                       ///Price
                       "Children",
@@ -896,11 +856,9 @@ class _NewRoomState extends State<EditRoomScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),
-
                     TextFieldChoose(
                       ///Icon
                       iconData: Icons.emoji_people,

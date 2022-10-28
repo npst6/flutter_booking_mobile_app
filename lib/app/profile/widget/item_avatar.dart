@@ -1,7 +1,6 @@
 ///Note file item_avatar.dart
 
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_booking_mobile_app/app/profile/bloc/profile_bloc.dart';
 import 'package:image_picker/image_picker.dart';
