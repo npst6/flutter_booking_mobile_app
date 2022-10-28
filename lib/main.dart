@@ -38,7 +38,8 @@ class MyApp extends StatelessWidget {
 
           ///Text color
           // ignore: deprecated_member_use
-          textSelectionColor: Colors.black,
+          textSelectionTheme:
+              TextSelectionThemeData(selectionColor: Colors.black),
           colorScheme: ColorScheme.fromSwatch()
               .copyWith(secondary: AppColors.primaryColor),
         ),

@@ -27,7 +27,8 @@ class ThemeChanger with ChangeNotifier {
 
         ///Text color
         // ignore: deprecated_member_use
-        textSelectionColor: Colors.white,
+        textSelectionTheme:
+            TextSelectionThemeData(selectionColor: Colors.white),
         colorScheme: ColorScheme.fromSwatch()
             .copyWith(secondary: AppColors.primaryColor),
       );
@@ -42,7 +43,8 @@ class ThemeChanger with ChangeNotifier {
 
         ///Text color
         // ignore: deprecated_member_use
-        textSelectionColor: Colors.black,
+        textSelectionTheme:
+            TextSelectionThemeData(selectionColor: Colors.black),
         colorScheme: ColorScheme.fromSwatch()
             .copyWith(secondary: AppColors.primaryColor),
       );

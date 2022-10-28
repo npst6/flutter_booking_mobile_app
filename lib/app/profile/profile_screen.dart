@@ -57,7 +57,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
           ///Text color
           // ignore: deprecated_member_use
-          textSelectionColor: Colors.white,
+          textSelectionTheme:
+              TextSelectionThemeData(selectionColor: Colors.white),
+
           colorScheme: ColorScheme.fromSwatch()
               .copyWith(secondary: AppColors.primaryColor),
         )) {
