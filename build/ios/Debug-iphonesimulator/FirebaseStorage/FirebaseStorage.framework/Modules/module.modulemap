@@ -4,3 +4,8 @@ framework module FirebaseStorage {
   export *
   module * { export * }
 }
+
+module FirebaseStorage.Swift {
+    header "FirebaseStorage-Swift.h"
+    requires objc
+}
